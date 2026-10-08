@@ -32,3 +32,12 @@ None. On unmodified `main` (2c599a6), `./gradlew testDevDebugUnitTest` ran 972 t
 | Spotify albums | working | `/embed/album/<id>`, with album name and per-track duration | https://open.spotify.com/album/2noRn2Aes5aoNVsU6iWThc |
 | Spotify tracks | working | `/embed/track/<id>` (single song) | https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT |
 | Deezer playlists, albums, tracks | working | public `api.deezer.com` JSON, paging through `/tracks` `next`; ISRC, duration and album on every row. `deezer.page.link` / `link.deezer.com` short links are followed by redirect. Errors (HTTP 200 + `error.code`) map to not-found / rate-limited. | https://www.deezer.com/en/playlist/908622995 |
+| Audiomack albums/playlists | working (generic) | JSON-LD `MusicAlbum` with every track, ISRC and duration (live: 18/18) | https://audiomack.com/eminem/album/the-marshall-mathers-lp |
+| Qobuz albums | working (dedicated) | JSON-LD names the album but not the tracks, so the generic parser fails. The store page lists every row in `div.track` (name, `mm:ss`, a credits line marking `MainArtist`). Its `data-duration` attribute is *not* the runtime, and using it broke matching. | https://www.qobuz.com/us-en/album/discovery-daft-punk/0724384960650 |
+| Tidal | skipped | Pages carry JSON-LD `MusicAlbum`/`MusicPlaylist` with no tracks. The tracklist only comes from the app API, which needs a client token. Fails cleanly with "This link isn't supported yet". | https://tidal.com/album/1550545 |
+| Amazon Music | skipped | The page is an empty client-side shell (no JSON-LD, no og tags); the tracklist needs the app API. | https://music.amazon.com/albums/B00GN0NZNY |
+| Anghami | skipped | `play.anghami.com` answers HTTP 406 to non-app clients, even with full browser headers. | https://play.anghami.com/playlist/44294315 |
+| Boomplay | skipped | Behind a Cloudflare JS challenge (HTTP 403 "Just a moment..."). | https://www.boomplay.com/albums/1011541 |
+| Hungama | skipped | Client-side app: no JSON-LD, empty og tags. | https://www.hungama.com/album/kabir-singh/49421224/ |
+| Napster | skipped | The music service is gone; napster.com now redirects to an unrelated AI product. | n/a |
+| Any other page | generic fallback | JSON-LD `MusicPlaylist`/`MusicAlbum`/`MusicRecording` (incl. `@graph`, `ItemList`), then `og:type=music.song`, then `music:song` tags. Nothing found shows "This link isn't supported yet". | n/a |

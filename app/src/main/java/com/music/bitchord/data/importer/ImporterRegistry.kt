@@ -10,6 +10,9 @@ object ImporterRegistry {
     val importers: List<PlaylistImporter> = listOf(
         SpotifyPlaylistImporter,
         DeezerImporter,
+        QobuzImporter,
+        // Last: it claims any web page, so everything above gets first refusal.
+        GenericPageImporter,
     )
 
     /**
@@ -29,6 +32,10 @@ object ImporterRegistry {
     )
 
     fun find(url: String): PlaylistImporter? = importers.firstOrNull { it.canHandle(url) }
+
+    /** The importer written for [url]'s service, ignoring the generic page reader. */
+    fun findDedicated(url: String): PlaylistImporter? =
+        importers.firstOrNull { it !== GenericPageImporter && it.canHandle(url) }
 
     fun isShortLink(url: String): Boolean {
         val host = ImportUrls.host(url) ?: return false
@@ -51,8 +58,11 @@ object ImporterRegistry {
     suspend fun resolve(input: String): Pair<PlaylistImporter, String> {
         val url = ImportUrls.firstUrl(input)
             ?: throw ImportException(ImportException.Reason.INVALID_LINK)
-        find(url)?.takeUnless { isShortLink(url) }?.let { return it to url }
-        val target = if (isShortLink(url) || url.startsWith("http")) {
+        if (!isShortLink(url)) findDedicated(url)?.let { return it to url }
+        // A shortener, or a link no dedicated importer recognises: where it
+        // lands may well be one that is (a `bit.ly` to Spotify, an
+        // `app.link` to Deezer), so its redirects are followed first.
+        val target = if (url.startsWith("http")) {
             runCatching { resolveShortLink(url) }.getOrDefault(url)
         } else url
         val importer = find(target) ?: throw ImportException(ImportException.Reason.UNSUPPORTED)
