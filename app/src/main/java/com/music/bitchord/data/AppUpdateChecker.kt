@@ -66,6 +66,9 @@ object AppUpdateChecker {
     private var downloadCancelled = false
 
     suspend fun check() = withContext(Dispatchers.IO) {
+        // Off in builds that aren't BitChord itself (the AniMusic flavor):
+        // the releases checked here would install a different app.
+        if (!BuildConfig.UPDATE_CHECKS) return@withContext
         runCatching {
             val request = Request.Builder().url(LATEST_RELEASE_URL).build()
             val body = Http.client.newCall(request).execute().use { response ->
