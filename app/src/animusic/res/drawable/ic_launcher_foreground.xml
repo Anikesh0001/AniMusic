@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AniMusic mark: a bold rounded "A" with a sound wave sweeping through it.
+  Drawn inside the adaptive icon's 66dp safe zone (21..87), so no launcher
+  mask clips it.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M35.5,78 L54,29 L72.5,78"
+        android:strokeWidth="10"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M31,63 C40,49 46,49 54,62 C62,75 68,75 77,61"
+        android:strokeWidth="6.5"
+        android:strokeColor="#FFFFD9CC"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

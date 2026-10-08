@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108">
+  <!-- AniMusic icon master art (original). Android resources: src/animusic/res. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2E0A6B"/>
+      <stop offset="0.55" stop-color="#B0179E"/>
+      <stop offset="1" stop-color="#FF6A55"/>
+    </linearGradient>
+    <clipPath id="mask"><rect x="0" y="0" width="108" height="108" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#mask)">
+    <rect width="108" height="108" fill="url(#bg)"/>
+    <!-- the A: two legs meeting at a rounded apex -->
+    <path d="M35.5,78 L54,29 L72.5,78" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- the crossbar is a sound wave running through and past the legs -->
+    <path d="M31,63 C40,49 46,49 54,62 C62,75 68,75 77,61" fill="none" stroke="#FFD9CC" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

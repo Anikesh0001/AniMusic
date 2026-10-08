@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  In-app AniMusic mark (Home header, Replay, Discord screen, widget preview):
+  the "A" with its wave stretched wide to the 3:2 slot the BitChord mark
+  filled. One colour; every caller tints it.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="18dp"
+    android:viewportWidth="151"
+    android:viewportHeight="100">
+    <path
+        android:pathData="M42,93 L75.5,8 L109,93"
+        android:strokeWidth="14"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M10,64 C32,40 50,40 75.5,61 C101,82 119,82 141,58"
+        android:strokeWidth="10"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>
