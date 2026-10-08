@@ -4439,6 +4439,7 @@ private fun BitChordApp(
                 signedIn = signedIn,
                 initialLink = importLink.orEmpty(),
                 autoStart = importLink != null,
+                onOpenPlaylist = { id, pTitle -> viewModel.openDetail(id, pTitle) },
                 onImported = onImported@{ collection, result, privacy ->
                     val songs = result.songs
                     // One song is something to listen to, not a playlist to keep.

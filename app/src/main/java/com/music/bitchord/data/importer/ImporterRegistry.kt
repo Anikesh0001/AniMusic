@@ -14,6 +14,7 @@ object ImporterRegistry {
         AppleMusicImporter,
         JioSaavnImporter,
         SoundCloudImporter,
+        ListenBrainzImporter,
         OdesliResolver,
         // Last: it claims any web page, so everything above gets first refusal.
         GenericPageImporter,

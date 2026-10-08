@@ -94,3 +94,15 @@ class YouTubeDetectionTest {
         }
     }
 }
+
+class AllUrlsTest {
+    @org.junit.Test
+    fun splitsGluedAndSeparatedLinks() {
+        val a = "https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M"
+        val b = "https://www.deezer.com/en/album/302127"
+        org.junit.Assert.assertEquals(listOf(a, b), com.music.bitchord.data.importer.ImportUrls.allUrls("$a\n$b"))
+        org.junit.Assert.assertEquals(listOf(a, b), com.music.bitchord.data.importer.ImportUrls.allUrls("$a$b"))
+        org.junit.Assert.assertEquals(listOf(a, b), com.music.bitchord.data.importer.ImportUrls.allUrls("first: $a, then $b."))
+        org.junit.Assert.assertEquals(emptyList<String>(), com.music.bitchord.data.importer.ImportUrls.allUrls("nothing here"))
+    }
+}

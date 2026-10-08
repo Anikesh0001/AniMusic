@@ -1,0 +1,23 @@
+{
+ "count": 3,
+ "offset": 0,
+ "playlist_count": 46,
+ "playlists": [
+  {
+   "playlist": {
+    "title": "Daily Jams for rob, 2026-10-08 Thu",
+    "identifier": "https://listenbrainz.org/playlist/39ec44ca-7585-4524-82bc-e4a5d3877390",
+    "creator": "troi-bot",
+    "track": []
+   }
+  },
+  {
+   "playlist": {
+    "title": "Weekly Exploration for rob, week of 2026-08-24 Mon",
+    "identifier": "https://listenbrainz.org/playlist/55f2a01f-3974-46ca-8461-a8a84886eba4",
+    "creator": "listenbrainz",
+    "track": []
+   }
+  }
+ ]
+}

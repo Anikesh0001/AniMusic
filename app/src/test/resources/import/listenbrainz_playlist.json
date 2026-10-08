@@ -1,0 +1,27 @@
+{
+ "playlist": {
+  "creator": "troi-bot",
+  "identifier": "https://listenbrainz.org/playlist/39ec44ca-7585-4524-82bc-e4a5d3877390",
+  "title": "Daily Jams for rob, 2026-10-08 Thu",
+  "track": [
+   {
+    "title": "Seeker",
+    "creator": "Carbon Based Lifeforms",
+    "album": "Seeker",
+    "duration": 450000,
+    "identifier": [
+     "https://musicbrainz.org/recording/d579116d-ea8e-4430-b403-c57c44156252"
+    ]
+   },
+   {
+    "title": "Bless This Morning Year",
+    "creator": "Helios",
+    "album": "Eingya",
+    "duration": 361880,
+    "identifier": [
+     "https://musicbrainz.org/recording/93de842a-1150-4d00-92a2-c7006975ca38"
+    ]
+   }
+  ]
+ }
+}

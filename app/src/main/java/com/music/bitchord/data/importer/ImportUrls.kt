@@ -21,6 +21,18 @@ object ImportUrls {
     fun firstUrl(text: String): String? =
         URL_IN_TEXT.find(text.trim())?.value?.trimEnd('.', ',', ')', ']', '!', '?', '"', '\'')
 
+    /**
+     * Every link in [text], in order. Split at each `http` as well as at
+     * whitespace, because a single-line box can flatten pasted newlines and
+     * leave links glued end to end.
+     */
+    fun allUrls(text: String): List<String> =
+        ALL_URLS.findAll(text).map { it.value.trimEnd('.', ',', ')', ']', '!', '?', '"', '\'') }
+            .filter { it.length > "https://".length }
+            .toList()
+
+    private val ALL_URLS = Regex("""https?://.+?(?=https?://|\s|$)""")
+
     fun parse(url: String): HttpUrl? = url.trim().toHttpUrlOrNull()
 
     /** Lower-cased host with `www.` and `m.` taken off. */

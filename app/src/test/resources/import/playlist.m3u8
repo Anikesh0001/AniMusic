@@ -1,0 +1,7 @@
+#EXTM3U
+#PLAYLIST:Road Trip
+#EXTINF:200,The Weeknd - Blinding Lights
+/music/Blinding Lights.mp3
+#EXTINF:-1 tvg-id="x",Daft Punk - One More Time
+https://www.youtube.com/watch?v=FGBhQbmPwH8
+Some Artist - Some Song.flac

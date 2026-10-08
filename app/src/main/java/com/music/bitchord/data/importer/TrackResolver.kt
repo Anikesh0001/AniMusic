@@ -144,9 +144,12 @@ class TrackResolver(
             album = track.album?.takeIf { it.isNotBlank() },
         )
 
-        /** "title|artist", case- and spacing-insensitive. */
+        /**
+         * "title|artist", case- and spacing-insensitive — or the video id, for
+         * rows that are nothing else (a Takeout playlist is all ids).
+         */
         fun key(track: ImportTrack): String =
-            normalizeKey(track.title) + "|" + normalizeKey(track.artist)
+            track.videoId?.let { "v:$it" } ?: (normalizeKey(track.title) + "|" + normalizeKey(track.artist))
 
         private fun normalizeKey(s: String) = s.lowercase().trim().replace(Regex("""\s+"""), " ")
     }
