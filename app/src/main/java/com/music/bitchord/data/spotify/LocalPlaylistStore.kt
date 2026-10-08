@@ -12,6 +12,10 @@ data class LocalPlaylist(
     val id: String,
     val title: String,
     val songs: List<Song>,
+    /** The link it was imported from, when it was; what "Sync from source" re-reads. */
+    val sourceUrl: String? = null,
+    /** [ImportService][com.music.bitchord.data.importer.ImportService] name of [sourceUrl]. */
+    val service: String? = null,
 ) {
     val browseId: String get() = "local:playlist:$id"
 }
@@ -57,15 +61,23 @@ object LocalPlaylistStore {
                     )
                     songs.add(song)
                 }
-                list.add(LocalPlaylist(id, title, songs))
+                // Absent from everything saved before imports remembered their source.
+                val sourceUrl = obj.optString("sourceUrl", "").takeIf { it.isNotBlank() }
+                val service = obj.optString("service", "").takeIf { it.isNotBlank() }
+                list.add(LocalPlaylist(id, title, songs, sourceUrl, service))
             }
             _playlists.value = list
         }
     }
 
-    fun savePlaylist(title: String, songs: List<Song>): LocalPlaylist {
+    fun savePlaylist(
+        title: String,
+        songs: List<Song>,
+        sourceUrl: String? = null,
+        service: String? = null,
+    ): LocalPlaylist {
         val id = "sp_local_" + System.currentTimeMillis()
-        val playlist = LocalPlaylist(id = id, title = title, songs = songs)
+        val playlist = LocalPlaylist(id = id, title = title, songs = songs, sourceUrl = sourceUrl, service = service)
         val updated = listOf(playlist) + _playlists.value.filterNot { it.id == id }
         _playlists.value = updated
         persist(updated)
@@ -89,6 +101,29 @@ object LocalPlaylistStore {
         persist(updated)
     }
 
+    /** Records where [id] was imported from, for a playlist [savePlaylist] already wrote. */
+    fun setSource(id: String, sourceUrl: String, service: String) = update(id) {
+        it.copy(sourceUrl = sourceUrl, service = service)
+    }
+
+    /** Adds [songs] to the end of [id], skipping any already in it. */
+    fun appendSongs(id: String, songs: List<Song>) = update(id) { playlist ->
+        val have = playlist.songs.mapTo(HashSet()) { it.videoId }
+        playlist.copy(songs = playlist.songs + songs.filter { have.add(it.videoId) })
+    }
+
+    /** Replaces the songs of [id], keeping its title and source. */
+    fun setSongs(id: String, songs: List<Song>) = update(id) { it.copy(songs = songs) }
+
+    private fun update(id: String, change: (LocalPlaylist) -> LocalPlaylist) {
+        val cleanId = id.removePrefix("local:playlist:").removePrefix("VL")
+        val updated = _playlists.value.map {
+            if (it.id == cleanId || it.id == id || it.browseId == id) change(it) else it
+        }
+        _playlists.value = updated
+        persist(updated)
+    }
+
     fun getPlaylist(id: String): LocalPlaylist? {
         val cleanId = id.removePrefix("local:playlist:").removePrefix("VL")
         return _playlists.value.firstOrNull { it.id == cleanId || it.id == id || it.browseId == id }
@@ -102,6 +137,8 @@ object LocalPlaylistStore {
                 val pObj = JSONObject()
                 pObj.put("id", playlist.id)
                 pObj.put("title", playlist.title)
+                playlist.sourceUrl?.let { pObj.put("sourceUrl", it) }
+                playlist.service?.let { pObj.put("service", it) }
                 val songsArray = JSONArray()
                 for (song in playlist.songs) {
                     val sObj = JSONObject()

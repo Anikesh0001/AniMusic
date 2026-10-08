@@ -1245,4 +1245,18 @@
     <string name="spotify_library_subtitle">Spotify çalma listeleriniz</string>
     <string name="spotify_sign_in">Spotify ile oturum aç</string>
     <string name="spotify_track_unavailable">O şarkı YouTube Music’de bulunamadı</string>
+    <string name="import_link_title">Bağlantıdan içe aktar</string>
+    <string name="import_link_description">Herhangi bir müzik uygulamasından çalma listesi, albüm veya şarkı bağlantısı yapıştırın. Şarkılar YouTube Music\'te eşleştirilir.</string>
+    <string name="import_link_description_local">Herhangi bir müzik uygulamasından çalma listesi, albüm veya şarkı bağlantısı yapıştırın. Şarkılar YouTube Music\'te eşleştirilir ve bu cihaza kaydedilir.</string>
+    <string name="import_link_hint">Herhangi bir müzik uygulamasından bağlantı yapıştırın</string>
+    <string name="import_link_supported">Desteklenen hizmetler: %1$s</string>
+    <string name="import_link_detected">Algılandı: %1$s</string>
+    <string name="import_link_fetching">%1$s okunuyor…</string>
+    <string name="import_link_fetching_generic">Bağlantı okunuyor…</string>
+    <string name="import_error_invalid">Bu bir bağlantıya benzemiyor.</string>
+    <string name="import_error_unsupported">Bu bağlantı henüz desteklenmiyor.</string>
+    <string name="import_error_not_found">Orada içe aktarılacak bir şey yok. Herkese açık olduğundan emin olun.</string>
+    <string name="import_error_network">Hizmete ulaşılamadı. Bağlantınızı kontrol edin.</string>
+    <string name="import_error_rate_limited">Hizmet meşgul. Bir dakika sonra tekrar deneyin.</string>
+    <string name="import_error_parse">Sayfa okunamadı. Hizmet sayfayı değiştirmiş olabilir.</string>
 </resources>

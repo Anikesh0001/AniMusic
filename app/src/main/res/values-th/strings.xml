@@ -1271,4 +1271,18 @@
     <string name="spotify_library_subtitle">เพลย์ลิสต์ Spotify ของคุณ</string>
     <string name="spotify_sign_in">ลงชื่อเข้าใช้ด้วย Spotify</string>
     <string name="spotify_track_unavailable">หาเพลงนั้นบน YouTube Music ไม่พบ</string>
+    <string name="import_link_title">นำเข้าจากลิงก์</string>
+    <string name="import_link_description">วางลิงก์เพลย์ลิสต์ อัลบั้ม หรือเพลงจากแอปเพลงใดก็ได้ เพลงจะถูกจับคู่บน YouTube Music</string>
+    <string name="import_link_description_local">วางลิงก์เพลย์ลิสต์ อัลบั้ม หรือเพลงจากแอปเพลงใดก็ได้ เพลงจะถูกจับคู่บน YouTube Music และบันทึกไว้ในอุปกรณ์นี้</string>
+    <string name="import_link_hint">วางลิงก์จากแอปเพลงใดก็ได้</string>
+    <string name="import_link_supported">บริการที่รองรับ: %1$s</string>
+    <string name="import_link_detected">ตรวจพบ: %1$s</string>
+    <string name="import_link_fetching">กำลังอ่านจาก %1$s…</string>
+    <string name="import_link_fetching_generic">กำลังอ่านลิงก์…</string>
+    <string name="import_error_invalid">ดูเหมือนไม่ใช่ลิงก์</string>
+    <string name="import_error_unsupported">ยังไม่รองรับลิงก์นี้</string>
+    <string name="import_error_not_found">ไม่มีอะไรให้นำเข้า ตรวจสอบว่าเป็นสาธารณะ</string>
+    <string name="import_error_network">เชื่อมต่อบริการไม่ได้ โปรดตรวจสอบการเชื่อมต่อ</string>
+    <string name="import_error_rate_limited">บริการไม่ว่าง โปรดลองอีกครั้งในอีกสักครู่</string>
+    <string name="import_error_parse">อ่านหน้านั้นไม่ได้ บริการอาจเปลี่ยนหน้าแล้ว</string>
 </resources>

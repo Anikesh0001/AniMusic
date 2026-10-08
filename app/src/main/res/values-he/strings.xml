@@ -1293,4 +1293,18 @@
     <string name="spotify_library_subtitle">הפלייליסטים שלכם ב-Spotify</string>
     <string name="spotify_sign_in">התחברות עם Spotify</string>
     <string name="spotify_track_unavailable">לא נמצא שיר כזה ב-YouTube Music</string>
+    <string name="import_link_title">ייבוא מקישור</string>
+    <string name="import_link_description">הדביקו קישור לפלייליסט, אלבום או שיר מכל אפליקציית מוזיקה. השירים יותאמו ב-YouTube Music.</string>
+    <string name="import_link_description_local">הדביקו קישור לפלייליסט, אלבום או שיר מכל אפליקציית מוזיקה. השירים יותאמו ב-YouTube Music וישמרו במכשיר הזה.</string>
+    <string name="import_link_hint">הדביקו קישור מכל אפליקציית מוזיקה</string>
+    <string name="import_link_supported">שירותים נתמכים: %1$s</string>
+    <string name="import_link_detected">זוהה: %1$s</string>
+    <string name="import_link_fetching">קורא מ-%1$s…</string>
+    <string name="import_link_fetching_generic">קורא את הקישור…</string>
+    <string name="import_error_invalid">זה לא נראה כמו קישור.</string>
+    <string name="import_error_unsupported">הקישור הזה עדיין לא נתמך.</string>
+    <string name="import_error_not_found">אין שם מה לייבא. ודאו שזה ציבורי.</string>
+    <string name="import_error_network">לא ניתן להתחבר לשירות. בדקו את החיבור.</string>
+    <string name="import_error_rate_limited">השירות עמוס. נסו שוב בעוד דקה.</string>
+    <string name="import_error_parse">לא ניתן לקרוא את הדף. ייתכן שהשירות שינה אותו.</string>
 </resources>

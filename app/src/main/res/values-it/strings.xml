@@ -1227,4 +1227,18 @@
     <string name="spotify_library_subtitle">Le tue playlist Spotify</string>
     <string name="spotify_sign_in">Accedi con Spotify</string>
     <string name="spotify_track_unavailable">Impossibile trovare quel brano su YouTube Music</string>
+    <string name="import_link_title">Importa da un link</string>
+    <string name="import_link_description">Incolla il link di una playlist, un album o un brano da qualsiasi app musicale. I brani vengono abbinati su YouTube Music.</string>
+    <string name="import_link_description_local">Incolla il link di una playlist, un album o un brano da qualsiasi app musicale. I brani vengono abbinati su YouTube Music e salvati su questo dispositivo.</string>
+    <string name="import_link_hint">Incolla un link da qualsiasi app musicale</string>
+    <string name="import_link_supported">Servizi supportati: %1$s</string>
+    <string name="import_link_detected">Rilevato: %1$s</string>
+    <string name="import_link_fetching">Lettura da %1$s…</string>
+    <string name="import_link_fetching_generic">Lettura del link…</string>
+    <string name="import_error_invalid">Non sembra un link.</string>
+    <string name="import_error_unsupported">Questo link non è ancora supportato.</string>
+    <string name="import_error_not_found">Niente da importare. Assicurati che sia pubblico.</string>
+    <string name="import_error_network">Impossibile raggiungere il servizio. Controlla la connessione.</string>
+    <string name="import_error_rate_limited">Il servizio è occupato. Riprova tra un minuto.</string>
+    <string name="import_error_parse">Impossibile leggere la pagina. Il servizio potrebbe averla modificata.</string>
 </resources>

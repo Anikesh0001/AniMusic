@@ -1288,4 +1288,18 @@
     <string name="spotify_library_subtitle">आपकी Spotify प्लेलिस्ट</string>
     <string name="spotify_sign_in">Spotify से साइन इन करें</string>
     <string name="spotify_track_unavailable">वह गाना YouTube Music पर नहीं मिला</string>
+    <string name="import_link_title">लिंक से इम्पोर्ट करें</string>
+    <string name="import_link_description">किसी भी म्यूज़िक ऐप से प्लेलिस्ट, एल्बम या गाने का लिंक पेस्ट करें। गाने YouTube Music पर ढूँढे जाते हैं।</string>
+    <string name="import_link_description_local">किसी भी म्यूज़िक ऐप से प्लेलिस्ट, एल्बम या गाने का लिंक पेस्ट करें। गाने YouTube Music पर ढूँढे जाते हैं और इस डिवाइस पर सेव होते हैं।</string>
+    <string name="import_link_hint">किसी भी म्यूज़िक ऐप का लिंक पेस्ट करें</string>
+    <string name="import_link_supported">समर्थित सेवाएँ: %1$s</string>
+    <string name="import_link_detected">पहचाना गया: %1$s</string>
+    <string name="import_link_fetching">%1$s से पढ़ा जा रहा है…</string>
+    <string name="import_link_fetching_generic">लिंक पढ़ा जा रहा है…</string>
+    <string name="import_error_invalid">यह लिंक जैसा नहीं लगता।</string>
+    <string name="import_error_unsupported">यह लिंक अभी समर्थित नहीं है।</string>
+    <string name="import_error_not_found">वहाँ इम्पोर्ट करने को कुछ नहीं है। पक्का करें कि यह सार्वजनिक है।</string>
+    <string name="import_error_network">सेवा तक नहीं पहुँच सके। अपना कनेक्शन जाँचें।</string>
+    <string name="import_error_rate_limited">सेवा व्यस्त है। एक मिनट बाद फिर कोशिश करें।</string>
+    <string name="import_error_parse">वह पेज पढ़ा नहीं जा सका। सेवा ने शायद उसे बदल दिया है।</string>
 </resources>

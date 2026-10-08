@@ -1288,4 +1288,18 @@
     <string name="spotify_library_subtitle">Deine Spotify-Playlists</string>
     <string name="spotify_sign_in">Bei Spotify anmelden</string>
     <string name="spotify_track_unavailable">Diesen Titel gab es nicht auf YouTube Music</string>
+    <string name="import_link_title">Aus einem Link importieren</string>
+    <string name="import_link_description">Füge einen Playlist-, Album- oder Song-Link aus einer beliebigen Musik-App ein. Die Songs werden auf YouTube Music gesucht.</string>
+    <string name="import_link_description_local">Füge einen Playlist-, Album- oder Song-Link aus einer beliebigen Musik-App ein. Die Songs werden auf YouTube Music gesucht und auf diesem Gerät gespeichert.</string>
+    <string name="import_link_hint">Link aus einer beliebigen Musik-App einfügen</string>
+    <string name="import_link_supported">Unterstützte Dienste: %1$s</string>
+    <string name="import_link_detected">Erkannt: %1$s</string>
+    <string name="import_link_fetching">Wird von %1$s gelesen…</string>
+    <string name="import_link_fetching_generic">Link wird gelesen…</string>
+    <string name="import_error_invalid">Das sieht nicht nach einem Link aus.</string>
+    <string name="import_error_unsupported">Dieser Link wird noch nicht unterstützt.</string>
+    <string name="import_error_not_found">Dort gibt es nichts zu importieren. Achte darauf, dass es öffentlich ist.</string>
+    <string name="import_error_network">Der Dienst ist nicht erreichbar. Prüfe deine Verbindung.</string>
+    <string name="import_error_rate_limited">Der Dienst ist ausgelastet. Versuche es in einer Minute erneut.</string>
+    <string name="import_error_parse">Die Seite konnte nicht gelesen werden. Der Dienst hat sie vielleicht geändert.</string>
 </resources>

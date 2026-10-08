@@ -1265,4 +1265,18 @@
     <string name="spotify_library_subtitle">Playlist Spotify Anda</string>
     <string name="spotify_sign_in">Masuk dengan Spotify</string>
     <string name="spotify_track_unavailable">Lagu itu tidak ditemukan di YouTube Music</string>
+    <string name="import_link_title">Impor dari tautan</string>
+    <string name="import_link_description">Tempel tautan playlist, album, atau lagu dari aplikasi musik apa pun. Lagu dicocokkan di YouTube Music.</string>
+    <string name="import_link_description_local">Tempel tautan playlist, album, atau lagu dari aplikasi musik apa pun. Lagu dicocokkan di YouTube Music dan disimpan di perangkat ini.</string>
+    <string name="import_link_hint">Tempel tautan dari aplikasi musik apa pun</string>
+    <string name="import_link_supported">Layanan yang didukung: %1$s</string>
+    <string name="import_link_detected">Terdeteksi: %1$s</string>
+    <string name="import_link_fetching">Membaca dari %1$s…</string>
+    <string name="import_link_fetching_generic">Membaca tautan…</string>
+    <string name="import_error_invalid">Itu tidak terlihat seperti tautan.</string>
+    <string name="import_error_unsupported">Tautan ini belum didukung.</string>
+    <string name="import_error_not_found">Tidak ada yang bisa diimpor. Pastikan itu publik.</string>
+    <string name="import_error_network">Tidak dapat menghubungi layanan. Periksa koneksi Anda.</string>
+    <string name="import_error_rate_limited">Layanan sedang sibuk. Coba lagi sebentar lagi.</string>
+    <string name="import_error_parse">Tidak dapat membaca halaman itu. Layanan mungkin telah mengubahnya.</string>
 </resources>

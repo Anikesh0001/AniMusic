@@ -1205,4 +1205,18 @@
     <string name="spotify_library_subtitle">Danh sách phát Spotify của bạn</string>
     <string name="spotify_sign_in">Đăng nhập bằng Spotify</string>
     <string name="spotify_track_unavailable">Không tìm thấy bài hát đó trên YouTube Music</string>
+    <string name="import_link_title">Nhập từ liên kết</string>
+    <string name="import_link_description">Dán liên kết danh sách phát, album hoặc bài hát từ bất kỳ ứng dụng nhạc nào. Bài hát sẽ được tìm trên YouTube Music.</string>
+    <string name="import_link_description_local">Dán liên kết danh sách phát, album hoặc bài hát từ bất kỳ ứng dụng nhạc nào. Bài hát sẽ được tìm trên YouTube Music và lưu trên thiết bị này.</string>
+    <string name="import_link_hint">Dán liên kết từ bất kỳ ứng dụng nhạc nào</string>
+    <string name="import_link_supported">Dịch vụ được hỗ trợ: %1$s</string>
+    <string name="import_link_detected">Đã nhận diện: %1$s</string>
+    <string name="import_link_fetching">Đang đọc từ %1$s…</string>
+    <string name="import_link_fetching_generic">Đang đọc liên kết…</string>
+    <string name="import_error_invalid">Đây có vẻ không phải là liên kết.</string>
+    <string name="import_error_unsupported">Liên kết này chưa được hỗ trợ.</string>
+    <string name="import_error_not_found">Không có gì để nhập. Hãy đảm bảo nội dung ở chế độ công khai.</string>
+    <string name="import_error_network">Không thể kết nối với dịch vụ. Hãy kiểm tra kết nối.</string>
+    <string name="import_error_rate_limited">Dịch vụ đang bận. Hãy thử lại sau một phút.</string>
+    <string name="import_error_parse">Không thể đọc trang đó. Có thể dịch vụ đã thay đổi trang.</string>
 </resources>

@@ -1320,4 +1320,18 @@
     <string name="spotify_library_subtitle">Ваши плейлисты Spotify</string>
     <string name="spotify_sign_in">Войти через Spotify</string>
     <string name="spotify_track_unavailable">Не удалось найти этот трек на YouTube Music</string>
+    <string name="import_link_title">Импорт по ссылке</string>
+    <string name="import_link_description">Вставьте ссылку на плейлист, альбом или трек из любого музыкального приложения. Треки будут найдены в YouTube Music.</string>
+    <string name="import_link_description_local">Вставьте ссылку на плейлист, альбом или трек из любого музыкального приложения. Треки будут найдены в YouTube Music и сохранены на этом устройстве.</string>
+    <string name="import_link_hint">Вставьте ссылку из любого музыкального приложения</string>
+    <string name="import_link_supported">Поддерживаемые сервисы: %1$s</string>
+    <string name="import_link_detected">Определено: %1$s</string>
+    <string name="import_link_fetching">Чтение из %1$s…</string>
+    <string name="import_link_fetching_generic">Чтение ссылки…</string>
+    <string name="import_error_invalid">Это не похоже на ссылку.</string>
+    <string name="import_error_unsupported">Эта ссылка пока не поддерживается.</string>
+    <string name="import_error_not_found">Импортировать нечего. Убедитесь, что это общедоступно.</string>
+    <string name="import_error_network">Не удалось связаться с сервисом. Проверьте подключение.</string>
+    <string name="import_error_rate_limited">Сервис занят. Повторите попытку через минуту.</string>
+    <string name="import_error_parse">Не удалось прочитать страницу. Возможно, сервис её изменил.</string>
 </resources>

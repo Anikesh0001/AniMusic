@@ -1266,4 +1266,18 @@
     <string name="spotify_library_subtitle">あなたの Spotify プレイリスト</string>
     <string name="spotify_sign_in">Spotify でサインイン</string>
     <string name="spotify_track_unavailable">その曲は YouTube Music で見つかりません</string>
+    <string name="import_link_title">リンクからインポート</string>
+    <string name="import_link_description">音楽アプリのプレイリスト、アルバム、曲のリンクを貼り付けてください。曲は YouTube Music で照合されます。</string>
+    <string name="import_link_description_local">音楽アプリのプレイリスト、アルバム、曲のリンクを貼り付けてください。曲は YouTube Music で照合され、この端末に保存されます。</string>
+    <string name="import_link_hint">音楽アプリのリンクを貼り付け</string>
+    <string name="import_link_supported">対応サービス: %1$s</string>
+    <string name="import_link_detected">検出: %1$s</string>
+    <string name="import_link_fetching">%1$s から読み込み中…</string>
+    <string name="import_link_fetching_generic">リンクを読み込み中…</string>
+    <string name="import_error_invalid">リンクではないようです。</string>
+    <string name="import_error_unsupported">このリンクにはまだ対応していません。</string>
+    <string name="import_error_not_found">インポートできるものがありません。公開されているか確認してください。</string>
+    <string name="import_error_network">サービスに接続できませんでした。接続を確認してください。</string>
+    <string name="import_error_rate_limited">サービスが混み合っています。1分後にもう一度お試しください。</string>
+    <string name="import_error_parse">ページを読み込めませんでした。サービス側で変更された可能性があります。</string>
 </resources>

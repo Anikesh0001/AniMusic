@@ -149,7 +149,7 @@ import com.music.bitchord.data.settings.AppSettings
 import com.music.bitchord.data.settings.LibrarySort
 import com.music.bitchord.data.settings.ThemeMode
 import com.music.bitchord.ui.components.AccountProfileSelector
-import com.music.bitchord.ui.components.SpotifyImportAlert
+import com.music.bitchord.ui.components.ImportFromLinkAlert
 import com.music.bitchord.ui.screens.AccountAndScrobblingScreen
 import com.music.bitchord.ui.screens.DiscordDialog
 import com.music.bitchord.ui.screens.DiscordDialogHost
@@ -4409,16 +4409,24 @@ private fun BitChordApp(
 
         if (showSpotifyImportDialog) {
             BackHandler { showSpotifyImportDialog = false }
-            SpotifyImportAlert(
+            ImportFromLinkAlert(
                 hazeState = hazeState,
                 signedIn = signedIn,
-                onImported = { title, privacy, songs ->
+                onImported = { collection, result, privacy ->
+                    val songs = result.songs
                     viewModel.createPlaylistWithVideoIds(
-                        title,
+                        collection.title,
                         privacy,
                         songs.map { it.videoId },
                         songs,
                     ) { browseId, pTitle, savedLocally ->
+                        if (savedLocally && browseId != null) {
+                            com.music.bitchord.data.spotify.LocalPlaylistStore.setSource(
+                                browseId,
+                                collection.sourceUrl,
+                                collection.service.name,
+                            )
+                        }
                         showQueueNotice(
                             context.getString(
                                 if (savedLocally && signedIn) R.string.spotify_import_local_fallback

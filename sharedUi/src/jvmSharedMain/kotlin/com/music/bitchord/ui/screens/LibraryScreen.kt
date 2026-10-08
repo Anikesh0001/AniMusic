@@ -329,10 +329,9 @@ private fun PlaylistShelf(
                 if (onImportSpotifyPlaylist != null) {
                     NewShelfCard(
                         icon = BitChordIcons.Download,
-                        label = stringResource(Res.string.import_spotify),
-                        subtitle = stringResource(Res.string.import_spotify_subtitle),
+                        label = stringResource(Res.string.import_any),
+                        subtitle = stringResource(Res.string.import_any_subtitle),
                         onClick = onImportSpotifyPlaylist,
-                        logo = Res.drawable.spotify_logo,
                     )
                 }
             }
