@@ -195,6 +195,38 @@
                 <data android:host="youtu.be" />
             </intent-filter>
 
+            <!--
+              Playlist, album and song links from other music apps, handed to
+              the importer (see MusicLink / LinkRequest.Import). Not autoVerify,
+              for the same reason as the YouTube Music filter above: these are
+              other services' domains. Declaring them puts BitChord in "Open
+              with" for a tapped link; sharing one always works through the
+              SEND filter below.
+            -->
+            <intent-filter android:autoVerify="false">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:host="open.spotify.com" />
+                <data android:host="spotify.link" />
+                <data android:host="music.apple.com" />
+                <data android:host="deezer.com" />
+                <data android:host="www.deezer.com" />
+                <data android:host="deezer.page.link" />
+                <data android:host="link.deezer.com" />
+                <data android:host="jiosaavn.com" />
+                <data android:host="www.jiosaavn.com" />
+                <data android:host="soundcloud.com" />
+                <data android:host="m.soundcloud.com" />
+                <data android:host="on.soundcloud.com" />
+                <data android:host="gaana.com" />
+                <data android:host="wynk.in" />
+                <data android:host="song.link" />
+                <data android:host="album.link" />
+            </intent-filter>
+
             <!-- Public Listen Together invites. autoVerify makes a tap open
                  BitChord directly once the domain publishes its assetlinks
                  association for the production signing certificate. -->

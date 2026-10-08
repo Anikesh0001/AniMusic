@@ -89,6 +89,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -631,6 +632,9 @@ private fun BitChordApp(
     // creating the playlist is the whole errand.
     var creatingPlaylist by remember { mutableStateOf(false) }
     var showSpotifyImportDialog by remember { mutableStateOf(false) }
+    // A link shared into the app from another music app: opens the import
+    // dialog with it filled in and already running. See MusicLink.
+    var importLink by remember { mutableStateOf<String?>(null) }
     // Which album or playlist the collection menu is open on, or null when it
     // is shut. One slot for every surface that can open it — the shelves on
     // three tabs, the search rows, the artist page's carousels, the release
@@ -1747,6 +1751,11 @@ private fun BitChordApp(
             // bounded queue before the controller connects, so this resumes
             // both a live session and one recovered after process death.
             LinkRequest.Resume -> if (session.mediaItemCount > 0) session.play()
+            is LinkRequest.Import -> {
+                dismissPlayer()
+                importLink = request.url
+                showSpotifyImportDialog = true
+            }
         }
         MusicLink.handled()
     }
@@ -4408,12 +4417,24 @@ private fun BitChordApp(
         }
 
         if (showSpotifyImportDialog) {
-            BackHandler { showSpotifyImportDialog = false }
-            ImportFromLinkAlert(
+            val closeImport = {
+                showSpotifyImportDialog = false
+                importLink = null
+            }
+            BackHandler { closeImport() }
+            key(importLink) { ImportFromLinkAlert(
                 hazeState = hazeState,
                 signedIn = signedIn,
-                onImported = { collection, result, privacy ->
+                initialLink = importLink.orEmpty(),
+                autoStart = importLink != null,
+                onImported = onImported@{ collection, result, privacy ->
                     val songs = result.songs
+                    // One song is something to listen to, not a playlist to keep.
+                    if (collection.tracks.size == 1 && songs.size == 1) {
+                        val song = songs.single()
+                        playRadio(song, QueueSource(sharedLinkLabel, PlaybackSourceType.SHARED_LINK, song.videoId))
+                        return@onImported
+                    }
                     viewModel.createPlaylistWithVideoIds(
                         collection.title,
                         privacy,
@@ -4439,8 +4460,8 @@ private fun BitChordApp(
                         }
                     }
                 },
-                onDismiss = { showSpotifyImportDialog = false },
-            )
+                onDismiss = closeImport,
+            ) }
         }
 
         // ---- Album / playlist actions ----

@@ -51,3 +51,9 @@ None. On unmodified `main` (2c599a6), `./gradlew testDevDebugUnitTest` ran 972 t
 | Napster | skipped | The music service is gone; napster.com now redirects to an unrelated AI product. | n/a |
 | Single songs from any app (Odesli) | working (song.link page) | `api.song.link/v1-alpha.1` now answers `401 PUBLIC_API_ACCESS_DEPRECATED` without a key, so the resolver reads the public `song.link/<url>` page's `__NEXT_DATA__` instead: title, artist, duration, other-platform links and a YouTube id when present (the id is played directly). Asked once, only for a link nothing else could read, never per playlist row; 429 shows "service is busy". `song.link`/`album.link` links themselves are handled too. | https://album.link/https://www.deezer.com/album/302127 |
 | Any other page | generic fallback | JSON-LD `MusicPlaylist`/`MusicAlbum`/`MusicRecording` (incl. `@graph`, `ItemList`), then `og:type=music.song`, then `music:song` tags. Nothing found shows "This link isn't supported yet". | n/a |
+
+## Related features
+
+| # | Feature | Status | Where in the app |
+|---|---|---|---|
+| 1 | Share-to-BitChord for any music link | done | Share a link from any app → BitChord. Or tap one and pick BitChord under "Open with" (Spotify, Apple Music, Deezer, JioSaavn, SoundCloud, Gaana, Wynk, song.link). The import dialog opens prefilled and starts. A link to one song plays it straight away. YouTube links behave as before. |

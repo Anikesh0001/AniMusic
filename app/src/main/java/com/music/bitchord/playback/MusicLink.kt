@@ -28,6 +28,12 @@ sealed interface LinkRequest {
 
     /** "Play music", with nothing said about what. */
     data object Resume : LinkRequest
+
+    /**
+     * A link from another music app — a Spotify playlist, an Apple Music
+     * album, a Deezer song — to be read and matched by the import dialog.
+     */
+    data class Import(val url: String) : LinkRequest
 }
 
 /**
@@ -65,10 +71,10 @@ object MusicLink {
     fun consume(intent: Intent?): Boolean {
         if (intent == null || intent.getBooleanExtra(EXTRA_CONSUMED, false)) return false
         val request = when (intent.action) {
-            Intent.ACTION_VIEW -> intent.data?.let(::parse)
+            Intent.ACTION_VIEW -> intent.data?.let { parse(it) ?: importOf(it.toString()) }
             Intent.ACTION_SEND -> intent.getStringExtra(Intent.EXTRA_TEXT)
                 ?.let(::firstUrl)
-                ?.let { parse(Uri.parse(it)) }
+                ?.let { parse(Uri.parse(it)) ?: importOf(it) }
             // The assistant's "play <something>". An empty query is the whole
             // point of the Resume case: "play music" names nothing, and the
             // useful answer is to carry on with what was already on.
@@ -145,6 +151,15 @@ object MusicLink {
             else -> list.takeIf { it.isNotEmpty() }?.let { playlist(it) }
         }
     }
+
+    /**
+     * Any other web link, handed to the importer rather than dropped: the
+     * share sheet sends BitChord whatever the other app shares, and a
+     * playlist from Spotify is as much a request to play music as one from
+     * YouTube Music. The importer decides whether it can read it.
+     */
+    private fun importOf(url: String): LinkRequest.Import? =
+        url.trim().takeIf { it.startsWith("http://") || it.startsWith("https://") }?.let(LinkRequest::Import)
 
     private fun track(videoId: String): LinkRequest.Track? =
         videoId.trim().takeIf { it.isNotEmpty() }?.let(LinkRequest::Track)
