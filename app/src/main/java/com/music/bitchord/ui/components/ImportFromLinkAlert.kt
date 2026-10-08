@@ -1,6 +1,7 @@
 package com.music.bitchord.ui.components
 
 import android.content.Context
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -39,12 +40,14 @@ import com.music.bitchord.R
 import com.music.bitchord.data.importer.ImportException
 import com.music.bitchord.data.importer.ImportService
 import com.music.bitchord.data.importer.ImportTrack
+import com.music.bitchord.data.importer.ImportUrls
 import com.music.bitchord.data.importer.ImportedCollection
 import com.music.bitchord.data.importer.ImporterRegistry
 import com.music.bitchord.data.importer.ResolveResult
 import com.music.bitchord.data.importer.TrackResolver
 import com.music.bitchord.data.model.PlaylistPrivacy
 import com.music.bitchord.data.model.Song
+import com.music.bitchord.playback.MusicLink
 import dev.chrisbanes.haze.HazeState
 import dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi
 import kotlinx.coroutines.CancellationException
@@ -58,6 +61,7 @@ internal val SUPPORTED_IMPORT_SERVICES = listOf(
     ImportService.AUDIOMACK,
     ImportService.QOBUZ,
     ImportService.GAANA,
+    ImportService.YOUTUBE_MUSIC,
 )
 
 /**
@@ -94,6 +98,16 @@ fun ImportFromLinkAlert(
     val detected = remember(link) { ImportService.detect(link) }
 
     fun start() {
+        // YouTube and YouTube Music links need no importing: they already
+        // are what the app plays, so they open the way a shared one does.
+        val youTube = ImportUrls.firstUrl(link)
+            ?.takeIf { onlyServices.isEmpty() }
+            ?.let { MusicLink.parse(Uri.parse(it)) }
+        if (youTube != null) {
+            MusicLink.offer(youTube)
+            onDismiss()
+            return
+        }
         working = true
         failed = false
         status = context.getString(R.string.import_link_fetching_generic)

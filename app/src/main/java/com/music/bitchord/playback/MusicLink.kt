@@ -84,6 +84,15 @@ object MusicLink {
     }
 
     /**
+     * Raises [request] from inside the app, as if it had arrived in an
+     * intent: a YouTube Music link pasted into the import dialog opens the
+     * same way a shared one does.
+     */
+    fun offer(request: LinkRequest) {
+        _pending.value = request
+    }
+
+    /**
      * Called once the request has actually been acted on.
      *
      * By whoever acted, not by whoever set it — this object outlives the

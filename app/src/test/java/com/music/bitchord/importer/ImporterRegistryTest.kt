@@ -79,3 +79,18 @@ class ImporterRegistryTest {
         assertNull(ImportService.detect("hello"))
     }
 }
+
+class YouTubeDetectionTest {
+    @org.junit.Test
+    fun youTubeLinksAreDetected() {
+        listOf(
+            "https://music.youtube.com/playlist?list=PL123",
+            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "https://youtu.be/dQw4w9WgXcQ",
+            "https://m.youtube.com/watch?v=x",
+        ).forEach {
+            org.junit.Assert.assertEquals(it, com.music.bitchord.data.importer.ImportService.YOUTUBE_MUSIC,
+                com.music.bitchord.data.importer.ImportService.detect(it))
+        }
+    }
+}
