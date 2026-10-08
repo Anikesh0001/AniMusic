@@ -14,6 +14,7 @@ object ImporterRegistry {
         AppleMusicImporter,
         JioSaavnImporter,
         SoundCloudImporter,
+        OdesliResolver,
         // Last: it claims any web page, so everything above gets first refusal.
         GenericPageImporter,
     )
@@ -72,9 +73,19 @@ object ImporterRegistry {
         return importer to target
     }
 
-    /** Reads the collection [input] links to. */
+    /**
+     * Reads the collection [input] links to. A link nothing here can read is
+     * put to song.link once before giving up: a single song on a service
+     * with no importer (a Tidal track, say) is still a song Odesli knows.
+     */
     suspend fun fetch(input: String): ImportedCollection {
         val (importer, url) = resolve(input)
-        return importer.fetch(url)
+        return try {
+            importer.fetch(url)
+        } catch (e: ImportException) {
+            if (importer !== GenericPageImporter || e.reason != ImportException.Reason.UNSUPPORTED) throw e
+            val entity = runCatching { OdesliResolver.lookup(url) }.getOrNull() ?: throw e
+            OdesliResolver.toCollection(entity, url)
+        }
     }
 }

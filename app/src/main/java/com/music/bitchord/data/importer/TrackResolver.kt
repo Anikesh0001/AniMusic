@@ -49,6 +49,8 @@ data class ResolveResult(val rows: List<ResolvedTrack>) {
 class TrackResolver(
     private val search: suspend (String) -> List<Song>,
     private val concurrency: Int = 4,
+    /** The song behind a known video id; for rows that arrive already knowing it. */
+    private val lookup: suspend (videoId: String) -> Song? = { null },
 ) {
     /** Keyed by [key]; lives as long as the resolver, so a re-import or sync is cheap. */
     private val cache = ConcurrentHashMap<String, ResolvedTrack>()
@@ -79,6 +81,9 @@ class TrackResolver(
     suspend fun match(track: ImportTrack): ResolvedTrack {
         val key = key(track)
         cache[key]?.let { return it.copy(track = track) }
+        track.videoId?.let { id ->
+            runCatching { lookup(id) }.getOrNull()?.let { return ResolvedTrack(track, it, confident = true) }
+        }
         val target = targetOf(track)
         val queries = TrackMatcher.queries(target)
             .ifEmpty { listOf("${track.title} ${track.artist}".trim()) }
@@ -121,12 +126,15 @@ class TrackResolver(
     companion object {
         /** Searches YouTube Music's song shelf. */
         val Default: TrackResolver by lazy {
-            TrackResolver(search = { query ->
-                YtMusicRepository.search(query, SearchFilter.SONGS).getOrNull()
-                    ?.filterIsInstance<SearchResult.Track>()
-                    ?.map { it.song }
-                    .orEmpty()
-            })
+            TrackResolver(
+                search = { query ->
+                    YtMusicRepository.search(query, SearchFilter.SONGS).getOrNull()
+                        ?.filterIsInstance<SearchResult.Track>()
+                        ?.map { it.song }
+                        .orEmpty()
+                },
+                lookup = { videoId -> YtMusicRepository.trackLinks(videoId).getOrNull() },
+            )
         }
 
         fun targetOf(track: ImportTrack) = TrackMatcher.Target(

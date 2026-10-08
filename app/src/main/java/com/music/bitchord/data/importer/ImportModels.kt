@@ -7,6 +7,12 @@ data class ImportTrack(
     val album: String? = null,
     val durationMs: Long? = null,
     val isrc: String? = null,
+    /**
+     * The YouTube video this row already is, when the source said so
+     * (song.link sometimes does). [TrackResolver] plays it rather than
+     * searching.
+     */
+    val videoId: String? = null,
 )
 
 /** A playlist, album or single song read from another service, before matching. */
