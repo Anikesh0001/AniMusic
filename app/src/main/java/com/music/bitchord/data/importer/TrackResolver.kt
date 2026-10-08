@@ -80,6 +80,7 @@ class TrackResolver(
     /** One row's match, from the cache when it was looked up before. */
     suspend fun match(track: ImportTrack): ResolvedTrack {
         val key = key(track)
+        track.song?.let { return ResolvedTrack(track, it, confident = true) }
         cache[key]?.let { return it.copy(track = track) }
         track.videoId?.let { id ->
             runCatching { lookup(id) }.getOrNull()?.let { return ResolvedTrack(track, it, confident = true) }

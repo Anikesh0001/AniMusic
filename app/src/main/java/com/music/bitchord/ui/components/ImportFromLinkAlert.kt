@@ -53,6 +53,7 @@ import com.music.bitchord.data.importer.LastFmImporter
 import com.music.bitchord.data.importer.ResolveResult
 import com.music.bitchord.data.importer.SongListParser
 import com.music.bitchord.data.importer.TrackResolver
+import com.music.bitchord.data.importer.YouTubeMusicImporter
 import com.music.bitchord.data.model.PlaylistPrivacy
 import com.music.bitchord.data.model.Song
 import com.music.bitchord.playback.MusicLink
@@ -194,7 +195,7 @@ fun ImportFromLinkAlert(
             urls.forEachIndexed { i, url ->
                 val prefix = context.getString(R.string.import_batch_progress, i + 1, urls.size)
                 status = prefix
-                if (MusicLink.parse(Uri.parse(url)) != null) {
+                if (YouTubeMusicImporter.browseIdOf(url) == null && MusicLink.parse(Uri.parse(url)) != null) {
                     lines += context.getString(R.string.import_batch_line_failed, url, context.getString(R.string.import_batch_youtube))
                     return@forEachIndexed
                 }
@@ -228,9 +229,13 @@ fun ImportFromLinkAlert(
             runBatch(urls)
             return
         }
-        // YouTube and YouTube Music links need no importing: they already
-        // are what the app plays, so they open the way a shared one does.
-        val youTube = ImportUrls.firstUrl(link)?.takeIf { fullAccess }?.let { MusicLink.parse(Uri.parse(it)) }
+        // A YouTube song or artist link needs no importing: it already is
+        // what the app plays, so it opens the way a shared one does. A
+        // playlist or album link is imported and saved like any other
+        // service's (YouTubeMusicImporter).
+        val youTube = ImportUrls.firstUrl(link)
+            ?.takeIf { fullAccess && YouTubeMusicImporter.browseIdOf(it) == null }
+            ?.let { MusicLink.parse(Uri.parse(it)) }
         if (youTube != null) {
             MusicLink.offer(youTube)
             onDismiss()

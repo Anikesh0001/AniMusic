@@ -13,6 +13,11 @@ data class ImportTrack(
      * searching.
      */
     val videoId: String? = null,
+    /**
+     * The YouTube Music song this row already is, in full, when the source is
+     * YouTube Music itself. [TrackResolver] keeps it without searching.
+     */
+    val song: com.music.bitchord.data.model.Song? = null,
 )
 
 /** A playlist, album or single song read from another service, before matching. */
