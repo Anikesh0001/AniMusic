@@ -44,7 +44,9 @@ if [[ -z "$TOKEN" && -f "$HOME/.config/animusic/git-credentials" ]]; then
 fi
 [[ -n "$TOKEN" ]] || { echo "no GitHub token: set GITHUB_TOKEN" >&2; exit 1; }
 
-# 1. Version bump, inside the animusic flavor block only.
+# 1. Version bump, inside the animusic flavor block only. Undone if anything
+#    fails before the release commit, so a failed run can simply be retried.
+trap 'git checkout -- "$GRADLE_FILE"' ERR
 python3 - "$GRADLE_FILE" "$VERSION" <<'PY'
 import re, sys
 path, version = sys.argv[1], sys.argv[2]
@@ -60,9 +62,14 @@ print(f"animusic -> versionName {version}, versionCode {code}")
 PY
 
 # 2. Build. This machine's JVM needs IPv4, and :desktopApp needs a JDK 21 toolchain.
+#    R8 on this app needs ~3 GB of Gradle heap: old daemons are stopped first
+#    so it gets a clean one (override with RELEASE_JVMARGS).
 JDK21="${JDK21:-$HOME/.jdks/jdk-21.0.12.1+1}"
-JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true ${JAVA_TOOL_OPTIONS:-}" \
-    ./gradlew --console=plain -Porg.gradle.java.installations.paths="$JDK21" assembleAnimusicRelease
+export JAVA_TOOL_OPTIONS="-Djava.net.preferIPv4Stack=true ${JAVA_TOOL_OPTIONS:-}"
+./gradlew --stop >/dev/null 2>&1 || true
+./gradlew --console=plain -Porg.gradle.java.installations.paths="$JDK21" \
+    "-Dorg.gradle.jvmargs=${RELEASE_JVMARGS:--Xmx3g -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true}" \
+    assembleAnimusicRelease
 
 # 3. Verify.
 OUT="app/build/outputs/apk/animusic/release"
@@ -81,6 +88,7 @@ done
 # 4–5. Commit, tag, push.
 git add "$GRADLE_FILE"
 git commit -q -m "release: AniMusic $VERSION"
+trap - ERR
 git tag -a "v$VERSION" -m "AniMusic $VERSION"
 git push "$REMOTE" "HEAD:main" "v$VERSION"
 
