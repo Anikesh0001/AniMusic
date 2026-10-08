@@ -85,3 +85,9 @@ apksigner verify --verbose --print-certs app/build/outputs/apk/animusic/release/
 | `…DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` | androidx-core's own signature permission that protects the app's non-exported receivers. |
 
 Removed in this flavor: `READ_PHONE_STATE` (implied by the merger from `:shared`, unused).
+
+## GitHub repository
+
+`github.com/Anikesh0001/AniMusic`, remote `animusic` in this checkout (`origin` is still upstream BitChord).
+
+The upstream workflows in `.github/workflows/` (CI builds, desktop `release.yml`, contributors bots, backend deploy) are **disabled in the repo's Actions settings**. The files stay, so upstream merges are clean. They would otherwise rebuild BitChord on every push and attach BitChord desktop installers to AniMusic's releases. Re-enable any of them under Actions → the workflow → "Enable workflow".
