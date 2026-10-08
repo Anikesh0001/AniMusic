@@ -1279,4 +1279,15 @@
     <string name="import_batch_title">Đã nhập %1$d/%2$d liên kết</string>
     <string name="import_batch_youtube">Liên kết YouTube Music mở trực tiếp, từng cái một</string>
     <string name="import_batch_detected">%1$d liên kết — mỗi liên kết thành một danh sách phát riêng</string>
+    <string name="export_title">Xuất danh sách phát</string>
+    <string name="export_loading">Đang đọc danh sách phát…</string>
+    <string name="export_empty">Danh sách phát này không có bài để xuất.</string>
+    <string name="export_ready">%1$d bài sẵn sàng để xuất</string>
+    <string name="export_format_text">Văn bản</string>
+    <string name="export_format_m3u_hint">Cho trình phát nhạc. Mỗi bài liên kết tới YouTube Music.</string>
+    <string name="export_format_csv_hint">Tên bài, nghệ sĩ, album, thời lượng và liên kết. Mở được bằng bảng tính và nhập lại được.</string>
+    <string name="export_format_text_hint">“Nghệ sĩ - Tên bài”, mỗi dòng một bài.</string>
+    <string name="export_share">Chia sẻ</string>
+    <string name="export_save">Lưu thành tệp</string>
+    <string name="export_playlist_failed">Không thể xuất danh sách phát.</string>
 </resources>

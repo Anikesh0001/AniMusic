@@ -23,6 +23,7 @@ import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material.icons.rounded.SwapVert
 import androidx.compose.material.icons.rounded.Sync
+import androidx.compose.material.icons.rounded.IosShare
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -165,6 +166,8 @@ fun BrowseActionsSheet(
     onReorder: (() -> Unit)? = null,
     /** Re-reads the playlist's import source and appends what was added there; set only for imported playlists. */
     onSyncFromSource: (() -> Unit)? = null,
+    /** Writes the playlist out as M3U, CSV or text; set for playlists. */
+    onExport: (() -> Unit)? = null,
     onDelete: (() -> Unit)? = null,
     /**
      * Removes the files this release was downloaded as, when it was downloaded
@@ -299,6 +302,9 @@ fun BrowseActionsSheet(
             }
             onSyncFromSource?.let {
                 ActionRow(Icons.Rounded.Sync, stringResource(R.string.import_sync), onClick = it)
+            }
+            onExport?.let {
+                ActionRow(Icons.Rounded.IosShare, stringResource(R.string.export_title), onClick = it)
             }
             if (onDelete != null) {
                 if (confirmingDelete) {

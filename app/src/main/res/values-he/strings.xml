@@ -1367,4 +1367,15 @@
     <string name="import_batch_title">יובאו %1$d מתוך %2$d קישורים</string>
     <string name="import_batch_youtube">קישורי YouTube Music נפתחים ישירות, אחד בכל פעם</string>
     <string name="import_batch_detected">%1$d קישורים — כל אחד יהפוך לפלייליסט משלו</string>
+    <string name="export_title">ייצוא פלייליסט</string>
+    <string name="export_loading">קורא את הפלייליסט…</string>
+    <string name="export_empty">אין בפלייליסט שירים לייצוא.</string>
+    <string name="export_ready">%1$d שירים מוכנים לייצוא</string>
+    <string name="export_format_text">טקסט</string>
+    <string name="export_format_m3u_hint">לנגני מוזיקה. כל שיר מקושר ל-YouTube Music.</string>
+    <string name="export_format_csv_hint">שם, אמן, אלבום, אורך וקישור. נפתח בגיליונות ואפשר לייבא בחזרה.</string>
+    <string name="export_format_text_hint">“אמן - שם”, אחד בכל שורה.</string>
+    <string name="export_share">שיתוף</string>
+    <string name="export_save">שמירה לקובץ</string>
+    <string name="export_playlist_failed">לא ניתן לייצא את הפלייליסט.</string>
 </resources>

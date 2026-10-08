@@ -1339,4 +1339,15 @@
     <string name="import_batch_title">%1$d dari %2$d tautan diimpor</string>
     <string name="import_batch_youtube">Tautan YouTube Music dibuka langsung, satu per satu</string>
     <string name="import_batch_detected">%1$d tautan — masing-masing jadi playlist sendiri</string>
+    <string name="export_title">Ekspor playlist</string>
+    <string name="export_loading">Membaca playlist…</string>
+    <string name="export_empty">Playlist ini tidak punya lagu untuk diekspor.</string>
+    <string name="export_ready">%1$d lagu siap diekspor</string>
+    <string name="export_format_text">Teks</string>
+    <string name="export_format_m3u_hint">Untuk pemutar musik. Setiap lagu bertaut ke YouTube Music.</string>
+    <string name="export_format_csv_hint">Judul, artis, album, durasi, dan tautan. Bisa dibuka di spreadsheet dan diimpor kembali.</string>
+    <string name="export_format_text_hint">“Artis - Judul”, satu per baris.</string>
+    <string name="export_share">Bagikan</string>
+    <string name="export_save">Simpan ke file</string>
+    <string name="export_playlist_failed">Tidak dapat mengekspor playlist.</string>
 </resources>

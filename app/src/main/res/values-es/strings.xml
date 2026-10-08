@@ -1334,4 +1334,15 @@
     <string name="import_batch_title">Se importaron %1$d de %2$d enlaces</string>
     <string name="import_batch_youtube">Los enlaces de YouTube Music se abren directamente, de uno en uno</string>
     <string name="import_batch_detected">%1$d enlaces: cada uno será su propia lista</string>
+    <string name="export_title">Exportar lista</string>
+    <string name="export_loading">Leyendo la lista…</string>
+    <string name="export_empty">Esta lista no tiene canciones para exportar.</string>
+    <string name="export_ready">%1$d canciones listas para exportar</string>
+    <string name="export_format_text">Texto</string>
+    <string name="export_format_m3u_hint">Para reproductores. Cada canción enlaza a YouTube Music.</string>
+    <string name="export_format_csv_hint">Título, artista, álbum, duración y enlace. Se abre en hojas de cálculo y se puede volver a importar.</string>
+    <string name="export_format_text_hint">“Artista - Título”, uno por línea.</string>
+    <string name="export_share">Compartir</string>
+    <string name="export_save">Guardar en archivo</string>
+    <string name="export_playlist_failed">No se pudo exportar la lista.</string>
 </resources>

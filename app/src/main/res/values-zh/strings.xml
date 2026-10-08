@@ -1339,4 +1339,15 @@
     <string name="import_batch_title">已导入 %1$d/%2$d 个链接</string>
     <string name="import_batch_youtube">YouTube Music 链接会逐个直接打开</string>
     <string name="import_batch_detected">%1$d 个链接 — 每个都会成为独立歌单</string>
+    <string name="export_title">导出歌单</string>
+    <string name="export_loading">正在读取歌单…</string>
+    <string name="export_empty">该歌单没有可导出的歌曲。</string>
+    <string name="export_ready">%1$d 首歌曲可导出</string>
+    <string name="export_format_text">文本</string>
+    <string name="export_format_m3u_hint">适用于音乐播放器，每首歌都链接到 YouTube Music。</string>
+    <string name="export_format_csv_hint">标题、艺人、专辑、时长和链接。可在表格中打开，也能重新导入。</string>
+    <string name="export_format_text_hint">“艺人 - 歌名”，每行一首。</string>
+    <string name="export_share">分享</string>
+    <string name="export_save">保存为文件</string>
+    <string name="export_playlist_failed">无法导出歌单。</string>
 </resources>

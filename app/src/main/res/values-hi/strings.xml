@@ -1362,4 +1362,15 @@
     <string name="import_batch_title">%2$d में से %1$d लिंक इम्पोर्ट हुए</string>
     <string name="import_batch_youtube">YouTube Music लिंक सीधे, एक-एक करके खुलते हैं</string>
     <string name="import_batch_detected">%1$d लिंक — हर एक अपनी प्लेलिस्ट बनेगा</string>
+    <string name="export_title">प्लेलिस्ट एक्सपोर्ट करें</string>
+    <string name="export_loading">प्लेलिस्ट पढ़ी जा रही है…</string>
+    <string name="export_empty">इस प्लेलिस्ट में एक्सपोर्ट करने के लिए गाने नहीं हैं।</string>
+    <string name="export_ready">%1$d गाने एक्सपोर्ट के लिए तैयार</string>
+    <string name="export_format_text">टेक्स्ट</string>
+    <string name="export_format_m3u_hint">म्यूज़िक प्लेयर के लिए। हर गाना YouTube Music से लिंक होता है।</string>
+    <string name="export_format_csv_hint">शीर्षक, कलाकार, एल्बम, अवधि और लिंक। स्प्रेडशीट में खुलता है और फिर से इम्पोर्ट हो सकता है।</string>
+    <string name="export_format_text_hint">“कलाकार - शीर्षक”, हर पंक्ति में एक।</string>
+    <string name="export_share">शेयर करें</string>
+    <string name="export_save">फ़ाइल में सेव करें</string>
+    <string name="export_playlist_failed">प्लेलिस्ट एक्सपोर्ट नहीं हो सकी।</string>
 </resources>

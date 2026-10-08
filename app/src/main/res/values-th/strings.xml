@@ -1345,4 +1345,15 @@
     <string name="import_batch_title">นำเข้าแล้ว %1$d จาก %2$d ลิงก์</string>
     <string name="import_batch_youtube">ลิงก์ YouTube Music จะเปิดโดยตรงทีละลิงก์</string>
     <string name="import_batch_detected">%1$d ลิงก์ — แต่ละลิงก์จะเป็นเพลย์ลิสต์ของตัวเอง</string>
+    <string name="export_title">ส่งออกเพลย์ลิสต์</string>
+    <string name="export_loading">กำลังอ่านเพลย์ลิสต์…</string>
+    <string name="export_empty">เพลย์ลิสต์นี้ไม่มีเพลงให้ส่งออก</string>
+    <string name="export_ready">พร้อมส่งออก %1$d เพลง</string>
+    <string name="export_format_text">ข้อความ</string>
+    <string name="export_format_m3u_hint">สำหรับโปรแกรมเล่นเพลง แต่ละเพลงลิงก์ไปที่ YouTube Music</string>
+    <string name="export_format_csv_hint">ชื่อเพลง ศิลปิน อัลบั้ม ความยาว และลิงก์ เปิดในสเปรดชีตได้และนำเข้ากลับได้</string>
+    <string name="export_format_text_hint">“ศิลปิน - ชื่อเพลง” บรรทัดละหนึ่งเพลง</string>
+    <string name="export_share">แชร์</string>
+    <string name="export_save">บันทึกเป็นไฟล์</string>
+    <string name="export_playlist_failed">ส่งออกเพลย์ลิสต์ไม่ได้</string>
 </resources>

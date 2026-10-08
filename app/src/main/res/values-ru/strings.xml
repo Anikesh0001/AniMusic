@@ -1394,4 +1394,15 @@
     <string name="import_batch_title">Импортировано ссылок: %1$d из %2$d</string>
     <string name="import_batch_youtube">Ссылки YouTube Music открываются напрямую, по одной</string>
     <string name="import_batch_detected">Ссылок: %1$d — каждая станет отдельным плейлистом</string>
+    <string name="export_title">Экспорт плейлиста</string>
+    <string name="export_loading">Чтение плейлиста…</string>
+    <string name="export_empty">В плейлисте нет треков для экспорта.</string>
+    <string name="export_ready">Готово к экспорту треков: %1$d</string>
+    <string name="export_format_text">Текст</string>
+    <string name="export_format_m3u_hint">Для плееров. Каждый трек ведёт на YouTube Music.</string>
+    <string name="export_format_csv_hint">Название, исполнитель, альбом, длительность и ссылка. Открывается в таблицах и импортируется обратно.</string>
+    <string name="export_format_text_hint">«Исполнитель - Название», по одному в строке.</string>
+    <string name="export_share">Поделиться</string>
+    <string name="export_save">Сохранить в файл</string>
+    <string name="export_playlist_failed">Не удалось экспортировать плейлист.</string>
 </resources>

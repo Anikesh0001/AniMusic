@@ -153,6 +153,7 @@ import com.music.bitchord.ui.components.AccountProfileSelector
 import com.music.bitchord.data.importer.ImportHistoryStore
 import com.music.bitchord.data.importer.ImportSync
 import com.music.bitchord.ui.components.ClipboardImportPrompt
+import com.music.bitchord.ui.components.ExportPlaylistAlert
 import com.music.bitchord.ui.components.message
 import com.music.bitchord.ui.components.ImportFromLinkAlert
 import com.music.bitchord.ui.screens.AccountAndScrobblingScreen
@@ -639,6 +640,8 @@ private fun BitChordApp(
     // A link shared into the app from another music app: opens the import
     // dialog with it filled in and already running. See MusicLink.
     var importLink by remember { mutableStateOf<String?>(null) }
+    // The playlist whose Export dialog is open: browse id and title.
+    var exportTarget by remember { mutableStateOf<Pair<String, String>?>(null) }
     // Which album or playlist the collection menu is open on, or null when it
     // is shut. One slot for every surface that can open it — the shelves on
     // three tabs, the search rows, the artist page's carousels, the release
@@ -4420,6 +4423,19 @@ private fun BitChordApp(
             }
         }
 
+        exportTarget?.let { (id, exportTitle) ->
+            BackHandler { exportTarget = null }
+            ExportPlaylistAlert(
+                hazeState = hazeState,
+                title = exportTitle,
+                loadSongs = {
+                    com.music.bitchord.data.spotify.LocalPlaylistStore.getPlaylist(id)?.songs
+                        ?: YtMusicRepository.allSongs(id).getOrNull()
+                },
+                onDismiss = { exportTarget = null },
+            )
+        }
+
         LaunchedEffect(Unit) { ImportSync.autoSyncIfDue() }
         if (!showSpotifyImportDialog) {
             ClipboardImportPrompt(onImport = { url ->
@@ -4635,6 +4651,14 @@ private fun BitChordApp(
                         }
                     }
                 },
+                onExport = target.browseId
+                    ?.takeIf { target.type == BrowseType.PLAYLIST || it.startsWith("local:playlist:") }
+                    ?.let { id ->
+                        {
+                            browseActions = null
+                            exportTarget = id to target.title
+                        }
+                    },
                 onSyncFromSource = ImportSync.recordFor(target.browseId)?.let { record ->
                     {
                         browseActions = null

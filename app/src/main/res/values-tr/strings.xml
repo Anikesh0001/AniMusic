@@ -1319,4 +1319,15 @@
     <string name="import_batch_title">%2$d bağlantıdan %1$d içe aktarıldı</string>
     <string name="import_batch_youtube">YouTube Music bağlantıları tek tek doğrudan açılır</string>
     <string name="import_batch_detected">%1$d bağlantı — her biri ayrı bir liste olur</string>
+    <string name="export_title">Çalma listesini dışa aktar</string>
+    <string name="export_loading">Çalma listesi okunuyor…</string>
+    <string name="export_empty">Bu listede dışa aktarılacak şarkı yok.</string>
+    <string name="export_ready">%1$d şarkı dışa aktarılmaya hazır</string>
+    <string name="export_format_text">Metin</string>
+    <string name="export_format_m3u_hint">Müzik çalarlar için. Her şarkı YouTube Music\'e bağlanır.</string>
+    <string name="export_format_csv_hint">Başlık, sanatçı, albüm, süre ve bağlantı. Tablolarda açılır, geri içe aktarılabilir.</string>
+    <string name="export_format_text_hint">“Sanatçı - Başlık”, her satıra bir.</string>
+    <string name="export_share">Paylaş</string>
+    <string name="export_save">Dosyaya kaydet</string>
+    <string name="export_playlist_failed">Çalma listesi dışa aktarılamadı.</string>
 </resources>

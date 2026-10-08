@@ -1301,4 +1301,15 @@
     <string name="import_batch_title">Importati %1$d link su %2$d</string>
     <string name="import_batch_youtube">I link di YouTube Music si aprono direttamente, uno alla volta</string>
     <string name="import_batch_detected">%1$d link — ognuno diventa una playlist</string>
+    <string name="export_title">Esporta playlist</string>
+    <string name="export_loading">Lettura della playlist…</string>
+    <string name="export_empty">Questa playlist non ha brani da esportare.</string>
+    <string name="export_ready">%1$d brani pronti da esportare</string>
+    <string name="export_format_text">Testo</string>
+    <string name="export_format_m3u_hint">Per i lettori musicali. Ogni brano rimanda a YouTube Music.</string>
+    <string name="export_format_csv_hint">Titolo, artista, album, durata e link. Si apre nei fogli di calcolo e si può reimportare.</string>
+    <string name="export_format_text_hint">“Artista - Titolo”, uno per riga.</string>
+    <string name="export_share">Condividi</string>
+    <string name="export_save">Salva su file</string>
+    <string name="export_playlist_failed">Impossibile esportare la playlist.</string>
 </resources>
