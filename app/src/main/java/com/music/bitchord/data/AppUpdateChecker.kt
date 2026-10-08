@@ -42,8 +42,9 @@ object AppUpdateChecker {
 
     private const val CACHE_SUBDIR = "updates"
 
-    private const val LATEST_RELEASE_URL =
-        "https://api.github.com/repos/kushagrasinghx/BitChord/releases/latest"
+    /** This build's own release feed (BuildConfig.UPDATE_REPO): BitChord's, or a fork's. */
+    private val LATEST_RELEASE_URL =
+        "https://api.github.com/repos/${BuildConfig.UPDATE_REPO}/releases/latest"
 
     private val json = Json { ignoreUnknownKeys = true }
 
@@ -66,8 +67,6 @@ object AppUpdateChecker {
     private var downloadCancelled = false
 
     suspend fun check() = withContext(Dispatchers.IO) {
-        // Off in builds that aren't BitChord itself (the AniMusic flavor):
-        // the releases checked here would install a different app.
         if (!BuildConfig.UPDATE_CHECKS) return@withContext
         runCatching {
             val request = Request.Builder().url(LATEST_RELEASE_URL).build()
@@ -103,16 +102,38 @@ object AppUpdateChecker {
      * page as before.
      */
     private fun apkAssetUrl(release: JsonObject): String? = runCatching {
-        release["assets"]?.jsonArray
+        val apks = release["assets"]?.jsonArray
             ?.mapNotNull { it as? JsonObject }
-            ?.firstOrNull { asset ->
-                asset["name"]?.jsonPrimitive?.contentOrNull?.endsWith(".apk", ignoreCase = true) == true &&
-                    asset["state"]?.jsonPrimitive?.contentOrNull == "uploaded"
+            ?.mapNotNull { asset ->
+                val name = asset["name"]?.jsonPrimitive?.contentOrNull ?: return@mapNotNull null
+                val url = asset["browser_download_url"]?.jsonPrimitive?.contentOrNull ?: return@mapNotNull null
+                (name to url).takeIf {
+                    name.endsWith(".apk", ignoreCase = true) &&
+                        asset["state"]?.jsonPrimitive?.contentOrNull == "uploaded"
+                }
             }
-            ?.get("browser_download_url")
-            ?.jsonPrimitive
-            ?.contentOrNull
+            .orEmpty()
+        pickApk(apks, android.os.Build.SUPPORTED_ABIS.toList())
     }.getOrNull()
+
+    /**
+     * Which of a release's APKs ([name] to [url]) this device should install.
+     *
+     * A release may carry one APK per ABI plus a universal one. The first ABI
+     * the device lists that an asset is named for wins, then the universal
+     * build, then — for a release with a single unnamed APK, as BitChord's
+     * have — whatever APK there is.
+     */
+    internal fun pickApk(apks: List<Pair<String, String>>, deviceAbis: List<String>): String? {
+        if (apks.isEmpty()) return null
+        for (abi in deviceAbis) {
+            apks.firstOrNull { it.first.contains(abi, ignoreCase = true) }?.let { return it.second }
+        }
+        apks.firstOrNull { it.first.contains("universal", ignoreCase = true) }?.let { return it.second }
+        val abiNamed = listOf("arm64-v8a", "armeabi-v7a", "x86_64", "x86")
+        return (apks.firstOrNull { (name, _) -> abiNamed.none { name.contains(it, ignoreCase = true) } } ?: apks.first())
+            .second
+    }
 
     /**
      * Streams the current update's APK into the app cache, reporting progress

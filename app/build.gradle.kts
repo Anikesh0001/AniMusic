@@ -94,8 +94,10 @@ android {
         buildConfigField("String", "BRAND_NAME", "\"BitChord\"")
         // Where this build's source code is published; the GPLv3 credit links it.
         buildConfigField("String", "SOURCE_URL", "\"https://github.com/kushagrasinghx/BitChord\"")
-        // Whether to look for new releases on BitChord's GitHub (AppUpdateChecker).
+        // Whether to look for new releases (AppUpdateChecker), and on which
+        // GitHub repository ("owner/name").
         buildConfigField("boolean", "UPDATE_CHECKS", "true")
+        buildConfigField("String", "UPDATE_REPO", "\"kushagrasinghx/BitChord\"")
         buildConfigField(
             "String",
             "LISTEN_TOGETHER_SERVER",
@@ -146,9 +148,11 @@ android {
             // Upstream for now. Point this at the AniMusic fork once its
             // modified source is published (GPLv3 §6).
             buildConfigField("String", "SOURCE_URL", "\"https://github.com/kushagrasinghx/BitChord\"")
-            // BitChord's releases are a different app to this one; offering
-            // them as an "update" would mean installing a different package.
-            buildConfigField("boolean", "UPDATE_CHECKS", "false")
+            // Updates come from AniMusic's own releases, never BitChord's (a
+            // different package). Each release must be signed with the same
+            // key, and its tag ("v1.0.2") must be newer than versionName.
+            buildConfigField("boolean", "UPDATE_CHECKS", "true")
+            buildConfigField("String", "UPDATE_REPO", "\"Anikesh0001/AniMusic\"")
         }
     }
 

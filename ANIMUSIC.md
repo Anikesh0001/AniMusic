@@ -12,6 +12,16 @@ It is the `animusic` product flavor (dimension `env`), next to `dev` and `prod`:
 
 Kotlin packages and the namespace stay `com.music.bitchord`, and `src/main` keeps BitChord's text and art. Everything AniMusic changes is either flavor-scoped or switched by a `BuildConfig` field, so upstream merges stay mechanical.
 
+## Publishing an update
+
+```
+scripts/release-animusic.sh 1.0.2 "What changed"
+```
+
+The script bumps the animusic `versionName`/`versionCode`, builds and verifies the signed release, commits, and tags `v1.0.2`. It then pushes to the `animusic` remote (`main` plus the tag) and creates the GitHub release with `AniMusic-1.0.2-arm64-v8a.apk` and `-universal.apk` attached. Installed copies offer it the next time they open. It must always be signed with the same keystore, or Android refuses to install it over the existing app.
+
+The GitHub token comes from `$GITHUB_TOKEN`, or from `~/.config/animusic/git-credentials` (owner-only file, used only for `github.com/Anikesh0001` remotes of this checkout). It is never stored in the repo.
+
 ## Build
 
 ```
@@ -28,8 +38,8 @@ On a 16 GB machine, R8 needs the lower-memory settings in a local `gradle.proper
 - **Text built in code:** `BuildConfig.BRAND_NAME`. This covers the Replay poster and story, the lyrics share card, the `Music/<brand>` download folder and `Pictures/<brand>`, the suggested backup file name, and backup/addon error messages. The shared Home header and Replay card read `LocalAppBrandName` / `LocalAppLogo`, which `MainActivity` provides.
 - **Icon:** `src/animusic/res`. This holds the adaptive launcher icon (with a monochrome layer for themed icons; the Android 12+ splash uses it too), legacy webp renders, `ic_notification_logo`, and the in-app mark `ic_logo`. The master art is `src/animusic/art/animusic-icon.svg`.
 - **Credits:** the settings colophon reads "AniMusic by Anikesh Kumar · Based on BitChord by Kushagra Singh · GPLv3", with links. `BuildConfig.SOURCE_URL` is the "Source code" link. It points at upstream for now; change it to this fork once its source is published (GPLv3 §6 asks that the modified source be offered).
-- **Updates:** `BuildConfig.UPDATE_CHECKS = false`. The in-app updater would otherwise offer BitChord's GitHub releases, which are a different app.
-- **Permissions:** `src/animusic/AndroidManifest.xml` removes `READ_PHONE_STATE`, which the merger implies from `:shared` and nothing uses, and `REQUEST_INSTALL_PACKAGES`, which only the disabled updater needs.
+- **Updates:** `BuildConfig.UPDATE_REPO = "Anikesh0001/AniMusic"`. On every app start, the in-app updater reads that repo's latest GitHub release. If its tag (e.g. `v1.0.2`) is newer than the installed version, it shows an update dialog that downloads the APK matching the phone (arm64-v8a, armeabi-v7a, or universal) and hands it to the installer. It never looks at BitChord's releases.
+- **Permissions:** `src/animusic/AndroidManifest.xml` removes `READ_PHONE_STATE`, which the merger implies from `:shared` and nothing uses.
 
 ## Deliberately still "BitChord"
 
@@ -71,6 +81,7 @@ apksigner verify --verbose --print-certs app/build/outputs/apk/animusic/release/
 | `READ_MEDIA_AUDIO` | Playing local music files (Android 13+). |
 | `READ_EXTERNAL_STORAGE` (≤ API 32) | The same, before Android 13. |
 | `WRITE_EXTERNAL_STORAGE` (≤ API 28) | Saving downloads to Music/ on Android 9 and older. |
+| `REQUEST_INSTALL_PACKAGES` | The in-app updater hands AniMusic's own release APK to the system installer. You still approve "install unknown apps" once. |
 | `…DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` | androidx-core's own signature permission that protects the app's non-exported receivers. |
 
-Removed in this flavor: `READ_PHONE_STATE` (implied by the merger from `:shared`, unused) and `REQUEST_INSTALL_PACKAGES` (only for the disabled updater).
+Removed in this flavor: `READ_PHONE_STATE` (implied by the merger from `:shared`, unused).

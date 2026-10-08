@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  AniMusic flavor manifest: only takes away permissions this build has no use for.
+  AniMusic flavor manifest: only takes away a permission this build has no use for.
 
   READ_PHONE_STATE is not asked for anywhere. The manifest merger adds it on its
   own because the :shared library declares no SDK version, which it reads as a
   pre-Donut library. Nothing in the app uses telephony.
 
-  REQUEST_INSTALL_PACKAGES exists for the in-app updater, which is switched off
-  in this flavor (BuildConfig.UPDATE_CHECKS = false).
+  REQUEST_INSTALL_PACKAGES stays: the in-app updater hands AniMusic's own
+  release APKs (BuildConfig.UPDATE_REPO) to the system installer.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission
         android:name="android.permission.READ_PHONE_STATE"
-        tools:node="remove" />
-    <uses-permission
-        android:name="android.permission.REQUEST_INSTALL_PACKAGES"
         tools:node="remove" />
 </manifest>
