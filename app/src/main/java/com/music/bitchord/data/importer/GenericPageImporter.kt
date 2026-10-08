@@ -84,7 +84,9 @@ object GenericPageImporter : PlaylistImporter {
                 )
             }
         }
-        val single = nodes.firstOrNull { it.isType("MusicRecording") }
+        // A song page may describe the composition, with the recording as its `audio`.
+        val single = (nodes + nodes.mapNotNull { it["audio"] as? JsonObject })
+            .firstOrNull { it.isType("MusicRecording") }
             ?.let { recordingToTrack(it, null, null) }
             ?: return null
         return ImportedCollection(
