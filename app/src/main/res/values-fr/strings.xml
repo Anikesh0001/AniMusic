@@ -1306,4 +1306,20 @@
     <string name="clipboard_import_prompt">Importer le lien %1$s que vous avez copié ?</string>
     <string name="clipboard_detection_title">Proposer d\'importer les liens copiés</string>
     <string name="clipboard_detection_subtitle">Quand vous revenez avec un lien Spotify, Apple Music, Deezer ou autre copié</string>
+    <string name="import_review_title">Vérifier les correspondances</string>
+    <string name="import_review_subtitle">Touchez un titre pour choisir la bonne version</string>
+    <string name="import_review_retry">Réessayer les introuvables</string>
+    <string name="import_review_removed">Retiré de la playlist</string>
+    <string name="import_review_not_found">Introuvable sur YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Meilleure supposition : %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Aucun résultat. Essayez une recherche.</string>
+    <string name="import_review_search">Rechercher sur YouTube Music</string>
+    <string name="import_review_search_button">Rechercher</string>
+    <string name="import_review_keep">Garder</string>
+    <string name="import_review_remove">Retirer</string>
+    <string name="import_review_summary">%1$d trouvés · %2$d incertains · %3$d introuvables</string>
+    <string name="import_review_open">Vérifier les correspondances</string>
+    <string name="import_review_save">Enregistrer la playlist</string>
+    <string name="import_partial">%1$d autres titres n\'ont pas pu être lus depuis la source</string>
 </resources>

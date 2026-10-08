@@ -1142,4 +1142,20 @@
     <string name="clipboard_import_prompt">Import the %1$s link you copied?</string>
     <string name="clipboard_detection_title">Offer to import copied links</string>
     <string name="clipboard_detection_subtitle">When you come back with a Spotify, Apple Music, Deezer or other music link copied</string>
+    <string name="import_review_title">Check matches</string>
+    <string name="import_review_subtitle">Tap a song to pick the right version</string>
+    <string name="import_review_retry">Retry unmatched</string>
+    <string name="import_review_removed">Removed from the playlist</string>
+    <string name="import_review_not_found">Not found on YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Best guess: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">No results. Try searching.</string>
+    <string name="import_review_search">Search YouTube Music</string>
+    <string name="import_review_search_button">Search</string>
+    <string name="import_review_keep">Keep</string>
+    <string name="import_review_remove">Remove</string>
+    <string name="import_review_summary">%1$d matched · %2$d unsure · %3$d not found</string>
+    <string name="import_review_open">Review matches</string>
+    <string name="import_review_save">Save playlist</string>
+    <string name="import_partial">%1$d more tracks couldn\'t be read from the source</string>
 </resources>

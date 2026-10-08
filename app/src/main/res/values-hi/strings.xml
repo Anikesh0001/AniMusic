@@ -1305,4 +1305,20 @@
     <string name="clipboard_import_prompt">आपने जो %1$s लिंक कॉपी किया, उसे इम्पोर्ट करें?</string>
     <string name="clipboard_detection_title">कॉपी किए गए लिंक इम्पोर्ट करने का सुझाव दें</string>
     <string name="clipboard_detection_subtitle">जब आप Spotify, Apple Music, Deezer या किसी और म्यूज़िक लिंक को कॉपी करके लौटें</string>
+    <string name="import_review_title">मिलान जाँचें</string>
+    <string name="import_review_subtitle">सही वर्शन चुनने के लिए गाने पर टैप करें</string>
+    <string name="import_review_retry">न मिले गानों को फिर खोजें</string>
+    <string name="import_review_removed">प्लेलिस्ट से हटाया गया</string>
+    <string name="import_review_not_found">YouTube Music पर नहीं मिला</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">सबसे अच्छा अनुमान: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">कोई नतीजा नहीं। खोजकर देखें।</string>
+    <string name="import_review_search">YouTube Music पर खोजें</string>
+    <string name="import_review_search_button">खोजें</string>
+    <string name="import_review_keep">रखें</string>
+    <string name="import_review_remove">हटाएँ</string>
+    <string name="import_review_summary">%1$d मिले · %2$d पक्के नहीं · %3$d नहीं मिले</string>
+    <string name="import_review_open">मिलान देखें</string>
+    <string name="import_review_save">प्लेलिस्ट सेव करें</string>
+    <string name="import_partial">स्रोत से %1$d और गाने पढ़े नहीं जा सके</string>
 </resources>

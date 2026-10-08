@@ -1337,4 +1337,20 @@
     <string name="clipboard_import_prompt">Импортировать скопированную ссылку %1$s?</string>
     <string name="clipboard_detection_title">Предлагать импорт скопированных ссылок</string>
     <string name="clipboard_detection_subtitle">Когда вы возвращаетесь со скопированной ссылкой из Spotify, Apple Music, Deezer и других</string>
+    <string name="import_review_title">Проверка совпадений</string>
+    <string name="import_review_subtitle">Нажмите на трек, чтобы выбрать нужную версию</string>
+    <string name="import_review_retry">Повторить для ненайденных</string>
+    <string name="import_review_removed">Убрано из плейлиста</string>
+    <string name="import_review_not_found">Не найдено в YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Вероятно: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Ничего не найдено. Попробуйте поиск.</string>
+    <string name="import_review_search">Поиск в YouTube Music</string>
+    <string name="import_review_search_button">Найти</string>
+    <string name="import_review_keep">Оставить</string>
+    <string name="import_review_remove">Убрать</string>
+    <string name="import_review_summary">Найдено: %1$d · сомнительно: %2$d · не найдено: %3$d</string>
+    <string name="import_review_open">Проверить совпадения</string>
+    <string name="import_review_save">Сохранить плейлист</string>
+    <string name="import_partial">Ещё %1$d треков не удалось прочитать из источника</string>
 </resources>

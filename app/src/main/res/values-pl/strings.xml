@@ -1345,4 +1345,20 @@
     <string name="clipboard_import_prompt">Zaimportować skopiowany link z %1$s?</string>
     <string name="clipboard_detection_title">Proponuj import skopiowanych linków</string>
     <string name="clipboard_detection_subtitle">Gdy wracasz ze skopiowanym linkiem ze Spotify, Apple Music, Deezera lub innego serwisu</string>
+    <string name="import_review_title">Sprawdź dopasowania</string>
+    <string name="import_review_subtitle">Dotknij utworu, aby wybrać właściwą wersję</string>
+    <string name="import_review_retry">Ponów nieznalezione</string>
+    <string name="import_review_removed">Usunięto z playlisty</string>
+    <string name="import_review_not_found">Nie znaleziono w YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Najlepsze dopasowanie: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Brak wyników. Spróbuj wyszukać.</string>
+    <string name="import_review_search">Szukaj w YouTube Music</string>
+    <string name="import_review_search_button">Szukaj</string>
+    <string name="import_review_keep">Zachowaj</string>
+    <string name="import_review_remove">Usuń</string>
+    <string name="import_review_summary">%1$d dopasowane · %2$d niepewne · %3$d nieznalezione</string>
+    <string name="import_review_open">Przejrzyj dopasowania</string>
+    <string name="import_review_save">Zapisz playlistę</string>
+    <string name="import_partial">Nie udało się odczytać %1$d kolejnych utworów ze źródła</string>
 </resources>

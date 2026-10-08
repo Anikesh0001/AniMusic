@@ -1222,4 +1222,20 @@
     <string name="clipboard_import_prompt">Nhập liên kết %1$s bạn vừa sao chép?</string>
     <string name="clipboard_detection_title">Đề xuất nhập liên kết đã sao chép</string>
     <string name="clipboard_detection_subtitle">Khi bạn quay lại với liên kết nhạc Spotify, Apple Music, Deezer hoặc khác đã sao chép</string>
+    <string name="import_review_title">Kiểm tra kết quả khớp</string>
+    <string name="import_review_subtitle">Chạm vào bài hát để chọn đúng phiên bản</string>
+    <string name="import_review_retry">Thử lại bài chưa khớp</string>
+    <string name="import_review_removed">Đã xoá khỏi danh sách phát</string>
+    <string name="import_review_not_found">Không tìm thấy trên YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Phỏng đoán tốt nhất: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Không có kết quả. Hãy thử tìm kiếm.</string>
+    <string name="import_review_search">Tìm trên YouTube Music</string>
+    <string name="import_review_search_button">Tìm</string>
+    <string name="import_review_keep">Giữ lại</string>
+    <string name="import_review_remove">Xoá</string>
+    <string name="import_review_summary">%1$d khớp · %2$d chưa chắc · %3$d không tìm thấy</string>
+    <string name="import_review_open">Xem lại kết quả khớp</string>
+    <string name="import_review_save">Lưu danh sách phát</string>
+    <string name="import_partial">Không thể đọc thêm %1$d bài từ nguồn</string>
 </resources>

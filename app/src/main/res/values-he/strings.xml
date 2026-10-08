@@ -1310,4 +1310,20 @@
     <string name="clipboard_import_prompt">לייבא את הקישור מ-%1$s שהעתקתם?</string>
     <string name="clipboard_detection_title">להציע ייבוא של קישורים שהועתקו</string>
     <string name="clipboard_detection_subtitle">כשחוזרים עם קישור מוזיקה מועתק מ-Spotify, Apple Music, Deezer או שירות אחר</string>
+    <string name="import_review_title">בדיקת התאמות</string>
+    <string name="import_review_subtitle">הקישו על שיר כדי לבחור את הגרסה הנכונה</string>
+    <string name="import_review_retry">לנסות שוב את מה שלא נמצא</string>
+    <string name="import_review_removed">הוסר מהפלייליסט</string>
+    <string name="import_review_not_found">לא נמצא ב-YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">הניחוש הטוב ביותר: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">אין תוצאות. נסו לחפש.</string>
+    <string name="import_review_search">חיפוש ב-YouTube Music</string>
+    <string name="import_review_search_button">חיפוש</string>
+    <string name="import_review_keep">להשאיר</string>
+    <string name="import_review_remove">הסרה</string>
+    <string name="import_review_summary">%1$d הותאמו · %2$d לא בטוחים · %3$d לא נמצאו</string>
+    <string name="import_review_open">סקירת התאמות</string>
+    <string name="import_review_save">שמירת הפלייליסט</string>
+    <string name="import_partial">לא ניתן היה לקרוא עוד %1$d שירים מהמקור</string>
 </resources>

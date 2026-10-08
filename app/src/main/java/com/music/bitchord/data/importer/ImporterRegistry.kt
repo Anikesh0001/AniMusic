@@ -80,6 +80,11 @@ object ImporterRegistry {
      */
     suspend fun fetch(input: String): ImportedCollection {
         val (importer, url) = resolve(input)
+        return fetchWith(importer, url)
+    }
+
+    /** [importer]'s read of [url], with the song.link fallback described on [fetch]. */
+    suspend fun fetchWith(importer: PlaylistImporter, url: String): ImportedCollection {
         return try {
             importer.fetch(url)
         } catch (e: ImportException) {

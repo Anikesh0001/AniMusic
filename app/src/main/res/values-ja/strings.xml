@@ -1283,4 +1283,20 @@
     <string name="clipboard_import_prompt">コピーした %1$s のリンクをインポートしますか？</string>
     <string name="clipboard_detection_title">コピーしたリンクのインポートを提案</string>
     <string name="clipboard_detection_subtitle">Spotify、Apple Music、Deezer などの音楽リンクをコピーして戻ったとき</string>
+    <string name="import_review_title">照合を確認</string>
+    <string name="import_review_subtitle">曲をタップして正しいバージョンを選びます</string>
+    <string name="import_review_retry">見つからなかった曲を再検索</string>
+    <string name="import_review_removed">プレイリストから削除</string>
+    <string name="import_review_not_found">YouTube Music で見つかりません</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">推測: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">結果がありません。検索してみてください。</string>
+    <string name="import_review_search">YouTube Music を検索</string>
+    <string name="import_review_search_button">検索</string>
+    <string name="import_review_keep">残す</string>
+    <string name="import_review_remove">削除</string>
+    <string name="import_review_summary">一致 %1$d · 不確か %2$d · 見つからず %3$d</string>
+    <string name="import_review_open">照合を見直す</string>
+    <string name="import_review_save">プレイリストを保存</string>
+    <string name="import_partial">ほか %1$d 曲は取得元から読み込めませんでした</string>
 </resources>

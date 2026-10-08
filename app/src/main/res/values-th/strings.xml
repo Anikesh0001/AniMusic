@@ -1288,4 +1288,20 @@
     <string name="clipboard_import_prompt">นำเข้าลิงก์ %1$s ที่คุณคัดลอกไว้ไหม</string>
     <string name="clipboard_detection_title">เสนอให้นำเข้าลิงก์ที่คัดลอกไว้</string>
     <string name="clipboard_detection_subtitle">เมื่อคุณกลับมาพร้อมลิงก์เพลงจาก Spotify, Apple Music, Deezer หรืออื่น ๆ ที่คัดลอกไว้</string>
+    <string name="import_review_title">ตรวจสอบการจับคู่</string>
+    <string name="import_review_subtitle">แตะเพลงเพื่อเลือกเวอร์ชันที่ถูกต้อง</string>
+    <string name="import_review_retry">ลองค้นหาเพลงที่ไม่พบอีกครั้ง</string>
+    <string name="import_review_removed">นำออกจากเพลย์ลิสต์แล้ว</string>
+    <string name="import_review_not_found">ไม่พบใน YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">ที่น่าจะใช่: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">ไม่พบผลลัพธ์ ลองค้นหาดู</string>
+    <string name="import_review_search">ค้นหาใน YouTube Music</string>
+    <string name="import_review_search_button">ค้นหา</string>
+    <string name="import_review_keep">เก็บไว้</string>
+    <string name="import_review_remove">นำออก</string>
+    <string name="import_review_summary">ตรงกัน %1$d · ไม่แน่ใจ %2$d · ไม่พบ %3$d</string>
+    <string name="import_review_open">ตรวจทานการจับคู่</string>
+    <string name="import_review_save">บันทึกเพลย์ลิสต์</string>
+    <string name="import_partial">อ่านเพลงอีก %1$d เพลงจากต้นทางไม่ได้</string>
 </resources>

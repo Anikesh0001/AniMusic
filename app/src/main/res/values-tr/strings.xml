@@ -1262,4 +1262,20 @@
     <string name="clipboard_import_prompt">Kopyaladığınız %1$s bağlantısı içe aktarılsın mı?</string>
     <string name="clipboard_detection_title">Kopyalanan bağlantıları içe aktarmayı öner</string>
     <string name="clipboard_detection_subtitle">Spotify, Apple Music, Deezer veya başka bir müzik bağlantısını kopyalayıp döndüğünüzde</string>
+    <string name="import_review_title">Eşleşmeleri kontrol et</string>
+    <string name="import_review_subtitle">Doğru sürümü seçmek için bir şarkıya dokunun</string>
+    <string name="import_review_retry">Eşleşmeyenleri yeniden dene</string>
+    <string name="import_review_removed">Çalma listesinden çıkarıldı</string>
+    <string name="import_review_not_found">YouTube Music\'te bulunamadı</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">En iyi tahmin: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Sonuç yok. Aramayı deneyin.</string>
+    <string name="import_review_search">YouTube Music\'te ara</string>
+    <string name="import_review_search_button">Ara</string>
+    <string name="import_review_keep">Tut</string>
+    <string name="import_review_remove">Kaldır</string>
+    <string name="import_review_summary">%1$d eşleşti · %2$d belirsiz · %3$d bulunamadı</string>
+    <string name="import_review_open">Eşleşmeleri incele</string>
+    <string name="import_review_save">Çalma listesini kaydet</string>
+    <string name="import_partial">Kaynaktan %1$d parça daha okunamadı</string>
 </resources>

@@ -1282,4 +1282,20 @@
     <string name="clipboard_import_prompt">要导入你复制的 %1$s 链接吗？</string>
     <string name="clipboard_detection_title">提示导入已复制的链接</string>
     <string name="clipboard_detection_subtitle">当你复制了 Spotify、Apple Music、Deezer 或其他音乐链接后返回时</string>
+    <string name="import_review_title">检查匹配</string>
+    <string name="import_review_subtitle">点按歌曲以选择正确的版本</string>
+    <string name="import_review_retry">重试未匹配的歌曲</string>
+    <string name="import_review_removed">已从歌单中移除</string>
+    <string name="import_review_not_found">在 YouTube Music 上未找到</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">最佳猜测：%1$s · %2$s</string>
+    <string name="import_review_no_candidates">没有结果，试试搜索。</string>
+    <string name="import_review_search">搜索 YouTube Music</string>
+    <string name="import_review_search_button">搜索</string>
+    <string name="import_review_keep">保留</string>
+    <string name="import_review_remove">移除</string>
+    <string name="import_review_summary">已匹配 %1$d · 不确定 %2$d · 未找到 %3$d</string>
+    <string name="import_review_open">检查匹配结果</string>
+    <string name="import_review_save">保存歌单</string>
+    <string name="import_partial">另有 %1$d 首歌曲无法从来源读取</string>
 </resources>

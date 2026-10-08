@@ -1305,4 +1305,20 @@
     <string name="clipboard_import_prompt">Den kopierten %1$s-Link importieren?</string>
     <string name="clipboard_detection_title">Import kopierter Links anbieten</string>
     <string name="clipboard_detection_subtitle">Wenn du mit einem kopierten Spotify-, Apple-Music-, Deezer- oder anderen Musiklink zurückkommst</string>
+    <string name="import_review_title">Treffer prüfen</string>
+    <string name="import_review_subtitle">Tippe auf einen Song, um die richtige Version zu wählen</string>
+    <string name="import_review_retry">Nicht gefundene erneut suchen</string>
+    <string name="import_review_removed">Aus der Playlist entfernt</string>
+    <string name="import_review_not_found">Nicht auf YouTube Music gefunden</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Beste Vermutung: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Keine Ergebnisse. Versuche eine Suche.</string>
+    <string name="import_review_search">Auf YouTube Music suchen</string>
+    <string name="import_review_search_button">Suchen</string>
+    <string name="import_review_keep">Behalten</string>
+    <string name="import_review_remove">Entfernen</string>
+    <string name="import_review_summary">%1$d gefunden · %2$d unsicher · %3$d nicht gefunden</string>
+    <string name="import_review_open">Treffer prüfen</string>
+    <string name="import_review_save">Playlist speichern</string>
+    <string name="import_partial">%1$d weitere Titel konnten nicht von der Quelle gelesen werden</string>
 </resources>

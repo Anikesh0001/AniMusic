@@ -98,6 +98,26 @@ fun ImportFromLinkAlert(
     var failed by remember { mutableStateOf(false) }
     var unmatched by remember { mutableStateOf<List<ImportTrack>?>(null) }
     val detected = remember(link) { ImportService.detect(link) }
+    // Read and matched, not yet saved: the review step's working copy.
+    var pending by remember { mutableStateOf<ImportedCollection?>(null) }
+    var rows by remember { mutableStateOf<List<ReviewRow>>(emptyList()) }
+    var reviewing by remember { mutableStateOf(false) }
+
+    fun save() {
+        val collection = pending ?: return
+        val kept = rows.filterNot { it.removed }.map { it.resolved }
+        val result = ResolveResult(kept)
+        if (result.songs.isEmpty()) {
+            status = context.getString(R.string.spotify_import_none)
+            failed = true
+            pending = null
+            return
+        }
+        onImported(collection, result, privacy)
+        pending = null
+        val missed = result.unmatched
+        if (missed.isEmpty()) onDismiss() else unmatched = missed
+    }
 
     fun start() {
         // YouTube and YouTube Music links need no importing: they already
@@ -120,14 +140,21 @@ fun ImportFromLinkAlert(
                     throw ImportException(ImportException.Reason.UNSUPPORTED)
                 }
                 status = context.getString(R.string.import_link_fetching, importer.service.label)
-                val collection = importer.fetch(url)
+                val collection = ImporterRegistry.fetchWith(importer, url)
                 val result = TrackResolver.Default.resolve(collection.tracks) { done, total ->
                     status = context.getString(R.string.spotify_import_matching, done, total)
                 }
                 if (result.songs.isEmpty()) error(context.getString(R.string.spotify_import_none))
-                onImported(collection, result, privacy)
-                val missed = result.unmatched
-                if (missed.isEmpty()) onDismiss() else unmatched = missed
+                pending = collection
+                rows = result.rows.map { ReviewRow(it) }
+                // Nothing to second-guess, or a single song to play: no stop on the way.
+                // A partial read stops here too, so the listener sees what is missing.
+                val clean = result.rows.none { it.needsReview() } && collection.missingCount == 0
+                if (collection.tracks.size == 1 || clean) {
+                    save()
+                } else {
+                    status = null
+                }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: ImportException) {
@@ -145,6 +172,11 @@ fun ImportFromLinkAlert(
         if (autoStart && link.isNotBlank()) start()
     }
 
+    if (reviewing) {
+        ImportReviewSheet(rows = rows, onChange = { rows = it }, onDone = { reviewing = false })
+        return
+    }
+
     AlertScaffold(hazeState = hazeState, onDismiss = { if (!working) onDismiss() }) {
         Column(
             modifier = Modifier
@@ -159,8 +191,31 @@ fun ImportFromLinkAlert(
                 textAlign = TextAlign.Center,
             )
             val missed = unmatched
+            val matched = pending
             if (missed != null) {
                 UnmatchedList(missed)
+            } else if (matched != null && !working) {
+                val kept = rows.filterNot { it.removed }
+                Text(
+                    text = stringResource(
+                        R.string.import_review_summary,
+                        kept.count { it.resolved.song != null && it.resolved.confident },
+                        kept.count { it.resolved.song != null && !it.resolved.confident },
+                        kept.count { it.resolved.song == null },
+                    ),
+                    modifier = Modifier.padding(top = 4.dp, bottom = 6.dp),
+                    style = MaterialTheme.typography.bodyMedium.copy(fontSize = 13.sp, lineHeight = 17.sp),
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
+                )
+                if (matched.missingCount > 0) {
+                    Text(
+                        text = stringResource(R.string.import_partial, matched.missingCount),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                    )
+                }
             } else {
                 Text(
                     text = status ?: stringResource(
@@ -214,6 +269,19 @@ fun ImportFromLinkAlert(
         AlertRule()
         if (unmatched != null) {
             AlertAction(label = stringResource(R.string.done), emphasised = true, onClick = onDismiss)
+        } else if (pending != null && !working) {
+            val anyToReview = rows.any { it.resolved.needsReview() }
+            if (anyToReview) {
+                AlertAction(
+                    label = stringResource(R.string.import_review_open),
+                    emphasised = true,
+                    onClick = { reviewing = true },
+                )
+                AlertRule()
+            }
+            AlertAction(label = stringResource(R.string.import_review_save), emphasised = !anyToReview, onClick = ::save)
+            AlertRule()
+            AlertAction(label = stringResource(R.string.cancel), emphasised = false, onClick = onDismiss)
         } else {
             AlertAction(
                 label = stringResource(R.string.spotify_import_button),

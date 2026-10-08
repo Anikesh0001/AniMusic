@@ -1282,4 +1282,20 @@
     <string name="clipboard_import_prompt">Impor tautan %1$s yang Anda salin?</string>
     <string name="clipboard_detection_title">Tawarkan impor tautan yang disalin</string>
     <string name="clipboard_detection_subtitle">Saat Anda kembali dengan tautan Spotify, Apple Music, Deezer, atau musik lain yang disalin</string>
+    <string name="import_review_title">Periksa kecocokan</string>
+    <string name="import_review_subtitle">Ketuk lagu untuk memilih versi yang tepat</string>
+    <string name="import_review_retry">Coba lagi yang tidak cocok</string>
+    <string name="import_review_removed">Dihapus dari playlist</string>
+    <string name="import_review_not_found">Tidak ditemukan di YouTube Music</string>
+    <string name="import_review_chosen">✓ %1$s · %2$s</string>
+    <string name="import_review_guess">Tebakan terbaik: %1$s · %2$s</string>
+    <string name="import_review_no_candidates">Tidak ada hasil. Coba cari.</string>
+    <string name="import_review_search">Cari di YouTube Music</string>
+    <string name="import_review_search_button">Cari</string>
+    <string name="import_review_keep">Simpan</string>
+    <string name="import_review_remove">Hapus</string>
+    <string name="import_review_summary">%1$d cocok · %2$d ragu · %3$d tidak ditemukan</string>
+    <string name="import_review_open">Tinjau kecocokan</string>
+    <string name="import_review_save">Simpan playlist</string>
+    <string name="import_partial">%1$d lagu lainnya tidak dapat dibaca dari sumber</string>
 </resources>
