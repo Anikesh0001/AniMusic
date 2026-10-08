@@ -92,6 +92,8 @@ android {
         // posters, the download folder). Resource strings are overridden per
         // flavor instead; see src/animusic/res.
         buildConfigField("String", "BRAND_NAME", "\"BitChord\"")
+        // Where this build's source code is published; the GPLv3 credit links it.
+        buildConfigField("String", "SOURCE_URL", "\"https://github.com/kushagrasinghx/BitChord\"")
         buildConfigField(
             "String",
             "LISTEN_TOGETHER_SERVER",
@@ -139,6 +141,9 @@ android {
             versionName = "1.0.0"
             resValue("string", "app_name", "AniMusic")
             buildConfigField("String", "BRAND_NAME", "\"AniMusic\"")
+            // Upstream for now. Point this at the AniMusic fork once its
+            // modified source is published (GPLv3 §6).
+            buildConfigField("String", "SOURCE_URL", "\"https://github.com/kushagrasinghx/BitChord\"")
         }
     }
 

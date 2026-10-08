@@ -1439,13 +1439,38 @@ fun SettingsScreen(
         if (searchQuery.isBlank()) {
         Text(
             text = buildAnnotatedString {
-                append("bitchord $version  ")
                 val linkStyles = TextLinkStyles(
                     style = SpanStyle(
                         color = MaterialTheme.colorScheme.primary,
                         textDecoration = TextDecoration.Underline,
                     ),
                 )
+                if (com.music.bitchord.BuildConfig.FLAVOR == "animusic") {
+                    // A rebuild of BitChord: GPLv3 asks that it say so, name
+                    // the licence, and point at its source.
+                    append("AniMusic $version  ")
+                    withLink(LinkAnnotation.Url(com.music.bitchord.BuildConfig.SOURCE_URL, linkStyles)) {
+                        append("Source code")
+                    }
+                    append("  ")
+                    withLink(LinkAnnotation.Url("https://www.gnu.org/licenses/gpl-3.0.html", linkStyles)) {
+                        append("License")
+                    }
+                    append("\nAniMusic by Anikesh Kumar · Based on ")
+                    withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx/BitChord", linkStyles)) {
+                        append("BitChord")
+                    }
+                    append(" by ")
+                    withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx", linkStyles)) {
+                        append("Kushagra Singh")
+                    }
+                    append(" · ")
+                    withLink(LinkAnnotation.Url("https://www.gnu.org/licenses/gpl-3.0.html", linkStyles)) {
+                        append("GPLv3")
+                    }
+                    return@buildAnnotatedString
+                }
+                append("bitchord $version  ")
                 withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx/BitChord", linkStyles)) {
                     append("GitHub")
                 }
