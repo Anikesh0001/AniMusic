@@ -752,6 +752,7 @@ object AppSettings {
         this.authStore = authStore
         com.music.bitchord.data.spotify.LocalPlaylistStore.init(context)
         com.music.bitchord.data.importer.ImportSettings.init(context)
+        com.music.bitchord.data.importer.ImportHistoryStore.init(context)
         readAll()
         watchConnection(context)
     }

@@ -150,7 +150,10 @@ import com.music.bitchord.data.settings.AppSettings
 import com.music.bitchord.data.settings.LibrarySort
 import com.music.bitchord.data.settings.ThemeMode
 import com.music.bitchord.ui.components.AccountProfileSelector
+import com.music.bitchord.data.importer.ImportHistoryStore
+import com.music.bitchord.data.importer.ImportSync
 import com.music.bitchord.ui.components.ClipboardImportPrompt
+import com.music.bitchord.ui.components.message
 import com.music.bitchord.ui.components.ImportFromLinkAlert
 import com.music.bitchord.ui.screens.AccountAndScrobblingScreen
 import com.music.bitchord.ui.screens.DiscordDialog
@@ -4417,6 +4420,7 @@ private fun BitChordApp(
             }
         }
 
+        LaunchedEffect(Unit) { ImportSync.autoSyncIfDue() }
         if (!showSpotifyImportDialog) {
             ClipboardImportPrompt(onImport = { url ->
                 importLink = url
@@ -4449,6 +4453,7 @@ private fun BitChordApp(
                         songs.map { it.videoId },
                         songs,
                     ) { browseId, pTitle, savedLocally ->
+                        ImportHistoryStore.record(collection, result, browseId, savedLocally)
                         if (savedLocally && browseId != null) {
                             com.music.bitchord.data.spotify.LocalPlaylistStore.setSource(
                                 browseId,
@@ -4626,6 +4631,17 @@ private fun BitChordApp(
                                 onSuccess = { UiState.Success(it) },
                                 onFailure = { UiState.Error(context.getString(R.string.failed)) },
                             )
+                        }
+                    }
+                },
+                onSyncFromSource = ImportSync.recordFor(target.browseId)?.let { record ->
+                    {
+                        browseActions = null
+                        showQueueNotice(context.getString(R.string.import_sync_started, record.serviceLabel))
+                        scope.launch {
+                            val outcome = ImportSync.sync(record)
+                            showQueueNotice(outcome.message(context, record))
+                            if (outcome is ImportSync.Outcome.Added) record.browseId?.let(viewModel::reloadLocalDetail)
                         }
                     }
                 },

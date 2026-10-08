@@ -1158,4 +1158,11 @@
     <string name="import_review_open">Review matches</string>
     <string name="import_review_save">Save playlist</string>
     <string name="import_partial">%1$d more tracks couldn\'t be read from the source</string>
+    <string name="import_sync">Sync from source</string>
+    <string name="import_sync_started">Syncing from %1$s…</string>
+    <string name="import_sync_added">Added %1$d new songs to ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ is up to date</string>
+    <string name="import_sync_failed">Couldn\'t sync: %1$s</string>
+    <string name="auto_sync_imports_title">Sync imported playlists daily</string>
+    <string name="auto_sync_imports_subtitle">When you open the app, at most once a day, add songs that were added at the source</string>
 </resources>

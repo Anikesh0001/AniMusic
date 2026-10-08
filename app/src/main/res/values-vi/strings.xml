@@ -1238,4 +1238,11 @@
     <string name="import_review_open">Xem lại kết quả khớp</string>
     <string name="import_review_save">Lưu danh sách phát</string>
     <string name="import_partial">Không thể đọc thêm %1$d bài từ nguồn</string>
+    <string name="import_sync">Đồng bộ từ nguồn</string>
+    <string name="import_sync_started">Đang đồng bộ từ %1$s…</string>
+    <string name="import_sync_added">Đã thêm %1$d bài mới vào ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ đã được cập nhật</string>
+    <string name="import_sync_failed">Không thể đồng bộ: %1$s</string>
+    <string name="auto_sync_imports_title">Đồng bộ danh sách phát đã nhập hằng ngày</string>
+    <string name="auto_sync_imports_subtitle">Khi mở ứng dụng, tối đa một lần mỗi ngày, thêm các bài mới từ nguồn</string>
 </resources>

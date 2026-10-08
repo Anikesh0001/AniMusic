@@ -1278,4 +1278,11 @@
     <string name="import_review_open">Eşleşmeleri incele</string>
     <string name="import_review_save">Çalma listesini kaydet</string>
     <string name="import_partial">Kaynaktan %1$d parça daha okunamadı</string>
+    <string name="import_sync">Kaynaktan eşitle</string>
+    <string name="import_sync_started">%1$s ile eşitleniyor…</string>
+    <string name="import_sync_added">‘%2$s’ listesine %1$d yeni şarkı eklendi</string>
+    <string name="import_sync_up_to_date">‘%1$s’ güncel</string>
+    <string name="import_sync_failed">Eşitlenemedi: %1$s</string>
+    <string name="auto_sync_imports_title">İçe aktarılan listeleri her gün eşitle</string>
+    <string name="auto_sync_imports_subtitle">Uygulamayı açtığınızda, günde en fazla bir kez, kaynağa eklenen şarkıları ekler</string>
 </resources>

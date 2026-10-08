@@ -1361,4 +1361,11 @@
     <string name="import_review_open">Przejrzyj dopasowania</string>
     <string name="import_review_save">Zapisz playlistę</string>
     <string name="import_partial">Nie udało się odczytać %1$d kolejnych utworów ze źródła</string>
+    <string name="import_sync">Synchronizuj ze źródłem</string>
+    <string name="import_sync_started">Synchronizacja z %1$s…</string>
+    <string name="import_sync_added">Dodano %1$d nowych utworów do ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ jest aktualna</string>
+    <string name="import_sync_failed">Nie udało się zsynchronizować: %1$s</string>
+    <string name="auto_sync_imports_title">Codziennie synchronizuj zaimportowane playlisty</string>
+    <string name="auto_sync_imports_subtitle">Przy otwarciu aplikacji, najwyżej raz dziennie, dodaje utwory nowe w źródle</string>
 </resources>

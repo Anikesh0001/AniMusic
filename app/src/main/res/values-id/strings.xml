@@ -1298,4 +1298,11 @@
     <string name="import_review_open">Tinjau kecocokan</string>
     <string name="import_review_save">Simpan playlist</string>
     <string name="import_partial">%1$d lagu lainnya tidak dapat dibaca dari sumber</string>
+    <string name="import_sync">Sinkronkan dari sumber</string>
+    <string name="import_sync_started">Menyinkronkan dari %1$s…</string>
+    <string name="import_sync_added">%1$d lagu baru ditambahkan ke ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ sudah terbaru</string>
+    <string name="import_sync_failed">Gagal menyinkronkan: %1$s</string>
+    <string name="auto_sync_imports_title">Sinkronkan playlist impor setiap hari</string>
+    <string name="auto_sync_imports_subtitle">Saat aplikasi dibuka, paling sering sekali sehari, tambahkan lagu baru dari sumber</string>
 </resources>

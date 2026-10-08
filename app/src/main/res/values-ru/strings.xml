@@ -1353,4 +1353,11 @@
     <string name="import_review_open">Проверить совпадения</string>
     <string name="import_review_save">Сохранить плейлист</string>
     <string name="import_partial">Ещё %1$d треков не удалось прочитать из источника</string>
+    <string name="import_sync">Синхронизировать с источником</string>
+    <string name="import_sync_started">Синхронизация с %1$s…</string>
+    <string name="import_sync_added">В ‘%2$s’ добавлено новых треков: %1$d</string>
+    <string name="import_sync_up_to_date">‘%1$s’ уже актуален</string>
+    <string name="import_sync_failed">Не удалось синхронизировать: %1$s</string>
+    <string name="auto_sync_imports_title">Ежедневно синхронизировать импортированные плейлисты</string>
+    <string name="auto_sync_imports_subtitle">При открытии приложения, не чаще раза в день, добавляет новые треки из источника</string>
 </resources>

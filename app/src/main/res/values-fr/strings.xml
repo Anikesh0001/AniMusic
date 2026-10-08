@@ -1322,4 +1322,11 @@
     <string name="import_review_open">Vérifier les correspondances</string>
     <string name="import_review_save">Enregistrer la playlist</string>
     <string name="import_partial">%1$d autres titres n\'ont pas pu être lus depuis la source</string>
+    <string name="import_sync">Synchroniser depuis la source</string>
+    <string name="import_sync_started">Synchronisation depuis %1$s…</string>
+    <string name="import_sync_added">%1$d nouveaux titres ajoutés à ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ est à jour</string>
+    <string name="import_sync_failed">Échec de la synchronisation : %1$s</string>
+    <string name="auto_sync_imports_title">Synchroniser les playlists importées chaque jour</string>
+    <string name="auto_sync_imports_subtitle">À l\'ouverture de l\'appli, une fois par jour au plus, ajoute les titres ajoutés à la source</string>
 </resources>

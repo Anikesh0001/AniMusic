@@ -38,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.music.bitchord.R
 import com.music.bitchord.data.importer.ImportException
+import com.music.bitchord.data.importer.ImportRecord
+import com.music.bitchord.data.importer.ImportSync
 import com.music.bitchord.data.importer.ImportService
 import com.music.bitchord.data.importer.ImportTrack
 import com.music.bitchord.data.importer.ImportUrls
@@ -329,6 +331,16 @@ fun ImportException.Reason.message(context: Context): String = context.getString
         ImportException.Reason.PARSE -> R.string.import_error_parse
     },
 )
+
+/** The notice a finished "Sync from source" leaves. */
+fun ImportSync.Outcome.message(context: Context, record: ImportRecord): String = when (this) {
+    is ImportSync.Outcome.Added -> context.getString(R.string.import_sync_added, added, record.title)
+    ImportSync.Outcome.UpToDate -> context.getString(R.string.import_sync_up_to_date, record.title)
+    is ImportSync.Outcome.Failed -> context.getString(
+        R.string.import_sync_failed,
+        reason?.message(context) ?: context.getString(R.string.failed),
+    )
+}
 
 @Composable
 internal fun UnmatchedList(missed: List<ImportTrack>) {

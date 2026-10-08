@@ -34,6 +34,7 @@ import androidx.compose.material.icons.automirrored.rounded.VolumeOff
 import androidx.compose.material.icons.rounded.Animation
 import androidx.compose.material.icons.rounded.BarChart
 import androidx.compose.material.icons.rounded.ContentPaste
+import androidx.compose.material.icons.rounded.Sync
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.BlurOff
 import androidx.compose.material.icons.rounded.BlurOn
@@ -263,6 +264,8 @@ fun SettingsScreen(
 
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
     val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
+        .collectAsStateWithLifecycle()
+    val autoSyncImports by com.music.bitchord.data.importer.ImportSettings.autoSyncDaily
         .collectAsStateWithLifecycle()
 
     // Read here so the row can say "In a party · ABC123" rather than making
@@ -1240,6 +1243,27 @@ fun SettingsScreen(
                     },
                     onClick = {
                         com.music.bitchord.data.importer.ImportSettings.setClipboardDetection(!clipboardImport)
+                    },
+                )
+            }
+            val autoSyncTitle = stringResource(R.string.auto_sync_imports_title)
+            row(autoSyncTitle, "sync", "import", "playlist") {
+                SettingsRow(
+                    icon = Icons.Rounded.Sync,
+                    title = autoSyncTitle,
+                    subtitle = stringResource(R.string.auto_sync_imports_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = autoSyncImports,
+                            onCheckedChange = com.music.bitchord.data.importer.ImportSettings::setAutoSyncDaily,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = {
+                        com.music.bitchord.data.importer.ImportSettings.setAutoSyncDaily(!autoSyncImports)
                     },
                 )
             }

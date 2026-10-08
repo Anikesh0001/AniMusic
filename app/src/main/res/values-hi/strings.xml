@@ -1321,4 +1321,11 @@
     <string name="import_review_open">मिलान देखें</string>
     <string name="import_review_save">प्लेलिस्ट सेव करें</string>
     <string name="import_partial">स्रोत से %1$d और गाने पढ़े नहीं जा सके</string>
+    <string name="import_sync">स्रोत से सिंक करें</string>
+    <string name="import_sync_started">%1$s से सिंक हो रहा है…</string>
+    <string name="import_sync_added">‘%2$s’ में %1$d नए गाने जोड़े गए</string>
+    <string name="import_sync_up_to_date">‘%1$s’ अप-टू-डेट है</string>
+    <string name="import_sync_failed">सिंक नहीं हो सका: %1$s</string>
+    <string name="auto_sync_imports_title">इम्पोर्ट की गई प्लेलिस्ट रोज़ सिंक करें</string>
+    <string name="auto_sync_imports_subtitle">ऐप खोलने पर, दिन में ज़्यादा से ज़्यादा एक बार, स्रोत में जुड़े नए गाने जोड़ें</string>
 </resources>

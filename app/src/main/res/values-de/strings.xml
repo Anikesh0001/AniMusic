@@ -1321,4 +1321,11 @@
     <string name="import_review_open">Treffer prüfen</string>
     <string name="import_review_save">Playlist speichern</string>
     <string name="import_partial">%1$d weitere Titel konnten nicht von der Quelle gelesen werden</string>
+    <string name="import_sync">Von der Quelle synchronisieren</string>
+    <string name="import_sync_started">Wird von %1$s synchronisiert…</string>
+    <string name="import_sync_added">%1$d neue Songs zu ‘%2$s’ hinzugefügt</string>
+    <string name="import_sync_up_to_date">‘%1$s’ ist aktuell</string>
+    <string name="import_sync_failed">Synchronisierung fehlgeschlagen: %1$s</string>
+    <string name="auto_sync_imports_title">Importierte Playlists täglich synchronisieren</string>
+    <string name="auto_sync_imports_subtitle">Fügt beim Öffnen der App höchstens einmal täglich Songs hinzu, die an der Quelle neu sind</string>
 </resources>

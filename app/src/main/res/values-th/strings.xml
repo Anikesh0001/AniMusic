@@ -1304,4 +1304,11 @@
     <string name="import_review_open">ตรวจทานการจับคู่</string>
     <string name="import_review_save">บันทึกเพลย์ลิสต์</string>
     <string name="import_partial">อ่านเพลงอีก %1$d เพลงจากต้นทางไม่ได้</string>
+    <string name="import_sync">ซิงค์จากต้นทาง</string>
+    <string name="import_sync_started">กำลังซิงค์จาก %1$s…</string>
+    <string name="import_sync_added">เพิ่มเพลงใหม่ %1$d เพลงใน ‘%2$s’ แล้ว</string>
+    <string name="import_sync_up_to_date">‘%1$s’ เป็นปัจจุบันแล้ว</string>
+    <string name="import_sync_failed">ซิงค์ไม่สำเร็จ: %1$s</string>
+    <string name="auto_sync_imports_title">ซิงค์เพลย์ลิสต์ที่นำเข้าทุกวัน</string>
+    <string name="auto_sync_imports_subtitle">เมื่อเปิดแอป อย่างมากวันละครั้ง จะเพิ่มเพลงที่เพิ่มในต้นทาง</string>
 </resources>

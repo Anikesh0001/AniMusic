@@ -1260,4 +1260,11 @@
     <string name="import_review_open">Rivedi le corrispondenze</string>
     <string name="import_review_save">Salva playlist</string>
     <string name="import_partial">Non è stato possibile leggere altri %1$d brani dalla fonte</string>
+    <string name="import_sync">Sincronizza dalla fonte</string>
+    <string name="import_sync_started">Sincronizzazione da %1$s…</string>
+    <string name="import_sync_added">Aggiunti %1$d nuovi brani a ‘%2$s’</string>
+    <string name="import_sync_up_to_date">‘%1$s’ è aggiornata</string>
+    <string name="import_sync_failed">Sincronizzazione non riuscita: %1$s</string>
+    <string name="auto_sync_imports_title">Sincronizza ogni giorno le playlist importate</string>
+    <string name="auto_sync_imports_subtitle">All\'apertura dell\'app, al massimo una volta al giorno, aggiunge i brani nuovi della fonte</string>
 </resources>

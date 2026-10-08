@@ -1299,4 +1299,11 @@
     <string name="import_review_open">照合を見直す</string>
     <string name="import_review_save">プレイリストを保存</string>
     <string name="import_partial">ほか %1$d 曲は取得元から読み込めませんでした</string>
+    <string name="import_sync">取得元から同期</string>
+    <string name="import_sync_started">%1$s から同期中…</string>
+    <string name="import_sync_added">‘%2$s’ に新しい曲を %1$d 曲追加しました</string>
+    <string name="import_sync_up_to_date">‘%1$s’ は最新です</string>
+    <string name="import_sync_failed">同期できませんでした: %1$s</string>
+    <string name="auto_sync_imports_title">インポートしたプレイリストを毎日同期</string>
+    <string name="auto_sync_imports_subtitle">アプリを開いたとき（1日1回まで）、取得元に追加された曲を追加します</string>
 </resources>
