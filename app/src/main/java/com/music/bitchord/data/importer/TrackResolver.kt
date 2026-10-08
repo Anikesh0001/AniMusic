@@ -65,7 +65,10 @@ class TrackResolver(
         val found = groups.map { (_, members) ->
             async(Dispatchers.IO) {
                 val match = gate.withPermit { match(members.first().value) }
-                onProgress(done.addAndGet(members.size), total)
+                // Serialised, so the count a listener sees only ever rises:
+                // two workers finishing together must not leave "2 of 3"
+                // standing after "3 of 3".
+                synchronized(done) { onProgress(done.addAndGet(members.size), total) }
                 members.map { it.index to match.copy(track = it.value) }
             }
         }.awaitAll().flatten().sortedBy { it.first }.map { it.second }
