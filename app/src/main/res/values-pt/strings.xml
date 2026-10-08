@@ -1378,4 +1378,9 @@
     <string name="export_share">Compartilhar</string>
     <string name="export_save">Salvar em arquivo</string>
     <string name="export_playlist_failed">Não foi possível exportar a playlist.</string>
+    <string name="incognito_title">Ouvir no modo anônimo</string>
+    <string name="incognito_subtitle">Pausa o histórico de reprodução, o Replay, o histórico de pesquisa e o scrobbling (Last.fm, ListenBrainz, histórico do YouTube) enquanto estiver ativado</string>
+    <string name="incognito_short">Anônimo</string>
+    <string name="incognito_indicator">O modo anônimo está ativado. Toque para desativar.</string>
+    <string name="incognito_off_notice">Modo anônimo desativado. O que você ouve volta a ser registrado.</string>
 </resources>

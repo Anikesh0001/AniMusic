@@ -1405,4 +1405,9 @@
     <string name="export_share">Поделиться</string>
     <string name="export_save">Сохранить в файл</string>
     <string name="export_playlist_failed">Не удалось экспортировать плейлист.</string>
+    <string name="incognito_title">Режим инкогнито</string>
+    <string name="incognito_subtitle">Пока включено, не ведётся история прослушиваний, Replay, история поиска и скробблинг (Last.fm, ListenBrainz, история YouTube)</string>
+    <string name="incognito_short">Инкогнито</string>
+    <string name="incognito_indicator">Режим инкогнито включён. Нажмите, чтобы выключить.</string>
+    <string name="incognito_off_notice">Инкогнито выключено. Прослушивания снова записываются.</string>
 </resources>

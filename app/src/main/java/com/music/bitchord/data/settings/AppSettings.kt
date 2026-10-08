@@ -625,6 +625,15 @@ object AppSettings {
     val listenBrainzEnabled = MutableStateFlow(false)
     val listenBrainzToken = MutableStateFlow("")
     val listenBrainzPrimaryArtistOnly = MutableStateFlow(false)
+
+    /**
+     * Incognito listening: while on, nothing played is written down anywhere —
+     * not the local listening history and Replay ([ListeningStats]), not
+     * Last.fm or ListenBrainz, not the YouTube account's history, not search
+     * history. Playback itself is untouched. Kept across restarts, and shown
+     * in the top bar the whole time it is on, so it is never on by surprise.
+     */
+    val incognitoMode = MutableStateFlow(false)
     val spotifySpdcToken = MutableStateFlow("")
 
     // ── Discord Rich Presence ───────────────────────────────────────────
@@ -878,6 +887,7 @@ object AppSettings {
         listenBrainzEnabled.value = prefs.getBoolean(KEY_LISTENBRAINZ_ENABLED, false)
         listenBrainzToken.value = prefs.getString(KEY_LISTENBRAINZ_TOKEN, "").orEmpty()
         listenBrainzPrimaryArtistOnly.value = prefs.getBoolean(KEY_LISTENBRAINZ_PRIMARY_ARTIST_ONLY, false)
+        incognitoMode.value = prefs.getBoolean(KEY_INCOGNITO_MODE, false)
         spotifySpdcToken.value = prefs.getString(KEY_SPOTIFY_SPDC_TOKEN, "").orEmpty()
         replayGenres.value = prefs.getBoolean(KEY_REPLAY_GENRES, true)
         filterNonMusicAudio.value = prefs.getBoolean(KEY_FILTER_NON_MUSIC_AUDIO, true)
@@ -1537,6 +1547,11 @@ object AppSettings {
         prefs.edit().putString(KEY_LISTENBRAINZ_TOKEN, value).apply()
     }
 
+    fun setIncognitoMode(value: Boolean) {
+        incognitoMode.value = value
+        prefs.edit().putBoolean(KEY_INCOGNITO_MODE, value).apply()
+    }
+
     fun setListenBrainzPrimaryArtistOnly(value: Boolean) {
         listenBrainzPrimaryArtistOnly.value = value
         prefs.edit().putBoolean(KEY_LISTENBRAINZ_PRIMARY_ARTIST_ONLY, value).apply()
@@ -2012,6 +2027,7 @@ object AppSettings {
     private const val KEY_LISTENBRAINZ_ENABLED = "listenbrainz_enabled"
     private const val KEY_LISTENBRAINZ_TOKEN = "listenbrainz_token"
     private const val KEY_LISTENBRAINZ_PRIMARY_ARTIST_ONLY = "listenbrainz_primary_artist_only"
+    private const val KEY_INCOGNITO_MODE = "incognito_mode"
     private const val KEY_SPOTIFY_SPDC_TOKEN = "spotify_spdc_token"
 
     private const val KEY_DISCORD_USERNAME = "discord_username"

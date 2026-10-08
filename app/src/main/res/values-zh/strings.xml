@@ -1350,4 +1350,9 @@
     <string name="export_share">分享</string>
     <string name="export_save">保存为文件</string>
     <string name="export_playlist_failed">无法导出歌单。</string>
+    <string name="incognito_title">无痕收听</string>
+    <string name="incognito_subtitle">开启期间暂停收听记录、Replay、搜索记录和 Scrobble（Last.fm、ListenBrainz、YouTube 记录）</string>
+    <string name="incognito_short">无痕</string>
+    <string name="incognito_indicator">无痕收听已开启，点按可关闭。</string>
+    <string name="incognito_off_notice">已关闭无痕模式，将重新记录收听内容。</string>
 </resources>

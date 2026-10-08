@@ -20,7 +20,7 @@ object ListenBrainzManager {
         durationMsOverride: Long? = null,
         primaryArtistOnly: Boolean = false,
     ): Boolean {
-        if (token.isBlank() || song == null) return false
+        if (token.isBlank() || song == null || com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return false
         return withContext(Dispatchers.IO) {
             try {
                 val durationMs = durationMsOverride ?: parseDurationMs(song.durationText)
@@ -67,7 +67,8 @@ object ListenBrainzManager {
         durationMsOverride: Long? = null,
         primaryArtistOnly: Boolean = false,
     ): Boolean {
-        if (token.isBlank() || song == null) return false
+        // Incognito: every submit path ends here, the one in onDestroy included.
+        if (token.isBlank() || song == null || com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return false
         return withContext(Dispatchers.IO) {
             try {
                 val durationMs = durationMsOverride ?: parseDurationMs(song.durationText)

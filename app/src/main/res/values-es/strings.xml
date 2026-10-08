@@ -1345,4 +1345,9 @@
     <string name="export_share">Compartir</string>
     <string name="export_save">Guardar en archivo</string>
     <string name="export_playlist_failed">No se pudo exportar la lista.</string>
+    <string name="incognito_title">Escucha en modo incógnito</string>
+    <string name="incognito_subtitle">Pausa el historial de escucha, Replay, el historial de búsqueda y el scrobbling (Last.fm, ListenBrainz, historial de YouTube) mientras está activado</string>
+    <string name="incognito_short">Incógnito</string>
+    <string name="incognito_indicator">La escucha en incógnito está activada. Toca para desactivarla.</string>
+    <string name="incognito_off_notice">Incógnito desactivado. Se vuelve a registrar lo que escuchas.</string>
 </resources>

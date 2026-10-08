@@ -1290,4 +1290,9 @@
     <string name="export_share">Chia sẻ</string>
     <string name="export_save">Lưu thành tệp</string>
     <string name="export_playlist_failed">Không thể xuất danh sách phát.</string>
+    <string name="incognito_title">Nghe ẩn danh</string>
+    <string name="incognito_subtitle">Tạm dừng lịch sử nghe, Replay, lịch sử tìm kiếm và scrobble (Last.fm, ListenBrainz, lịch sử YouTube) khi đang bật</string>
+    <string name="incognito_short">Ẩn danh</string>
+    <string name="incognito_indicator">Đang bật nghe ẩn danh. Chạm để tắt.</string>
+    <string name="incognito_off_notice">Đã tắt ẩn danh. Lịch sử nghe được ghi lại.</string>
 </resources>

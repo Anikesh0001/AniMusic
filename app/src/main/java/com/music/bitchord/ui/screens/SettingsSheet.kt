@@ -35,6 +35,7 @@ import androidx.compose.material.icons.rounded.Animation
 import androidx.compose.material.icons.rounded.BarChart
 import androidx.compose.material.icons.rounded.ContentPaste
 import androidx.compose.material.icons.rounded.Sync
+import androidx.compose.material.icons.rounded.VisibilityOff
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.BlurOff
 import androidx.compose.material.icons.rounded.BlurOn
@@ -263,6 +264,7 @@ fun SettingsScreen(
     val listenBrainzToken by AppSettings.listenBrainzToken.collectAsStateWithLifecycle()
 
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
+    val incognito by AppSettings.incognitoMode.collectAsStateWithLifecycle()
     val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
         .collectAsStateWithLifecycle()
     val autoSyncImports by com.music.bitchord.data.importer.ImportSettings.autoSyncDaily
@@ -1175,6 +1177,25 @@ fun SettingsScreen(
         }
 
         SearchableSettingsGroup(search, header = stringResource(R.string.your_data)) {
+            val incognitoTitle = stringResource(R.string.incognito_title)
+            row(incognitoTitle, "incognito", "private", "history", "scrobble", "replay") {
+                SettingsRow(
+                    icon = Icons.Rounded.VisibilityOff,
+                    title = incognitoTitle,
+                    subtitle = stringResource(R.string.incognito_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = incognito,
+                            onCheckedChange = AppSettings::setIncognitoMode,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = { AppSettings.setIncognitoMode(!incognito) },
+                )
+            }
             val replayTitle = stringResource(R.string.replay)
             row(replayTitle, "stats", "history", "wrapped") {
                 SettingsRow(

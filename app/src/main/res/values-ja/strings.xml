@@ -1351,4 +1351,9 @@
     <string name="export_share">共有</string>
     <string name="export_save">ファイルに保存</string>
     <string name="export_playlist_failed">プレイリストを書き出せませんでした。</string>
+    <string name="incognito_title">シークレットで聴く</string>
+    <string name="incognito_subtitle">オンの間、再生履歴・Replay・検索履歴・Scrobble（Last.fm、ListenBrainz、YouTube の履歴）を停止します</string>
+    <string name="incognito_short">シークレット</string>
+    <string name="incognito_indicator">シークレットで聴くがオンです。タップでオフにします。</string>
+    <string name="incognito_off_notice">シークレットをオフにしました。再生が再び記録されます。</string>
 </resources>

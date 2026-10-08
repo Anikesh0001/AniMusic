@@ -1350,4 +1350,9 @@
     <string name="export_share">Bagikan</string>
     <string name="export_save">Simpan ke file</string>
     <string name="export_playlist_failed">Tidak dapat mengekspor playlist.</string>
+    <string name="incognito_title">Mendengarkan dalam mode penyamaran</string>
+    <string name="incognito_subtitle">Menjeda riwayat dengar, Replay, riwayat pencarian, dan scrobbling (Last.fm, ListenBrainz, riwayat YouTube) selama aktif</string>
+    <string name="incognito_short">Penyamaran</string>
+    <string name="incognito_indicator">Mode penyamaran aktif. Ketuk untuk menonaktifkan.</string>
+    <string name="incognito_off_notice">Penyamaran nonaktif. Musik yang didengar dicatat lagi.</string>
 </resources>

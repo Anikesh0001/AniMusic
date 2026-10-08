@@ -70,6 +70,7 @@ import androidx.compose.material.icons.rounded.IosShare
 import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Sort
 import androidx.compose.material.icons.rounded.Upgrade
+import androidx.compose.material.icons.rounded.VisibilityOff
 import com.music.bitchord.data.listentogether.ServerConnectionState
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -100,6 +101,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.focus.FocusRequester
@@ -711,6 +713,8 @@ private fun BitChordApp(
      * them made the top bar look like it had caught something the app hadn't.
      */
     val updateNotice = updateAvailable
+    // Shown in the top bar on every screen while it is on: see AppSettings.incognitoMode.
+    val incognito by AppSettings.incognitoMode.collectAsStateWithLifecycle()
 
     LaunchedEffect(updateNotice) {
         if (updateNotice != null && !updateDialogShown) {
@@ -3592,6 +3596,37 @@ private fun BitChordApp(
                                         )
                                     }
                                 }
+                            }
+                        }
+                        // Incognito is on: said on every screen, so it is never on
+                        // by surprise. Tapping it is the quickest way back.
+                        if (incognito) {
+                            val incognitoOff = stringResource(R.string.incognito_off_notice)
+                            Row(
+                                modifier = Modifier
+                                    .padding(horizontal = 4.dp)
+                                    .clip(RoundedCornerShape(percent = 50))
+                                    .background(MaterialTheme.colorScheme.tertiaryContainer)
+                                    .clickable {
+                                        AppSettings.setIncognitoMode(false)
+                                        showQueueNotice(incognitoOff)
+                                    }
+                                    .padding(horizontal = 10.dp, vertical = 6.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Icon(
+                                    Icons.Rounded.VisibilityOff,
+                                    contentDescription = stringResource(R.string.incognito_indicator),
+                                    tint = MaterialTheme.colorScheme.onTertiaryContainer,
+                                    modifier = Modifier.size(16.dp),
+                                )
+                                Spacer(Modifier.width(5.dp))
+                                Text(
+                                    text = stringResource(R.string.incognito_short),
+                                    style = MaterialTheme.typography.labelMedium,
+                                    color = MaterialTheme.colorScheme.onTertiaryContainer,
+                                    maxLines = 1,
+                                )
                             }
                         }
                         // Only worth surfacing where there's room for it and it won't

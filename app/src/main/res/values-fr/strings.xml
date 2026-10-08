@@ -1374,4 +1374,9 @@
     <string name="export_share">Partager</string>
     <string name="export_save">Enregistrer dans un fichier</string>
     <string name="export_playlist_failed">Impossible d\'exporter la playlist.</string>
+    <string name="incognito_title">Écoute en navigation privée</string>
+    <string name="incognito_subtitle">Met en pause l\'historique d\'écoute, Replay, l\'historique de recherche et le scrobbling (Last.fm, ListenBrainz, historique YouTube) tant qu\'elle est activée</string>
+    <string name="incognito_short">Privé</string>
+    <string name="incognito_indicator">L\'écoute privée est activée. Touchez pour la désactiver.</string>
+    <string name="incognito_off_notice">Mode privé désactivé. L\'écoute est de nouveau enregistrée.</string>
 </resources>

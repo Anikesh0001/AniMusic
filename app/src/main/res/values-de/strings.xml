@@ -1373,4 +1373,9 @@
     <string name="export_share">Teilen</string>
     <string name="export_save">Als Datei speichern</string>
     <string name="export_playlist_failed">Die Playlist konnte nicht exportiert werden.</string>
+    <string name="incognito_title">Inkognito-Hören</string>
+    <string name="incognito_subtitle">Pausiert Wiedergabeverlauf, Replay, Suchverlauf und Scrobbling (Last.fm, ListenBrainz, YouTube-Verlauf), solange es aktiv ist</string>
+    <string name="incognito_short">Inkognito</string>
+    <string name="incognito_indicator">Inkognito-Hören ist an. Tippe, um es auszuschalten.</string>
+    <string name="incognito_off_notice">Inkognito aus. Gehörtes wird wieder erfasst.</string>
 </resources>

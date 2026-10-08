@@ -82,7 +82,9 @@ object ListeningRecorder {
         val counts = !playCounted && playedThisTrack >= threshold
         if (counts) playCounted = true
 
-        ListeningStats.record(enriched(song), step, counts)
+        // Incognito: the clock above still runs, so turning it off mid-track
+        // carries on from here rather than crediting the incognito stretch.
+        if (!com.music.bitchord.data.settings.AppSettings.incognitoMode.value) ListeningStats.record(enriched(song), step, counts)
 
         if (++samplesSinceFlush >= FLUSH_EVERY) {
             samplesSinceFlush = 0

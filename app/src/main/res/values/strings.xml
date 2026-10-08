@@ -1210,4 +1210,9 @@
     <string name="export_share">Share</string>
     <string name="export_save">Save to file</string>
     <string name="export_playlist_failed">Couldn\'t export the playlist.</string>
+    <string name="incognito_title">Incognito listening</string>
+    <string name="incognito_subtitle">Pauses listening history, Replay, search history and scrobbling (Last.fm, ListenBrainz, YouTube history) while it\'s on</string>
+    <string name="incognito_short">Incognito</string>
+    <string name="incognito_indicator">Incognito listening is on. Tap to turn it off.</string>
+    <string name="incognito_off_notice">Incognito off. Listening is recorded again.</string>
 </resources>

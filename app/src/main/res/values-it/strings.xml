@@ -1312,4 +1312,9 @@
     <string name="export_share">Condividi</string>
     <string name="export_save">Salva su file</string>
     <string name="export_playlist_failed">Impossibile esportare la playlist.</string>
+    <string name="incognito_title">Ascolto in incognito</string>
+    <string name="incognito_subtitle">Sospende cronologia d\'ascolto, Replay, cronologia delle ricerche e scrobbling (Last.fm, ListenBrainz, cronologia YouTube) finché è attivo</string>
+    <string name="incognito_short">Incognito</string>
+    <string name="incognito_indicator">L\'ascolto in incognito è attivo. Tocca per disattivarlo.</string>
+    <string name="incognito_off_notice">Incognito disattivato. L\'ascolto viene di nuovo registrato.</string>
 </resources>

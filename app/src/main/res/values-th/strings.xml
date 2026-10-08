@@ -1356,4 +1356,9 @@
     <string name="export_share">แชร์</string>
     <string name="export_save">บันทึกเป็นไฟล์</string>
     <string name="export_playlist_failed">ส่งออกเพลย์ลิสต์ไม่ได้</string>
+    <string name="incognito_title">ฟังแบบไม่ระบุตัวตน</string>
+    <string name="incognito_subtitle">หยุดบันทึกประวัติการฟัง Replay ประวัติการค้นหา และการ Scrobble (Last.fm, ListenBrainz, ประวัติ YouTube) ขณะเปิดอยู่</string>
+    <string name="incognito_short">ไม่ระบุตัวตน</string>
+    <string name="incognito_indicator">เปิดการฟังแบบไม่ระบุตัวตนอยู่ แตะเพื่อปิด</string>
+    <string name="incognito_off_notice">ปิดโหมดไม่ระบุตัวตนแล้ว การฟังจะถูกบันทึกอีกครั้ง</string>
 </resources>

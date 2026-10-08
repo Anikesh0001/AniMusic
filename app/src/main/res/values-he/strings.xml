@@ -1378,4 +1378,9 @@
     <string name="export_share">שיתוף</string>
     <string name="export_save">שמירה לקובץ</string>
     <string name="export_playlist_failed">לא ניתן לייצא את הפלייליסט.</string>
+    <string name="incognito_title">האזנה בגלישה בסתר</string>
+    <string name="incognito_subtitle">משהה את היסטוריית ההאזנה, Replay, היסטוריית החיפוש והסקרובלינג (Last.fm, ListenBrainz, היסטוריית YouTube) כל עוד הוא פעיל</string>
+    <string name="incognito_short">בסתר</string>
+    <string name="incognito_indicator">האזנה בסתר פעילה. הקישו כדי לכבות.</string>
+    <string name="incognito_off_notice">מצב בסתר כבוי. ההאזנה נרשמת שוב.</string>
 </resources>

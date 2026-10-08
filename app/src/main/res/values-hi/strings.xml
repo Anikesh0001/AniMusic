@@ -1373,4 +1373,9 @@
     <string name="export_share">शेयर करें</string>
     <string name="export_save">फ़ाइल में सेव करें</string>
     <string name="export_playlist_failed">प्लेलिस्ट एक्सपोर्ट नहीं हो सकी।</string>
+    <string name="incognito_title">इनकॉग्निटो सुनना</string>
+    <string name="incognito_subtitle">चालू रहने तक सुनने का इतिहास, Replay, खोज इतिहास और स्क्रॉबलिंग (Last.fm, ListenBrainz, YouTube इतिहास) रोक देता है</string>
+    <string name="incognito_short">इनकॉग्निटो</string>
+    <string name="incognito_indicator">इनकॉग्निटो सुनना चालू है। बंद करने के लिए टैप करें।</string>
+    <string name="incognito_off_notice">इनकॉग्निटो बंद। सुनना फिर से रिकॉर्ड होगा।</string>
 </resources>

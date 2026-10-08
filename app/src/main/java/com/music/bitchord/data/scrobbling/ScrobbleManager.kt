@@ -115,6 +115,9 @@ class ScrobbleManager(
     }
 
     private fun scrobbleSong(song: Song, durationSeconds: Int) {
+        // Checked when the scrobble fires, not when it was scheduled, so a
+        // track that started before Incognito went on is not sent either.
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
         val scrobbleArtist = song.artist.forScrobble()
         scope.launch {
             LastFM
@@ -134,6 +137,7 @@ class ScrobbleManager(
     }
 
     private fun updateNowPlaying(song: Song) {
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
         val scrobbleArtist = song.artist.forScrobble()
         scope.launch {
             LastFM

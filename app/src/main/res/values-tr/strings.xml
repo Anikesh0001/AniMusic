@@ -1330,4 +1330,9 @@
     <string name="export_share">Paylaş</string>
     <string name="export_save">Dosyaya kaydet</string>
     <string name="export_playlist_failed">Çalma listesi dışa aktarılamadı.</string>
+    <string name="incognito_title">Gizli dinleme</string>
+    <string name="incognito_subtitle">Açıkken dinleme geçmişini, Replay\'i, arama geçmişini ve scrobble\'ı (Last.fm, ListenBrainz, YouTube geçmişi) duraklatır</string>
+    <string name="incognito_short">Gizli</string>
+    <string name="incognito_indicator">Gizli dinleme açık. Kapatmak için dokunun.</string>
+    <string name="incognito_off_notice">Gizli mod kapalı. Dinlediklerin yeniden kaydediliyor.</string>
 </resources>

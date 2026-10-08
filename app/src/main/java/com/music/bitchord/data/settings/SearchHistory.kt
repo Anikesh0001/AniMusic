@@ -58,6 +58,7 @@ object SearchHistory {
      * Matching is by id so re-tapping an existing entity updates its timestamp.
      */
     fun record(entity: SearchHistoryEntity) {
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
         val deduped = _recent.value.filterNot { it.id.equals(entity.id, ignoreCase = true) }
         save((listOf(entity) + deduped).take(MAX_ENTRIES))
     }

@@ -112,6 +112,9 @@ object PlaybackTracker {
      */
     fun onPlaying(videoId: String) {
         if (!VIDEO_ID.matches(videoId)) return
+        // Incognito: the play is not opened on the account, so neither it nor
+        // its watch-time pings reach YouTube history.
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
         if (Innertube.cookie == null) return
         // A downloaded track plays perfectly well with the radio off — the
         // whole point of downloading it — so this is the one place that has
@@ -155,6 +158,8 @@ object PlaybackTracker {
      * [REPORT_INTERVAL_SECONDS] of new audio.
      */
     fun onProgress(videoId: String, positionSeconds: Long) {
+        // Incognito switched on mid-track: stop reporting the open session too.
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
         val current = session ?: return
         if (current.videoId != videoId) return
         if (!current.atrSent && positionSeconds >= current.tracking.atrAfterSeconds) {

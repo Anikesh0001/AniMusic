@@ -1413,4 +1413,9 @@
     <string name="export_share">Udostępnij</string>
     <string name="export_save">Zapisz do pliku</string>
     <string name="export_playlist_failed">Nie udało się wyeksportować playlisty.</string>
+    <string name="incognito_title">Słuchanie incognito</string>
+    <string name="incognito_subtitle">Wstrzymuje historię słuchania, Replay, historię wyszukiwania i scrobbling (Last.fm, ListenBrainz, historia YouTube), dopóki jest włączone</string>
+    <string name="incognito_short">Incognito</string>
+    <string name="incognito_indicator">Słuchanie incognito jest włączone. Dotknij, aby wyłączyć.</string>
+    <string name="incognito_off_notice">Incognito wyłączone. Słuchanie jest znów zapisywane.</string>
 </resources>
