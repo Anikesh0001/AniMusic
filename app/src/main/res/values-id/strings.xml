@@ -1279,4 +1279,7 @@
     <string name="import_error_network">Tidak dapat menghubungi layanan. Periksa koneksi Anda.</string>
     <string name="import_error_rate_limited">Layanan sedang sibuk. Coba lagi sebentar lagi.</string>
     <string name="import_error_parse">Tidak dapat membaca halaman itu. Layanan mungkin telah mengubahnya.</string>
+    <string name="clipboard_import_prompt">Impor tautan %1$s yang Anda salin?</string>
+    <string name="clipboard_detection_title">Tawarkan impor tautan yang disalin</string>
+    <string name="clipboard_detection_subtitle">Saat Anda kembali dengan tautan Spotify, Apple Music, Deezer, atau musik lain yang disalin</string>
 </resources>

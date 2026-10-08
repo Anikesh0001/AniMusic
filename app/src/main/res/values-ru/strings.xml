@@ -1334,4 +1334,7 @@
     <string name="import_error_network">Не удалось связаться с сервисом. Проверьте подключение.</string>
     <string name="import_error_rate_limited">Сервис занят. Повторите попытку через минуту.</string>
     <string name="import_error_parse">Не удалось прочитать страницу. Возможно, сервис её изменил.</string>
+    <string name="clipboard_import_prompt">Импортировать скопированную ссылку %1$s?</string>
+    <string name="clipboard_detection_title">Предлагать импорт скопированных ссылок</string>
+    <string name="clipboard_detection_subtitle">Когда вы возвращаетесь со скопированной ссылкой из Spotify, Apple Music, Deezer и других</string>
 </resources>

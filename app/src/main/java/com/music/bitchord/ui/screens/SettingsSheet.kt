@@ -33,6 +33,7 @@ import androidx.compose.material.icons.automirrored.rounded.Notes
 import androidx.compose.material.icons.automirrored.rounded.VolumeOff
 import androidx.compose.material.icons.rounded.Animation
 import androidx.compose.material.icons.rounded.BarChart
+import androidx.compose.material.icons.rounded.ContentPaste
 import androidx.compose.material.icons.rounded.AutoAwesome
 import androidx.compose.material.icons.rounded.BlurOff
 import androidx.compose.material.icons.rounded.BlurOn
@@ -261,6 +262,8 @@ fun SettingsScreen(
     val listenBrainzToken by AppSettings.listenBrainzToken.collectAsStateWithLifecycle()
 
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
+    val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
+        .collectAsStateWithLifecycle()
 
     // Read here so the row can say "In a party · ABC123" rather than making
     // somebody open the screen to find out whether they are still in one.
@@ -1217,6 +1220,27 @@ fun SettingsScreen(
                     title = importDataTitle,
                     subtitle = importStatus ?: stringResource(R.string.import_data_subtitle),
                     onClick = { confirmImport = true },
+                )
+            }
+            val clipboardImportTitle = stringResource(R.string.clipboard_detection_title)
+            row(clipboardImportTitle, "clipboard", "import", "spotify", "link") {
+                SettingsRow(
+                    icon = Icons.Rounded.ContentPaste,
+                    title = clipboardImportTitle,
+                    subtitle = stringResource(R.string.clipboard_detection_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = clipboardImport,
+                            onCheckedChange = com.music.bitchord.data.importer.ImportSettings::setClipboardDetection,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = {
+                        com.music.bitchord.data.importer.ImportSettings.setClipboardDetection(!clipboardImport)
+                    },
                 )
             }
         }

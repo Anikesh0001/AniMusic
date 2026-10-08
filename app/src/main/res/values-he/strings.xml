@@ -1307,4 +1307,7 @@
     <string name="import_error_network">לא ניתן להתחבר לשירות. בדקו את החיבור.</string>
     <string name="import_error_rate_limited">השירות עמוס. נסו שוב בעוד דקה.</string>
     <string name="import_error_parse">לא ניתן לקרוא את הדף. ייתכן שהשירות שינה אותו.</string>
+    <string name="clipboard_import_prompt">לייבא את הקישור מ-%1$s שהעתקתם?</string>
+    <string name="clipboard_detection_title">להציע ייבוא של קישורים שהועתקו</string>
+    <string name="clipboard_detection_subtitle">כשחוזרים עם קישור מוזיקה מועתק מ-Spotify, Apple Music, Deezer או שירות אחר</string>
 </resources>

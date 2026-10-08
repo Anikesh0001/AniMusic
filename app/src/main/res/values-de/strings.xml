@@ -1302,4 +1302,7 @@
     <string name="import_error_network">Der Dienst ist nicht erreichbar. Prüfe deine Verbindung.</string>
     <string name="import_error_rate_limited">Der Dienst ist ausgelastet. Versuche es in einer Minute erneut.</string>
     <string name="import_error_parse">Die Seite konnte nicht gelesen werden. Der Dienst hat sie vielleicht geändert.</string>
+    <string name="clipboard_import_prompt">Den kopierten %1$s-Link importieren?</string>
+    <string name="clipboard_detection_title">Import kopierter Links anbieten</string>
+    <string name="clipboard_detection_subtitle">Wenn du mit einem kopierten Spotify-, Apple-Music-, Deezer- oder anderen Musiklink zurückkommst</string>
 </resources>

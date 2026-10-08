@@ -1279,4 +1279,7 @@
     <string name="import_error_network">无法连接到该服务。请检查网络连接。</string>
     <string name="import_error_rate_limited">服务繁忙，请一分钟后重试。</string>
     <string name="import_error_parse">无法读取该页面，服务可能已更改了它。</string>
+    <string name="clipboard_import_prompt">要导入你复制的 %1$s 链接吗？</string>
+    <string name="clipboard_detection_title">提示导入已复制的链接</string>
+    <string name="clipboard_detection_subtitle">当你复制了 Spotify、Apple Music、Deezer 或其他音乐链接后返回时</string>
 </resources>

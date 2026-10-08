@@ -1139,4 +1139,7 @@
     <string name="import_error_network">Couldn\'t reach the service. Check your connection.</string>
     <string name="import_error_rate_limited">The service is busy. Try again in a minute.</string>
     <string name="import_error_parse">Couldn\'t read that page. The service may have changed it.</string>
+    <string name="clipboard_import_prompt">Import the %1$s link you copied?</string>
+    <string name="clipboard_detection_title">Offer to import copied links</string>
+    <string name="clipboard_detection_subtitle">When you come back with a Spotify, Apple Music, Deezer or other music link copied</string>
 </resources>

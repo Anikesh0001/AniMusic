@@ -1302,4 +1302,7 @@
     <string name="import_error_network">सेवा तक नहीं पहुँच सके। अपना कनेक्शन जाँचें।</string>
     <string name="import_error_rate_limited">सेवा व्यस्त है। एक मिनट बाद फिर कोशिश करें।</string>
     <string name="import_error_parse">वह पेज पढ़ा नहीं जा सका। सेवा ने शायद उसे बदल दिया है।</string>
+    <string name="clipboard_import_prompt">आपने जो %1$s लिंक कॉपी किया, उसे इम्पोर्ट करें?</string>
+    <string name="clipboard_detection_title">कॉपी किए गए लिंक इम्पोर्ट करने का सुझाव दें</string>
+    <string name="clipboard_detection_subtitle">जब आप Spotify, Apple Music, Deezer या किसी और म्यूज़िक लिंक को कॉपी करके लौटें</string>
 </resources>

@@ -1259,4 +1259,7 @@
     <string name="import_error_network">Hizmete ulaşılamadı. Bağlantınızı kontrol edin.</string>
     <string name="import_error_rate_limited">Hizmet meşgul. Bir dakika sonra tekrar deneyin.</string>
     <string name="import_error_parse">Sayfa okunamadı. Hizmet sayfayı değiştirmiş olabilir.</string>
+    <string name="clipboard_import_prompt">Kopyaladığınız %1$s bağlantısı içe aktarılsın mı?</string>
+    <string name="clipboard_detection_title">Kopyalanan bağlantıları içe aktarmayı öner</string>
+    <string name="clipboard_detection_subtitle">Spotify, Apple Music, Deezer veya başka bir müzik bağlantısını kopyalayıp döndüğünüzde</string>
 </resources>

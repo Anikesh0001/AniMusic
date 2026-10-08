@@ -1219,4 +1219,7 @@
     <string name="import_error_network">Không thể kết nối với dịch vụ. Hãy kiểm tra kết nối.</string>
     <string name="import_error_rate_limited">Dịch vụ đang bận. Hãy thử lại sau một phút.</string>
     <string name="import_error_parse">Không thể đọc trang đó. Có thể dịch vụ đã thay đổi trang.</string>
+    <string name="clipboard_import_prompt">Nhập liên kết %1$s bạn vừa sao chép?</string>
+    <string name="clipboard_detection_title">Đề xuất nhập liên kết đã sao chép</string>
+    <string name="clipboard_detection_subtitle">Khi bạn quay lại với liên kết nhạc Spotify, Apple Music, Deezer hoặc khác đã sao chép</string>
 </resources>

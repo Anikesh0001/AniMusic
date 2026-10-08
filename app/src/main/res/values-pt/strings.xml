@@ -1307,4 +1307,7 @@
     <string name="import_error_network">Não foi possível acessar o serviço. Verifique sua conexão.</string>
     <string name="import_error_rate_limited">O serviço está ocupado. Tente novamente em um minuto.</string>
     <string name="import_error_parse">Não foi possível ler essa página. O serviço pode tê-la alterado.</string>
+    <string name="clipboard_import_prompt">Importar o link do %1$s que você copiou?</string>
+    <string name="clipboard_detection_title">Oferecer importação de links copiados</string>
+    <string name="clipboard_detection_subtitle">Quando você volta com um link do Spotify, Apple Music, Deezer ou outro copiado</string>
 </resources>

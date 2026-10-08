@@ -1342,4 +1342,7 @@
     <string name="import_error_network">Nie udało się połączyć z serwisem. Sprawdź połączenie.</string>
     <string name="import_error_rate_limited">Serwis jest zajęty. Spróbuj ponownie za minutę.</string>
     <string name="import_error_parse">Nie udało się odczytać tej strony. Serwis mógł ją zmienić.</string>
+    <string name="clipboard_import_prompt">Zaimportować skopiowany link z %1$s?</string>
+    <string name="clipboard_detection_title">Proponuj import skopiowanych linków</string>
+    <string name="clipboard_detection_subtitle">Gdy wracasz ze skopiowanym linkiem ze Spotify, Apple Music, Deezera lub innego serwisu</string>
 </resources>

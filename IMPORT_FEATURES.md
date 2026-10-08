@@ -57,3 +57,4 @@ None. On unmodified `main` (2c599a6), `./gradlew testDevDebugUnitTest` ran 972 t
 | # | Feature | Status | Where in the app |
 |---|---|---|---|
 | 1 | Share-to-BitChord for any music link | done | Share a link from any app → BitChord. Or tap one and pick BitChord under "Open with" (Spotify, Apple Music, Deezer, JioSaavn, SoundCloud, Gaana, Wynk, song.link). The import dialog opens prefilled and starts. A link to one song plays it straight away. YouTube links behave as before. |
+| 2 | Clipboard detection | done | Come back to the app with a music link copied and a prompt appears above the mini player ("Import the Deezer link you copied?" with Later / Import). Each copy is offered once per session. The clipboard is only read while the window has focus. On Android 12+ a clip the system classifies as link-free is never opened, so no "pasted" toast. Off switch: Settings → Your data → "Offer to import copied links". |

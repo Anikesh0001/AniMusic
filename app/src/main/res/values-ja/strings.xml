@@ -1280,4 +1280,7 @@
     <string name="import_error_network">サービスに接続できませんでした。接続を確認してください。</string>
     <string name="import_error_rate_limited">サービスが混み合っています。1分後にもう一度お試しください。</string>
     <string name="import_error_parse">ページを読み込めませんでした。サービス側で変更された可能性があります。</string>
+    <string name="clipboard_import_prompt">コピーした %1$s のリンクをインポートしますか？</string>
+    <string name="clipboard_detection_title">コピーしたリンクのインポートを提案</string>
+    <string name="clipboard_detection_subtitle">Spotify、Apple Music、Deezer などの音楽リンクをコピーして戻ったとき</string>
 </resources>

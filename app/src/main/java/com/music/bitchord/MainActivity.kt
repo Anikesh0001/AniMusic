@@ -150,6 +150,7 @@ import com.music.bitchord.data.settings.AppSettings
 import com.music.bitchord.data.settings.LibrarySort
 import com.music.bitchord.data.settings.ThemeMode
 import com.music.bitchord.ui.components.AccountProfileSelector
+import com.music.bitchord.ui.components.ClipboardImportPrompt
 import com.music.bitchord.ui.components.ImportFromLinkAlert
 import com.music.bitchord.ui.screens.AccountAndScrobblingScreen
 import com.music.bitchord.ui.screens.DiscordDialog
@@ -4414,6 +4415,13 @@ private fun BitChordApp(
                     },
                 )
             }
+        }
+
+        if (!showSpotifyImportDialog) {
+            ClipboardImportPrompt(onImport = { url ->
+                importLink = url
+                showSpotifyImportDialog = true
+            })
         }
 
         if (showSpotifyImportDialog) {

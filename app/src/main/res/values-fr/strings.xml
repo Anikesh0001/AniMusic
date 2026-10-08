@@ -1303,4 +1303,7 @@
     <string name="import_error_network">Impossible de joindre le service. Vérifiez votre connexion.</string>
     <string name="import_error_rate_limited">Le service est occupé. Réessayez dans une minute.</string>
     <string name="import_error_parse">Impossible de lire cette page. Le service l\'a peut-être modifiée.</string>
+    <string name="clipboard_import_prompt">Importer le lien %1$s que vous avez copié ?</string>
+    <string name="clipboard_detection_title">Proposer d\'importer les liens copiés</string>
+    <string name="clipboard_detection_subtitle">Quand vous revenez avec un lien Spotify, Apple Music, Deezer ou autre copié</string>
 </resources>

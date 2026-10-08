@@ -1285,4 +1285,7 @@
     <string name="import_error_network">เชื่อมต่อบริการไม่ได้ โปรดตรวจสอบการเชื่อมต่อ</string>
     <string name="import_error_rate_limited">บริการไม่ว่าง โปรดลองอีกครั้งในอีกสักครู่</string>
     <string name="import_error_parse">อ่านหน้านั้นไม่ได้ บริการอาจเปลี่ยนหน้าแล้ว</string>
+    <string name="clipboard_import_prompt">นำเข้าลิงก์ %1$s ที่คุณคัดลอกไว้ไหม</string>
+    <string name="clipboard_detection_title">เสนอให้นำเข้าลิงก์ที่คัดลอกไว้</string>
+    <string name="clipboard_detection_subtitle">เมื่อคุณกลับมาพร้อมลิงก์เพลงจาก Spotify, Apple Music, Deezer หรืออื่น ๆ ที่คัดลอกไว้</string>
 </resources>
