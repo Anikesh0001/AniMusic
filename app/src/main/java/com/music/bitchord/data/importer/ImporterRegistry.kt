@@ -9,6 +9,7 @@ object ImporterRegistry {
     /** Most specific first: the first whose [PlaylistImporter.canHandle] says yes wins. */
     val importers: List<PlaylistImporter> = listOf(
         SpotifyPlaylistImporter,
+        DeezerImporter,
     )
 
     /**

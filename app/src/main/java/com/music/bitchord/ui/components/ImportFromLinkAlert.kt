@@ -51,7 +51,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
 /** The services named under the link box, in the order a listener is likely to look for theirs. */
-internal val SUPPORTED_IMPORT_SERVICES = listOf(ImportService.SPOTIFY)
+internal val SUPPORTED_IMPORT_SERVICES = listOf(ImportService.SPOTIFY, ImportService.DEEZER)
 
 /**
  * Paste a playlist, album or song link from any music app, match its songs on

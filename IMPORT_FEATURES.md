@@ -31,3 +31,4 @@ None. On unmodified `main` (2c599a6), `./gradlew testDevDebugUnitTest` ran 972 t
 | Spotify playlists | working | embed `__NEXT_DATA__`, plus pathfinder paging past 100 (live: 150/150 tracks) | https://open.spotify.com/playlist/37i9dQZF1DX4o1oenSJRJd |
 | Spotify albums | working | `/embed/album/<id>`, with album name and per-track duration | https://open.spotify.com/album/2noRn2Aes5aoNVsU6iWThc |
 | Spotify tracks | working | `/embed/track/<id>` (single song) | https://open.spotify.com/track/4cOdK2wGLETKBW3PvgPWqT |
+| Deezer playlists, albums, tracks | working | public `api.deezer.com` JSON, paging through `/tracks` `next`; ISRC, duration and album on every row. `deezer.page.link` / `link.deezer.com` short links are followed by redirect. Errors (HTTP 200 + `error.code`) map to not-found / rate-limited. | https://www.deezer.com/en/playlist/908622995 |
