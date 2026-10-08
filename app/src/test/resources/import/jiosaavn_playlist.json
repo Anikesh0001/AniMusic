@@ -1,0 +1,87 @@
+{
+ "id": "49",
+ "title": "Dumdaar Hits",
+ "subtitle": "2.5M Fans",
+ "type": "playlist",
+ "image": "https://c.saavncdn.com/editorial/DumdaarHits_20261002022745.jpg?bch=1790909907",
+ "list_count": "20",
+ "list": [
+  {
+   "id": "nrv1l2H9",
+   "title": "Paagal (From &quot;Bhoomi 2026&quot;)",
+   "subtitle": "Salim-Sulaiman, Sonu Nigam, Shraddha Pandit - Paagal (From &quot;Bhoomi 2026&quot;)",
+   "type": "song",
+   "image": "https://c.saavncdn.com/444/Paagal-From-Bhoomi-2026-Hindi-2026-20260926170307-150x150.jpg",
+   "more_info": {
+    "album": "Paagal (From &quot;Bhoomi 2026&quot;)",
+    "duration": "183",
+    "artistMap": {
+     "primary_artists": [
+      {
+       "id": "456102",
+       "name": "Salim-Sulaiman"
+      },
+      {
+       "id": "455125",
+       "name": "Sonu Nigam"
+      },
+      {
+       "id": "463184",
+       "name": "Shraddha Pandit"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "MZNrkEaY",
+   "title": "Ishq Samajh Paaye (From &quot;Between Distances&quot;)",
+   "subtitle": "Aditya Rikhari, SHIKHAR SAXENA - Ishq Samajh Paaye (From &quot;Between Distances&quot;)",
+   "type": "song",
+   "image": "https://c.saavncdn.com/786/Ishq-Samajh-Paaye-From-Between-Distances-Hindi-2026-20260915161613-150x150.jpg",
+   "more_info": {
+    "album": "Ishq Samajh Paaye (From &quot;Between Distances&quot;)",
+    "duration": "180",
+    "artistMap": {
+     "primary_artists": [
+      {
+       "id": "7931030",
+       "name": "Aditya Rikhari"
+      },
+      {
+       "id": "10521751",
+       "name": "SHIKHAR SAXENA"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "AIg8dSYa",
+   "title": "Bairi Piya",
+   "subtitle": "Shreya Ghoshal, Anurag Mishra, Alok Ranjan Srivastava - Bairi Piya",
+   "type": "song",
+   "image": "https://c.saavncdn.com/476/Bairi-Piya-Hindi-2026-20260923054031-150x150.jpg",
+   "more_info": {
+    "album": "Bairi Piya",
+    "duration": "236",
+    "artistMap": {
+     "primary_artists": [
+      {
+       "id": "455130",
+       "name": "Shreya Ghoshal"
+      },
+      {
+       "id": "2226829",
+       "name": "Anurag Mishra"
+      },
+      {
+       "id": "6898377",
+       "name": "Alok Ranjan Srivastava"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

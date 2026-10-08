@@ -1,0 +1,31 @@
+{
+ "songs": [
+  {
+   "id": "nrv1l2H9",
+   "title": "Paagal (From &quot;Bhoomi 2026&quot;)",
+   "subtitle": "Salim-Sulaiman, Sonu Nigam, Shraddha Pandit - Paagal (From &quot;Bhoomi 2026&quot;)",
+   "type": "song",
+   "image": "https://c.saavncdn.com/444/Paagal-From-Bhoomi-2026-Hindi-2026-20260926170307-150x150.jpg",
+   "more_info": {
+    "album": "Paagal (From &quot;Bhoomi 2026&quot;)",
+    "duration": "183",
+    "artistMap": {
+     "primary_artists": [
+      {
+       "id": "456102",
+       "name": "Salim-Sulaiman"
+      },
+      {
+       "id": "455125",
+       "name": "Sonu Nigam"
+      },
+      {
+       "id": "463184",
+       "name": "Shraddha Pandit"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

@@ -60,6 +60,7 @@ internal val SUPPORTED_IMPORT_SERVICES = listOf(
     ImportService.DEEZER,
     ImportService.AUDIOMACK,
     ImportService.QOBUZ,
+    ImportService.JIOSAAVN,
     ImportService.GAANA,
     ImportService.YOUTUBE_MUSIC,
 )

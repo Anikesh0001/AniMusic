@@ -12,6 +12,7 @@ object ImporterRegistry {
         DeezerImporter,
         QobuzImporter,
         AppleMusicImporter,
+        JioSaavnImporter,
         // Last: it claims any web page, so everything above gets first refusal.
         GenericPageImporter,
     )

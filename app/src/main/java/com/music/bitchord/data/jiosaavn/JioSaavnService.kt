@@ -206,6 +206,38 @@ object JioSaavnService {
         emptyList()
     }
 
+    /**
+     * A public playlist, album or song page by its link token — the last path
+     * segment of `jiosaavn.com/featured/<slug>/<token>` — as raw JSON.
+     *
+     * Playlists and albums answer `{"title":…,"list_count":…,"list":[…]}`,
+     * one [page] of [count] rows at a time; a song answers `{"songs":[…]}`.
+     * Null when the request itself failed; an unknown token is not a failure
+     * here but an empty `list`, and the caller decides what that means.
+     */
+    suspend fun getByToken(token: String, type: String, page: Int = 1, count: Int = 50): String? = runCatching {
+        val response = client.get("") {
+            parameter("__call", "webapi.get")
+            parameter("token", token)
+            parameter("type", type)
+            parameter("p", page)
+            parameter("n", count)
+            parameter("includeMetaTags", "0")
+            parameter("_format", "json")
+            parameter("_marker", "0")
+            parameter("api_version", "4")
+            parameter("ctx", "android")
+        }
+        if (response.status != HttpStatusCode.OK) {
+            TrackLog.w(TAG, "Saavn webapi.get failed: HTTP ${response.status.value}")
+            return@runCatching null
+        }
+        response.bodyAsText()
+    }.getOrElse {
+        TrackLog.w(TAG, "Saavn webapi.get error: ${it.message}")
+        null
+    }
+
     suspend fun getStreamUrl(saavnSongId: String): SaavnStream? {
         val result = runCatching {
             val response = client.get("") {
