@@ -1,0 +1,40 @@
+[
+ {
+  "artwork_url": "https://i1.sndcdn.com/artworks-000676359061-uokj1g-large.jpg",
+  "duration": 76410,
+  "full_duration": 76408,
+  "id": 744981226,
+  "kind": "track",
+  "permalink_url": "https://soundcloud.com/sweet-medicine/sweet-medicine-waiting",
+  "publisher_metadata": {
+   "id": 744981226,
+   "urn": "soundcloud:tracks:744981226",
+   "artist": "Sweet Medicine",
+   "contains_music": true,
+   "isrc": "DEQ021912105"
+  },
+  "title": "Sweet Medicine - Waiting",
+  "user": {
+   "username": "Sweet Medicine"
+  }
+ },
+ {
+  "artwork_url": "https://i1.sndcdn.com/artworks-tHwhajjr5SpYzfgF-lu9MLg-large.jpg",
+  "duration": 120953,
+  "full_duration": 120947,
+  "id": 917320171,
+  "kind": "track",
+  "permalink_url": "https://soundcloud.com/sweet-medicine/sweet-medicine-w-samuw-sutekina",
+  "publisher_metadata": {
+   "id": 917320171,
+   "urn": "soundcloud:tracks:917320171",
+   "artist": "Sweet Medicine",
+   "contains_music": true,
+   "isrc": "DEQ022005726"
+  },
+  "title": "Sweet Medicine w/ SamuW - Sutekina",
+  "user": {
+   "username": "Sweet Medicine"
+  }
+ }
+]

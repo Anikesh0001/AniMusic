@@ -61,6 +61,7 @@ internal val SUPPORTED_IMPORT_SERVICES = listOf(
     ImportService.AUDIOMACK,
     ImportService.QOBUZ,
     ImportService.JIOSAAVN,
+    ImportService.SOUNDCLOUD,
     ImportService.GAANA,
     ImportService.YOUTUBE_MUSIC,
 )
