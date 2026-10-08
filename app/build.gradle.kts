@@ -88,6 +88,10 @@ android {
         // Last.fm credentials are supplied locally and never committed.
         buildConfigField("String", "LASTFM_API_KEY", "\"${lastfmApiKey.replace("\\", "\\\\").replace("\"", "\\\"")}\"")
         buildConfigField("String", "LASTFM_SECRET", "\"${lastfmSecret.replace("\\", "\\\\").replace("\"", "\\\"")}\"")
+        // The name the app calls itself in text built in code (share cards,
+        // posters, the download folder). Resource strings are overridden per
+        // flavor instead; see src/animusic/res.
+        buildConfigField("String", "BRAND_NAME", "\"BitChord\"")
         buildConfigField(
             "String",
             "LISTEN_TOGETHER_SERVER",
@@ -124,6 +128,17 @@ android {
         create("prod") {
             dimension = "env"
             // Matches defaultConfig — this is the package already shipped/installed.
+        }
+        // A rebranded fork: its own package, name, icon and version line, so it
+        // installs beside both of the above. Kotlin packages and the namespace
+        // stay com.music.bitchord, which keeps upstream merges mechanical.
+        create("animusic") {
+            dimension = "env"
+            applicationId = "com.anikesh.animusic"
+            versionCode = 1
+            versionName = "1.0.0"
+            resValue("string", "app_name", "AniMusic")
+            buildConfigField("String", "BRAND_NAME", "\"AniMusic\"")
         }
     }
 
