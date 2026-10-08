@@ -497,7 +497,7 @@ private fun HomeTitle(title: String, modifier: Modifier = Modifier) {
     val logoHeight = with(LocalDensity.current) { (style.fontSize * LOGO_TO_FONT).toDp() }
     Column(modifier = modifier.padding(horizontal = PAGE_GUTTER, vertical = 8.dp)) {
         Icon(
-            painter = painterResource(Res.drawable.ic_logo),
+            painter = com.music.bitchord.ui.LocalAppLogo.current ?: painterResource(Res.drawable.ic_logo),
             contentDescription = null,
             tint = MaterialTheme.colorScheme.onBackground,
             modifier = Modifier

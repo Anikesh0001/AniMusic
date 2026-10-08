@@ -1,5 +1,6 @@
 package com.music.bitchord.data.sources
 
+import com.music.bitchord.BuildConfig
 import com.music.bitchord.data.TrackLog
 import com.music.bitchord.data.model.Song
 import com.music.bitchord.data.settings.AppSettings
@@ -308,7 +309,7 @@ class AddonSource(
         if (answer.isEncrypted) {
             TrackLog.w(
                 TAG,
-                "${config.displayName}: $trackId came back encrypted, which BitChord never asked for — passing",
+                "${config.displayName}: $trackId came back encrypted, which ${BuildConfig.BRAND_NAME} never asked for — passing",
             )
             return null
         }

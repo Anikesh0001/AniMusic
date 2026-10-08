@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">AniMusic\'u Aç</string>
+    <string name="app_language_description">AniMusic tarafından kullanılan dili seçin.</string>
+    <string name="high_performance_battery_warning">Önce AniMusic\'un pil kullanımını Sınırsız olarak ayarlayın. Daha yüksek yenileme hızları daha fazla pil, CPU ve GPU kullanır ve cihazınızı ısıtabilir.</string>
+    <string name="enable_high_performance_confirmation">Yalnızca AniMusic\'un pil kullanımı Sınırsız olarak ayarlıysa etkinleştirin. Cihaz ısındığında veya pil azaldığında Android yine de yenileme hızını sınırlayabilir.</string>
+    <string name="discord_sign_in_footer">Giriş yapmak Discord\'un giriş sayfasını açar. AniMusic\'a hiçbir şey yazılmaz.</string>
+    <string name="saved_to_bitchord_folder">Müzik/AniMusic klasörüne kaydedildi</string>
+    <string name="sources_order_footer">Bir kaynakta parça yoksa veya ulaşılamıyorsa AniMusic bir sonrakini dener. YouTube üzerindeki kaynaklar daha iyi bir sürüm döndürdüklerinde onun kaydının yerini alabilir.</string>
+    <string name="default_replay_holder">AniMusic dinleyicisi</string>
+    <string name="replay_empty_description">Biraz daha dinle, AniMusic geçmişini bir Replay\'e dönüştürsün.</string>
+    <string name="webdav_description">AniMusic\'u bir WebDAV müzik klasörüne yönlendir — Nextcloud müzik dizinin ya da WebDAV destekleyen herhangi bir sunucu.</string>
+    <string name="smb_description">AniMusic\'u paylaşılan bir müzik klasörüne yönlendir — SMB kullanan bir NAS ya da Windows paylaşımı.</string>
+    <string name="counted_on_device_with_bitchord">Bu cihazda AniMusic ile sayıldı</string>
+    <string name="listen_together_share_text">AniMusic’da benimle dinle — parti kodu %1$s</string>
+    <string name="add_addon_detail">AniMusic\'u barındırdığınız veya bağlantısını aldığınız bir eklenti sunucusuna yönlendirin</string>
+    <string name="addon_url_description">Eklentinin URL\'sini yapıştırın — kök dizin veya manifest.json. AniMusic arama ve oynatma yeteneklerini okur.</string>
+    <string name="source_unrecognised">AniMusic bu bağlantıyı tanıyamadı</string>
+    <string name="auto_login_subtitle">Giriş yapmak için telefonunuzda AniMusic\'u açın</string>
+    <string name="equalizer_footer">AniMusic içindeki sesi, sisteme ulaşmadan önce şekillendirir.</string>
+    <string name="system_equalizer_footer">AniMusic\'unkinden sonra, tüm ses oturumunda çalışır. İkisini birden kullanmak ikisini de uygular.</string>
+</resources>

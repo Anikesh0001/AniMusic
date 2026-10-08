@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">פתיחת AniMusic</string>
+    <string name="app_language_description">בחירת השפה שבה ישתמש AniMusic.</string>
+    <string name="high_performance_battery_warning">תחילה הגדר את השימוש בסוללה של AniMusic ללא הגבלה. קצבי רענון גבוהים צורכים יותר סוללה, מעבד ומאיץ גרפי, ועשויים לחמם את המכשיר.</string>
+    <string name="enable_high_performance_confirmation">הפעל רק אם השימוש בסוללה של AniMusic מוגדר ללא הגבלה. אנדרואיד עדיין יכולה להגביל את קצב הרענון כשהמכשיר חם או כשהסוללה חלשה.</string>
+    <string name="discord_sign_in_footer">הכניסה פותחת את עמוד ההתחברות של דיסקורד. שום דבר אינו מוקלד ב-AniMusic.</string>
+    <string name="saved_to_bitchord_folder">נשמר ב-Music/AniMusic</string>
+    <string name="sources_order_footer">אם למקור אין רצועה, AniMusic מנסה את הבא. מקורות מעל YouTube יכולים להחליפו כשהם מוצאים גרסה טובה יותר.</string>
+    <string name="default_replay_holder">מאזין AniMusic</string>
+    <string name="replay_empty_description">האזן קצת יותר ו-AniMusic יהפוך את ההיסטוריה שלך ל-Replay.</string>
+    <string name="webdav_description">כוונו את AniMusic לתיקיית מוזיקה ב-WebDAV — תיקיית המוזיקה שלכם ב-Nextcloud או כל שרת שתומך ב-WebDAV.</string>
+    <string name="smb_description">כוונו את AniMusic לתיקיית מוזיקה משותפת — NAS או שיתוף Windows דרך SMB.</string>
+    <string name="counted_on_device_with_bitchord">נספר במכשיר זה עם AniMusic</string>
+    <string name="listen_together_share_text">תאזינו איתי ב-AniMusic — קוד מסיבה %1$s</string>
+    <string name="add_addon_detail">חבר את AniMusic לשרת תוספים</string>
+    <string name="source_unrecognised">AniMusic לא זיהה את הקישור הזה</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">Buka AniMusic</string>
+    <string name="app_language_description">Pilih bahasa yang digunakan AniMusic.</string>
+    <string name="high_performance_battery_warning">Atur dulu penggunaan baterai AniMusic ke Tidak Dibatasi. Refresh rate yang lebih tinggi menggunakan lebih banyak baterai, CPU, dan GPU, serta dapat membuat perangkat Anda menjadi hangat.</string>
+    <string name="enable_high_performance_confirmation">Aktifkan hanya jika penggunaan baterai AniMusic diatur ke Tidak Dibatasi. Android tetap dapat membatasi refresh rate saat perangkat panas atau baterai lemah.</string>
+    <string name="discord_sign_in_footer">Masuk akan membuka halaman login Discord. Tidak ada yang diketik ke AniMusic.</string>
+    <string name="saved_to_bitchord_folder">Disimpan ke Music/AniMusic</string>
+    <string name="sources_order_footer">Jika suatu sumber tidak memiliki trek atau tidak dapat dijangkau, AniMusic mencoba sumber berikutnya. Sumber di atas YouTube dapat menggantikan rekamannya saat menghasilkan versi yang lebih baik.</string>
+    <string name="default_replay_holder">Pendengar AniMusic</string>
+    <string name="replay_empty_description">Dengarkan sedikit lebih banyak dan AniMusic akan mengubah riwayat Anda menjadi Replay.</string>
+    <string name="webdav_description">Arahkan AniMusic ke folder musik WebDAV — direktori Musik Nextcloud kamu atau server apa pun yang mendukung WebDAV.</string>
+    <string name="smb_description">Arahkan AniMusic ke folder musik bersama — NAS atau folder berbagi Windows lewat SMB.</string>
+    <string name="counted_on_device_with_bitchord">Dihitung di perangkat ini dengan AniMusic</string>
+    <string name="listen_together_share_text">Dengarkan bareng aku di AniMusic — kode pesta %1$s</string>
+    <string name="add_addon_detail">Arahkan AniMusic ke server addon yang Anda miliki atau bagikan tautan</string>
+    <string name="source_unrecognised">AniMusic tidak mengenali tautan tersebut</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">Abrir AniMusic</string>
+    <string name="app_language_description">Escolha o idioma usado pelo AniMusic.</string>
+    <string name="high_performance_battery_warning">Primeiro, defina o uso da bateria do AniMusic como Irrestrito. Taxas de atualização mais altas usam mais bateria, CPU e GPU, e podem aquecer seu dispositivo.</string>
+    <string name="enable_high_performance_confirmation">Ative apenas se o uso de bateria do AniMusic estiver definido como Irrestrito. O Android ainda pode limitar a taxa de atualização quando o dispositivo estiver quente ou com pouca bateria.</string>
+    <string name="discord_sign_in_footer">O login abre a página de login do Discord. Nada é digitado no AniMusic.</string>
+    <string name="saved_to_bitchord_folder">Salvo em Música/AniMusic</string>
+    <string name="sources_order_footer">Se uma fonte não tiver a faixa, o AniMusic tenta a próxima. Fontes acima do YouTube podem substituí-lo quando encontram uma versão melhor.</string>
+    <string name="default_replay_holder">Ouvinte AniMusic</string>
+    <string name="replay_empty_description">Ouça um pouco mais e o AniMusic criará um Replay.</string>
+    <string name="webdav_description">Conecte o AniMusic a uma pasta de música WebDAV: seu diretório de Música do Nextcloud ou qualquer servidor compatível com WebDAV.</string>
+    <string name="smb_description">Conecte o AniMusic a uma pasta de música compartilhada: um NAS ou compartilhamento do Windows via SMB.</string>
+    <string name="counted_on_device_with_bitchord">Contabilizado neste dispositivo com AniMusic</string>
+    <string name="listen_together_share_text">Ouça comigo no AniMusic — código da festa %1$s</string>
+    <string name="add_addon_detail">Aponte o AniMusic para um servidor de extensão que você hospeda ou recebeu um link</string>
+    <string name="addon_url_description">Cole a URL da extensão — raiz ou manifest.json. O AniMusic lerá os conteúdos disponíveis.</string>
+    <string name="source_unrecognised">O AniMusic não reconheceu esse link</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>

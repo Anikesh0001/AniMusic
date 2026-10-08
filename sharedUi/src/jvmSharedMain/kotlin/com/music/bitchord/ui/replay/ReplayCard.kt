@@ -146,7 +146,7 @@ fun ReplayCreditCard(
                 )
                 Spacer(Modifier.width(10.dp))
                 Icon(
-                    painter = painterResource(Res.drawable.ic_logo),
+                    painter = com.music.bitchord.ui.LocalAppLogo.current ?: painterResource(Res.drawable.ic_logo),
                     contentDescription = null,
                     tint = Color.White,
                     modifier = Modifier.size(width = 34.dp, height = 22.dp),
@@ -182,7 +182,10 @@ fun ReplayCreditCard(
             Row(verticalAlignment = Alignment.Bottom) {
                 Column(Modifier.weight(1f)) {
                     Embossed(
-                        text = holder.ifBlank { stringResource(Res.string.default_replay_holder) }
+                        text = holder.ifBlank {
+                            stringResource(Res.string.default_replay_holder)
+                                .replace("BitChord", com.music.bitchord.ui.LocalAppBrandName.current)
+                        }
                             .uppercase(Locale.getDefault()),
                         size = 13.sp,
                     )

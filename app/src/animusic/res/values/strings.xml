@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="source_unrecognised">AniMusic could not tell what that link is</string>
+    <string name="widget_open_bitchord">Open AniMusic</string>
+    <string name="app_language_description">Choose the language used by AniMusic.</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+    <string name="high_performance_battery_warning">First set AniMusic\'s battery usage to Unrestricted. Higher refresh rates use more battery, CPU and GPU, and may warm your device.</string>
+    <string name="enable_high_performance_confirmation">Enable only if AniMusic\'s battery use is set to Unrestricted. Android can still limit the refresh rate when the device is hot or low on power.</string>
+    <string name="add_addon_detail">Point AniMusic at an addon server you host or were given a link to</string>
+    <string name="discord_sign_in_footer">Signing in opens Discord\'s login page. Nothing is typed into AniMusic.</string>
+    <string name="saved_to_bitchord_folder">Saved to Music/AniMusic</string>
+    <string name="addon_url_description">Paste the addon’s URL — either its root or its manifest.json. AniMusic reads what it can search and stream, then asks it for tracks over plain HTTP.</string>
+    <string name="sources_order_footer">If a source does not have a track or cannot be reached, AniMusic tries the next one. Sources above YouTube can replace its recording when they return a better version.</string>
+    <string name="default_replay_holder">AniMusic listener</string>
+    <string name="replay_empty_description">Listen a little more and AniMusic will turn your history into a Replay.</string>
+    <string name="webdav_description">Point AniMusic at a WebDAV music folder — your Nextcloud Music directory or any server speaking WebDAV.</string>
+    <string name="smb_description">Point AniMusic at a shared music folder — a NAS or Windows share speaking SMB.</string>
+    <string name="counted_on_device_with_bitchord">Counted on this device with AniMusic</string>
+    <string name="listen_together_share_text">Listen with me on AniMusic — party code %1$s</string>
+</resources>

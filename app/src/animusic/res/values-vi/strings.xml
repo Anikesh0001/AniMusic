@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="update_available_body">AniMusic %1$s đã sẵn sàng để tải xuống.</string>
+    <string name="update_downloading_body">Đang tải xuống AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s đã sẵn sàng để cài đặt.</string>
+    <string name="update_failed_body">Không thể tải xuống AniMusic %1$s.</string>
+    <string name="source_unrecognised">AniMusic không nhận dạng được liên kết đó</string>
+    <string name="widget_open_bitchord">Mở AniMusic</string>
+    <string name="app_language_description">Chọn ngôn ngữ sử dụng trong AniMusic.</string>
+    <string name="high_performance_battery_warning">Trước tiên hãy đặt mức sử dụng pin của AniMusic thành Không hạn chế. Tần số quét cao hơn sử dụng nhiều pin, CPU và GPU hơn, đồng thời có thể làm thiết bị ấm lên.</string>
+    <string name="enable_high_performance_confirmation">Chỉ bật nếu mức sử dụng pin của AniMusic được đặt thành Không hạn chế. Android vẫn có thể giới hạn tần số quét khi thiết bị nóng hoặc pin yếu.</string>
+    <string name="add_addon_detail">Trỏ AniMusic tới máy chủ tiện ích bạn tự lưu trữ hoặc được chia sẻ liên kết</string>
+    <string name="discord_sign_in_footer">Đăng nhập sẽ mở trang đăng nhập của Discord. Không có thông tin nào được nhập vào AniMusic.</string>
+    <string name="saved_to_bitchord_folder">Đã lưu vào Music/AniMusic</string>
+    <string name="addon_url_description">Dán URL của tiện ích mở rộng — đường dẫn gốc hoặc manifest.json. AniMusic sẽ đọc các mục có thể tìm kiếm và phát, sau đó yêu cầu bản nhạc qua giao thức HTTP tiêu chuẩn.</string>
+    <string name="sources_order_footer">Nếu một nguồn không có bản nhạc hoặc không thể kết nối, AniMusic sẽ thử nguồn tiếp theo. Các nguồn nằm trên YouTube có thể thay thế bản ghi âm của YouTube khi tìm được phiên bản tốt hơn.</string>
+    <string name="default_replay_holder">Người nghe AniMusic</string>
+    <string name="replay_empty_description">Hãy nghe thêm một chút và AniMusic sẽ biến lịch sử nghe của bạn thành bản tóm tắt Replay.</string>
+    <string name="your_replay">AniMusic Replay của bạn</string>
+    <string name="webdav_description">Trỏ AniMusic tới thư mục nhạc WebDAV — thư mục Music trên Nextcloud của bạn hoặc bất kỳ máy chủ nào hỗ trợ WebDAV.</string>
+    <string name="smb_description">Trỏ AniMusic tới thư mục nhạc chia sẻ — NAS hoặc máy Windows hỗ trợ SMB.</string>
+    <string name="counted_on_device_with_bitchord">Được thống kê trên thiết bị này bằng AniMusic</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+    <string name="listen_together_share_text">Listen with me on AniMusic — party code %1$s</string>
+</resources>

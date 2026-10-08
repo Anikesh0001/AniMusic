@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">เปิด AniMusic</string>
+    <string name="app_language_description">เลือกภาษาที่ใช้ใน AniMusic</string>
+    <string name="high_performance_battery_warning">ตั้งค่าการใช้แบตเตอรี่ของ AniMusic เป็นไม่จำกัดก่อน อัตรารีเฟรชที่สูงขึ้นใช้แบตเตอรี่ CPU และ GPU มากขึ้น และอาจทำให้อุปกรณ์ร้อนขึ้น</string>
+    <string name="enable_high_performance_confirmation">เปิดใช้งานเฉพาะเมื่อการใช้แบตเตอรี่ของ AniMusic ตั้งเป็นไม่จำกัด Android ยังสามารถจำกัดอัตรารีเฟรชเมื่ออุปกรณ์ร้อนหรือแบตเตอรี่ต่ำ</string>
+    <string name="discord_sign_in_footer">การลงชื่อเข้าใช้จะเปิดหน้าเข้าสู่ระบบของ Discord ไม่มีการพิมพ์สิ่งใดลงใน AniMusic</string>
+    <string name="saved_to_bitchord_folder">บันทึกลง Music/AniMusic แล้ว</string>
+    <string name="sources_order_footer">หากแหล่งข้อมูลหนึ่งไม่มีแทร็กหรือเชื่อมต่อไม่ได้ AniMusic จะลองแหล่งถัดไป แหล่งข้อมูลที่อยู่เหนือ YouTube สามารถแทนที่การบันทึกของ YouTube ได้เมื่อให้เวอร์ชันที่ดีกว่า</string>
+    <string name="default_replay_holder">ผู้ฟัง AniMusic</string>
+    <string name="replay_empty_description">ฟังเพลงเพิ่มอีกนิด แล้ว AniMusic จะเปลี่ยนประวัติการฟังของคุณให้เป็น Replay</string>
+    <string name="webdav_description">เชื่อม AniMusic กับโฟลเดอร์เพลง WebDAV — ไดเรกทอรีเพลงใน Nextcloud ของคุณหรือเซิร์ฟเวอร์ใดก็ได้ที่รองรับ WebDAV</string>
+    <string name="smb_description">เชื่อม AniMusic กับโฟลเดอร์เพลงที่แชร์ — NAS หรือโฟลเดอร์แชร์ของ Windows ผ่าน SMB</string>
+    <string name="counted_on_device_with_bitchord">นับบนอุปกรณ์นี้ด้วย AniMusic</string>
+    <string name="listen_together_share_text">มาฟังกับฉันใน AniMusic — รหัสปาร์ตี้ %1$s</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="source_unrecognised">AniMusic could not tell what that link is</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+    <string name="add_addon_detail">Point AniMusic at an addon server you host or were given a link to</string>
+    <string name="addon_url_description">Paste the addon’s URL — either its root or its manifest.json. AniMusic reads what it can search and stream, then asks it for tracks over plain HTTP.</string>
+</resources>

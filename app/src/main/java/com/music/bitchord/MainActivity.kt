@@ -384,6 +384,10 @@ class MainActivity : AppCompatActivity() {
                     LocalOverscrollFactory provides iosOverscrollFactory,
                     LocalLiquidGlassEnabled provides liquidGlassEnabled,
                     LocalAppBackdrop provides appBackdrop,
+                    // The flavor's own name and mark for the shared screens (Home, Replay).
+                    com.music.bitchord.ui.LocalAppBrandName provides BuildConfig.BRAND_NAME,
+                    com.music.bitchord.ui.LocalAppLogo provides
+                        androidx.compose.ui.res.painterResource(R.drawable.ic_logo),
                 ) {
                 // The window's width, measured rather than asked for.
                 //

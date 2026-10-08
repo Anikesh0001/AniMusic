@@ -1,5 +1,6 @@
 package com.music.bitchord.data.sources.addon
 
+import com.music.bitchord.BuildConfig
 import com.music.bitchord.data.Http
 import com.music.bitchord.data.TrackLog
 import kotlinx.coroutines.Dispatchers
@@ -79,7 +80,7 @@ object SourceFormats {
         val url = rawUrl.trim().trimEnd('/')
         if (url.toHttpUrlOrNull() == null) {
             return@withContext Result.success(
-                DetectedFormat.Unsupported("That is not a web address BitChord can open"),
+                DetectedFormat.Unsupported("That is not a web address ${BuildConfig.BRAND_NAME} can open"),
             )
         }
 
@@ -135,7 +136,7 @@ object SourceFormats {
 
         val obj = root as? JsonObject
             ?: return DetectedFormat.Unsupported(
-                "That JSON is a list, and every format BitChord reads is an object",
+                "That JSON is a list, and every format ${BuildConfig.BRAND_NAME} reads is an object",
             )
 
         // 1. A module index: JS plugins filed under "category:*" keys. First
@@ -171,7 +172,7 @@ object SourceFormats {
             if (manifest.resources.isNotEmpty() && !manifest.declares("search")) {
                 val declared = manifest.resources.joinToString(", ")
                 return DetectedFormat.Unsupported(
-                    "This addon declares $declared — BitChord needs search",
+                    "This addon declares $declared — ${BuildConfig.BRAND_NAME} needs search",
                 )
             }
             return DetectedFormat.Addon(manifest, AddonClient.normalizeBase(url))
@@ -185,7 +186,7 @@ object SourceFormats {
             .firstOrNull { it.value is JsonArray && (it.value as JsonArray).isNotEmpty() }?.key
         if (listKey != null) {
             return DetectedFormat.Unsupported(
-                "That JSON lists \"$listKey\", which is not a format BitChord reads",
+                "That JSON lists \"$listKey\", which is not a format ${BuildConfig.BRAND_NAME} reads",
             )
         }
 

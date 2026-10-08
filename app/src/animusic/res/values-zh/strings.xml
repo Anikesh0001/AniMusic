@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">打开 AniMusic</string>
+    <string name="app_language_description">选择 AniMusic 使用的语言。</string>
+    <string name="high_performance_battery_warning">请先将 AniMusic 的电量使用设置为“不受限制”。更高的刷新率会消耗更多电量、CPU 和 GPU 资源，并可能使设备发热。</string>
+    <string name="enable_high_performance_confirmation">仅当 AniMusic 的电量使用设置为“不受限制”时才启用。设备发热或电量不足时，Android 仍可能限制刷新率。</string>
+    <string name="discord_sign_in_footer">登录会打开 Discord 的登录页面，你不会在 AniMusic 中输入任何内容。</string>
+    <string name="saved_to_bitchord_folder">已保存到 Music/AniMusic</string>
+    <string name="sources_order_footer">如果某个来源没有该曲目或无法访问，AniMusic 会尝试下一个来源。排在 YouTube 之前的来源如果返回更好的版本，可以替换其录音。</string>
+    <string name="default_replay_holder">AniMusic 听众</string>
+    <string name="replay_empty_description">再多听一会儿，AniMusic 就会把你的收听记录变成一份 Replay。</string>
+    <string name="webdav_description">将 AniMusic 指向一个 WebDAV 音乐文件夹 — 你的 Nextcloud 音乐目录或任何支持 WebDAV 的服务器。</string>
+    <string name="smb_description">将 AniMusic 指向一个共享音乐文件夹 — 支持 SMB 的 NAS 或 Windows 共享。</string>
+    <string name="counted_on_device_with_bitchord">由 AniMusic 在此设备上统计</string>
+    <string name="listen_together_share_text">在 AniMusic 上和我一起听 — 派对代码 %1$s</string>
+    <string name="add_addon_detail">将 AniMusic 指向你自建或获取链接的插件服务器</string>
+    <string name="addon_url_description">粘贴插件网址 — 根目录或 manifest.json 均可。AniMusic 会读取其搜索和流式播放内容，并通过标准 HTTP 请求曲目。</string>
+    <string name="source_unrecognised">AniMusic 无法识别该链接</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>

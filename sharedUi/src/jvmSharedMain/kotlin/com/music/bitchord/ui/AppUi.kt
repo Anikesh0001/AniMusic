@@ -2,6 +2,7 @@ package com.music.bitchord.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.painter.Painter
 import com.music.bitchord.data.settings.LibrarySort
 import com.music.bitchord.data.settings.LibraryViewType
 import kotlinx.coroutines.flow.StateFlow
@@ -53,3 +54,15 @@ object AppUi {
  * refresh nobody asked for — so the desktop switches it off.
  */
 val LocalPullToRefreshEnabled = staticCompositionLocalOf { true }
+
+/**
+ * The name the app shows itself under. A rebranded build (the Android
+ * "animusic" flavor) provides its own; shared text naming the app reads it.
+ */
+val LocalAppBrandName = staticCompositionLocalOf { "BitChord" }
+
+/**
+ * The app's mark, when the hosting app ships its own artwork for it; null
+ * draws the one bundled here. Drawn tinted, at the bundled mark's 3:2 aspect.
+ */
+val LocalAppLogo = staticCompositionLocalOf<Painter?> { null }

@@ -1,5 +1,6 @@
 package com.music.bitchord.ui.replay
 
+import com.music.bitchord.BuildConfig
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
@@ -421,7 +422,7 @@ private fun StoryChrome(
             )
             Spacer(Modifier.width(7.dp))
             Text(
-                text = "BitChord",
+                text = BuildConfig.BRAND_NAME,
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.W700,
                 color = Color.White.copy(alpha = 0.9f),

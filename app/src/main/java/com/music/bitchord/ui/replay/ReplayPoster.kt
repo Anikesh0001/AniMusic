@@ -1,5 +1,6 @@
 package com.music.bitchord.ui.replay
 
+import com.music.bitchord.BuildConfig
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapShader
@@ -406,11 +407,11 @@ private fun drawHeader(
     val brand = type.heading(46f, 0xE6FFFFFF.toInt()).apply {
         textAlign = Paint.Align.RIGHT
     }
-    canvas.drawText("BitChord", POSTER_W - MARGIN, 132f, brand)
+    canvas.drawText(BuildConfig.BRAND_NAME, POSTER_W - MARGIN, 132f, brand)
     // The mark, to the left of the word, exactly as the story header and the
     // card carry it. Without it the one artefact of this app that ends up in
     // somebody else's chat was the only place the logo didn't appear.
-    val wordWidth = brand.measureText("BitChord")
+    val wordWidth = brand.measureText(BuildConfig.BRAND_NAME)
     drawLogo(canvas, context, POSTER_W - MARGIN - wordWidth - LOGO_GAP, 132f)
 
     val credit = listOfNotNull(

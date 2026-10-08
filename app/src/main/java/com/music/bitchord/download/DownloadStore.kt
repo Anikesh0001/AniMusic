@@ -1,5 +1,6 @@
 package com.music.bitchord.download
 
+import com.music.bitchord.BuildConfig
 import android.content.ContentValues
 import android.content.Context
 import android.media.MediaScannerConnection
@@ -56,7 +57,7 @@ object DownloadStore {
     private const val TAG = "BitChord"
 
     /** The subfolder of Music that everything lands in. */
-    const val FOLDER = "BitChord"
+    const val FOLDER = BuildConfig.BRAND_NAME
 
     private val relativePath = "${Environment.DIRECTORY_MUSIC}/$FOLDER"
 

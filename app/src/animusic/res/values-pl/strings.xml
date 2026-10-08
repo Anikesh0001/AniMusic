@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">Open AniMusic</string>
+    <string name="app_language_description">Wybierz język używany przez AniMusic.</string>
+    <string name="high_performance_battery_warning">Najpierw ustaw użycie baterii przez AniMusic na Bez ograniczeń. Wyższe częstotliwości odświeżania zużywają więcej baterii, procesora i układu graficznego oraz mogą nagrzewać urządzenie.</string>
+    <string name="enable_high_performance_confirmation">Włącz tylko wtedy, gdy użycie baterii przez AniMusic jest ustawione na Bez ograniczeń. Android nadal może ograniczyć częstotliwość odświeżania, gdy urządzenie jest gorące lub ma mało energii.</string>
+    <string name="discord_sign_in_footer">Logowanie otwiera stronę logowania Discord. Nic nie jest wpisywane do AniMusic.</string>
+    <string name="saved_to_bitchord_folder">Zapisano w Music/AniMusic</string>
+    <string name="sources_order_footer">Jeśli źródło nie ma utworu lub jest niedostępne, AniMusic próbuje następne. Źródła przed YouTube mogą je zastąpić, gdy znajdą lepszą wersję.</string>
+    <string name="default_replay_holder">Słuchacz AniMusic</string>
+    <string name="replay_empty_description">Posłuchaj trochę więcej, a AniMusic przekształci twoją historię w Replay.</string>
+    <string name="webdav_description">Wskaż AniMusic folder z muzyką WebDAV – katalog Muzyka w Nextcloud lub dowolny serwer obsługujący WebDAV.</string>
+    <string name="smb_description">Wskaż AniMusic udostępniony folder z muzyką – NAS lub udział Windows przez SMB.</string>
+    <string name="counted_on_device_with_bitchord">Obliczono na tym urządzeniu z AniMusic</string>
+    <string name="listen_together_share_text">Posłuchaj ze mną w AniMusic — kod imprezy %1$s</string>
+    <string name="source_unrecognised">AniMusic nie rozpoznał tego linku</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>

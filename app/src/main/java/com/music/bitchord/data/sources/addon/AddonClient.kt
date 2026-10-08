@@ -1,5 +1,6 @@
 package com.music.bitchord.data.sources.addon
 
+import com.music.bitchord.BuildConfig
 import com.music.bitchord.data.Http
 import com.music.bitchord.data.TrackLog
 import com.music.bitchord.data.settings.AppSettings
@@ -89,7 +90,7 @@ class AddonClient(rawBaseUrl: String) {
             }
             if (!manifest.isPlayable) {
                 val declared = manifest.resources.joinToString(", ")
-                throw AddonException("This addon declares $declared — BitChord needs search")
+                throw AddonException("This addon declares $declared — ${BuildConfig.BRAND_NAME} needs search")
             }
             manifest
         }.recoverCatching { failure ->
@@ -334,7 +335,7 @@ class AddonClient(rawBaseUrl: String) {
                     // sends people to re-paste a URL that was always correct.
                     response.code >= 500 -> throw AddonUnavailable("HTTP ${response.code}")
                     response.code != 429 -> throw AddonException("HTTP ${response.code}")
-                    attempt >= MAX_RETRIES -> throw AddonUnavailable("This addon is rate limiting BitChord")
+                    attempt >= MAX_RETRIES -> throw AddonUnavailable("This addon is rate limiting ${BuildConfig.BRAND_NAME}")
                     else -> retryAfterMs(response.header("Retry-After"), attempt)
                 }
             }

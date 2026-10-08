@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated from src/main/res by the AniMusic rebrand: the strings that
+     name the app, with the name swapped. Regenerate after upstream merges. -->
+<resources>
+    <string name="widget_open_bitchord">Открыть AniMusic</string>
+    <string name="app_language_description">Выберите язык, используемый в AniMusic.</string>
+    <string name="high_performance_battery_warning">Сначала установите для использования батареи AniMusic значение «Без ограничений». Более высокая частота обновления расходует больше заряда батареи, ресурсов процессора и графического процессора и может нагревать устройство.</string>
+    <string name="enable_high_performance_confirmation">Включайте только если для использования батареи AniMusic установлено значение «Без ограничений». Android всё равно может ограничивать частоту обновления, если устройство нагревается или заряд низкий.</string>
+    <string name="discord_sign_in_footer">Вход открывает страницу входа Discord. В AniMusic ничего не вводится.</string>
+    <string name="saved_to_bitchord_folder">Сохранено в Музыка/AniMusic</string>
+    <string name="sources_order_footer">Если у источника нет трека или он недоступен, AniMusic пробует следующий. Источники выше YouTube могут заменить его запись, если предоставляют более качественную версию.</string>
+    <string name="default_replay_holder">Слушатель AniMusic</string>
+    <string name="replay_empty_description">Слушайте немного больше, и AniMusic превратит вашу историю в Replay.</string>
+    <string name="webdav_description">Укажите AniMusic музыкальную папку WebDAV — каталог «Музыка» в Nextcloud или любой сервер с поддержкой WebDAV.</string>
+    <string name="smb_description">Укажите AniMusic общую музыкальную папку — NAS или общую папку Windows по SMB.</string>
+    <string name="counted_on_device_with_bitchord">Подсчитано на этом устройстве с помощью AniMusic</string>
+    <string name="listen_together_share_text">Слушай со мной в AniMusic — код вечеринки %1$s</string>
+    <string name="add_addon_detail">Подключите AniMusic к серверу плагина</string>
+    <string name="addon_url_description">Вставьте URL плагина — корень или manifest.json. AniMusic считает доступные треки.</string>
+    <string name="source_unrecognised">AniMusic не удалось распознать ссылку</string>
+    <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="equalizer_footer">Shapes the sound inside AniMusic, before it reaches the system.</string>
+    <string name="system_equalizer_footer">Runs after AniMusic\'s, on the whole audio session. Using both applies both.</string>
+</resources>
