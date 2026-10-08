@@ -167,6 +167,13 @@ android {
                 storePassword = signing.getProperty("storePassword")
                 keyAlias = signing.getProperty("keyAlias")
                 keyPassword = signing.getProperty("keyPassword")
+                // minSdk 26 has no use for v1 (JAR) signing. v2 is what every
+                // supported release verifies; v3 adds the proof-of-rotation
+                // block that lets a future key replace this one without
+                // breaking updates.
+                enableV1Signing = false
+                enableV2Signing = true
+                enableV3Signing = true
             }
         }
     }
