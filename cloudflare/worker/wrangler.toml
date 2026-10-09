@@ -11,7 +11,7 @@ enabled = false
 binding = "DB"
 database_name = "animusic-stats"
 # Paste the database_id printed by `npx wrangler d1 create animusic-stats`.
-database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+database_id = "341de284-e16a-4fc2-93c1-f3dd3f5c8725"
 
 # Daily at 03:17 UTC: delete rows older than 90 days.
 [triggers]
