@@ -1383,4 +1383,6 @@
     <string name="incognito_short">בסתר</string>
     <string name="incognito_indicator">האזנה בסתר פעילה. הקישו כדי לכבות.</string>
     <string name="incognito_off_notice">מצב בסתר כבוי. ההאזנה נרשמת שוב.</string>
+    <string name="usage_count_title">שליחת ספירת שימוש אנונימית</string>
+    <string name="usage_count_subtitle">פעם ביום: מזהה התקנה אקראי, גרסת האפליקציה וגרסת Android, כדי לספור משתמשים פעילים. שום דבר עליכם או על מה שאתם מנגנים.</string>
 </resources>

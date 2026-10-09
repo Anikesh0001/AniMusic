@@ -1356,4 +1356,6 @@
     <string name="incognito_short">シークレット</string>
     <string name="incognito_indicator">シークレットで聴くがオンです。タップでオフにします。</string>
     <string name="incognito_off_notice">シークレットをオフにしました。再生が再び記録されます。</string>
+    <string name="usage_count_title">匿名の利用数を送信</string>
+    <string name="usage_count_subtitle">1日1回、ランダムなインストールID、アプリのバージョン、Android のバージョンを送り、利用者数を数えます。あなたや再生内容に関する情報は送りません。</string>
 </resources>

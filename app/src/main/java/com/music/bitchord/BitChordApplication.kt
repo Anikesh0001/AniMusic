@@ -105,6 +105,9 @@ class BitChordApplication : Application(), SingletonImageLoader.Factory {
             CoroutineScope(Dispatchers.IO).launch { Innertube.ensureSessionScope() }
         }
         AppSettings.init(this, authStore)
+        // Anonymous daily usage count: off unless the build has an endpoint.
+        // Background, five-second cap, errors ignored. See UsagePing.
+        com.music.bitchord.data.stats.UsagePing.start(this)
         // Before anything resolves a track: an addon with `checkValidLossless`
         // is gated on this, and the gate reads "no" until it has looked.
         com.music.bitchord.playback.audio.LosslessOutput.init(this)

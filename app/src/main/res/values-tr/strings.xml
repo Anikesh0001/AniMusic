@@ -1335,4 +1335,6 @@
     <string name="incognito_short">Gizli</string>
     <string name="incognito_indicator">Gizli dinleme açık. Kapatmak için dokunun.</string>
     <string name="incognito_off_notice">Gizli mod kapalı. Dinlediklerin yeniden kaydediliyor.</string>
+    <string name="usage_count_title">Anonim kullanım sayısı gönder</string>
+    <string name="usage_count_subtitle">Günde bir kez: rastgele bir kurulum kimliği, uygulama sürümü ve Android sürümü, aktif kullanıcıları saymak için. Sizinle ya da dinledikleriniz hakkında hiçbir şey yok.</string>
 </resources>

@@ -28,6 +28,13 @@ val lastfmApiKey: String = (
         ?: System.getenv("LASTFM_API_KEY")
         ?: ""
     ).trim()
+// The anonymous active-user count's endpoint (cloudflare/worker): the animusic
+// flavor only, and only when set. Empty leaves the feature off entirely.
+val animusicStatsUrl: String = (
+    localProps.getProperty("ANIMUSIC_STATS_URL")
+        ?: System.getenv("ANIMUSIC_STATS_URL")
+        ?: ""
+    ).trim()
 val lastfmSecret: String = (
     localProps.getProperty("LASTFM_SECRET")
         ?: System.getenv("LASTFM_SECRET")
@@ -98,6 +105,8 @@ android {
         // GitHub repository ("owner/name").
         buildConfigField("boolean", "UPDATE_CHECKS", "true")
         buildConfigField("String", "UPDATE_REPO", "\"kushagrasinghx/BitChord\"")
+        // Anonymous usage count endpoint; empty = off (see the animusic flavor).
+        buildConfigField("String", "STATS_URL", "\"\"")
         buildConfigField(
             "String",
             "LISTEN_TOGETHER_SERVER",
@@ -153,6 +162,11 @@ android {
             // key, and its tag ("v1.0.2") must be newer than versionName.
             buildConfigField("boolean", "UPDATE_CHECKS", "true")
             buildConfigField("String", "UPDATE_REPO", "\"Anikesh0001/AniMusic\"")
+            buildConfigField(
+                "String",
+                "STATS_URL",
+                "\"${animusicStatsUrl.replace("\\", "\\\\").replace("\"", "\\\"")}\"",
+            )
         }
     }
 

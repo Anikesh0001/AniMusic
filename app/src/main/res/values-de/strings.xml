@@ -1378,4 +1378,6 @@
     <string name="incognito_short">Inkognito</string>
     <string name="incognito_indicator">Inkognito-Hören ist an. Tippe, um es auszuschalten.</string>
     <string name="incognito_off_notice">Inkognito aus. Gehörtes wird wieder erfasst.</string>
+    <string name="usage_count_title">Anonyme Nutzungszählung senden</string>
+    <string name="usage_count_subtitle">Einmal am Tag: eine zufällige Installations-ID, die App- und die Android-Version, um aktive Nutzer zu zählen. Nichts über dich oder was du hörst.</string>
 </resources>

@@ -1295,4 +1295,6 @@
     <string name="incognito_short">Ẩn danh</string>
     <string name="incognito_indicator">Đang bật nghe ẩn danh. Chạm để tắt.</string>
     <string name="incognito_off_notice">Đã tắt ẩn danh. Lịch sử nghe được ghi lại.</string>
+    <string name="usage_count_title">Gửi số liệu sử dụng ẩn danh</string>
+    <string name="usage_count_subtitle">Mỗi ngày một lần: một ID cài đặt ngẫu nhiên, phiên bản ứng dụng và phiên bản Android, để đếm người dùng đang hoạt động. Không có gì về bạn hay những gì bạn nghe.</string>
 </resources>

@@ -1379,4 +1379,6 @@
     <string name="incognito_short">Privé</string>
     <string name="incognito_indicator">L\'écoute privée est activée. Touchez pour la désactiver.</string>
     <string name="incognito_off_notice">Mode privé désactivé. L\'écoute est de nouveau enregistrée.</string>
+    <string name="usage_count_title">Envoyer un comptage d\'utilisation anonyme</string>
+    <string name="usage_count_subtitle">Une fois par jour : un identifiant d\'installation aléatoire, la version de l\'appli et celle d\'Android, pour compter les utilisateurs actifs. Rien sur vous ni sur ce que vous écoutez.</string>
 </resources>

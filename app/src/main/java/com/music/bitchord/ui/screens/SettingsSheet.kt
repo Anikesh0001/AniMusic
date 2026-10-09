@@ -265,6 +265,7 @@ fun SettingsScreen(
 
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
     val incognito by AppSettings.incognitoMode.collectAsStateWithLifecycle()
+    val sendUsageCount by com.music.bitchord.data.stats.UsageStats.enabledFlow.collectAsStateWithLifecycle()
     val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
         .collectAsStateWithLifecycle()
     val autoSyncImports by com.music.bitchord.data.importer.ImportSettings.autoSyncDaily
@@ -1195,6 +1196,29 @@ fun SettingsScreen(
                     },
                     onClick = { AppSettings.setIncognitoMode(!incognito) },
                 )
+            }
+            // Only in builds that have a usage-count endpoint (AniMusic with
+            // ANIMUSIC_STATS_URL); everywhere else there is nothing to switch off.
+            if (com.music.bitchord.data.stats.UsageStats.available) {
+                val usageTitle = stringResource(R.string.usage_count_title)
+                row(usageTitle, "usage", "analytics", "anonymous", "privacy", "statistics") {
+                    SettingsRow(
+                        icon = Icons.Rounded.BarChart,
+                        title = usageTitle,
+                        subtitle = stringResource(R.string.usage_count_subtitle),
+                        trailing = {
+                            Switch(
+                                checked = sendUsageCount,
+                                onCheckedChange = com.music.bitchord.data.stats.UsageStats::setEnabled,
+                                colors = SwitchDefaults.colors(
+                                    checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                    checkedBorderColor = MaterialTheme.colorScheme.primary,
+                                ),
+                            )
+                        },
+                        onClick = { com.music.bitchord.data.stats.UsageStats.setEnabled(!sendUsageCount) },
+                    )
+                }
             }
             val replayTitle = stringResource(R.string.replay)
             row(replayTitle, "stats", "history", "wrapped") {

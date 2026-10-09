@@ -1215,4 +1215,6 @@
     <string name="incognito_short">Incognito</string>
     <string name="incognito_indicator">Incognito listening is on. Tap to turn it off.</string>
     <string name="incognito_off_notice">Incognito off. Listening is recorded again.</string>
+    <string name="usage_count_title">Send anonymous usage count</string>
+    <string name="usage_count_subtitle">Once a day: a random install ID, the app version and the Android version, to count active users. Nothing about you or what you play.</string>
 </resources>

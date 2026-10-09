@@ -1418,4 +1418,6 @@
     <string name="incognito_short">Incognito</string>
     <string name="incognito_indicator">Słuchanie incognito jest włączone. Dotknij, aby wyłączyć.</string>
     <string name="incognito_off_notice">Incognito wyłączone. Słuchanie jest znów zapisywane.</string>
+    <string name="usage_count_title">Wysyłaj anonimowe dane o liczbie użytkowników</string>
+    <string name="usage_count_subtitle">Raz dziennie: losowy identyfikator instalacji, wersja aplikacji i Androida, aby policzyć aktywnych użytkowników. Nic o Tobie ani o tym, czego słuchasz.</string>
 </resources>

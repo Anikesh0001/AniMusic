@@ -1383,4 +1383,6 @@
     <string name="incognito_short">Anônimo</string>
     <string name="incognito_indicator">O modo anônimo está ativado. Toque para desativar.</string>
     <string name="incognito_off_notice">Modo anônimo desativado. O que você ouve volta a ser registrado.</string>
+    <string name="usage_count_title">Enviar contagem de uso anônima</string>
+    <string name="usage_count_subtitle">Uma vez por dia: um ID de instalação aleatório, a versão do app e a do Android, para contar usuários ativos. Nada sobre você ou o que você ouve.</string>
 </resources>

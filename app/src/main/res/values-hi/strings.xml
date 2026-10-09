@@ -1378,4 +1378,6 @@
     <string name="incognito_short">इनकॉग्निटो</string>
     <string name="incognito_indicator">इनकॉग्निटो सुनना चालू है। बंद करने के लिए टैप करें।</string>
     <string name="incognito_off_notice">इनकॉग्निटो बंद। सुनना फिर से रिकॉर्ड होगा।</string>
+    <string name="usage_count_title">गुमनाम उपयोग गिनती भेजें</string>
+    <string name="usage_count_subtitle">दिन में एक बार: एक रैंडम इंस्टॉल ID, ऐप वर्शन और Android वर्शन, ताकि सक्रिय उपयोगकर्ता गिने जा सकें। आपके या आप क्या सुनते हैं, उसके बारे में कुछ नहीं।</string>
 </resources>

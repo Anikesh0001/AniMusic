@@ -1317,4 +1317,6 @@
     <string name="incognito_short">Incognito</string>
     <string name="incognito_indicator">L\'ascolto in incognito è attivo. Tocca per disattivarlo.</string>
     <string name="incognito_off_notice">Incognito disattivato. L\'ascolto viene di nuovo registrato.</string>
+    <string name="usage_count_title">Invia conteggio d\'uso anonimo</string>
+    <string name="usage_count_subtitle">Una volta al giorno: un ID di installazione casuale, la versione dell\'app e quella di Android, per contare gli utenti attivi. Niente su di te o su ciò che ascolti.</string>
 </resources>

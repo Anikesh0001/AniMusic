@@ -1361,4 +1361,6 @@
     <string name="incognito_short">ไม่ระบุตัวตน</string>
     <string name="incognito_indicator">เปิดการฟังแบบไม่ระบุตัวตนอยู่ แตะเพื่อปิด</string>
     <string name="incognito_off_notice">ปิดโหมดไม่ระบุตัวตนแล้ว การฟังจะถูกบันทึกอีกครั้ง</string>
+    <string name="usage_count_title">ส่งจำนวนการใช้งานแบบไม่ระบุตัวตน</string>
+    <string name="usage_count_subtitle">วันละครั้ง: รหัสการติดตั้งแบบสุ่ม เวอร์ชันแอป และเวอร์ชัน Android เพื่อนับผู้ใช้ที่ใช้งานอยู่ ไม่มีข้อมูลเกี่ยวกับคุณหรือสิ่งที่คุณฟัง</string>
 </resources>

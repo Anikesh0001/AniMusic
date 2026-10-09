@@ -1410,4 +1410,6 @@
     <string name="incognito_short">Инкогнито</string>
     <string name="incognito_indicator">Режим инкогнито включён. Нажмите, чтобы выключить.</string>
     <string name="incognito_off_notice">Инкогнито выключено. Прослушивания снова записываются.</string>
+    <string name="usage_count_title">Отправлять анонимный счётчик использования</string>
+    <string name="usage_count_subtitle">Раз в день: случайный идентификатор установки, версия приложения и Android — чтобы посчитать активных пользователей. Ничего о вас и о том, что вы слушаете.</string>
 </resources>

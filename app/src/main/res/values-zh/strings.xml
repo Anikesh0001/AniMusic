@@ -1355,4 +1355,6 @@
     <string name="incognito_short">无痕</string>
     <string name="incognito_indicator">无痕收听已开启，点按可关闭。</string>
     <string name="incognito_off_notice">已关闭无痕模式，将重新记录收听内容。</string>
+    <string name="usage_count_title">发送匿名使用计数</string>
+    <string name="usage_count_subtitle">每天一次：发送随机安装 ID、应用版本和 Android 版本，用于统计活跃用户。不包含任何关于你或你所听内容的信息。</string>
 </resources>

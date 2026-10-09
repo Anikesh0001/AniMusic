@@ -1355,4 +1355,6 @@
     <string name="incognito_short">Penyamaran</string>
     <string name="incognito_indicator">Mode penyamaran aktif. Ketuk untuk menonaktifkan.</string>
     <string name="incognito_off_notice">Penyamaran nonaktif. Musik yang didengar dicatat lagi.</string>
+    <string name="usage_count_title">Kirim hitungan penggunaan anonim</string>
+    <string name="usage_count_subtitle">Sekali sehari: ID instalasi acak, versi aplikasi, dan versi Android, untuk menghitung pengguna aktif. Tidak ada data tentang Anda atau yang Anda putar.</string>
 </resources>
