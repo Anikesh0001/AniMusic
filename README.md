@@ -14,7 +14,7 @@
 [![License](https://img.shields.io/github/license/Anikesh0001/AniMusic?style=for-the-badge&labelColor=0d1117)](LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/Anikesh0001/AniMusic/total?style=for-the-badge&labelColor=0d1117)](https://github.com/Anikesh0001/AniMusic/releases)
 
-[**Download**](#download) · [**Features**](#features) · [**Build**](#build-it-yourself) · [**Credits**](#credits) · [**Disclaimer**](#disclaimer)
+[**Download**](#download) · [**Features**](#features) · [**Build**](#build-it-yourself) · [**Privacy**](#privacy) · [**Credits**](#credits) · [**Disclaimer**](#disclaimer)
 
 </div>
 
@@ -80,6 +80,32 @@ You need JDK 17, the Android SDK (platform 37, NDK, CMake 3.22.1) and a JDK 21 f
 ```
 
 Maintainers publish a release with `scripts/release-animusic.sh <version> "notes"`. See [ANIMUSIC.md](ANIMUSIC.md) for how the app is put together, signing and the release flow.
+
+---
+
+<h2 id="privacy">Privacy</h2>
+
+AniMusic has no account of its own and shows no ads.
+
+**Anonymous usage count.** When the app starts, at most once a day, it sends this to AniMusic's counter (a Cloudflare Worker, [source in `cloudflare/worker`](cloudflare/worker)):
+
+```json
+{"id": "a random ID made on this phone", "appVersion": "1.0.3", "androidSdk": 34}
+```
+
+- **The ID** is a random UUID the app generates on first launch. It isn't your Google account, a phone identifier, or anything else that identifies you, and it isn't included in backups.
+- **Nothing else is sent:** nothing about you, your library or what you play. The server stores one row per ID per day and deletes it after 90 days. It doesn't store IP addresses.
+- **Why:** so the developer knows roughly how many people use AniMusic each day and month, and which versions are still in use.
+- **How to turn it off:** Settings → Your data → **Send anonymous usage count**. It's also never sent while **Incognito listening** is on, or by builds made without a counter address.
+
+**Other connections.** These are the services the app talks to so its features work:
+- **Playback and search:** YouTube Music.
+- **Lyrics:** the lyrics providers listed under Credits.
+- **Imports:** the music service of whatever link you import.
+- **Updates:** GitHub, to check this repository for new releases.
+- **Optional, only if you turn them on:** Last.fm, ListenBrainz, Discord and Listen Together. Listen Together currently runs on BitChord's party server.
+
+AniMusic also still contains BitChord's "apps open right now" ping. While the app is open, it sends a random install ID (separate from the one above) to BitChord's server, `api.bitchord.kushagrasingh.in`, every few minutes so BitChord can show a live user count. It carries nothing else, and there's currently no switch for it.
 
 ---
 
