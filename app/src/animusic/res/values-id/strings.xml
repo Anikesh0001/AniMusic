@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s tersedia untuk diunduh.</string>
+    <string name="update_downloading_body">Mengunduh AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s siap dipasang.</string>
+    <string name="update_failed_body">Gagal mengunduh AniMusic %1$s.</string>
     <string name="widget_open_bitchord">Buka AniMusic</string>
     <string name="app_language_description">Pilih bahasa yang digunakan AniMusic.</string>
     <string name="high_performance_battery_warning">Atur dulu penggunaan baterai AniMusic ke Tidak Dibatasi. Refresh rate yang lebih tinggi menggunakan lebih banyak baterai, CPU, dan GPU, serta dapat membuat perangkat Anda menjadi hangat.</string>

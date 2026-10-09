@@ -3,6 +3,10 @@
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
     <string name="auto_login_subtitle">Open AniMusic on your phone to sign in</string>
+    <string name="update_available_body">AniMusic %1$s is available to download.</string>
+    <string name="update_downloading_body">Downloading AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s is ready to install.</string>
+    <string name="update_failed_body">Couldn’t download AniMusic %1$s.</string>
     <string name="source_unrecognised">AniMusic could not tell what that link is</string>
     <string name="widget_open_bitchord">Open AniMusic</string>
     <string name="app_language_description">Choose the language used by AniMusic.</string>

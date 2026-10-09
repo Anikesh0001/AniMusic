@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s indirilmeye hazır.</string>
+    <string name="update_downloading_body">AniMusic %1$s indiriliyor…</string>
+    <string name="update_ready_body">AniMusic %1$s yüklenmeye hazır.</string>
+    <string name="update_failed_body">AniMusic %1$s indirilemedi.</string>
     <string name="widget_open_bitchord">AniMusic\'u Aç</string>
     <string name="app_language_description">AniMusic tarafından kullanılan dili seçin.</string>
     <string name="high_performance_battery_warning">Önce AniMusic\'un pil kullanımını Sınırsız olarak ayarlayın. Daha yüksek yenileme hızları daha fazla pil, CPU ve GPU kullanır ve cihazınızı ısıtabilir.</string>

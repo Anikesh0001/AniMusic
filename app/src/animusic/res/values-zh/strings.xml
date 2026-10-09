@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s 现已可供下载。</string>
+    <string name="update_downloading_body">正在下载 AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s 已准备好安装。</string>
+    <string name="update_failed_body">无法下载 AniMusic %1$s。</string>
     <string name="widget_open_bitchord">打开 AniMusic</string>
     <string name="app_language_description">选择 AniMusic 使用的语言。</string>
     <string name="high_performance_battery_warning">请先将 AniMusic 的电量使用设置为“不受限制”。更高的刷新率会消耗更多电量、CPU 和 GPU 资源，并可能使设备发热。</string>

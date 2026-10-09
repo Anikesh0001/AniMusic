@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s พร้อมให้ดาวน์โหลดแล้ว</string>
+    <string name="update_downloading_body">กำลังดาวน์โหลด AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s พร้อมติดตั้งแล้ว</string>
+    <string name="update_failed_body">ดาวน์โหลด AniMusic %1$s ไม่สำเร็จ</string>
     <string name="widget_open_bitchord">เปิด AniMusic</string>
     <string name="app_language_description">เลือกภาษาที่ใช้ใน AniMusic</string>
     <string name="high_performance_battery_warning">ตั้งค่าการใช้แบตเตอรี่ของ AniMusic เป็นไม่จำกัดก่อน อัตรารีเฟรชที่สูงขึ้นใช้แบตเตอรี่ CPU และ GPU มากขึ้น และอาจทำให้อุปกรณ์ร้อนขึ้น</string>

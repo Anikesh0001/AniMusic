@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s доступен для загрузки.</string>
+    <string name="update_downloading_body">Загрузка AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s готов к установке.</string>
+    <string name="update_failed_body">Не удалось загрузить AniMusic %1$s.</string>
     <string name="widget_open_bitchord">Открыть AniMusic</string>
     <string name="app_language_description">Выберите язык, используемый в AniMusic.</string>
     <string name="high_performance_battery_warning">Сначала установите для использования батареи AniMusic значение «Без ограничений». Более высокая частота обновления расходует больше заряда батареи, ресурсов процессора и графического процессора и может нагревать устройство.</string>

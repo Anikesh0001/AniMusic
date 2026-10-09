@@ -3,6 +3,10 @@
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
     <string name="auto_login_subtitle">Apri AniMusic sul telefono per accedere</string>
+    <string name="update_available_body">AniMusic %1$s è disponibile per il download.</string>
+    <string name="update_downloading_body">Download di AniMusic %1$s in corso…</string>
+    <string name="update_ready_body">AniMusic %1$s è pronto da installare.</string>
+    <string name="update_failed_body">Impossibile scaricare AniMusic %1$s.</string>
     <string name="widget_open_bitchord">Apri AniMusic</string>
     <string name="app_language_description">Scegli la lingua usata da AniMusic.</string>
     <string name="high_performance_battery_warning">Imposta prima l\'uso della batteria di AniMusic su Illimitato. Frequenze di aggiornamento più alte usano più batteria, CPU e GPU e possono scaldare il dispositivo.</string>

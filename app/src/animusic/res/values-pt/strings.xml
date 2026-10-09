@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">O AniMusic %1$s está disponível para download.</string>
+    <string name="update_downloading_body">Baixando AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s está pronto para instalar.</string>
+    <string name="update_failed_body">Não foi possível baixar o AniMusic %1$s.</string>
     <string name="widget_open_bitchord">Abrir AniMusic</string>
     <string name="app_language_description">Escolha o idioma usado pelo AniMusic.</string>
     <string name="high_performance_battery_warning">Primeiro, defina o uso da bateria do AniMusic como Irrestrito. Taxas de atualização mais altas usam mais bateria, CPU e GPU, e podem aquecer seu dispositivo.</string>

@@ -2,6 +2,10 @@
 <!-- Generated from src/main/res by the AniMusic rebrand: the strings that
      name the app, with the name swapped. Regenerate after upstream merges. -->
 <resources>
+    <string name="update_available_body">AniMusic %1$s זמין להורדה.</string>
+    <string name="update_downloading_body">מוריד את AniMusic %1$s…</string>
+    <string name="update_ready_body">AniMusic %1$s מוכן להתקנה.</string>
+    <string name="update_failed_body">לא ניתן היה להוריד את AniMusic %1$s.</string>
     <string name="widget_open_bitchord">פתיחת AniMusic</string>
     <string name="app_language_description">בחירת השפה שבה ישתמש AniMusic.</string>
     <string name="high_performance_battery_warning">תחילה הגדר את השימוש בסוללה של AniMusic ללא הגבלה. קצבי רענון גבוהים צורכים יותר סוללה, מעבד ומאיץ גרפי, ועשויים לחמם את המכשיר.</string>
