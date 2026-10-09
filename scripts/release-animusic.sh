@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 # Publish an AniMusic update that installed copies will offer to install.
 #
-#   scripts/release-animusic.sh <version> ["release notes"]
-#   e.g. scripts/release-animusic.sh 1.0.2 "Fixes YouTube playlist import"
+#   scripts/release-animusic.sh [--prerelease] <version> ["release notes"]
+#   e.g. scripts/release-animusic.sh --prerelease 1.0.3 "Fixes YouTube playlist import"
+#
+# With --prerelease the GitHub release is published as a pre-release.
+# GET /releases/latest (what installed apps ask for) only ever returns "the
+# most recent non-prerelease, non-draft release", so phones do not see it:
+# install it on your own phone from the release page, smoke-test it (see
+# CLAUDE.md), then run scripts/promote-release.sh <version> to ship it.
 #
 # What it does:
 #   1. sets the animusic flavor's versionName to <version> and bumps versionCode
@@ -22,8 +28,17 @@
 # ~/.config/animusic/git-credentials. It is never written into the repo.
 set -euo pipefail
 
-VERSION="${1:?usage: $0 <version> [\"release notes\"]}"
-NOTES="${2:-AniMusic $VERSION}"
+PRERELEASE=false
+ARGS=()
+for arg in "$@"; do
+    case "$arg" in
+        --prerelease) PRERELEASE=true ;;
+        -*) echo "unknown option $arg" >&2; exit 1 ;;
+        *) ARGS+=("$arg") ;;
+    esac
+done
+VERSION="${ARGS[0]:?usage: $0 [--prerelease] <version> [\"release notes\"]}"
+NOTES="${ARGS[1]:-AniMusic $VERSION}"
 REPO="Anikesh0001/AniMusic"
 REMOTE="animusic"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -38,11 +53,8 @@ if git status --porcelain --untracked-files=no | grep -v ' gradle.properties$' |
     echo "commit or stash your changes first" >&2; exit 1
 fi
 
-TOKEN="${GITHUB_TOKEN:-}"
-if [[ -z "$TOKEN" && -f "$HOME/.config/animusic/git-credentials" ]]; then
-    TOKEN="$(sed -E 's#https://[^:]+:([^@]+)@.*#\1#' "$HOME/.config/animusic/git-credentials" | head -1)"
-fi
-[[ -n "$TOKEN" ]] || { echo "no GitHub token: set GITHUB_TOKEN" >&2; exit 1; }
+# shellcheck source=lib/github-token.sh
+source "$ROOT/scripts/lib/github-token.sh"
 
 # 1. Version bump, inside the animusic flavor block only. Undone if anything
 #    fails before the release commit, so a failed run can simply be retried.
@@ -94,7 +106,14 @@ git push "$REMOTE" "HEAD:main" "v$VERSION"
 
 # 6. GitHub release with the APKs.
 API="https://api.github.com/repos/$REPO"
-BODY="$(python3 -c 'import json,sys; print(json.dumps({"tag_name": "v"+sys.argv[1], "name": "AniMusic "+sys.argv[1], "body": sys.argv[2], "draft": False, "prerelease": False}))' "$VERSION" "$NOTES")"
+# A pre-release is never "latest" (GitHub refuses that anyway); a full release
+# is made latest explicitly rather than by creation date.
+BODY="$(python3 -c '
+import json, sys
+pre = sys.argv[3] == "true"
+print(json.dumps({"tag_name": "v" + sys.argv[1], "name": "AniMusic " + sys.argv[1], "body": sys.argv[2],
+                  "draft": False, "prerelease": pre, "make_latest": "false" if pre else "true"}))
+' "$VERSION" "$NOTES" "$PRERELEASE")"
 RELEASE="$(curl -4 -fsS -X POST -H "Authorization: Bearer $TOKEN" -H "Accept: application/vnd.github+json" "$API/releases" -d "$BODY")"
 UPLOAD="$(printf '%s' "$RELEASE" | python3 -c 'import json,sys; print(json.load(sys.stdin)["upload_url"].split("{")[0])')"
 for abi in arm64-v8a universal; do
@@ -103,4 +122,9 @@ for abi in arm64-v8a universal; do
         --data-binary @"$f" "$UPLOAD?name=$(basename "$f")" >/dev/null
     echo "uploaded $(basename "$f")"
 done
-echo "Published https://github.com/$REPO/releases/tag/v$VERSION"
+if [[ "$PRERELEASE" == true ]]; then
+    echo "Published PRE-RELEASE https://github.com/$REPO/releases/tag/v$VERSION"
+    echo "Installed apps will not see it. Smoke-test it, then: scripts/promote-release.sh $VERSION"
+else
+    echo "Published https://github.com/$REPO/releases/tag/v$VERSION"
+fi

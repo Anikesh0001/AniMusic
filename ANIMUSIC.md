@@ -14,13 +14,37 @@ Kotlin packages and the namespace stay `com.music.bitchord`, and `src/main` keep
 
 ## Publishing an update
 
+Ship every update in two steps: a pre-release that only you install, then a promotion that sends it to everyone.
+
+**1. Publish a pre-release**
+
 ```
-scripts/release-animusic.sh 1.0.2 "What changed"
+scripts/release-animusic.sh --prerelease 1.0.3 "What changed (shown to users as the update notes)"
 ```
 
-The script bumps the animusic `versionName`/`versionCode`, builds and verifies the signed release, commits, and tags `v1.0.2`. It then pushes to the `animusic` remote (`main` plus the tag) and creates the GitHub release with `AniMusic-1.0.2-arm64-v8a.apk` and `-universal.apk` attached. Installed copies offer it the next time they open. It must always be signed with the same keystore, or Android refuses to install it over the existing app.
+The script bumps the animusic `versionName`/`versionCode`, builds and verifies the signed release, commits, and tags `v1.0.3`. It pushes `main` plus the tag to the `animusic` remote, then creates GitHub release `v1.0.3` marked **pre-release**, with `AniMusic-1.0.3-arm64-v8a.apk` and `-universal.apk` attached.
 
-The GitHub token comes from `$GITHUB_TOKEN`, or from `~/.config/animusic/git-credentials` (owner-only file, used only for `github.com/Anikesh0001` remotes of this checkout). It is never stored in the repo.
+Installed apps don't see it. They ask `GET /releases/latest`, which only ever returns "the most recent non-prerelease, non-draft release", so v1.0.2 stays the latest. On a pre-release the script also sends `make_latest: false`.
+
+**2. Install it on your phone and smoke-test it**
+
+Download the arm64 APK from the pre-release's page on GitHub and install it over your current AniMusic. Then run through the checklist in [CLAUDE.md](CLAUDE.md#smoke-test-before-every-release).
+
+**3. Promote it**
+
+```
+scripts/promote-release.sh 1.0.3
+```
+
+This marks `v1.0.3` as a full release and the repository's latest, then checks that `/releases/latest` really returns it. From the next start, every installed copy shows the update dialog with the release notes. The script refuses if an APK is missing, if the release isn't a pre-release, or if the version isn't newer than the current latest.
+
+If the smoke test fails, don't promote. Fix the problem and publish `1.0.4` as a new pre-release; version numbers are never reused. Delete the broken pre-release on GitHub if you like, since no installed app ever saw it.
+
+Without `--prerelease`, `release-animusic.sh` publishes straight to everyone. Keep that for emergencies only.
+
+Every release must be signed with the same keystore, or Android refuses to install it over the existing app. The full update contract is in [CLAUDE.md](CLAUDE.md).
+
+The GitHub token comes from `$GITHUB_TOKEN`, or from `~/.config/animusic/git-credentials` (an owner-only file, used only for this checkout's `github.com/Anikesh0001` remotes). Both scripts read it through `scripts/lib/github-token.sh`. It is never stored in the repo.
 
 ## Build
 
