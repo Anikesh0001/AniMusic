@@ -1,0 +1,21 @@
+# AniMusic anonymous active-user count. Setup: see README.md in this folder.
+name = "animusic-stats"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# No request logs: the Worker stores no IP address, and its logs shouldn't either.
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "animusic-stats"
+# Paste the database_id printed by `npx wrangler d1 create animusic-stats`.
+database_id = "REPLACE_WITH_YOUR_DATABASE_ID"
+
+# Daily at 03:17 UTC: delete rows older than 90 days.
+[triggers]
+crons = ["17 3 * * *"]
+
+# STATS_KEY (the /stats password) is a Worker secret, set with
+# `npx wrangler secret put STATS_KEY`. It is never written here.
