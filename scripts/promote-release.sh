@@ -41,6 +41,20 @@ if latest and num(version) <= num(latest):
 print(r["id"])
 ' "$VERSION" "$LATEST_TAG")"
 
+# Desktop packages are added by Actions after publishing; promoting without them is allowed
+# (phones only need the APKs), but say so.
+MISSING_DESKTOP="$(printf '%s' "$RELEASE" | python3 -c '
+import json, sys
+v = sys.argv[1]
+names = {a["name"] for a in json.load(sys.stdin)["assets"] if a.get("state") == "uploaded"}
+want = [f"AniMusic-{v}-{p}" for p in ("macos-arm64.dmg", "macos-x64.dmg", "windows-x64-setup.exe", "linux-x86_64.AppImage")]
+print(" ".join(w for w in want if w not in names))
+' "$VERSION")"
+if [[ -n "$MISSING_DESKTOP" ]]; then
+    echo "warning: no desktop package yet for: $MISSING_DESKTOP"
+    echo "         (still building? https://github.com/$REPO/actions). Promoting anyway; they can be added later."
+fi
+
 gh_api -X PATCH "$API/releases/$ID" -d '{"prerelease": false, "make_latest": "true"}' >/dev/null
 
 NOW="$(gh_api "$API/releases/latest" | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])')"

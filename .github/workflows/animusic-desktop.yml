@@ -1,0 +1,257 @@
+# Builds the AniMusic desktop packages and attaches them to the GitHub release
+# that already holds the APKs. scripts/release-animusic.sh publishes the release
+# (with the APKs); this adds the desktop files a few minutes later.
+#
+# CLAUDE.md rule: desktop files go into the SAME vX.Y.Z release as the APKs.
+# This workflow never creates a release. Android reads /releases/latest and must
+# keep finding its APKs there.
+#
+# Free: GitHub-hosted runners, no paid services, no Apple notarization, and no
+# secrets beyond the built-in GITHUB_TOKEN.
+name: AniMusic desktop
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag to build and attach to, e.g. v1.0.4"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: animusic-desktop-${{ github.event.release.tag_name || inputs.tag }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ github.event.release.tag_name || inputs.tag }}
+  BRAND: animusic
+
+jobs:
+  version:
+    name: Version
+    runs-on: ubuntu-latest
+    outputs:
+      value: ${{ steps.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Tag vX.Y.Z must match the animusic versionName
+        id: version
+        run: |
+          v="${TAG#v}"
+          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "::error::tag $TAG is not vX.Y.Z"; exit 1; }
+          flavor=$(sed -n '/create("animusic")/,/^        }/p' app/build.gradle.kts | sed -n 's/.*versionName = "\(.*\)".*/\1/p')
+          [ "$flavor" = "$v" ] || { echo "::error::tag $TAG but the animusic versionName is $flavor"; exit 1; }
+          echo "value=$v" >> "$GITHUB_OUTPUT"
+          echo "Building AniMusic desktop $v"
+
+  linux:
+    name: Linux · AppImage, deb, rpm
+    needs: version
+    runs-on: ubuntu-22.04
+    env:
+      VERSION: ${{ needs.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Packaging tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rpm fakeroot binutils file
+          curl -sSL -o appimagetool.AppImage \
+            https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod +x appimagetool.AppImage
+
+      - run: chmod +x gradlew
+
+      - name: Tests
+        run: ./gradlew :shared:jvmTest :desktopApp:test -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
+
+      - name: Build deb, rpm and the app image
+        run: |
+          ./gradlew :desktopApp:packageDeb :desktopApp:packageRpm :desktopApp:createDistributable \
+            -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
+
+      - name: The analyser and models are in the jar
+        run: |
+          jar=$(ls desktopApp/build/compose/binaries/main/app/AniMusic/lib/app/desktopApp*.jar)
+          jar tf "$jar" | grep -q 'native/libbitchord_analysis.so'
+          jar tf "$jar" | grep -q 'models/.*\.onnx'
+
+      - name: Build the AppImage
+        run: |
+          desktopApp/packaging/appimage.sh \
+            desktopApp/build/compose/binaries/main/app/AniMusic \
+            "dist/AniMusic-$VERSION-linux-x86_64.AppImage" \
+            "$PWD/appimagetool.AppImage" \
+            AniMusic animusic "$PWD/desktopApp/packaging/icons/animusic/AppIcon.png"
+
+      - name: Collect
+        run: |
+          mkdir -p dist
+          cp desktopApp/build/compose/binaries/main/deb/*.deb "dist/AniMusic-$VERSION-linux-amd64.deb"
+          cp desktopApp/build/compose/binaries/main/rpm/*.rpm "dist/AniMusic-$VERSION-linux-x86_64.rpm"
+          ls -lh dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-artifacts
+          path: dist/*
+
+  windows:
+    name: Windows · installer, msi, portable
+    needs: version
+    runs-on: windows-latest
+    env:
+      VERSION: ${{ needs.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: WiX Toolset 3
+        shell: pwsh
+        run: |
+          $url = "https://github.com/wixtoolset/wix3/releases/download/wix3141rtm/wix314-binaries.zip"
+          Invoke-WebRequest -Uri $url -OutFile wix.zip
+          Expand-Archive wix.zip -DestinationPath "$env:RUNNER_TEMP\wix"
+          "$env:RUNNER_TEMP\wix" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      - name: Tests
+        run: .\gradlew.bat :shared:jvmTest :desktopApp:test "-Pdesktop.brand=$env:BRAND" "-Pbitchord.version=$env:VERSION"
+
+      - name: Build msi, exe and the app image
+        run: |
+          .\gradlew.bat :desktopApp:packageMsi :desktopApp:packageExe :desktopApp:createDistributable "-Pdesktop.brand=$env:BRAND" "-Pbitchord.version=$env:VERSION"
+
+      - name: The analyser and models are in the jar
+        shell: bash
+        run: |
+          jar=$(ls desktopApp/build/compose/binaries/main/app/AniMusic/app/desktopApp*.jar)
+          jar tf "$jar" | grep -q 'native/bitchord_analysis.dll'
+          jar tf "$jar" | grep -q 'models/.*\.onnx'
+          # WinRT, so only MSVC can build it and only this job ever does.
+          jar tf "$jar" | grep -q 'native/bitchord_smtc.dll'
+
+      - name: Collect
+        shell: pwsh
+        run: |
+          $v = $env:VERSION
+          New-Item -ItemType Directory -Force dist | Out-Null
+          Copy-Item desktopApp/build/compose/binaries/main/msi/*.msi "dist/AniMusic-$v-windows-x64.msi"
+          Copy-Item desktopApp/build/compose/binaries/main/exe/*.exe "dist/AniMusic-$v-windows-x64-setup.exe"
+          7z a -tzip -mx=5 "dist/AniMusic-$v-windows-x64-portable.zip" `
+            "desktopApp/build/compose/binaries/main/app/AniMusic/*" | Out-Null
+          Get-ChildItem dist | Format-Table Name, Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-artifacts
+          path: dist/*
+
+  macos:
+    name: macOS · dmg (${{ matrix.arch }})
+    needs: version
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-14
+            arch: arm64
+          - os: macos-15-intel
+            arch: x64
+    runs-on: ${{ matrix.os }}
+    env:
+      VERSION: ${{ needs.version.outputs.value }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - run: chmod +x gradlew
+
+      - name: Tests
+        run: ./gradlew :shared:jvmTest :desktopApp:test -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
+
+      # Unsigned and not notarized (no paid Apple account): users clear the quarantine flag once,
+      # as the website's install help explains.
+      - name: Build the DMG and the app bundle
+        run: |
+          ./gradlew :desktopApp:packageDmg :desktopApp:createDistributable \
+            -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
+
+      - name: The models are in the jar
+        run: |
+          jar=$(ls desktopApp/build/compose/binaries/main/app/AniMusic.app/Contents/app/desktopApp*.jar)
+          jar tf "$jar" | grep -q 'models/.*\.onnx'
+
+      - name: Collect
+        run: |
+          mkdir -p dist
+          for f in desktopApp/build/compose/binaries/main/dmg/*.dmg; do
+            [ -f "$f" ] && cp "$f" "dist/AniMusic-$VERSION-macos-${{ matrix.arch }}.dmg"
+          done
+          ls -lh dist
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: macos-${{ matrix.arch }}-artifacts
+          path: dist/*
+
+  attach:
+    name: Attach to release ${{ github.event.release.tag_name || inputs.tag }}
+    needs: [version, linux, windows, macos]
+    # Whatever built is attached, even if one platform failed: a missing dmg must not
+    # hold back the Windows and Linux packages.
+    if: ${{ !cancelled() && needs.version.result == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: "*-artifacts"
+          merge-multiple: true
+          path: dist
+
+      - name: Upload to the existing release (never a new one)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          shopt -s nullglob
+          files=(dist/AniMusic-*)
+          [ ${#files[@]} -gt 0 ] || { echo "::error::nothing was built"; exit 1; }
+          ls -lh "${files[@]}"
+          # Fails if the release doesn't exist rather than creating one.
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json tagName,isPrerelease
+          gh release upload "$TAG" "${files[@]}" --clobber --repo "$GITHUB_REPOSITORY"

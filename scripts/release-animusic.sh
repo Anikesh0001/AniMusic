@@ -19,6 +19,10 @@
 #   6. creates the GitHub release v<version> on Anikesh0001/AniMusic and
 #      uploads AniMusic-<version>-arm64-v8a.apk and -universal.apk
 #
+# Publishing the release starts .github/workflows/animusic-desktop.yml, which
+# builds the macOS/Windows/Linux packages and adds them to THIS release a few
+# minutes later (~20 min). It never makes a release of its own (CLAUDE.md).
+#
 # The app's update checker (BuildConfig.UPDATE_REPO) reads that repo's latest
 # release, compares its tag with the installed versionName, and offers the APK
 # that matches the phone. Android only installs it over the old one if it is
@@ -122,6 +126,8 @@ for abi in arm64-v8a universal; do
         --data-binary @"$f" "$UPLOAD?name=$(basename "$f")" >/dev/null
     echo "uploaded $(basename "$f")"
 done
+echo "Desktop packages: GitHub Actions is building them now and will add them to this release"
+echo "  (https://github.com/$REPO/actions/workflows/animusic-desktop.yml, ~20 minutes)."
 if [[ "$PRERELEASE" == true ]]; then
     echo "Published PRE-RELEASE https://github.com/$REPO/releases/tag/v$VERSION"
     echo "Installed apps will not see it. Smoke-test it, then: scripts/promote-release.sh $VERSION"

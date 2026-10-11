@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Sourced by the AniMusic release scripts. Sets TOKEN from $GITHUB_TOKEN, or
 # from the credential file kept for this checkout outside the repo
 # (~/.config/animusic/git-credentials, a git-credential-store line). Never
