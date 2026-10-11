@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AniMusic: free music player</title>
+  <meta name="description" content="AniMusic is a free, open-source music player for Android, macOS, Windows and Linux. Import playlists from Spotify, Apple Music, Deezer and more, with lyrics, downloads and lossless audio.">
+  <meta name="theme-color" content="#2E0A6B">
+  <meta property="og:title" content="AniMusic">
+  <meta property="og:description" content="A free, open-source music player for Android, macOS, Windows and Linux.">
+  <meta property="og:image" content="https://anikesh0001.github.io/AniMusic/icon-512.png">
+  <meta property="og:url" content="https://anikesh0001.github.io/AniMusic/">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <a class="brand" href="#top"><img src="icon.svg" alt="" width="32" height="32"> AniMusic</a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#help">Install help</a>
+        <a href="https://github.com/Anikesh0001/AniMusic">Source</a>
+      </div>
+    </nav>
+
+    <div class="hero-body" id="top">
+      <img class="hero-icon" src="icon.svg" alt="AniMusic icon" width="144" height="144">
+      <h1>AniMusic</h1>
+      <p class="tagline">A free music player for Android, macOS, Windows and Linux.<br>
+        Bring your playlists from any music app. No ads, no account needed.</p>
+      <div class="hero-actions">
+        <a class="button primary" id="hero-download" href="#download">Download</a>
+        <a class="button ghost" href="https://github.com/Anikesh0001/AniMusic">View source</a>
+      </div>
+      <p class="hero-version" id="hero-version" aria-live="polite"></p>
+    </div>
+  </header>
+
+  <main>
+    <section id="features" class="section">
+      <h2>Features</h2>
+      <div class="features">
+        <article class="feature">
+          <h3>Import from any music app</h3>
+          <ul>
+            <li><strong>Paste or share a link</strong> from Spotify, Apple Music, Deezer, YouTube / YT Music, JioSaavn, SoundCloud, Tidal, Qobuz, Audiomack, Gaana, ListenBrainz or song.link.</li>
+            <li><strong>Smart matching</strong> checks every song by title, artist, version and length, and lets you review unsure matches.</li>
+            <li><strong>Import files</strong>: CSV (Exportify, TuneMyMusic, Google Takeout), M3U/M3U8 or TXT, or paste a list of songs.</li>
+            <li><strong>Sync from source</strong>, import history, and <strong>export</strong> as M3U, CSV or text.</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3>Playback</h3>
+          <ul>
+            <li><strong>Search, browse and play</strong> anything on YouTube Music.</li>
+            <li><strong>Hi-Res lossless audio</strong> (FLAC/ALAC) from a module source, with YouTube Music as fallback.</li>
+            <li><strong>Gapless playback with true crossfade</strong>, 0 to 12 s, and <strong>Automix</strong> DJ-style transitions (beta).</li>
+            <li><strong>Offline downloads</strong> and your <strong>local music library</strong>.</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3>Accounts and sharing</h3>
+          <ul>
+            <li><strong>Sign in with Google</strong> for your own library and recommendations.</li>
+            <li><strong>Spotify integration</strong>: play your Spotify playlists and Liked Songs.</li>
+            <li><strong>Listen Together</strong>: listen in sync with friends.</li>
+            <li><strong>Discord Rich Presence</strong>, plus scrobbling to Last.fm and ListenBrainz.</li>
+          </ul>
+        </article>
+        <article class="feature">
+          <h3>Looks and feel</h3>
+          <ul>
+            <li><strong>Word-synced lyrics</strong> from many providers, with smooth animation.</li>
+            <li><strong>Animated album canvas</strong> on the now-playing screen.</li>
+            <li><strong>Dynamic theming</strong> from the album art.</li>
+            <li>Sleep timer, equalizer, playback speed, per-network quality and <strong>16 languages</strong>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="screenshots" class="section">
+      <h2>Screenshots</h2>
+      <!-- To add screenshots: put PNG/JPG files in website/screenshots/ and replace each
+           placeholder below with <img src="screenshots/home.png" alt="Home screen" loading="lazy">. -->
+      <div class="shots">
+        <div class="shot placeholder" role="img" aria-label="Screenshot coming soon"><span>Home</span></div>
+        <div class="shot placeholder" role="img" aria-label="Screenshot coming soon"><span>Now playing</span></div>
+        <div class="shot placeholder" role="img" aria-label="Screenshot coming soon"><span>Lyrics</span></div>
+        <div class="shot placeholder" role="img" aria-label="Screenshot coming soon"><span>Import</span></div>
+      </div>
+    </section>
+
+    <section id="download" class="section">
+      <h2>Download</h2>
+      <p class="muted" id="release-line" aria-live="polite">Looking up the latest version…</p>
+
+      <div class="recommended" id="recommended" hidden>
+        <p class="rec-label" id="rec-label"></p>
+        <a class="button primary big" id="rec-button" href="#"></a>
+        <p class="muted small" id="rec-note"></p>
+      </div>
+
+      <div class="platforms" id="platforms"></div>
+
+      <noscript>
+        <p>Turn on JavaScript to see the right file for your device, or pick one on the
+          <a href="https://github.com/Anikesh0001/AniMusic/releases/latest">latest release page</a>.</p>
+      </noscript>
+
+      <p class="muted small">All files come straight from the
+        <a href="https://github.com/Anikesh0001/AniMusic/releases/latest">GitHub release</a>.
+        AniMusic is free. Don't pay anyone for it, and only download it from here or GitHub.</p>
+    </section>
+
+    <section id="help" class="section">
+      <h2>Install help</h2>
+      <p class="muted">AniMusic isn't in an app store, so your device asks you once to trust it. That's normal for free apps from GitHub.</p>
+
+      <details id="help-android">
+        <summary>Android</summary>
+        <ol>
+          <li>Download the APK: <strong>arm64-v8a</strong> for almost every phone, or <strong>universal</strong> if you're not sure.</li>
+          <li>Open the downloaded file. If Android asks, allow your browser to <em>Install unknown apps</em>, then go back and tap <strong>Install</strong>.</li>
+          <li>If Play Protect warns that the app is unknown, tap <strong>More details → Install anyway</strong>. It warns because the app isn't from the Play Store.</li>
+          <li>Later updates come inside the app: when a new version is out, AniMusic shows an update dialog. Tap <strong>Download Now</strong>, then <strong>Install Now</strong>.</li>
+        </ol>
+      </details>
+
+      <details id="help-mac">
+        <summary>macOS</summary>
+        <ol>
+          <li>Pick the file for your Mac's chip. Not sure? Click the Apple menu → <strong>About This Mac</strong>. "Chip: Apple M1/M2/M3/M4…" means <strong>Apple Silicon</strong>. "Processor: Intel…" means <strong>Intel</strong>.</li>
+          <li>Open the <code>.dmg</code> and drag <strong>AniMusic</strong> into <strong>Applications</strong>.</li>
+          <li>The first time, <strong>right-click</strong> (or Control-click) AniMusic in Applications and choose <strong>Open</strong>, then <strong>Open</strong> again. After that it opens normally.</li>
+          <li>If macOS says AniMusic "is damaged and can't be opened" or there's no Open button, open <strong>Terminal</strong> and run this once:
+            <div class="code"><code id="xattr-cmd">xattr -cr /Applications/AniMusic.app</code><button class="copy" type="button" data-copy="xattr-cmd">Copy</button></div>
+            Then open AniMusic again. (The app isn't signed with a paid Apple developer account, so macOS marks it as downloaded from the internet. This command removes that mark.)</li>
+        </ol>
+      </details>
+
+      <details id="help-windows">
+        <summary>Windows</summary>
+        <ol>
+          <li>Download <strong>Windows installer (.exe)</strong> and run it.</li>
+          <li>If Windows shows "Windows protected your PC", click <strong>More info → Run anyway</strong>. It appears because the app isn't signed with a paid certificate.</li>
+          <li>No admin rights? Use the <strong>portable .zip</strong>: unzip it anywhere and run <code>AniMusic.exe</code> inside.</li>
+          <li>The <code>.msi</code> is the same app for IT-managed PCs.</li>
+        </ol>
+      </details>
+
+      <details id="help-linux">
+        <summary>Linux</summary>
+        <ol>
+          <li><strong>AppImage</strong> (any distro): make it runnable and start it.
+            <div class="code"><code id="appimage-cmd">chmod +x AniMusic-*-linux-x86_64.AppImage &amp;&amp; ./AniMusic-*-linux-x86_64.AppImage</code><button class="copy" type="button" data-copy="appimage-cmd">Copy</button></div>
+            If it complains about FUSE, install FUSE 2: <code>sudo apt install libfuse2t64</code> on Ubuntu 24.04 and newer, <code>sudo apt install libfuse2</code> on older versions.</li>
+          <li><strong>Debian / Ubuntu</strong>: <code>sudo apt install ./AniMusic-*-linux-amd64.deb</code></li>
+          <li><strong>Fedora / openSUSE</strong>: <code>sudo dnf install ./AniMusic-*-linux-x86_64.rpm</code></li>
+        </ol>
+      </details>
+    </section>
+
+    <section id="about" class="section">
+      <h2>Credits and license</h2>
+      <p>AniMusic by Anikesh Kumar · Based on <a href="https://github.com/kushagrasinghx/BitChord">BitChord</a> by <a href="https://github.com/kushagrasinghx">Kushagra Singh</a> · <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a></p>
+      <p>AniMusic is free software under the <a href="https://github.com/Anikesh0001/AniMusic/blob/main/LICENSE">GNU GPL v3</a>. The full source code is at
+        <a href="https://github.com/Anikesh0001/AniMusic">github.com/Anikesh0001/AniMusic</a>. Anyone may share or change it, as long as they pass the source on under the same license.</p>
+
+      <h3>Disclaimer</h3>
+      <p class="muted">AniMusic is an independent third-party music player. It is not affiliated with, endorsed by, or connected to Google LLC, YouTube, YouTube Music, Spotify, Apple, Deezer or any of their parent companies.
+        AniMusic does not host, upload or store copyrighted music: it plays local files and streams directly from public or user-authenticated services.
+        You are responsible for using it in line with your local laws and the terms of the services you use.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>AniMusic by Anikesh Kumar · Based on BitChord by Kushagra Singh · GPLv3 ·
+      <a href="https://github.com/Anikesh0001/AniMusic">Source code</a></p>
+  </footer>
+</body>
+</html>
