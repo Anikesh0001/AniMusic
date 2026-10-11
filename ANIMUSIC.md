@@ -127,7 +127,7 @@ The brand sets, in `desktopApp/build.gradle.kts` and `DesktopBrand.kt`:
 
 - **Name and IDs:** "AniMusic", macOS bundle ID `com.anikesh.animusic.desktop`, its own Windows upgrade UUID, Linux package `animusic`. Settings, caches, downloads (`Music/AniMusic`), the keyring entry and the MPRIS name are separate from BitChord's, so both can be installed side by side.
 - **Version:** the animusic `versionName` in `app/build.gradle.kts`, read at build time (the only place it lives). `-Pbitchord.version=` overrides it.
-- **Icons:** `desktopApp/packaging/icons/animusic/AppIcon.{icns,ico,png}`, made from `app/src/animusic/art/animusic-icon.svg` by `desktopApp/packaging/make-animusic-icons.py` (needs `cairosvg` and Pillow). Run it again if the art changes.
+- **Icons:** `desktopApp/packaging/icons/animusic/AppIcon.{icns,ico,png}`, made from `app/src/animusic/art/animusic-icon.svg` by `desktopApp/packaging/make-animusic-icons.py` (needs `cairosvg` and Pillow). They're cropped to the middle 72 × 72, as Android shows the launcher icon, so the desktop app, its window logo (`animusic_logo.svg`) and the website icon look exactly like the phone's. Run it again if the art changes.
 - **Text:** every "BitChord" in the desktop strings shows as "AniMusic" (`DesktopBrand.rename`). The settings footer carries the credit line "AniMusic by Anikesh Kumar · Based on BitChord by Kushagra Singh · GPLv3" and links to https://github.com/Anikesh0001/AniMusic.
 - **Updates:** the desktop app reads `Anikesh0001/AniMusic`'s latest release, the same one the phones read. It picks the file for its OS and CPU (`DesktopUpdateChecker.pickInstaller`) and never an APK.
 

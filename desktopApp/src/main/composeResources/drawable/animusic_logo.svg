@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 108 108">
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="18 18 72 72">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="108" y2="108" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#2E0A6B"/>
       <stop offset="0.55" stop-color="#B0179E"/>
       <stop offset="1" stop-color="#FF6A55"/>
     </linearGradient>
-    <clipPath id="mask"><rect x="0" y="0" width="108" height="108" rx="24"/></clipPath>
+    <clipPath id="mask"><rect x="18" y="18" width="72" height="72" rx="16"/></clipPath>
   </defs>
   <g clip-path="url(#mask)">
     <rect width="108" height="108" fill="url(#bg)"/>
