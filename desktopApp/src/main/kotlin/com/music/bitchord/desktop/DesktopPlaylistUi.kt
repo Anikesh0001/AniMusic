@@ -333,7 +333,7 @@ internal fun DesktopDeletePlaylistDialog(
  * Material's surface.
  */
 @Composable
-private fun DesktopDialogFrame(onDismiss: () -> Unit, content: @Composable () -> Unit) {
+internal fun DesktopDialogFrame(onDismiss: () -> Unit, content: @Composable () -> Unit) {
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Box(
             Modifier
@@ -370,7 +370,7 @@ private fun DesktopDialogFrame(onDismiss: () -> Unit, content: @Composable () ->
 }
 
 @Composable
-private fun DialogHeading(title: String, subtitle: String) {
+internal fun DialogHeading(title: String, subtitle: String) {
     Text(
         title,
         style = MaterialTheme.typography.titleMedium,
@@ -399,7 +399,7 @@ private fun DialogSectionHeading(text: String) {
 }
 
 @Composable
-private fun DialogError(message: String) {
+internal fun DialogError(message: String) {
     Text(
         message,
         style = MaterialTheme.typography.bodySmall,
@@ -442,7 +442,7 @@ private fun DialogAction(
 }
 
 @Composable
-private fun DialogButtons(
+internal fun DialogButtons(
     busy: Boolean,
     confirmLabel: String,
     confirmEnabled: Boolean,

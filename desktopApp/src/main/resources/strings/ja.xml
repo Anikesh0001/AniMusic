@@ -668,4 +668,36 @@
     <string name="listen_together_open">一緒に聴く</string>
     <string name="listen_together_open_count">一緒に聴いています · %1$d</string>
     <string name="miscellaneous_footer">オンにすると、最近のアプリ画面からアプリを終了した際に音楽の再生も停止します。</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">プレイリストをインポート</string>
+    <string name="import_link_title">リンクからインポート</string>
+    <string name="import_link_description_local">音楽アプリのプレイリスト、アルバム、曲のリンクを貼り付けてください。曲は YouTube Music で照合され、この端末に保存されます。</string>
+    <string name="import_link_hint">音楽アプリのリンクを貼り付け</string>
+    <string name="import_link_supported">対応サービス: %1$s</string>
+    <string name="import_link_detected">検出: %1$s</string>
+    <string name="import_link_fetching">%1$s から読み込み中…</string>
+    <string name="import_link_fetching_generic">リンクを読み込み中…</string>
+    <string name="import_error_invalid">リンクではないようです。</string>
+    <string name="import_error_unsupported">このリンクにはまだ対応していません。</string>
+    <string name="import_error_not_found">インポートできるものがありません。公開されているか確認してください。</string>
+    <string name="import_error_network">サービスに接続できませんでした。接続を確認してください。</string>
+    <string name="import_error_rate_limited">サービスが混み合っています。1分後にもう一度お試しください。</string>
+    <string name="import_error_parse">ページを読み込めませんでした。サービス側で変更された可能性があります。</string>
+    <string name="import_review_not_found">YouTube Music で見つかりません</string>
+    <string name="import_review_summary">一致 %1$d · 不確か %2$d · 見つからず %3$d</string>
+    <string name="import_review_save">プレイリストを保存</string>
+    <string name="import_partial">ほか %1$d 曲は取得元から読み込めませんでした</string>
+    <string name="import_mode_link">リンク</string>
+    <string name="import_mode_text">曲リスト</string>
+    <string name="import_mode_file">ファイル</string>
+    <string name="import_file_reading">ファイルを読み込み中…</string>
+    <string name="import_file_too_big">ファイルが大きすぎてインポートできません。</string>
+    <string name="import_file_unreadable">ファイルを読み込めませんでした。</string>
+    <string name="import_text_description">曲のリストを貼り付けるとプレイリストになります。</string>
+    <string name="import_text_name">プレイリスト名</string>
+    <string name="import_text_hint">1行に1曲。「アーティスト - 曲名」または「曲名 by アーティスト」</string>
+    <string name="import_text_default_name">貼り付けた曲</string>
+    <string name="import_text_button">%1$d 曲をインポート</string>
+    <string name="spotify_import_matching">楽曲を照合中 %1$d / %2$d</string>
+    <string name="spotify_import_unmatched">%1$d 曲が YouTube Music で見つかりませんでした</string>
 </resources>

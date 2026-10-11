@@ -690,4 +690,36 @@
     <string name="listen_together_open">Ouvir junto</string>
     <string name="listen_together_open_count">Ouvindo junto · %1$d</string>
     <string name="miscellaneous_footer">Quando ativado, fechar o app pela tela de apps recentes também interrompe a reprodução de música.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Importar playlist</string>
+    <string name="import_link_title">Importar de um link</string>
+    <string name="import_link_description_local">Cole um link de playlist, álbum ou música de qualquer app de música. As músicas são encontradas no YouTube Music e salvas neste dispositivo.</string>
+    <string name="import_link_hint">Cole um link de qualquer app de música</string>
+    <string name="import_link_supported">Serviços compatíveis: %1$s</string>
+    <string name="import_link_detected">Detectado: %1$s</string>
+    <string name="import_link_fetching">Lendo de %1$s…</string>
+    <string name="import_link_fetching_generic">Lendo o link…</string>
+    <string name="import_error_invalid">Isso não parece um link.</string>
+    <string name="import_error_unsupported">Este link ainda não é compatível.</string>
+    <string name="import_error_not_found">Não há nada para importar. Verifique se é público.</string>
+    <string name="import_error_network">Não foi possível acessar o serviço. Verifique sua conexão.</string>
+    <string name="import_error_rate_limited">O serviço está ocupado. Tente novamente em um minuto.</string>
+    <string name="import_error_parse">Não foi possível ler essa página. O serviço pode tê-la alterado.</string>
+    <string name="import_review_not_found">Não encontrada no YouTube Music</string>
+    <string name="import_review_summary">%1$d encontradas · %2$d incertas · %3$d não encontradas</string>
+    <string name="import_review_save">Salvar playlist</string>
+    <string name="import_partial">Não foi possível ler mais %1$d faixas da origem</string>
+    <string name="import_mode_link">Link</string>
+    <string name="import_mode_text">Lista de músicas</string>
+    <string name="import_mode_file">Arquivo</string>
+    <string name="import_file_reading">Lendo o arquivo…</string>
+    <string name="import_file_too_big">Esse arquivo é grande demais para importar.</string>
+    <string name="import_file_unreadable">Não foi possível ler esse arquivo.</string>
+    <string name="import_text_description">Cole uma lista de músicas e receba uma playlist.</string>
+    <string name="import_text_name">Nome da playlist</string>
+    <string name="import_text_hint">Uma música por linha, como “Artista - Título” ou “Título by Artista”</string>
+    <string name="import_text_default_name">Músicas coladas</string>
+    <string name="import_text_button">Importar %1$d músicas</string>
+    <string name="spotify_import_matching">Localizando músicas %1$d de %2$d</string>
+    <string name="spotify_import_unmatched">%1$d músicas não foram encontradas no YouTube Music</string>
 </resources>

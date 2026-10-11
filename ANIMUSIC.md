@@ -131,6 +131,8 @@ The brand sets, in `desktopApp/build.gradle.kts` and `DesktopBrand.kt`:
 - **Text:** every "BitChord" in the desktop strings shows as "AniMusic" (`DesktopBrand.rename`). The settings footer carries the credit line "AniMusic by Anikesh Kumar · Based on BitChord by Kushagra Singh · GPLv3" and links to https://github.com/Anikesh0001/AniMusic.
 - **Updates:** the desktop app reads `Anikesh0001/AniMusic`'s latest release, the same one the phones read. It picks the file for its OS and CPU (`DesktopUpdateChecker.pickInstaller`) and never an APK.
 
+**Playlist import:** the importers and the matcher live in `shared/src/jvmSharedMain/.../data/importer/` (moved from `app` in 1.0.5), so the phone and the desktop run the same code. The desktop has its own dialog (`DesktopImport.kt`): Library → **Import playlist** takes a link, a pasted list of songs, or a CSV/M3U/TXT file, matches the songs on YouTube Music, and saves a playlist on that computer ("On device"). What stays phone-only: import history and "sync from source" (`ImportHistoryStore`, `ImportSync`, Android storage), the Last.fm username import, and the match-review screen. On the phone, `JioSaavnImporter.byToken` is pointed at the app's own JioSaavn client at start-up (`AppSettings.init`); the desktop uses the built-in request. The importer's tests are in `shared/src/jvmTest` and run with `./gradlew :shared:jvmTest`.
+
 **Release files** (all in the same `vX.Y.Z` release as the APKs, never a separate release; see CLAUDE.md):
 
 | | file |

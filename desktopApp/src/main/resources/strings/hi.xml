@@ -686,4 +686,36 @@
     <string name="listen_together_open">साथ में सुनें</string>
     <string name="listen_together_open_count">साथ में सुन रहे हैं · %1$d</string>
     <string name="miscellaneous_footer">चालू होने पर, हाल के ऐप्स स्क्रीन से ऐप बंद करने पर संगीत प्लेबैक भी रुक जाएगा।</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">प्लेलिस्ट इम्पोर्ट करें</string>
+    <string name="import_link_title">लिंक से इम्पोर्ट करें</string>
+    <string name="import_link_description_local">किसी भी म्यूज़िक ऐप से प्लेलिस्ट, एल्बम या गाने का लिंक पेस्ट करें। गाने YouTube Music पर ढूँढे जाते हैं और इस डिवाइस पर सेव होते हैं।</string>
+    <string name="import_link_hint">किसी भी म्यूज़िक ऐप का लिंक पेस्ट करें</string>
+    <string name="import_link_supported">समर्थित सेवाएँ: %1$s</string>
+    <string name="import_link_detected">पहचाना गया: %1$s</string>
+    <string name="import_link_fetching">%1$s से पढ़ा जा रहा है…</string>
+    <string name="import_link_fetching_generic">लिंक पढ़ा जा रहा है…</string>
+    <string name="import_error_invalid">यह लिंक जैसा नहीं लगता।</string>
+    <string name="import_error_unsupported">यह लिंक अभी समर्थित नहीं है।</string>
+    <string name="import_error_not_found">वहाँ इम्पोर्ट करने को कुछ नहीं है। पक्का करें कि यह सार्वजनिक है।</string>
+    <string name="import_error_network">सेवा तक नहीं पहुँच सके। अपना कनेक्शन जाँचें।</string>
+    <string name="import_error_rate_limited">सेवा व्यस्त है। एक मिनट बाद फिर कोशिश करें।</string>
+    <string name="import_error_parse">वह पेज पढ़ा नहीं जा सका। सेवा ने शायद उसे बदल दिया है।</string>
+    <string name="import_review_not_found">YouTube Music पर नहीं मिला</string>
+    <string name="import_review_summary">%1$d मिले · %2$d पक्के नहीं · %3$d नहीं मिले</string>
+    <string name="import_review_save">प्लेलिस्ट सेव करें</string>
+    <string name="import_partial">स्रोत से %1$d और गाने पढ़े नहीं जा सके</string>
+    <string name="import_mode_link">लिंक</string>
+    <string name="import_mode_text">गानों की सूची</string>
+    <string name="import_mode_file">फ़ाइल</string>
+    <string name="import_file_reading">फ़ाइल पढ़ी जा रही है…</string>
+    <string name="import_file_too_big">यह फ़ाइल इम्पोर्ट करने के लिए बहुत बड़ी है।</string>
+    <string name="import_file_unreadable">वह फ़ाइल पढ़ी नहीं जा सकी।</string>
+    <string name="import_text_description">गानों की सूची पेस्ट करें और प्लेलिस्ट पाएँ।</string>
+    <string name="import_text_name">प्लेलिस्ट का नाम</string>
+    <string name="import_text_hint">हर पंक्ति में एक गाना, जैसे “कलाकार - शीर्षक” या “शीर्षक by कलाकार”</string>
+    <string name="import_text_default_name">पेस्ट किए गए गाने</string>
+    <string name="import_text_button">%1$d गाने इम्पोर्ट करें</string>
+    <string name="spotify_import_matching">गाने मिलाए जा रहे हैं %1$d / %2$d</string>
+    <string name="spotify_import_unmatched">%1$d गाने YouTube Music पर नहीं मिले</string>
 </resources>

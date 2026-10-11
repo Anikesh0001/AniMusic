@@ -668,4 +668,36 @@
     <string name="listen_together_open">Dengar bersama</string>
     <string name="listen_together_open_count">Mendengar bersama · %1$d</string>
     <string name="miscellaneous_footer">Jika diaktifkan, menutup aplikasi dari layar aplikasi terbaru juga akan menghentikan pemutaran musik.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Impor playlist</string>
+    <string name="import_link_title">Impor dari tautan</string>
+    <string name="import_link_description_local">Tempel tautan playlist, album, atau lagu dari aplikasi musik apa pun. Lagu dicocokkan di YouTube Music dan disimpan di perangkat ini.</string>
+    <string name="import_link_hint">Tempel tautan dari aplikasi musik apa pun</string>
+    <string name="import_link_supported">Layanan yang didukung: %1$s</string>
+    <string name="import_link_detected">Terdeteksi: %1$s</string>
+    <string name="import_link_fetching">Membaca dari %1$s…</string>
+    <string name="import_link_fetching_generic">Membaca tautan…</string>
+    <string name="import_error_invalid">Itu tidak terlihat seperti tautan.</string>
+    <string name="import_error_unsupported">Tautan ini belum didukung.</string>
+    <string name="import_error_not_found">Tidak ada yang bisa diimpor. Pastikan itu publik.</string>
+    <string name="import_error_network">Tidak dapat menghubungi layanan. Periksa koneksi Anda.</string>
+    <string name="import_error_rate_limited">Layanan sedang sibuk. Coba lagi sebentar lagi.</string>
+    <string name="import_error_parse">Tidak dapat membaca halaman itu. Layanan mungkin telah mengubahnya.</string>
+    <string name="import_review_not_found">Tidak ditemukan di YouTube Music</string>
+    <string name="import_review_summary">%1$d cocok · %2$d ragu · %3$d tidak ditemukan</string>
+    <string name="import_review_save">Simpan playlist</string>
+    <string name="import_partial">%1$d lagu lainnya tidak dapat dibaca dari sumber</string>
+    <string name="import_mode_link">Tautan</string>
+    <string name="import_mode_text">Daftar lagu</string>
+    <string name="import_mode_file">File</string>
+    <string name="import_file_reading">Membaca file…</string>
+    <string name="import_file_too_big">File itu terlalu besar untuk diimpor.</string>
+    <string name="import_file_unreadable">Tidak dapat membaca file itu.</string>
+    <string name="import_text_description">Tempel daftar lagu dan dapatkan playlist.</string>
+    <string name="import_text_name">Nama playlist</string>
+    <string name="import_text_hint">Satu lagu per baris, seperti “Artis - Judul” atau “Judul by Artis”</string>
+    <string name="import_text_default_name">Lagu yang ditempel</string>
+    <string name="import_text_button">Impor %1$d lagu</string>
+    <string name="spotify_import_matching">Mencocokkan lagu %1$d dari %2$d</string>
+    <string name="spotify_import_unmatched">%1$d lagu tidak ditemukan di YouTube Music</string>
 </resources>

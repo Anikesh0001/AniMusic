@@ -3302,6 +3302,17 @@ fun BitChordDesktopApp() {
                             onDismiss = ::closePlaylistDialogs,
                         )
                     }
+                    if (overlays.importPlaylist) {
+                        DesktopImportDialog(
+                            onSave = { imported ->
+                                playlists = playlists + imported
+                                persistence.savePlaylists(playlists)
+                                overlays.importPlaylist = false
+                                openPlaylist(imported)
+                            },
+                            onDismiss = { overlays.importPlaylist = false },
+                        )
+                    }
                     if (overlays.rename) {
                         DesktopRenamePlaylistDialog(
                             current = openedCollection?.title.orEmpty(),
@@ -3867,6 +3878,8 @@ fun BitChordDesktopApp() {
                             onShelfItemClick = ::openLibraryItem,
                             onShelfItemLongPress = { item -> if (item.videoId != null) openMenu(item.toSong()) },
                             onNewPlaylist = { overlays.playlistDialog = true },
+                            // The phone's "Import playlist" card: the result is kept on this computer.
+                            onImportSpotifyPlaylist = { overlays.importPlaylist = true },
                             onShowAll = { shelf -> libraryShowAll = shelf },
                             replay = {
                                 // The phone's wallet of Replay cards, or nothing until there is

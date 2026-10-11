@@ -27,6 +27,9 @@ internal class DesktopOverlays {
     var downloadManager by mutableStateOf(false)
     var replay by mutableStateOf(false)
     var playlistDialog by mutableStateOf(false)
+
+    /** Importing a playlist from a link, a list of songs or a file. */
+    var importPlaylist by mutableStateOf(false)
     var rename by mutableStateOf(false)
     var delete by mutableStateOf(false)
     var nowPlaying by mutableStateOf(false)

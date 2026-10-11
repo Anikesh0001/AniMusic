@@ -734,4 +734,36 @@
     <string name="listen_together_open">Birlikte dinle</string>
     <string name="listen_together_open_count">Birlikte dinleme · %1$d</string>
     <string name="miscellaneous_footer">Etkinleştirildiğinde, uygulamayı son kullanılanlar ekranından kapatmak müzik çalmayı da durdurur.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Çalma listesi içe aktar</string>
+    <string name="import_link_title">Bağlantıdan içe aktar</string>
+    <string name="import_link_description_local">Herhangi bir müzik uygulamasından çalma listesi, albüm veya şarkı bağlantısı yapıştırın. Şarkılar YouTube Music\'te eşleştirilir ve bu cihaza kaydedilir.</string>
+    <string name="import_link_hint">Herhangi bir müzik uygulamasından bağlantı yapıştırın</string>
+    <string name="import_link_supported">Desteklenen hizmetler: %1$s</string>
+    <string name="import_link_detected">Algılandı: %1$s</string>
+    <string name="import_link_fetching">%1$s okunuyor…</string>
+    <string name="import_link_fetching_generic">Bağlantı okunuyor…</string>
+    <string name="import_error_invalid">Bu bir bağlantıya benzemiyor.</string>
+    <string name="import_error_unsupported">Bu bağlantı henüz desteklenmiyor.</string>
+    <string name="import_error_not_found">Orada içe aktarılacak bir şey yok. Herkese açık olduğundan emin olun.</string>
+    <string name="import_error_network">Hizmete ulaşılamadı. Bağlantınızı kontrol edin.</string>
+    <string name="import_error_rate_limited">Hizmet meşgul. Bir dakika sonra tekrar deneyin.</string>
+    <string name="import_error_parse">Sayfa okunamadı. Hizmet sayfayı değiştirmiş olabilir.</string>
+    <string name="import_review_not_found">YouTube Music\'te bulunamadı</string>
+    <string name="import_review_summary">%1$d eşleşti · %2$d belirsiz · %3$d bulunamadı</string>
+    <string name="import_review_save">Çalma listesini kaydet</string>
+    <string name="import_partial">Kaynaktan %1$d parça daha okunamadı</string>
+    <string name="import_mode_link">Bağlantı</string>
+    <string name="import_mode_text">Şarkı listesi</string>
+    <string name="import_mode_file">Dosya</string>
+    <string name="import_file_reading">Dosya okunuyor…</string>
+    <string name="import_file_too_big">Bu dosya içe aktarmak için çok büyük.</string>
+    <string name="import_file_unreadable">Dosya okunamadı.</string>
+    <string name="import_text_description">Bir şarkı listesi yapıştırın, çalma listesi oluşsun.</string>
+    <string name="import_text_name">Çalma listesi adı</string>
+    <string name="import_text_hint">Her satıra bir şarkı: “Sanatçı - Başlık” ya da “Başlık by Sanatçı”</string>
+    <string name="import_text_default_name">Yapıştırılan şarkılar</string>
+    <string name="import_text_button">%1$d şarkıyı içe aktar</string>
+    <string name="spotify_import_matching">Şarkılar eşleştiriliyor %1$d / %2$d</string>
+    <string name="spotify_import_unmatched">%1$d şarkı YouTube Music’de bulunamadı</string>
 </resources>

@@ -714,4 +714,36 @@
     <string name="listen_together_jam_unnamed">กำลังฟังด้วยกัน</string>
     <string name="listen_together_open">ฟังด้วยกัน</string>
     <string name="listen_together_open_count">กำลังฟังด้วยกัน · %1$d</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">นำเข้าเพลย์ลิสต์</string>
+    <string name="import_link_title">นำเข้าจากลิงก์</string>
+    <string name="import_link_description_local">วางลิงก์เพลย์ลิสต์ อัลบั้ม หรือเพลงจากแอปเพลงใดก็ได้ เพลงจะถูกจับคู่บน YouTube Music และบันทึกไว้ในอุปกรณ์นี้</string>
+    <string name="import_link_hint">วางลิงก์จากแอปเพลงใดก็ได้</string>
+    <string name="import_link_supported">บริการที่รองรับ: %1$s</string>
+    <string name="import_link_detected">ตรวจพบ: %1$s</string>
+    <string name="import_link_fetching">กำลังอ่านจาก %1$s…</string>
+    <string name="import_link_fetching_generic">กำลังอ่านลิงก์…</string>
+    <string name="import_error_invalid">ดูเหมือนไม่ใช่ลิงก์</string>
+    <string name="import_error_unsupported">ยังไม่รองรับลิงก์นี้</string>
+    <string name="import_error_not_found">ไม่มีอะไรให้นำเข้า ตรวจสอบว่าเป็นสาธารณะ</string>
+    <string name="import_error_network">เชื่อมต่อบริการไม่ได้ โปรดตรวจสอบการเชื่อมต่อ</string>
+    <string name="import_error_rate_limited">บริการไม่ว่าง โปรดลองอีกครั้งในอีกสักครู่</string>
+    <string name="import_error_parse">อ่านหน้านั้นไม่ได้ บริการอาจเปลี่ยนหน้าแล้ว</string>
+    <string name="import_review_not_found">ไม่พบใน YouTube Music</string>
+    <string name="import_review_summary">ตรงกัน %1$d · ไม่แน่ใจ %2$d · ไม่พบ %3$d</string>
+    <string name="import_review_save">บันทึกเพลย์ลิสต์</string>
+    <string name="import_partial">อ่านเพลงอีก %1$d เพลงจากต้นทางไม่ได้</string>
+    <string name="import_mode_link">ลิงก์</string>
+    <string name="import_mode_text">รายการเพลง</string>
+    <string name="import_mode_file">ไฟล์</string>
+    <string name="import_file_reading">กำลังอ่านไฟล์…</string>
+    <string name="import_file_too_big">ไฟล์ใหญ่เกินกว่าจะนำเข้าได้</string>
+    <string name="import_file_unreadable">อ่านไฟล์ไม่ได้</string>
+    <string name="import_text_description">วางรายการเพลงแล้วรับเพลย์ลิสต์กลับมา</string>
+    <string name="import_text_name">ชื่อเพลย์ลิสต์</string>
+    <string name="import_text_hint">หนึ่งเพลงต่อบรรทัด เช่น “ศิลปิน - ชื่อเพลง” หรือ “ชื่อเพลง by ศิลปิน”</string>
+    <string name="import_text_default_name">เพลงที่วางไว้</string>
+    <string name="import_text_button">นำเข้า %1$d เพลง</string>
+    <string name="spotify_import_matching">กำลังจับคู่เพลง %1$d จาก %2$d</string>
+    <string name="spotify_import_unmatched">ไม่พบเพลง %1$d เพลงบน YouTube Music</string>
 </resources>

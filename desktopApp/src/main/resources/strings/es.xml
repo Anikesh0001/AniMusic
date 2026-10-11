@@ -715,4 +715,36 @@
     <string name="listen_together_open">Escuchar juntos</string>
     <string name="listen_together_open_count">Escuchando juntos · %1$d</string>
     <string name="miscellaneous_footer">Al activarlo, cerrar la app desde recientes también detiene la música.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Importar lista</string>
+    <string name="import_link_title">Importar desde un enlace</string>
+    <string name="import_link_description_local">Pega un enlace de lista, álbum o canción de cualquier app de música. Las canciones se buscan en YouTube Music y se guardan en este dispositivo.</string>
+    <string name="import_link_hint">Pega un enlace de cualquier app de música</string>
+    <string name="import_link_supported">Servicios compatibles: %1$s</string>
+    <string name="import_link_detected">Detectado: %1$s</string>
+    <string name="import_link_fetching">Leyendo de %1$s…</string>
+    <string name="import_link_fetching_generic">Leyendo el enlace…</string>
+    <string name="import_error_invalid">Eso no parece un enlace.</string>
+    <string name="import_error_unsupported">Este enlace aún no es compatible.</string>
+    <string name="import_error_not_found">No hay nada que importar. Asegúrate de que sea público.</string>
+    <string name="import_error_network">No se pudo conectar con el servicio. Revisa tu conexión.</string>
+    <string name="import_error_rate_limited">El servicio está ocupado. Inténtalo de nuevo en un minuto.</string>
+    <string name="import_error_parse">No se pudo leer esa página. Puede que el servicio la haya cambiado.</string>
+    <string name="import_review_not_found">No está en YouTube Music</string>
+    <string name="import_review_summary">%1$d encontradas · %2$d dudosas · %3$d sin encontrar</string>
+    <string name="import_review_save">Guardar lista</string>
+    <string name="import_partial">No se pudieron leer otras %1$d canciones del origen</string>
+    <string name="import_mode_link">Enlace</string>
+    <string name="import_mode_text">Lista de canciones</string>
+    <string name="import_mode_file">Archivo</string>
+    <string name="import_file_reading">Leyendo el archivo…</string>
+    <string name="import_file_too_big">Ese archivo es demasiado grande para importarlo.</string>
+    <string name="import_file_unreadable">No se pudo leer ese archivo.</string>
+    <string name="import_text_description">Pega una lista de canciones y obtén una lista de reproducción.</string>
+    <string name="import_text_name">Nombre de la lista</string>
+    <string name="import_text_hint">Una canción por línea, como “Artista - Título” o “Título by Artista”</string>
+    <string name="import_text_default_name">Canciones pegadas</string>
+    <string name="import_text_button">Importar %1$d canciones</string>
+    <string name="spotify_import_matching">Buscando canciones %1$d de %2$d</string>
+    <string name="spotify_import_unmatched">%1$d canciones no se encontraron en YouTube Music</string>
 </resources>

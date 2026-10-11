@@ -854,4 +854,36 @@
     <string name="listen_together_open_count">Listening together · %1$d</string>
     <string name="miscellaneous_footer">When enabled, closing the app from the recent apps screen will also stop music playback.</string>
     <string name="translate">Translate</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Import playlist</string>
+    <string name="import_link_title">Import from a link</string>
+    <string name="import_link_description_local">Paste a playlist, album or song link from any music app. Songs are matched on YouTube Music and saved on this device.</string>
+    <string name="import_link_hint">Paste link from any music app</string>
+    <string name="import_link_supported">Supported services: %1$s</string>
+    <string name="import_link_detected">Detected: %1$s</string>
+    <string name="import_link_fetching">Reading from %1$s…</string>
+    <string name="import_link_fetching_generic">Reading the link…</string>
+    <string name="import_error_invalid">That doesn\'t look like a link.</string>
+    <string name="import_error_unsupported">This link isn\'t supported yet.</string>
+    <string name="import_error_not_found">Nothing to import there. Make sure it\'s public.</string>
+    <string name="import_error_network">Couldn\'t reach the service. Check your connection.</string>
+    <string name="import_error_rate_limited">The service is busy. Try again in a minute.</string>
+    <string name="import_error_parse">Couldn\'t read that page. The service may have changed it.</string>
+    <string name="import_review_not_found">Not found on YouTube Music</string>
+    <string name="import_review_summary">%1$d matched · %2$d unsure · %3$d not found</string>
+    <string name="import_review_save">Save playlist</string>
+    <string name="import_partial">%1$d more tracks couldn\'t be read from the source</string>
+    <string name="import_mode_link">Link</string>
+    <string name="import_mode_text">Song list</string>
+    <string name="import_mode_file">File</string>
+    <string name="import_file_reading">Reading the file…</string>
+    <string name="import_file_too_big">That file is too large to import.</string>
+    <string name="import_file_unreadable">Couldn\'t read that file.</string>
+    <string name="import_text_description">Paste a list of songs and get a playlist back.</string>
+    <string name="import_text_name">Playlist name</string>
+    <string name="import_text_hint">One song per line, like “Artist - Title” or “Title by Artist”</string>
+    <string name="import_text_default_name">Pasted songs</string>
+    <string name="import_text_button">Import %1$d songs</string>
+    <string name="spotify_import_matching">Matching songs %1$d of %2$d</string>
+    <string name="spotify_import_unmatched">%1$d songs weren\'t found on YouTube Music</string>
 </resources>

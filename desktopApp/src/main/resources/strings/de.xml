@@ -686,4 +686,36 @@
     <string name="listen_together_open">Gemeinsam hören</string>
     <string name="listen_together_open_count">Gemeinsam hören · %1$d</string>
     <string name="miscellaneous_footer">Wenn aktiviert, stoppt das Schließen der App aus den letzten Apps auch die Musikwiedergabe.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Playlist importieren</string>
+    <string name="import_link_title">Aus einem Link importieren</string>
+    <string name="import_link_description_local">Füge einen Playlist-, Album- oder Song-Link aus einer beliebigen Musik-App ein. Die Songs werden auf YouTube Music gesucht und auf diesem Gerät gespeichert.</string>
+    <string name="import_link_hint">Link aus einer beliebigen Musik-App einfügen</string>
+    <string name="import_link_supported">Unterstützte Dienste: %1$s</string>
+    <string name="import_link_detected">Erkannt: %1$s</string>
+    <string name="import_link_fetching">Wird von %1$s gelesen…</string>
+    <string name="import_link_fetching_generic">Link wird gelesen…</string>
+    <string name="import_error_invalid">Das sieht nicht nach einem Link aus.</string>
+    <string name="import_error_unsupported">Dieser Link wird noch nicht unterstützt.</string>
+    <string name="import_error_not_found">Dort gibt es nichts zu importieren. Achte darauf, dass es öffentlich ist.</string>
+    <string name="import_error_network">Der Dienst ist nicht erreichbar. Prüfe deine Verbindung.</string>
+    <string name="import_error_rate_limited">Der Dienst ist ausgelastet. Versuche es in einer Minute erneut.</string>
+    <string name="import_error_parse">Die Seite konnte nicht gelesen werden. Der Dienst hat sie vielleicht geändert.</string>
+    <string name="import_review_not_found">Nicht auf YouTube Music gefunden</string>
+    <string name="import_review_summary">%1$d gefunden · %2$d unsicher · %3$d nicht gefunden</string>
+    <string name="import_review_save">Playlist speichern</string>
+    <string name="import_partial">%1$d weitere Titel konnten nicht von der Quelle gelesen werden</string>
+    <string name="import_mode_link">Link</string>
+    <string name="import_mode_text">Songliste</string>
+    <string name="import_mode_file">Datei</string>
+    <string name="import_file_reading">Datei wird gelesen…</string>
+    <string name="import_file_too_big">Die Datei ist zu groß für den Import.</string>
+    <string name="import_file_unreadable">Die Datei konnte nicht gelesen werden.</string>
+    <string name="import_text_description">Füge eine Songliste ein und erhalte eine Playlist.</string>
+    <string name="import_text_name">Name der Playlist</string>
+    <string name="import_text_hint">Ein Song pro Zeile, z. B. „Künstler - Titel“ oder „Titel by Künstler“</string>
+    <string name="import_text_default_name">Eingefügte Songs</string>
+    <string name="import_text_button">%1$d Songs importieren</string>
+    <string name="spotify_import_matching">Titel werden abgeglichen %1$d von %2$d</string>
+    <string name="spotify_import_unmatched">%1$d Titel wurden auf YouTube Music nicht gefunden</string>
 </resources>

@@ -708,4 +708,36 @@
     <string name="listen_together_open">Слушать вместе</string>
     <string name="listen_together_open_count">Слушаем вместе · %1$d</string>
     <string name="miscellaneous_footer">При включении закрытие приложения из недавних также останавливает воспроизведение музыки.</string>
+    <!-- Playlist import, copied from the Android catalogue. -->
+    <string name="import_any">Импорт плейлиста</string>
+    <string name="import_link_title">Импорт по ссылке</string>
+    <string name="import_link_description_local">Вставьте ссылку на плейлист, альбом или трек из любого музыкального приложения. Треки будут найдены в YouTube Music и сохранены на этом устройстве.</string>
+    <string name="import_link_hint">Вставьте ссылку из любого музыкального приложения</string>
+    <string name="import_link_supported">Поддерживаемые сервисы: %1$s</string>
+    <string name="import_link_detected">Определено: %1$s</string>
+    <string name="import_link_fetching">Чтение из %1$s…</string>
+    <string name="import_link_fetching_generic">Чтение ссылки…</string>
+    <string name="import_error_invalid">Это не похоже на ссылку.</string>
+    <string name="import_error_unsupported">Эта ссылка пока не поддерживается.</string>
+    <string name="import_error_not_found">Импортировать нечего. Убедитесь, что это общедоступно.</string>
+    <string name="import_error_network">Не удалось связаться с сервисом. Проверьте подключение.</string>
+    <string name="import_error_rate_limited">Сервис занят. Повторите попытку через минуту.</string>
+    <string name="import_error_parse">Не удалось прочитать страницу. Возможно, сервис её изменил.</string>
+    <string name="import_review_not_found">Не найдено в YouTube Music</string>
+    <string name="import_review_summary">Найдено: %1$d · сомнительно: %2$d · не найдено: %3$d</string>
+    <string name="import_review_save">Сохранить плейлист</string>
+    <string name="import_partial">Ещё %1$d треков не удалось прочитать из источника</string>
+    <string name="import_mode_link">Ссылка</string>
+    <string name="import_mode_text">Список треков</string>
+    <string name="import_mode_file">Файл</string>
+    <string name="import_file_reading">Чтение файла…</string>
+    <string name="import_file_too_big">Файл слишком большой для импорта.</string>
+    <string name="import_file_unreadable">Не удалось прочитать файл.</string>
+    <string name="import_text_description">Вставьте список треков и получите плейлист.</string>
+    <string name="import_text_name">Название плейлиста</string>
+    <string name="import_text_hint">По одному треку в строке: «Исполнитель - Название» или «Название by Исполнитель»</string>
+    <string name="import_text_default_name">Вставленные треки</string>
+    <string name="import_text_button">Импортировать треки: %1$d</string>
+    <string name="spotify_import_matching">Сопоставление треков %1$d из %2$d</string>
+    <string name="spotify_import_unmatched">%1$d треков не найдено на YouTube Music</string>
 </resources>
