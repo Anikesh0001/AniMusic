@@ -24,6 +24,8 @@ scripts/release-animusic.sh --prerelease 1.0.3 "What changed (shown to users as 
 
 The script bumps the animusic `versionName`/`versionCode`, builds and verifies the signed release, commits, and tags `v1.0.3`. It pushes `main` plus the tag to the `animusic` remote, then creates GitHub release `v1.0.3` marked **pre-release**, with `AniMusic-1.0.3-arm64-v8a.apk` and `-universal.apk` attached.
 
+A minute later the **AniMusic desktop** workflow (`.github/workflows/animusic-desktop.yml`) starts by itself. It builds the macOS, Windows and Linux packages and uploads them to this same release, in about 20–30 minutes. See [AniMusic Desktop](#animusic-desktop).
+
 Installed apps don't see it. They ask `GET /releases/latest`, which only ever returns "the most recent non-prerelease, non-draft release", so v1.0.2 stays the latest. On a pre-release the script also sends `make_latest: false`.
 
 **2. Install it on your phone and smoke-test it**
@@ -37,6 +39,8 @@ scripts/promote-release.sh 1.0.3
 ```
 
 This marks `v1.0.3` as a full release and the repository's latest, then checks that `/releases/latest` really returns it. From the next start, every installed copy shows the update dialog with the release notes. The script refuses if an APK is missing, if the release isn't a pre-release, or if the version isn't newer than the current latest.
+
+Before promoting, check that the Actions run finished and the desktop files are on the release. The promote script warns, without blocking, if the dmgs, `setup.exe` or the AppImage are missing.
 
 If the smoke test fails, don't promote. Fix the problem and publish `1.0.4` as a new pre-release; version numbers are never reused. Delete the broken pre-release on GitHub if you like, since no installed app ever saw it.
 
@@ -110,8 +114,56 @@ apksigner verify --verbose --print-certs app/build/outputs/apk/animusic/release/
 
 Removed in this flavor: `READ_PHONE_STATE` (implied by the merger from `:shared`, unused).
 
+## AniMusic Desktop
+
+The desktop app (`desktopApp`, Compose Desktop) builds as AniMusic by default. The Gradle property `desktop.brand` switches it: `animusic` (the default) or `bitchord` for upstream's build. Nothing on Android reads it.
+
+```
+./gradlew :desktopApp:run                         # AniMusic
+./gradlew :desktopApp:run -Pdesktop.brand=bitchord
+```
+
+The brand sets, in `desktopApp/build.gradle.kts` and `DesktopBrand.kt`:
+
+- **Name and IDs:** "AniMusic", macOS bundle ID `com.anikesh.animusic.desktop`, its own Windows upgrade UUID, Linux package `animusic`. Settings, caches, downloads (`Music/AniMusic`), the keyring entry and the MPRIS name are separate from BitChord's, so both can be installed side by side.
+- **Version:** the animusic `versionName` in `app/build.gradle.kts`, read at build time (the only place it lives). `-Pbitchord.version=` overrides it.
+- **Icons:** `desktopApp/packaging/icons/animusic/AppIcon.{icns,ico,png}`, made from `app/src/animusic/art/animusic-icon.svg` by `desktopApp/packaging/make-animusic-icons.py` (needs `cairosvg` and Pillow). Run it again if the art changes.
+- **Text:** every "BitChord" in the desktop strings shows as "AniMusic" (`DesktopBrand.rename`). The settings footer carries the credit line "AniMusic by Anikesh Kumar · Based on BitChord by Kushagra Singh · GPLv3" and links to https://github.com/Anikesh0001/AniMusic.
+- **Updates:** the desktop app reads `Anikesh0001/AniMusic`'s latest release, the same one the phones read. It picks the file for its OS and CPU (`DesktopUpdateChecker.pickInstaller`) and never an APK.
+
+**Release files** (all in the same `vX.Y.Z` release as the APKs, never a separate release; see CLAUDE.md):
+
+| | file |
+|---|---|
+| macOS Apple Silicon | `AniMusic-X.Y.Z-macos-arm64.dmg` |
+| macOS Intel | `AniMusic-X.Y.Z-macos-x64.dmg` |
+| Windows | `AniMusic-X.Y.Z-windows-x64-setup.exe`, `-windows-x64.msi`, `-windows-x64-portable.zip` |
+| Linux | `AniMusic-X.Y.Z-linux-x86_64.AppImage`, `-linux-amd64.deb`, `-linux-x86_64.rpm` |
+
+`.github/workflows/animusic-desktop.yml` builds them on free GitHub runners when a release is published (pre-releases included) and uploads them with `gh release upload --clobber`. It never creates a release, and it refuses a tag that doesn't match the animusic `versionName`. To rebuild an existing release, run it by hand: Actions → AniMusic desktop → Run workflow → tag `v1.0.4`.
+
+The packages are **not signed or notarized**, which would need a paid Apple account and a paid Windows certificate. So macOS and Windows warn the first time; the website's install help explains the one-time step (macOS: right-click → Open, or `xattr -cr /Applications/AniMusic.app`; Windows: More info → Run anyway).
+
+**Still "BitChord" on desktop, on purpose:**
+
+- **Code and file names:** Kotlin packages, `-Dbitchord.*` system properties, the native libraries (`bitchord_analysis`, `bitchord_smtc`, `bitchord_window`), the generated resources package, log tags, and the Linux `StartupWMClass` (it's derived from the Java main class). Users don't see them, and renaming them would break upstream merges.
+- **Network identifiers:** the addon User-Agent `BitChord/<version>` and ListenBrainz's `submission_client`, as on Android.
+- **Discord Rich Presence:** upstream's Discord app ID, its icon, and the "Visit BitChord" button, as on Android.
+- **BitChord's live-user ping and Listen Together:** they talk to BitChord's own servers, and the "official BitChord server" dialog is about that server.
+- **Credits:** "Based on BitChord" and BitChord's entry in the licenses list. Required by the GPL.
+
+## Website
+
+`website/` is the download page, at https://anikesh0001.github.io/AniMusic/. It's plain HTML, CSS and JavaScript with no build step. In the visitor's browser it reads `/releases/latest` and highlights their file: the arm64 APK on Android, the dmg for their Mac's chip (Apple Silicon when the browser won't say, with an Intel link next to it), `setup.exe` on Windows, and the AppImage on Linux. A new release shows up there by itself; nothing to redeploy.
+
+`.github/workflows/animusic-website.yml` publishes it to GitHub Pages on every push to `main` that changes `website/`. One-time setup: repository **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+To add screenshots, put the images in `website/screenshots/` and replace the placeholders in `website/index.html` (there's a comment showing how).
+
 ## GitHub repository
 
 `github.com/Anikesh0001/AniMusic`, remote `animusic` in this checkout (`origin` is still upstream BitChord).
 
 The upstream workflows in `.github/workflows/` (CI builds, desktop `release.yml`, contributors bots, backend deploy) are **disabled in the repo's Actions settings**. The files stay, so upstream merges are clean. They would otherwise rebuild BitChord on every push and attach BitChord desktop installers to AniMusic's releases. Re-enable any of them under Actions → the workflow → "Enable workflow".
+
+AniMusic's own workflows, `animusic-desktop.yml` and `animusic-website.yml`, are active. They only use the built-in `GITHUB_TOKEN`.

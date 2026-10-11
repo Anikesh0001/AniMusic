@@ -1,5 +1,7 @@
 # BitChord Desktop
 
+> **AniMusic:** in this fork the desktop app builds as AniMusic by default (`-Pdesktop.brand=bitchord` gives upstream's build). Its release files, update feed and CI are described in [ANIMUSIC.md](ANIMUSIC.md#animusic-desktop). The rest of this file is upstream's.
+
 BitChord has a Kotlin Multiplatform shared module and a Compose Multiplatform
 desktop application for macOS, Linux, and Windows. Desktop uses the JVM target, which is
 the supported Compose Multiplatform desktop model.
