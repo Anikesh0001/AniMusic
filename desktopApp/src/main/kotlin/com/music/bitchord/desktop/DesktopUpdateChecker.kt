@@ -32,8 +32,13 @@ internal object DesktopUpdateChecker {
         val notes: String?,
     )
 
-    private const val LATEST_RELEASE_URL =
-        "https://api.github.com/repos/kushagrasinghx/BitChord/releases/latest"
+    /**
+     * This brand's feed. For AniMusic it is the same GitHub release the Android APKs are in
+     * (Anikesh0001/AniMusic, tag vX.Y.Z): the desktop packages are added to that release by
+     * .github/workflows/animusic-desktop.yml, never published as a release of their own.
+     */
+    private val LATEST_RELEASE_URL =
+        "https://api.github.com/repos/${DesktopBrand.updateRepo}/releases/latest"
 
     val currentVersion: String = System.getProperty("bitchord.version") ?: "1.8-beta1"
 
@@ -65,24 +70,46 @@ internal object DesktopUpdateChecker {
         )
     }.getOrNull()
 
-    /**
-     * The release names its files `BitChord-<version>-windows-x64-setup.exe` and
-     * `BitChord-<version>-linux-x86_64.AppImage` (see .github/workflows/release.yml); match on the
-     * platform part so a version change does not matter.
-     */
+    /** The installer for the running OS and CPU, from [release]'s uploaded assets. */
     private fun installerUrl(release: JsonObject): String? {
-        val suffixes = when {
-            DesktopPlatform.isWindows -> listOf("-windows-x64-setup.exe")
-            DesktopPlatform.isLinux -> listOf(".AppImage", "-linux-amd64.deb")
+        val assets = release["assets"]?.jsonArray?.mapNotNull { it as? JsonObject }.orEmpty()
+            .filter { it["state"]?.jsonPrimitive?.contentOrNull == "uploaded" }
+            .mapNotNull { asset ->
+                val name = asset["name"]?.jsonPrimitive?.contentOrNull ?: return@mapNotNull null
+                val url = asset["browser_download_url"]?.jsonPrimitive?.contentOrNull ?: return@mapNotNull null
+                name to url
+            }
+        val os = when {
+            DesktopPlatform.isWindows -> "windows"
+            DesktopPlatform.isMac -> "macos"
+            DesktopPlatform.isLinux -> "linux"
             else -> return null
         }
-        val assets = release["assets"]?.jsonArray?.mapNotNull { it as? JsonObject }.orEmpty()
+        return pickInstaller(assets, os, System.getProperty("os.arch").orEmpty())
+    }
+
+    /**
+     * Which of a release's files ([name] to [url]) this machine should install.
+     *
+     * Release files are `<Brand>-<version>-<platform>` (see animusic-desktop.yml); only this
+     * brand's desktop installers are ever considered, so an APK (or another brand's file) in the
+     * same release is never offered. In order of preference:
+     *  - macOS: the dmg for this chip; an Apple Silicon Mac falls back to the Intel dmg, which runs
+     *    under Rosetta, but an Intel Mac never gets the arm64 one.
+     *  - Windows: the setup.exe, then the msi.
+     *  - Linux: the AppImage (any distribution), then the deb, then the rpm.
+     */
+    internal fun pickInstaller(assets: List<Pair<String, String>>, os: String, arch: String): String? {
+        val arm = arch.lowercase().let { it == "aarch64" || it == "arm64" }
+        val suffixes = when (os) {
+            "macos" -> if (arm) listOf("-macos-arm64.dmg", "-macos-x64.dmg") else listOf("-macos-x64.dmg")
+            "windows" -> listOf("-windows-x64-setup.exe", "-windows-x64.msi")
+            "linux" -> listOf("-linux-x86_64.AppImage", "-linux-amd64.deb", "-linux-x86_64.rpm")
+            else -> return null
+        }
+        val ours = assets.filter { (name, _) -> name.startsWith("${DesktopBrand.assetPrefix}-") }
         for (suffix in suffixes) {
-            val hit = assets.firstOrNull { asset ->
-                asset["name"]?.jsonPrimitive?.contentOrNull?.endsWith(suffix, ignoreCase = true) == true &&
-                    asset["state"]?.jsonPrimitive?.contentOrNull == "uploaded"
-            }
-            hit?.get("browser_download_url")?.jsonPrimitive?.contentOrNull?.let { return it }
+            ours.firstOrNull { (name, _) -> name.endsWith(suffix, ignoreCase = true) }?.let { return it.second }
         }
         return null
     }
