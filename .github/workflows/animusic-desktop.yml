@@ -182,8 +182,13 @@ jobs:
         include:
           - os: macos-14
             arch: arm64
+            tests: ":shared:jvmTest :desktopApp:test"
+          # ONNX Runtime has no Intel-Mac library, so the desktop beat-model test can't pass here
+          # (the app itself runs; Automix just has no beat grid). Tags before v1.0.5 lack the test's
+          # own skip, so this job runs the shared tests only. The desktop tests run on the other three.
           - os: macos-15-intel
             arch: x64
+            tests: ":shared:jvmTest"
     runs-on: ${{ matrix.os }}
     env:
       VERSION: ${{ needs.version.outputs.value }}
@@ -203,7 +208,12 @@ jobs:
       - run: chmod +x gradlew
 
       - name: Tests
-        run: ./gradlew :shared:jvmTest :desktopApp:test -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
+        env:
+          TESTS: ${{ matrix.tests }}
+        run: |
+          # TESTS is a list of Gradle tasks, split into words on purpose.
+          # shellcheck disable=SC2086
+          ./gradlew $TESTS -Pdesktop.brand="$BRAND" -Pbitchord.version="$VERSION"
 
       # Unsigned and not notarized (no paid Apple account): users clear the quarantine flag once,
       # as the website's install help explains.

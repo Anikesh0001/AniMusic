@@ -142,6 +142,8 @@ The brand sets, in `desktopApp/build.gradle.kts` and `DesktopBrand.kt`:
 
 `.github/workflows/animusic-desktop.yml` builds them on free GitHub runners when a release is published (pre-releases included) and uploads them with `gh release upload --clobber`. It never creates a release, and it refuses a tag that doesn't match the animusic `versionName`. To rebuild an existing release, run it by hand: Actions → AniMusic desktop → Run workflow → tag `v1.0.4`.
 
+**Intel Macs:** ONNX Runtime (the library behind Automix's beat and vocal detection) no longer ships an Intel-Mac build. On an Intel Mac, AniMusic works normally, but Automix mixes without beat-matching. The workflow's Intel job therefore runs only the shared tests; the desktop tests run on the other three platforms.
+
 The packages are **not signed or notarized**, which would need a paid Apple account and a paid Windows certificate. So macOS and Windows warn the first time; the website's install help explains the one-time step (macOS: right-click → Open, or `xattr -cr /Applications/AniMusic.app`; Windows: More info → Run anyway).
 
 **Still "BitChord" on desktop, on purpose:**

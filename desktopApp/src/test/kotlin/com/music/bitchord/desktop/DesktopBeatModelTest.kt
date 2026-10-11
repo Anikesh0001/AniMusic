@@ -12,6 +12,14 @@ class DesktopBeatModelTest {
 
     @Test
     fun `the beat model loads in this build`() {
+        // ONNX Runtime ships no Intel-Mac native since 1.2x (only osx-aarch64, linux, win-x64), so
+        // there the model can't load and Automix runs without a beat grid, as BeatTracker allows.
+        val os = System.getProperty("os.name").orEmpty().lowercase()
+        val arch = System.getProperty("os.arch").orEmpty().lowercase()
+        if (os.contains("mac") && (arch == "x86_64" || arch == "amd64")) {
+            println("ONNX Runtime has no Intel-Mac library — skipping")
+            return
+        }
         DesktopAnalysisRuntime.ensureStarted()
         if (!DesktopAnalysisRuntime.available) {
             println("analysis library unavailable — skipping")
