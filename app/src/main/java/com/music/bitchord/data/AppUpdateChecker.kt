@@ -124,7 +124,10 @@ object AppUpdateChecker {
      * build, then — for a release with a single unnamed APK, as BitChord's
      * have — whatever APK there is.
      */
-    internal fun pickApk(apks: List<Pair<String, String>>, deviceAbis: List<String>): String? {
+    internal fun pickApk(assets: List<Pair<String, String>>, deviceAbis: List<String>): String? {
+        // The release also carries the desktop packages (AniMusic-…-linux-x86_64.AppImage would
+        // otherwise match an x86_64 phone): only ever an .apk.
+        val apks = assets.filter { (name, _) -> name.endsWith(".apk", ignoreCase = true) }
         if (apks.isEmpty()) return null
         for (abi in deviceAbis) {
             apks.firstOrNull { it.first.contains(abi, ignoreCase = true) }?.let { return it.second }
