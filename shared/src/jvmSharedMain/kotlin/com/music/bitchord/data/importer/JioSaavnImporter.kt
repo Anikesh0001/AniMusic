@@ -1,14 +1,16 @@
 package com.music.bitchord.data.importer
 
-import com.music.bitchord.data.jiosaavn.JioSaavnService
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.jsonObject
+import okhttp3.HttpUrl.Companion.toHttpUrl
 
 /**
  * Public JioSaavn playlists, albums and songs, through the same `api.php`
- * the app already streams from ([JioSaavnService.getByToken]).
+ * the app already streams from. The request itself is [byToken]: the phone
+ * plugs in its own JioSaavn client (`JioSaavnService.getByToken`) at start-up,
+ * the desktop uses the built-in [webApiGet].
  *
  * Every JioSaavn link ends in a token that `webapi.get` accepts as it is:
  * `/featured/<slug>/<token>` and `/s/playlist/<user>/<slug>/<token>` are
@@ -44,10 +46,45 @@ object JioSaavnImporter : PlaylistImporter {
 
     private val TOKEN = Regex("""[A-Za-z0-9_,\-]{6,}""")
 
+    /**
+     * `webapi.get` for [token]: the raw JSON body, or null when JioSaavn would not answer.
+     * Replaced by the Android app with its own client; [webApiGet] everywhere else.
+     */
+    @Volatile
+    var byToken: suspend (token: String, type: String, page: Int, count: Int) -> String? = ::webApiGet
+
+    private const val API = "https://www.jiosaavn.com/api.php"
+
+    /** The same request, parameters and headers as the phone's JioSaavn client. */
+    suspend fun webApiGet(token: String, type: String, page: Int, count: Int): String? = runCatching {
+        val url = API.toHttpUrl().newBuilder()
+            .addQueryParameter("__call", "webapi.get")
+            .addQueryParameter("token", token)
+            .addQueryParameter("type", type)
+            .addQueryParameter("p", page.toString())
+            .addQueryParameter("n", count.toString())
+            .addQueryParameter("includeMetaTags", "0")
+            .addQueryParameter("_format", "json")
+            .addQueryParameter("_marker", "0")
+            .addQueryParameter("api_version", "4")
+            .addQueryParameter("ctx", "android")
+            .build()
+        ImportHttp.get(
+            url.toString(),
+            mapOf(
+                "Accept" to "application/json",
+                "X-Forwarded-For" to "49.36.0.1",
+                "X-Real-IP" to "49.36.0.1",
+                "Accept-Language" to "en-IN,en;q=0.9",
+                "Cookie" to "explicit_content=1",
+            ),
+        )
+    }.getOrNull()
+
     override suspend fun fetch(url: String): ImportedCollection {
         val (kind, token) = extract(url) ?: throw ImportException(ImportException.Reason.UNSUPPORTED)
         if (kind == Kind.SONG) {
-            val body = JioSaavnService.getByToken(token, kind.type)
+            val body = byToken(token, kind.type, 1, PAGE_SIZE)
                 ?: throw ImportException(ImportException.Reason.NETWORK)
             val track = parseSongs(body).firstOrNull() ?: throw ImportException(ImportException.Reason.NOT_FOUND)
             return ImportedCollection(service, url, track.title, tracks = listOf(track))
@@ -56,7 +93,7 @@ object JioSaavnImporter : PlaylistImporter {
         val tracks = mutableListOf<ImportTrack>()
         var page = 1
         while (page <= MAX_PAGES) {
-            val body = JioSaavnService.getByToken(token, kind.type, page, PAGE_SIZE)
+            val body = byToken(token, kind.type, page, PAGE_SIZE)
                 ?: if (tracks.isEmpty()) throw ImportException(ImportException.Reason.NETWORK) else break
             val parsed = parseCollection(body) ?: break
             if (first == null) first = parsed

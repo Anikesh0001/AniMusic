@@ -26,6 +26,7 @@ Release with `scripts/release-animusic.sh` (pre-release first, then `scripts/pro
   ```
   ./gradlew assembleAnimusicDebug
   ./gradlew testDevDebugUnitTest
+  ./gradlew :shared:jvmTest          # the playlist importer's tests live here (shared with desktop)
   ./gradlew assembleAnimusicRelease
   ```
   On this machine Gradle needs `JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true` and `-Porg.gradle.java.installations.paths=$HOME/.jdks/jdk-21.0.12.1+1`. R8 needs about 3 GB of heap.
@@ -38,6 +39,7 @@ Install the pre-release on a real phone (over the current release) and check:
 - [ ] Search for a song and play it.
 - [ ] Background playback: lock the screen, and use the notification's play/pause/next.
 - [ ] Import a Spotify link and a Deezer link (Library → Import playlist), and both save.
+- [ ] Optional, on a computer: Library → Import playlist with a Spotify link; it saves under "On device".
 - [ ] Open a local (on-device) playlist.
 - [ ] Downloads: download a song, and it plays offline.
 - [ ] The update dialog appears when a newer release exists. (Before promoting, the pre-release itself must *not* show up as an update on a phone running the previous release.)

@@ -59,6 +59,9 @@ kotlin {
         }
         jvmTest.dependencies {
             implementation("com.squareup.okhttp3:mockwebserver:5.3.2")
+            // The importer tests (moved here from app) are JUnit 4 and use runTest.
+            implementation("junit:junit:4.13.2")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
         }
     }
 }

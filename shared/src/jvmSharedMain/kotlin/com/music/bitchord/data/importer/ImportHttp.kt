@@ -7,8 +7,11 @@ import kotlinx.serialization.json.Json
 import okhttp3.Request
 import java.io.IOException
 
-/** The shared HTTP plumbing every importer reads its source through. */
-internal object ImportHttp {
+/**
+ * The shared HTTP plumbing every importer reads its source through. Public because the
+ * Android-only importers (Last.fm) live in `app` and read through it too.
+ */
+object ImportHttp {
 
     /** The same desktop Chrome the Spotify importer has always presented. */
     const val USER_AGENT =

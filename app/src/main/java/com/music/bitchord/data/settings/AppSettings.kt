@@ -762,6 +762,9 @@ object AppSettings {
         com.music.bitchord.data.spotify.LocalPlaylistStore.init(context)
         com.music.bitchord.data.importer.ImportSettings.init(context)
         com.music.bitchord.data.importer.ImportHistoryStore.init(context)
+        // The importer (in :shared) reads JioSaavn through the phone's own client, as before.
+        com.music.bitchord.data.importer.JioSaavnImporter.byToken =
+            { token, type, page, count -> com.music.bitchord.data.jiosaavn.JioSaavnService.getByToken(token, type, page, count) }
         readAll()
         watchConnection(context)
     }
