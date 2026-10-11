@@ -15,7 +15,7 @@ import java.util.prefs.Preferences
  */
 internal object DesktopPresence {
     private const val KEY_INSTALL_ID = "presence_install_id"
-    private val preferences = Preferences.userRoot().node("com.music.bitchord.desktop")
+    private val preferences = Preferences.userRoot().node(DesktopBrand.preferencesNode)
 
     fun install() {
         val presence = Presence(PresencePlatform.Pc, installId())

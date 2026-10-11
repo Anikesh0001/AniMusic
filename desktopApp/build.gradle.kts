@@ -3,11 +3,36 @@ import java.util.zip.ZipFile
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
+/**
+ * Which app this builds: "animusic" (default) or upstream "bitchord". Picks the name, bundle id,
+ * icons, update feed and file names below, and is handed to the running app as the
+ * `bitchord.brand` system property (see DesktopBrand). `-Pdesktop.brand=bitchord` builds upstream's.
+ */
+val desktopBrand: String = (providers.gradleProperty("desktop.brand").orNull ?: "animusic").lowercase().also {
+    require(it == "animusic" || it == "bitchord") { "desktop.brand must be animusic or bitchord, not $it" }
+}
+val isAniMusic = desktopBrand == "animusic"
+
+/**
+ * AniMusic's version lives in one place: the `animusic` flavor's versionName in
+ * app/build.gradle.kts, which scripts/release-animusic.sh bumps. Desktop reads it from there
+ * (read-only), so a release tag, the APK and the desktop packages always agree.
+ */
+fun aniMusicVersionName(): String {
+    val gradle = rootProject.file("app/build.gradle.kts").readText()
+    val block = gradle.substring(gradle.indexOf("create(\"animusic\")"))
+    return Regex("""versionName = "([^"]+)"""").find(block)?.groupValues?.get(1)
+        ?: error("no versionName in the animusic flavor of app/build.gradle.kts")
+}
+
 /** What the packages, the launcher and the settings footer all say. */
 val appVersion: String = providers.gradleProperty("bitchord.version").orNull
     ?.removePrefix("v")
     ?.takeIf { it.isNotBlank() }
-    ?: "1.8-beta1"
+    ?: if (isAniMusic) aniMusicVersionName() else "1.8-beta1"
+
+/** The brand's display name, and the prefix of every file a release ships. */
+val brandName = if (isAniMusic) "AniMusic" else "BitChord"
 
 /** Which platform this build is *for*, which is the host unless told otherwise. */
 val hostIsWindows = System.getProperty("os.name").contains("Windows", ignoreCase = true)
@@ -27,7 +52,13 @@ val isArm64 = hostArch == "aarch64" || hostArch == "arm64"
 // intentionally displayed without a patch number (1.7 rather than 1.7.0).
 // The build number is the desktop version code; it also keeps "-beta1" out of the numeric installer version.
 val desktopVersionCode = 29
-val nativePackageVersion = appVersion.substringBefore('-').split('.').take(2).joinToString(".") + ".$desktopVersionCode"
+// AniMusic's versions are already MAJOR.MINOR.PATCH (1.0.3), which the installers take as they are.
+val nativePackageVersion = if (isAniMusic) {
+    appVersion.substringBefore('-').split('.').map { it.toIntOrNull() ?: 0 }
+        .let { it + List(maxOf(0, 3 - it.size)) { 0 } }.take(3).joinToString(".")
+} else {
+    appVersion.substringBefore('-').split('.').take(2).joinToString(".") + ".$desktopVersionCode"
+}
 
 // FFmpeg decodes audio; see DesktopAudioDecoder.
 val javacppVersion = "1.5.12"
@@ -388,7 +419,7 @@ val windowsPortableAssemble by tasks.registering {
     group = "distribution"
     description = "Lays out a Windows-runnable folder: application jars, Windows natives, launcher."
     dependsOn(tasks.named("jar"))
-    val stage = windowsPortableDir.map { it.dir("BitChord") }
+    val stage = windowsPortableDir.map { it.dir(brandName) }
     val appJar = tasks.named<Jar>("jar").flatMap { it.archiveFile }
     val runtime = configurations.named("runtimeClasspath")
     val version = appVersion
@@ -396,6 +427,8 @@ val windowsPortableAssemble by tasks.registering {
     val lastfmKey = lastfmApiKey
     val lastfmSharedSecret = lastfmSecret
     val mainClass = composeMainClass
+    val brand = desktopBrand
+    val launcherName = brandName
     // Declared, not implied.
     inputs.file(appJar)
     inputs.files(runtime)
@@ -403,6 +436,7 @@ val windowsPortableAssemble by tasks.registering {
     inputs.property("moduleIndex", moduleIndex)
     inputs.property("lastfm", lastfmKey.isNotBlank())
     inputs.property("mainClass", mainClass)
+    inputs.property("brand", brand)
     outputs.dir(stage)
     doLast {
         val target = stage.get().asFile
@@ -421,15 +455,15 @@ val windowsPortableAssemble by tasks.registering {
 
         // `lib\*` rather than a spelled-out classpath: the wildcard is what keeps this working when
         // a dependency is added, and the JVM is what expands it.
-        File(target, "BitChord.bat").writeText(
+        File(target, "$launcherName.bat").writeText(
             buildString {
                 appendLine("@echo off")
                 appendLine("setlocal")
-                appendLine("rem BitChord, portable. Needs a Java 21+ runtime on PATH or in JAVA_HOME.")
+                appendLine("rem $launcherName, portable. Needs a Java 21+ runtime on PATH or in JAVA_HOME.")
                 appendLine("set \"HERE=%~dp0\"")
                 appendLine("set \"RUNNER=java\"")
                 appendLine("if defined JAVA_HOME set \"RUNNER=%JAVA_HOME%\\bin\\java\"")
-                append("\"%RUNNER%\" -Dbitchord.version=$version")
+                append("\"%RUNNER%\" -Dbitchord.version=$version -Dbitchord.brand=$brand")
                 if (moduleIndex.isNotBlank()) append(" -Dbitchord.module.index=$moduleIndex")
                 if (lastfmKey.isNotBlank() && lastfmSharedSecret.isNotBlank()) {
                     append(" -Dbitchord.lastfm.key=$lastfmKey -Dbitchord.lastfm.secret=$lastfmSharedSecret")
@@ -483,7 +517,7 @@ val windowsPortable by tasks.registering(Zip::class) {
     description = "Zips the portable Windows folder for copying to a Windows machine."
     dependsOn(windowsPortableAssemble)
     from(windowsPortableDir)
-    archiveFileName.set("BitChord-$appVersion-windows-portable.zip")
+    archiveFileName.set("$brandName-$appVersion-windows-portable.zip")
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
     doLast { logger.lifecycle("windowsPortable: ${archiveFile.get().asFile.absolutePath}") }
 }
@@ -499,6 +533,7 @@ compose.desktop {
         jvmArgs("-Xmx512m")
         jvmArgs("-XX:+UseG1GC", "-XX:G1PeriodicGCInterval=20000", "-XX:G1PeriodicGCSystemLoadThreshold=0")
         jvmArgs("-Dbitchord.version=$appVersion")
+        jvmArgs("-Dbitchord.brand=$desktopBrand")
         if (desktopModuleIndexUrl.isNotBlank()) {
             jvmArgs("-Dbitchord.module.index=$desktopModuleIndexUrl")
         }
@@ -525,11 +560,20 @@ compose.desktop {
                 TargetFormat.Deb,
                 TargetFormat.Rpm,
             )
-            packageName = "BitChord"
+            packageName = brandName
             packageVersion = nativePackageVersion
-            description = if (targetOs == "windows") "BitChord" else "Aesthetic YouTube Music client"
-            vendor = "BitChord contributors"
-            copyright = "Copyright © 2026 BitChord contributors"
+            description = when {
+                targetOs == "windows" -> brandName
+                isAniMusic -> "AniMusic: YouTube Music player. Based on BitChord. GPLv3"
+                else -> "Aesthetic YouTube Music client"
+            }
+            vendor = if (isAniMusic) "Anikesh Kumar" else "BitChord contributors"
+            // GPLv3: BitChord's copyright stays alongside AniMusic's.
+            copyright = if (isAniMusic) {
+                "Copyright © 2026 Anikesh Kumar; based on BitChord, © 2026 BitChord contributors"
+            } else {
+                "Copyright © 2026 BitChord contributors"
+            }
 
             modules(
                 "java.base",
@@ -556,10 +600,10 @@ compose.desktop {
             )
 
             macOS {
-                iconFile.set(project.file("packaging/icons/AppIcon.icns"))
-                bundleID = "com.music.bitchord"
+                iconFile.set(project.file("${if (isAniMusic) "packaging/icons/animusic" else "packaging/icons"}/AppIcon.icns"))
+                bundleID = if (isAniMusic) "com.anikesh.animusic.desktop" else "com.music.bitchord"
                 appCategory = "public.app-category.music"
-                dockName = "BitChord"
+                dockName = brandName
                 infoPlist {
                     extraKeysRawXml = """
                         <key>NSRequiresAquaSystemAppearance</key>
@@ -569,17 +613,24 @@ compose.desktop {
             }
 
             linux {
-                iconFile.set(project.file("packaging/icons/AppIcon.png"))
+                iconFile.set(project.file("${if (isAniMusic) "packaging/icons/animusic" else "packaging/icons"}/AppIcon.png"))
                 menuGroup = "Audio"
                 appCategory = "AudioVideo;Audio;Player"
-                debMaintainer = "85984486+AbhiTheModder@users.noreply.github.com"
+                debMaintainer = if (isAniMusic) {
+                    "Anikesh0001@users.noreply.github.com"
+                } else {
+                    "85984486+AbhiTheModder@users.noreply.github.com"
+                }
+                // The .deb/.rpm package id; also the name of the .desktop entry they install.
+                packageName = desktopBrand
                 rpmLicenseType = "GPL-3.0"
             }
 
             windows {
-                iconFile.set(project.file("packaging/icons/AppIcon.ico"))
-                upgradeUuid = "8f3c1d24-6a2b-4f5e-9c17-2b8d54e0a913"
-                menuGroup = "BitChord"
+                iconFile.set(project.file("${if (isAniMusic) "packaging/icons/animusic" else "packaging/icons"}/AppIcon.ico"))
+                // AniMusic's own: sharing BitChord's would make one installer upgrade (replace) the other.
+                upgradeUuid = if (isAniMusic) "0920b112-0e0e-48cd-9048-23a2879a9220" else "8f3c1d24-6a2b-4f5e-9c17-2b8d54e0a913"
+                menuGroup = brandName
                 shortcut = true
                 dirChooser = false
                 perUserInstall = true

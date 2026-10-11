@@ -60,7 +60,7 @@ internal object DesktopBrowserSignIn {
     /** Opens [browser] normally for sign-in, then reads the finished session in a headless pass. */
     suspend fun capture(browser: Browser): String = withContext(kotlinx.coroutines.Dispatchers.IO) {
         val profile = environmentPath("LOCALAPPDATA", "AppData/Local")
-            .resolve("BitChord")
+            .resolve(DesktopBrand.name)
             .resolve("Browser Sign In")
             .resolve(browser.name)
         Files.createDirectories(profile)

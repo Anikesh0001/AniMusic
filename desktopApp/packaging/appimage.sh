@@ -3,47 +3,53 @@
 # Wraps the app image jpackage produced into an AppImage, the one Linux format
 # Gradle cannot make itself.
 #
-# Usage: desktopApp/packaging/appimage.sh <app-image-dir> <out.AppImage> [appimagetool]
+# Usage: desktopApp/packaging/appimage.sh <app-image-dir> <out.AppImage> [appimagetool] [name] [id] [icon.png]
+# name/id/icon are the brand: BitChord's by default; AniMusic's build passes
+#   AniMusic animusic desktopApp/packaging/icons/animusic/AppIcon.png
 set -euo pipefail
 
-APP_DIR_SRC=${1:?usage: appimage.sh <app-image-dir> <out.AppImage> [appimagetool]}
-OUT=${2:?usage: appimage.sh <app-image-dir> <out.AppImage> [appimagetool]}
+USAGE="usage: appimage.sh <app-image-dir> <out.AppImage> [appimagetool] [name] [id] [icon.png]"
+APP_DIR_SRC=${1:?$USAGE}
+OUT=${2:?$USAGE}
 TOOL=${3:-appimagetool}
-
-[ -x "$APP_DIR_SRC/bin/BitChord" ] || { echo "no launcher in $APP_DIR_SRC" >&2; exit 1; }
+NAME=${4:-BitChord}
+ID=${5:-bitchord}
 
 ROOT=$(cd "$(dirname "$0")/../.." && pwd)
+ICON=${6:-$ROOT/desktopApp/packaging/icons/AppIcon.png}
+
+[ -x "$APP_DIR_SRC/bin/$NAME" ] || { echo "no launcher in $APP_DIR_SRC" >&2; exit 1; }
 STAGE=$(mktemp -d)
 trap 'rm -rf "$STAGE"' EXIT
-APPDIR="$STAGE/BitChord.AppDir"
+APPDIR="$STAGE/$NAME.AppDir"
 
 mkdir -p "$APPDIR/usr"
 cp -a "$APP_DIR_SRC/." "$APPDIR/usr/"
 
 # The mount point differs every run, so nothing may be hard-coded.
-cat > "$APPDIR/AppRun" <<'APPRUN'
+cat > "$APPDIR/AppRun" <<APPRUN
 #!/bin/sh
-HERE="$(dirname "$(readlink -f "$0")")"
-exec "$HERE/usr/bin/BitChord" "$@"
+HERE="\$(dirname "\$(readlink -f "\$0")")"
+exec "\$HERE/usr/bin/$NAME" "\$@"
 APPRUN
 chmod +x "$APPDIR/AppRun"
 
-cat > "$APPDIR/bitchord.desktop" <<'DESKTOP'
+cat > "$APPDIR/$ID.desktop" <<DESKTOP
 [Desktop Entry]
 Type=Application
-Name=BitChord
+Name=$NAME
 GenericName=Music Player
-Comment=Aesthetic YouTube Music client
-Exec=BitChord
-Icon=bitchord
+Comment=YouTube Music player
+Exec=$NAME
+Icon=$ID
 Categories=AudioVideo;Audio;Player;
 Terminal=false
 StartupWMClass=com-music-bitchord-desktop-MainKt
 DESKTOP
 
 # appimagetool reads the icon by the desktop entry; the desktop reads .DirIcon.
-cp "$ROOT/desktopApp/packaging/icons/AppIcon.png" "$APPDIR/bitchord.png"
-cp "$ROOT/desktopApp/packaging/icons/AppIcon.png" "$APPDIR/.DirIcon"
+cp "$ICON" "$APPDIR/$ID.png"
+cp "$ICON" "$APPDIR/.DirIcon"
 
 mkdir -p "$(dirname "$OUT")"
 # APPIMAGE_EXTRACT_AND_RUN rather than the flag of the same name: it is read by the AppImage

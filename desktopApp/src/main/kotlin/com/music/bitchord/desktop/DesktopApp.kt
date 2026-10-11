@@ -256,6 +256,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bitchord.desktopapp.generated.resources.Res
 import bitchord.desktopapp.generated.resources.logo
+import bitchord.desktopapp.generated.resources.animusic_logo_mark
 import bitchord.desktopapp.generated.resources.logo_mark
 import bitchord.desktopapp.generated.resources.sf_pro_display_bold
 import bitchord.desktopapp.generated.resources.sf_pro_display_heavy
@@ -507,7 +508,7 @@ fun BitChordDesktopApp() {
             title = { Text(DesktopStrings["d_update_available", "Update available"]) },
             text = {
                 Text(
-                    "BitChord ${update.version} is out — you have ${DesktopUpdateChecker.currentVersion}." +
+                    "${DesktopBrand.name} ${update.version} is out — you have ${DesktopUpdateChecker.currentVersion}." +
                         (update.notes?.takeIf { it.isNotBlank() }?.let { "\n\n${it.take(600)}" } ?: ""),
                 )
             },
@@ -4017,8 +4018,10 @@ private fun DesktopTopBar(
             ) {
                 // The mark leads the player's own controls, now that the sidebar runs to the top.
                 Image(
-                    painter = painterResource(Res.drawable.logo_mark),
-                    contentDescription = "BitChord",
+                    painter = painterResource(
+                        if (DesktopBrand.isAniMusic) Res.drawable.animusic_logo_mark else Res.drawable.logo_mark,
+                    ),
+                    contentDescription = DesktopBrand.name,
                     modifier = Modifier.size(width = 28.dp, height = 18.dp),
                 )
                 Spacer(Modifier.width(14.dp))
@@ -6058,6 +6061,25 @@ private fun DesktopSettingsFooter(onLicenses: () -> Unit) {
     )
     Text(
         text = buildAnnotatedString {
+            if (DesktopBrand.isAniMusic) {
+                // A rebuild of BitChord: GPLv3 asks that it say so, name the licence and point at
+                // its source. The same line the Android build's settings carry.
+                append("AniMusic $version  ")
+                withLink(LinkAnnotation.Url(DesktopBrand.sourceUrl, linkStyles)) { append("Source code") }
+                append("  ")
+                withLink(LinkAnnotation.Url(DesktopBrand.GPL_URL, linkStyles)) { append("License") }
+                append("  ")
+                withLink(LinkAnnotation.Clickable("licenses", linkStyles) { onLicenses() }) {
+                    append("Licenses")
+                }
+                append("\nAniMusic by Anikesh Kumar · Based on ")
+                withLink(LinkAnnotation.Url(DesktopBrand.UPSTREAM_URL, linkStyles)) { append("BitChord") }
+                append(" by ")
+                withLink(LinkAnnotation.Url(DesktopBrand.UPSTREAM_AUTHOR_URL, linkStyles)) { append("Kushagra Singh") }
+                append(" · ")
+                withLink(LinkAnnotation.Url(DesktopBrand.GPL_URL, linkStyles)) { append("GPLv3") }
+                return@buildAnnotatedString
+            }
             append("bitchord $version  ")
             withLink(LinkAnnotation.Url("https://github.com/kushagrasinghx/BitChord", linkStyles)) {
                 append("GitHub")

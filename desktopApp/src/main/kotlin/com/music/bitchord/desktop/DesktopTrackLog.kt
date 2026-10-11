@@ -16,7 +16,7 @@ internal object DesktopTrackLog {
         runCatching {
             val state = System.getenv("XDG_STATE_HOME")?.takeIf { it.isNotBlank() }
                 ?: "${System.getProperty("user.home")}/.local/state"
-            val directory = Path.of(state, "bitchord")
+            val directory = Path.of(state, DesktopBrand.id)
             Files.createDirectories(directory)
             directory.resolve("desktop.log")
         }.getOrNull()
@@ -24,7 +24,7 @@ internal object DesktopTrackLog {
 
     fun log(line: String) {
         val stamped = "${LocalTime.now().format(clock)}  $line"
-        println("BitChord: $stamped")
+        println("${DesktopBrand.name}: $stamped")
         val target = file ?: return
         runCatching {
             Files.writeString(

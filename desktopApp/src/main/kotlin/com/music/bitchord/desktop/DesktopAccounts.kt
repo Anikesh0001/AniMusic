@@ -304,7 +304,7 @@ internal object DesktopAccounts {
     // ---- Where the credential itself lives ---------------------------------
 
     private fun attributesFor(accountId: String) =
-        mapOf("application" to "bitchord", "account" to accountId)
+        mapOf("application" to DesktopBrand.id, "account" to accountId)
 
     /** The keyring first, and a preference only when there is no keyring. */
     private fun writeCookie(accountId: String, cookie: String) {

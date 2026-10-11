@@ -274,7 +274,7 @@ internal class DesktopAddonClient(rawBaseUrl: String) {
             }
             if (!manifest.isPlayable) {
                 val declared = manifest.resources.joinToString(", ")
-                throw DesktopAddonException("This addon declares $declared — BitChord needs search")
+                throw DesktopAddonException("This addon declares $declared — ${DesktopBrand.name} needs search")
             }
             manifest
         }.recoverCatching { failure ->
@@ -389,7 +389,7 @@ internal class DesktopAddonClient(rawBaseUrl: String) {
                 code == 404 -> throw DesktopAddonNotFound()
                 code >= 500 -> throw DesktopAddonUnavailable("HTTP $code")
                 code != 429 -> throw DesktopAddonException("HTTP $code")
-                attempt >= MAX_RETRIES -> throw DesktopAddonUnavailable("This addon is rate limiting BitChord")
+                attempt >= MAX_RETRIES -> throw DesktopAddonUnavailable("This addon is rate limiting ${DesktopBrand.name}")
                 else -> retryAfterMs(response.headers["Retry-After"], attempt)
             }
             quietUntilMs = System.currentTimeMillis() + wait
@@ -679,7 +679,7 @@ internal object DesktopAddonSource {
         // Never sent a `?drm=`, so an encrypted answer is an addon ignoring the protocol.
         if (answer.isEncrypted) {
             DesktopTrackLog.log(
-                "${config.displayName}: that rendition came back encrypted, which BitChord never asked for",
+                "${config.displayName}: that rendition came back encrypted, which ${DesktopBrand.name} never asked for",
             )
             return null
         }
@@ -784,7 +784,7 @@ internal object DesktopSourceFormats {
             parsed.protocol.name.lowercase() !in setOf("http", "https")
         ) {
             return@withContext Result.success(
-                DesktopDetectedFormat.Unsupported("That is not a web address BitChord can open"),
+                DesktopDetectedFormat.Unsupported("That is not a web address ${DesktopBrand.name} can open"),
             )
         }
         val base = DesktopAddonClient.normalizeBase(url)
@@ -824,7 +824,7 @@ internal object DesktopSourceFormats {
             ?: return DesktopDetectedFormat.Unsupported("That address did not return JSON")
         val obj = root as? JsonObject
             ?: return DesktopDetectedFormat.Unsupported(
-                "That JSON is a list, and every format BitChord reads is an object",
+                "That JSON is a list, and every format ${DesktopBrand.name} reads is an object",
             )
 
         // A module index first: its marker is unmistakable and belongs to no other format.
@@ -858,7 +858,7 @@ internal object DesktopSourceFormats {
         val listKey = obj.entries.firstOrNull { it.value is JsonArray && (it.value as JsonArray).isNotEmpty() }?.key
         if (listKey != null) {
             return DesktopDetectedFormat.Unsupported(
-                "That JSON lists \"$listKey\", which is not a format BitChord reads",
+                "That JSON lists \"$listKey\", which is not a format ${DesktopBrand.name} reads",
             )
         }
         val keys = obj.keys.take(4).joinToString(", ").ifBlank { "nothing" }

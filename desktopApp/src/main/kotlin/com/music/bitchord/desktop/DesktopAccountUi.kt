@@ -321,13 +321,13 @@ internal fun DesktopSignInDialog(
                     DesktopStrings[
                         "d_choose_the_browser_sign_in_button_below",
                         "Choose ${interactiveBrowser.label} below, then finish signing in inside " +
-                            "the separate browser window and close it to return to BitChord.",
+                            "the separate browser window and close it to return to ${DesktopBrand.name}.",
                     ]
                 } else {
                     DesktopStrings[
                         "d_google_signs_in_inside_a_browser",
                         "Google signs in inside a browser and hands back a session. Pick a browser " +
-                            "here that is already signed in and BitChord will use its session.",
+                            "here that is already signed in and ${DesktopBrand.name} will use its session.",
                     ]
                 },
                 style = MaterialTheme.typography.bodySmall,

@@ -18,7 +18,10 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import bitchord.desktopapp.generated.resources.Res
+import bitchord.desktopapp.generated.resources.animusic_logo
+import bitchord.desktopapp.generated.resources.animusic_logo_mark
 import bitchord.desktopapp.generated.resources.logo
+import bitchord.desktopapp.generated.resources.logo_mark
 import java.awt.Dimension
 import java.awt.Rectangle
 import java.awt.Toolkit
@@ -85,8 +88,8 @@ private fun desktopMain() = application {
     Window(
         onCloseRequest = { if (DesktopWindowVisibility.onCloseRequest()) exitApplication() },
         visible = visible,
-        title = "BitChord",
-        icon = painterResource(Res.drawable.logo),
+        title = DesktopBrand.name,
+        icon = painterResource(if (DesktopBrand.isAniMusic) Res.drawable.animusic_logo else Res.drawable.logo),
         state = state,
         // No system title bar on Windows, where the application draws its own instead — see
         // [DesktopWindowChrome].
@@ -130,7 +133,7 @@ private fun desktopMain() = application {
                 (openingSize.width.value * transform.scaleX).roundToInt(),
                 (openingSize.height.value * transform.scaleY).roundToInt(),
             )
-            if (DesktopPlatform.isWindows && DesktopWindowsFrame.install("BitChord")) {
+            if (DesktopPlatform.isWindows && DesktopWindowsFrame.install(DesktopBrand.name)) {
                 DesktopWindowBackdrop.apply()
             } else if (DesktopPlatform.isMac && DesktopMacFrame.install(composeWindow)) {
                 DesktopWindowBackdrop.apply()
@@ -169,6 +172,11 @@ private fun desktopMain() = application {
         CompositionLocalProvider(
             LocalDesktopWindowActions provides actions,
             LocalDesktopWindowScope provides this,
+            // The shared screens (Home's header, the Replay card) name and draw the app from these.
+            com.music.bitchord.ui.LocalAppBrandName provides DesktopBrand.name,
+            com.music.bitchord.ui.LocalAppLogo provides painterResource(
+                if (DesktopBrand.isAniMusic) Res.drawable.animusic_logo_mark else Res.drawable.logo_mark,
+            ),
         ) {
             BitChordDesktopApp()
         }

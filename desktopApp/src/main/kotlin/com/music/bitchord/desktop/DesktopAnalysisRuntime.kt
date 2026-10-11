@@ -16,7 +16,7 @@ internal object DesktopAnalysisRuntime {
     private val home: Path by lazy {
         val base = System.getenv("XDG_DATA_HOME")?.takeIf { it.isNotBlank() }
             ?: "${System.getProperty("user.home")}/.local/share"
-        Path.of(base, "bitchord", "analysis")
+        Path.of(base, DesktopBrand.id, "analysis")
     }
 
     /** Where unpacked resources and cached analyses live. */

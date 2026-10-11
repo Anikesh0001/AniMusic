@@ -75,7 +75,8 @@ object DesktopStrings {
      * untranslated key still reads as the sentence it was written as.
      */
     operator fun get(key: String, fallback: String = key): String =
-        current[key] ?: english[key] ?: fallback
+        // The catalogues are Android's and name the app "BitChord"; an AniMusic build says its own name.
+        DesktopBrand.rename(current[key] ?: english[key] ?: fallback, key)
 
     /** As [get], with Android's `%1$s`-style positional arguments filled in. */
     fun format(key: String, vararg arguments: Any?, fallback: String = key): String =

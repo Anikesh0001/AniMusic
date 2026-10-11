@@ -21,7 +21,7 @@ internal object DesktopMediaCache {
     val directory: Path by lazy {
         val state = System.getenv("XDG_CACHE_HOME")?.takeIf(String::isNotBlank)
             ?: "${System.getProperty("user.home")}/.cache"
-        Path.of(state, "bitchord", "media").also { runCatching { Files.createDirectories(it) } }
+        Path.of(state, DesktopBrand.id, "media").also { runCatching { Files.createDirectories(it) } }
     }
 
     private val known = ConcurrentHashMap<String, Path>()

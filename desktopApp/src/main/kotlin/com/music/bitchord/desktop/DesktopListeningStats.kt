@@ -78,7 +78,7 @@ data class DesktopReplaySummary(
  */
 object DesktopListeningStats {
 
-    private val preferences: Preferences = Preferences.userRoot().node("com.music.bitchord.desktop.stats")
+    private val preferences: Preferences = Preferences.userRoot().node("${DesktopBrand.preferencesNode}.stats")
     private val lock = Any()
 
     /** A month's listening. */
