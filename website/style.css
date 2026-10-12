@@ -117,23 +117,20 @@ code {
 .feature ul { margin: 0; padding-left: 1.1em; }
 .feature li { margin: 6px 0; }
 
-.shots { display: grid; grid-template-columns: repeat(4, minmax(0, 200px)); justify-content: center; gap: 16px; }
+.shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 @media (max-width: 640px) {
-  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shots { grid-template-columns: 1fr; }
 }
-.shot { border-radius: 24px; overflow: hidden; aspect-ratio: 9 / 19; }
-.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.shot.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    linear-gradient(160deg, rgba(46, 10, 107, 0.12), rgba(255, 106, 85, 0.12)),
-    var(--surface);
-  border: 2px dashed var(--border);
-  color: var(--muted);
-  font-weight: 600;
+.shot { margin: 0; }
+.shot a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(20, 8, 40, 0.18); }
+.shot img { width: 100%; height: auto; display: block; }
+.shot figcaption { margin-top: 8px; font-size: 0.92rem; color: var(--muted); text-align: center; }
+/* Phone screenshots, when added: a narrower 9:19 frame, four to a row. */
+.shots.phones { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 880px; margin: 24px auto 0; }
+@media (max-width: 640px) {
+  .shots.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+.shots.phones .shot a { border-radius: 22px; }
 
 /* Download */
 .recommended {
