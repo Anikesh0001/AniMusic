@@ -6,7 +6,7 @@
 
 # AniMusic
 
-### A beautiful YouTube Music player for Android, by Anikesh Kumar
+### A beautiful YouTube Music player for Android, Windows, macOS and Linux, by Anikesh Kumar
 
 <br/>
 
@@ -14,7 +14,7 @@
 [![License](https://img.shields.io/github/license/Anikesh0001/AniMusic?style=for-the-badge&labelColor=0d1117)](LICENSE)
 [![Downloads](https://img.shields.io/github/downloads/Anikesh0001/AniMusic/total?style=for-the-badge&labelColor=0d1117)](https://github.com/Anikesh0001/AniMusic/releases)
 
-[**Download**](#download) · [**Features**](#features) · [**Build**](#build-it-yourself) · [**Privacy**](#privacy) · [**Credits**](#credits) · [**Disclaimer**](#disclaimer)
+[**Website**](https://anikesh0001.github.io/AniMusic/) · [**Screenshots**](#screenshots) · [**Download**](#download) · [**Features**](#features) · [**Build**](#build-it-yourself) · [**Privacy**](#privacy) · [**Credits**](#credits) · [**Disclaimer**](#disclaimer)
 
 </div>
 
@@ -23,16 +23,43 @@
 
 ---
 
+<h2 id="screenshots">Screenshots</h2>
+
+<table>
+  <tr>
+    <td width="50%"><img src="website/screenshots/desktop-home.webp" alt="AniMusic home screen with featured playlists" /><p align="center"><b>Home</b>: playlists and charts for you</p></td>
+    <td width="50%"><img src="website/screenshots/desktop-now-playing.webp" alt="Now playing screen with album art and controls" /><p align="center"><b>Now playing</b></p></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="website/screenshots/desktop-lyrics.webp" alt="Word-synced lyrics next to the album art" /><p align="center"><b>Word-synced lyrics</b></p></td>
+    <td width="50%"><img src="website/screenshots/desktop-import.webp" alt="Import playlist dialog with a Spotify link detected" /><p align="center"><b>Import a playlist</b> from Spotify or any music app</p></td>
+  </tr>
+</table>
+
+<p align="center"><i>AniMusic on a computer. The phone app has the same features.</i></p>
+
+---
+
 <h2 id="download">Download</h2>
 
-Get the latest APK from **[Releases](https://github.com/Anikesh0001/AniMusic/releases/latest)**:
+The easiest way: open **[anikesh0001.github.io/AniMusic](https://anikesh0001.github.io/AniMusic/)** on the device you want it on. It picks the right file for you and explains how to install it.
 
-- **`AniMusic-<version>-arm64-v8a.apk`**: for almost every phone from the last few years.
-- **`AniMusic-<version>-universal.apk`**: works on any device, if you're not sure.
+Or pick a file from the **[latest release](https://github.com/Anikesh0001/AniMusic/releases/latest)**:
+
+| Device | File |
+|---|---|
+| Android (almost every phone) | `AniMusic-<version>-arm64-v8a.apk` |
+| Android (if you're not sure) | `AniMusic-<version>-universal.apk` |
+| Mac with Apple Silicon (M1 and newer) | `AniMusic-<version>-macos-arm64.dmg` |
+| Mac with Intel | `AniMusic-<version>-macos-x64.dmg` |
+| Windows 10/11 | `AniMusic-<version>-windows-x64-setup.exe` (or `.msi`, or the portable `.zip`) |
+| Linux | `AniMusic-<version>-linux-x86_64.AppImage` (or `.deb` / `.rpm`) |
 
 Allow "Install unknown apps" for your browser or file manager when Android asks. After that, AniMusic tells you when a new version is out and installs it in a couple of taps.
 
 AniMusic installs as its own app (`com.anikesh.animusic`) and needs Android 8.0 or newer.
+
+On a computer, the app isn't signed with a paid certificate, so the first time: on a **Mac**, right-click AniMusic in Applications and choose **Open** (or run `xattr -cr /Applications/AniMusic.app` in Terminal); on **Windows**, click **More info → Run anyway**. The desktop app also updates itself from the same releases.
 
 ---
 
