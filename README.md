@@ -73,6 +73,13 @@ On a computer, the app isn't signed with a paid certificate, so the first time: 
 - **Copy a link** in another app and AniMusic offers to import it when you come back.
 - **Export** any playlist as M3U, CSV or text.
 
+#### Made for you, on your device
+- **Smart Shuffle** plays more of what you finish and less of what you skip, and avoids the same artist twice in a row.
+- **Daily Mix and Daylist** on Home: a few mixes built around the artists you play most, and one that follows the time of day.
+- **"Because you listened to"** rows with new songs related to ones you play.
+- **Smart playlists** (Android): On repeat, New favorites, All-time favorites and Rediscover keep themselves up to date, and you can make your own from simple rules.
+- It's all worked out on your phone or computer, and you can pause it or erase it in Settings.
+
 #### Playback
 - **Search, browse and play** anything available on YouTube Music.
 - **Hi-Res lossless audio**: FLAC/ALAC from a configured module source, with YouTube Music as fallback.
@@ -124,6 +131,9 @@ AniMusic has no account of its own and shows no ads.
 - **Nothing else is sent:** nothing about you, your library or what you play. The server stores one row per ID per day and deletes it after 90 days. It doesn't store IP addresses.
 - **Why:** so the developer knows roughly how many people use AniMusic each day and month, and which versions are still in use.
 - **How to turn it off:** Settings → Your data → **Send anonymous usage count**. It's also never sent while **Incognito listening** is on, or by builds made without a counter address.
+
+**Made for you.** Smart Shuffle, the mixes and the smart playlists are worked out on your phone or computer from a small file of per-song counts: how often you finished or skipped a song, and roughly when in the day. It is never uploaded. On Android it isn't written while **Incognito listening** is on. **Learn what you like** pauses it and **Forget what was learned** erases it (Settings → Your data on Android, Settings → Playback on desktop), and it is part of a backup only if you make one.
+- **The one exception** is the "Because you listened to" rows: they ask YouTube Music for songs related to a few songs you play. Only each song's ID is sent, in the same request the Radio button makes, at most once a day, and never in Incognito.
 
 **Other connections.** These are the services the app talks to so its features work:
 - **Playback and search:** YouTube Music.
