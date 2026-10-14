@@ -886,4 +886,19 @@
     <string name="import_text_button">Import %1$d songs</string>
     <string name="spotify_import_matching">Matching songs %1$d of %2$d</string>
     <string name="spotify_import_unmatched">%1$d songs weren\'t found on YouTube Music</string>
+    <string name="smart_shuffle_title">Smart Shuffle</string>
+    <string name="smart_shuffle_subtitle">Plays more of what you finish, less of what you skip, and avoids the same artist twice in a row</string>
+    <string name="taste_learning_title">Learn what you like</string>
+    <string name="taste_learning_subtitle">Remembers on this device which songs you finish or skip, to power Smart Shuffle. It never leaves your phone</string>
+    <string name="taste_forget_title">Forget what was learned</string>
+    <string name="taste_forget_subtitle">Clears the finished and skipped counts. Your listening history and Replay stay</string>
+    <string name="taste_forgotten">Forgotten</string>
+    <string name="made_for_you">Made for you</string>
+    <string name="daily_mix_n">Daily Mix %1$d</string>
+    <string name="mix_subtitle">%1$s and more</string>
+    <string name="daylist_morning">%1$s morning</string>
+    <string name="daylist_afternoon">%1$s afternoon</string>
+    <string name="daylist_evening">%1$s evening</string>
+    <string name="daylist_night">%1$s late night</string>
+    <string name="because_you_listened_to">Because you listened to %1$s</string>
 </resources>

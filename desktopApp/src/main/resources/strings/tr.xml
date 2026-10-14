@@ -766,4 +766,19 @@
     <string name="import_text_button">%1$d şarkıyı içe aktar</string>
     <string name="spotify_import_matching">Şarkılar eşleştiriliyor %1$d / %2$d</string>
     <string name="spotify_import_unmatched">%1$d şarkı YouTube Music’de bulunamadı</string>
+    <string name="smart_shuffle_title">Akıllı Karıştır</string>
+    <string name="smart_shuffle_subtitle">Sonuna kadar dinlediklerinizi daha çok, atladıklarınızı daha az çalar ve aynı sanatçıyı arka arkaya iki kez çalmaktan kaçınır</string>
+    <string name="taste_learning_title">Sevdiklerinizi öğren</string>
+    <string name="taste_learning_subtitle">Akıllı Karıştır için bu cihazda hangi şarkıları sonuna kadar dinlediğinizi veya atladığınızı hatırlar. Telefonunuzdan asla çıkmaz</string>
+    <string name="taste_forget_title">Öğrenilenleri unut</string>
+    <string name="taste_forget_subtitle">Sonuna kadar dinlenen ve atlanan şarkı sayaçlarını siler. Dinleme geçmişiniz ve Replay kalır</string>
+    <string name="taste_forgotten">Unutuldu</string>
+    <string name="made_for_you">Senin için hazırlandı</string>
+    <string name="daily_mix_n">Günlük Mix %1$d</string>
+    <string name="mix_subtitle">%1$s ve daha fazlası</string>
+    <string name="daylist_morning">%1$s sabahı</string>
+    <string name="daylist_afternoon">%1$s öğleden sonrası</string>
+    <string name="daylist_evening">%1$s akşamı</string>
+    <string name="daylist_night">%1$s gece yarısı</string>
+    <string name="because_you_listened_to">%1$s dinlediğiniz için</string>
 </resources>

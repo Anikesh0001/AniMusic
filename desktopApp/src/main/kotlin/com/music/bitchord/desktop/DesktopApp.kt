@@ -283,6 +283,7 @@ import com.music.bitchord.data.model.PlaybackSourceType
 import com.music.bitchord.data.model.Song
 import com.music.bitchord.data.model.SubscriptionState
 import com.music.bitchord.data.model.UiState
+import com.music.bitchord.data.stats.TasteModel
 import com.music.bitchord.data.model.UserPlaylist
 import com.music.bitchord.data.model.artworkAt
 import com.music.bitchord.data.model.durationMillis
@@ -1844,7 +1845,11 @@ fun BitChordDesktopApp() {
     }
     LaunchedEffect(playback.song?.videoId, playback.isPlaying) {
         val songId = playback.song?.videoId ?: return@LaunchedEffect
-        if (!playback.isPlaying) return@LaunchedEffect
+        if (!playback.isPlaying) {
+            DesktopTaste.onPaused()
+            return@LaunchedEffect
+        }
+        playback.song?.let { DesktopTaste.onPlaying(it, playback.durationMs) }
         var previousPosition = playback.positionMs
         var countedAsPlay = songId in statsCountedSongs
         while (currentCoroutineContext().isActive) {
@@ -1858,6 +1863,7 @@ fun BitChordDesktopApp() {
                     ?: SCROBBLE_THRESHOLD_MS
                 val reachedThreshold = !countedAsPlay && position >= threshold
                 DesktopListeningStats.record(snapshot.song, delta, reachedThreshold)
+                snapshot.song?.let { DesktopTaste.onProgress(it, delta, reachedThreshold, snapshot.durationMs) }
                 if (reachedThreshold) {
                     countedAsPlay = true
                     statsCountedSongs = statsCountedSongs + songId
@@ -1869,6 +1875,24 @@ fun BitChordDesktopApp() {
     }
     LaunchedEffect(statsRevision) {
         replaySummary = withContext(Dispatchers.IO) { DesktopListeningStats.summary(replayPeriod) }
+    }
+    // Mixes and "Because you listened to" rows, made on this computer from what it has heard.
+    val tasteShelves by DesktopTaste.shelves.collectAsState()
+    val tasteLanguage by DesktopStrings.language.collectAsState()
+    val tasteDayPart = TasteModel.slotOf(java.time.LocalTime.now().hour, false)
+    LaunchedEffect(homeState is UiState.Success, tasteLanguage, tasteDayPart) {
+        DesktopTaste.refresh(fetchRows = homeState is UiState.Success)
+    }
+    // Second, so the feed's own lead shelf keeps its place at the top.
+    val homeWithTaste = remember(homeState, tasteShelves) {
+        val feed = homeState
+        if (feed is UiState.Success && tasteShelves.isNotEmpty()) {
+            val shelves = feed.data.toMutableList()
+            shelves.addAll(1.coerceAtMost(shelves.size), tasteShelves)
+            UiState.Success(shelves)
+        } else {
+            feed
+        }
     }
     DisposableEffect(playbackEngine) {
         onDispose { playbackEngine.release() }
@@ -1978,6 +2002,11 @@ fun BitChordDesktopApp() {
         val videoId = item.videoId
         val browseId = item.browseId
         when {
+            // A mix made on this computer has no page: its songs play as the queue.
+            DesktopTaste.isMix(browseId) ->
+                DesktopTaste.songsFor(browseId)?.let {
+                    playSongs(it, 0, DesktopQueueSource(item.title, PlaybackSourceType.HOME))
+                }
             videoId != null -> {
                 val source = shelfTitle?.let { DesktopQueueSource(it, PlaybackSourceType.HOME) }
                 playSong(item.toSong(), source = source)
@@ -3722,7 +3751,7 @@ fun BitChordDesktopApp() {
                             contentPadding = contentPadding,
                         )
                         destination == DesktopDestination.LISTEN_NOW -> HomeScreen(
-                            state = homeState,
+                            state = homeWithTaste,
                             listState = homeListState,
                             onItemClick = { item, shelfTitle -> openShelfItem(item, shelfTitle) },
                             onRetry = ::loadHome,
@@ -5452,6 +5481,7 @@ private fun DesktopSettingsScreen(
             DesktopSettingsSection.entries.forEach { section ->
             if (section == DesktopSettingsSection.PLAYBACK) item {
                     SettingsGroup(DesktopStrings["playback", "Playback"]) {
+                    TasteSettings()
                     if (!automix) {
                         if (settingsRowVisible(DesktopStrings["crossfade", "Crossfade"])) {
                         Column(Modifier.fillMaxWidth().padding(vertical = 10.dp)) {
@@ -7368,6 +7398,46 @@ internal fun DesktopBareSlider(
         },
         modifier = modifier,
     )
+}
+
+/** Smart Shuffle, what it learns from, and a way to forget it. */
+@Composable
+private fun TasteSettings() {
+    val smartShuffle by DesktopTaste.smartShuffle.collectAsState()
+    val learning by DesktopTaste.learning.collectAsState()
+    SettingsToggle(
+        DesktopStrings["smart_shuffle_title", "Smart Shuffle"],
+        DesktopStrings["smart_shuffle_subtitle", "Plays more of what you finish, less of what you skip, and avoids the same artist twice in a row"],
+        smartShuffle,
+        DesktopTaste::setSmartShuffle,
+    )
+    SettingsToggle(
+        DesktopStrings["taste_learning_title", "Learn what you like"],
+        DesktopStrings["taste_learning_subtitle", "Remembers on this device which songs you finish or skip, to power Smart Shuffle. It never leaves your computer"],
+        learning,
+        DesktopTaste::setLearning,
+    )
+    var forgotten by remember { mutableStateOf(false) }
+    val forgetTitle = DesktopStrings["taste_forget_title", "Forget what was learned"]
+    val forgetSubtitle = if (forgotten) {
+        DesktopStrings["taste_forgotten", "Forgotten"]
+    } else {
+        DesktopStrings["taste_forget_subtitle", "Clears the finished and skipped counts. Your listening history and Replay stay"]
+    }
+    if (settingsRowVisible(forgetTitle, forgetSubtitle)) {
+        Column(
+            Modifier
+                .fillMaxWidth()
+                .desktopRowClickable {
+                    DesktopTaste.clear()
+                    forgotten = true
+                }
+                .padding(vertical = 13.dp),
+        ) {
+            Text(forgetTitle, style = MaterialTheme.typography.bodyLarge)
+            Text(forgetSubtitle, color = DesktopSecondary, style = MaterialTheme.typography.bodyMedium, maxLines = 3)
+        }
+    }
 }
 
 @Composable

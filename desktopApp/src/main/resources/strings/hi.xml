@@ -718,4 +718,19 @@
     <string name="import_text_button">%1$d गाने इम्पोर्ट करें</string>
     <string name="spotify_import_matching">गाने मिलाए जा रहे हैं %1$d / %2$d</string>
     <string name="spotify_import_unmatched">%1$d गाने YouTube Music पर नहीं मिले</string>
+    <string name="smart_shuffle_title">स्मार्ट शफ़ल</string>
+    <string name="smart_shuffle_subtitle">जो गाने आप पूरे सुनते हैं उन्हें ज़्यादा, जिन्हें छोड़ देते हैं उन्हें कम बजाता है, और एक ही कलाकार को लगातार दो बार नहीं बजाता</string>
+    <string name="taste_learning_title">जानें आपको क्या पसंद है</string>
+    <string name="taste_learning_subtitle">स्मार्ट शफ़ल के लिए इस डिवाइस पर याद रखता है कि आप कौन से गाने पूरे सुनते या छोड़ते हैं। यह आपके फ़ोन से बाहर कभी नहीं जाता</string>
+    <string name="taste_forget_title">सीखा हुआ भूलें</string>
+    <string name="taste_forget_subtitle">पूरे सुने और छोड़े गए गानों की गिनती हटाता है। आपका सुनने का इतिहास और Replay बने रहते हैं</string>
+    <string name="taste_forgotten">भुला दिया</string>
+    <string name="made_for_you">आपके लिए बनाया गया</string>
+    <string name="daily_mix_n">डेली मिक्स %1$d</string>
+    <string name="mix_subtitle">%1$s और भी</string>
+    <string name="daylist_morning">%1$s सुबह</string>
+    <string name="daylist_afternoon">%1$s दोपहर</string>
+    <string name="daylist_evening">%1$s शाम</string>
+    <string name="daylist_night">%1$s देर रात</string>
+    <string name="because_you_listened_to">क्योंकि आपने %1$s सुना</string>
 </resources>

@@ -740,4 +740,19 @@
     <string name="import_text_button">Импортировать треки: %1$d</string>
     <string name="spotify_import_matching">Сопоставление треков %1$d из %2$d</string>
     <string name="spotify_import_unmatched">%1$d треков не найдено на YouTube Music</string>
+    <string name="smart_shuffle_title">Умное перемешивание</string>
+    <string name="smart_shuffle_subtitle">Чаще играет то, что вы дослушиваете, реже то, что пропускаете, и не ставит одного исполнителя два раза подряд</string>
+    <string name="taste_learning_title">Узнавать, что вам нравится</string>
+    <string name="taste_learning_subtitle">Запоминает на этом устройстве, какие песни вы дослушиваете или пропускаете, для умного перемешивания. Это никогда не покидает ваш телефон</string>
+    <string name="taste_forget_title">Забыть изученное</string>
+    <string name="taste_forget_subtitle">Удаляет счётчики дослушанных и пропущенных песен. История прослушивания и Replay сохраняются</string>
+    <string name="taste_forgotten">Забыто</string>
+    <string name="made_for_you">Подобрано для вас</string>
+    <string name="daily_mix_n">Микс дня %1$d</string>
+    <string name="mix_subtitle">%1$s и другие</string>
+    <string name="daylist_morning">%1$s утром</string>
+    <string name="daylist_afternoon">%1$s днём</string>
+    <string name="daylist_evening">%1$s вечером</string>
+    <string name="daylist_night">%1$s ночью</string>
+    <string name="because_you_listened_to">Потому что вы слушали %1$s</string>
 </resources>

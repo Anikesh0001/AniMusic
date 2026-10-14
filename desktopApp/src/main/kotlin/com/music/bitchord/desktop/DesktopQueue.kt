@@ -180,7 +180,9 @@ internal data class DesktopQueue(
         val from = index + 1
         if (from >= songs.size) return this
         val upcoming = songs.drop(from)
-        val order = QueueTimeline.shuffledUpcomingOrder(upcoming.map(Song::queueTier))
+        val order = QueueTimeline.shuffledUpcomingOrder(upcoming.map(Song::queueTier)) { section ->
+            DesktopTaste.reorderIndices(section, upcoming)
+        }
         return copy(songs = songs.take(from) + order.map(upcoming::get))
     }
 
@@ -223,7 +225,7 @@ internal data class DesktopQueue(
          */
         fun shuffledStartingAt(songs: List<Song>, startIndex: Int): DesktopQueue {
             if (songs.isEmpty()) return DesktopQueue()
-            return DesktopQueue(QueueTimeline.shuffledStartingOrder(songs, startIndex))
+            return DesktopQueue(QueueTimeline.shuffledStartingOrder(songs, startIndex, DesktopTaste::reorderSongs))
         }
 
         /**

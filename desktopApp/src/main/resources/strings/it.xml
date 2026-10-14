@@ -783,4 +783,19 @@
     <string name="import_text_button">Importa %1$d brani</string>
     <string name="spotify_import_matching">Abbinamento brani %1$d di %2$d</string>
     <string name="spotify_import_unmatched">%1$d brani non sono stati trovati su YouTube Music</string>
+    <string name="smart_shuffle_title">Riproduzione casuale intelligente</string>
+    <string name="smart_shuffle_subtitle">Riproduce di più ciò che ascolti fino alla fine, meno ciò che salti, ed evita lo stesso artista due volte di fila</string>
+    <string name="taste_learning_title">Impara cosa ti piace</string>
+    <string name="taste_learning_subtitle">Ricorda su questo dispositivo quali brani ascolti fino alla fine o salti, per la riproduzione casuale intelligente. Non lascia mai il tuo telefono</string>
+    <string name="taste_forget_title">Dimentica quanto appreso</string>
+    <string name="taste_forget_subtitle">Cancella i conteggi dei brani ascoltati per intero e saltati. La cronologia di ascolto e Replay restano</string>
+    <string name="taste_forgotten">Dimenticato</string>
+    <string name="made_for_you">Creato per te</string>
+    <string name="daily_mix_n">Mix giornaliero %1$d</string>
+    <string name="mix_subtitle">%1$s e altri</string>
+    <string name="daylist_morning">%1$s mattina</string>
+    <string name="daylist_afternoon">%1$s pomeriggio</string>
+    <string name="daylist_evening">%1$s sera</string>
+    <string name="daylist_night">%1$s a notte fonda</string>
+    <string name="because_you_listened_to">Perché hai ascoltato %1$s</string>
 </resources>

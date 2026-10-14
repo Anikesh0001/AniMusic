@@ -718,4 +718,19 @@
     <string name="import_text_button">%1$d Songs importieren</string>
     <string name="spotify_import_matching">Titel werden abgeglichen %1$d von %2$d</string>
     <string name="spotify_import_unmatched">%1$d Titel wurden auf YouTube Music nicht gefunden</string>
+    <string name="smart_shuffle_title">Smart Shuffle</string>
+    <string name="smart_shuffle_subtitle">Spielt mehr von dem, was du zu Ende hörst, weniger von dem, was du überspringst, und vermeidet denselben Künstler zweimal hintereinander</string>
+    <string name="taste_learning_title">Lernen, was dir gefällt</string>
+    <string name="taste_learning_subtitle">Merkt sich auf diesem Gerät, welche Songs du zu Ende hörst oder überspringst, für Smart Shuffle. Das verlässt nie dein Handy</string>
+    <string name="taste_forget_title">Gelerntes vergessen</string>
+    <string name="taste_forget_subtitle">Löscht die Zähler für zu Ende gehörte und übersprungene Songs. Dein Hörverlauf und Replay bleiben erhalten</string>
+    <string name="taste_forgotten">Vergessen</string>
+    <string name="made_for_you">Für dich gemacht</string>
+    <string name="daily_mix_n">Daily Mix %1$d</string>
+    <string name="mix_subtitle">%1$s und mehr</string>
+    <string name="daylist_morning">%1$smorgen</string>
+    <string name="daylist_afternoon">%1$snachmittag</string>
+    <string name="daylist_evening">%1$sabend</string>
+    <string name="daylist_night">%1$snacht</string>
+    <string name="because_you_listened_to">Weil du %1$s gehört hast</string>
 </resources>

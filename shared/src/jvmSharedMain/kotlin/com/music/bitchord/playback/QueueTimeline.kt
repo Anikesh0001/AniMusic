@@ -219,26 +219,35 @@ object QueueTimeline {
      * listener's own queue stays pinned in order behind it, and the context and AutoPlay sections are
      * each shuffled among themselves.
      */
-    fun shuffledStartingOrder(songs: List<Song>, startIndex: Int): List<Song> {
+    fun shuffledStartingOrder(
+        songs: List<Song>,
+        startIndex: Int,
+        // How a section is put in random order; the default is a plain shuffle.
+        reorder: (List<Song>) -> List<Song> = { it.shuffled() },
+    ): List<Song> {
         if (songs.isEmpty()) return songs
         val at = startIndex.coerceIn(songs.indices)
         val rest = songs.filterIndexed { i, _ -> i != at }
         return listOf(songs[at]) +
             rest.filter { it.queueTier == QueueTier.USER_QUEUE } +
-            rest.filter { it.queueTier == QueueTier.CONTEXT }.shuffled() +
-            rest.filter { it.queueTier == QueueTier.AUTOPLAY }.shuffled()
+            reorder(rest.filter { it.queueTier == QueueTier.CONTEXT }) +
+            reorder(rest.filter { it.queueTier == QueueTier.AUTOPLAY })
     }
 
     /**
      * Shuffle applied to what is still to come: USER_QUEUE is never shuffled, CONTEXT and AUTOPLAY
      * are shuffled within their own sections. Returned as a permutation of indices into [upcoming].
      */
-    fun shuffledUpcomingOrder(upcoming: List<QueueTier>): List<Int> {
+    fun shuffledUpcomingOrder(
+        upcoming: List<QueueTier>,
+        // Puts one section's indices in random order; the default is a plain shuffle.
+        reorder: (List<Int>) -> List<Int> = { it.shuffled() },
+    ): List<Int> {
         val user = upcoming.indices.filter { upcoming[it] == QueueTier.USER_QUEUE }
         val context = upcoming.indices.filter { upcoming[it] == QueueTier.CONTEXT }
         val autoplay = upcoming.indices.filter { upcoming[it] == QueueTier.AUTOPLAY }
-        return user + avoidIdentityShuffle(context, context.shuffled()) +
-            avoidIdentityShuffle(autoplay, autoplay.shuffled())
+        return user + avoidIdentityShuffle(context, reorder(context)) +
+            avoidIdentityShuffle(autoplay, reorder(autoplay))
     }
 
     /**

@@ -722,4 +722,19 @@
     <string name="import_text_button">ייבוא %1$d שירים</string>
     <string name="spotify_import_matching">מתאים שירים %1$d מתוך %2$d</string>
     <string name="spotify_import_unmatched">%1$d שירים לא נמצאו ב-YouTube Music</string>
+    <string name="smart_shuffle_title">ערבוב חכם</string>
+    <string name="smart_shuffle_subtitle">מנגן יותר ממה שאתם מסיימים, פחות ממה שאתם מדלגים עליו, ונמנע מאותו אמן פעמיים ברצף</string>
+    <string name="taste_learning_title">ללמוד מה אתם אוהבים</string>
+    <string name="taste_learning_subtitle">זוכר במכשיר הזה אילו שירים אתם מסיימים או מדלגים עליהם, עבור ערבוב חכם. המידע אף פעם לא עוזב את הטלפון</string>
+    <string name="taste_forget_title">לשכוח את מה שנלמד</string>
+    <string name="taste_forget_subtitle">מנקה את מוני השירים שהושמעו עד הסוף ושדולגו. היסטוריית ההאזנה וה-Replay נשארים</string>
+    <string name="taste_forgotten">נשכח</string>
+    <string name="made_for_you">נוצר בשבילך</string>
+    <string name="daily_mix_n">מיקס יומי %1$d</string>
+    <string name="mix_subtitle">%1$s ועוד</string>
+    <string name="daylist_morning">%1$s בבוקר</string>
+    <string name="daylist_afternoon">%1$s אחר הצהריים</string>
+    <string name="daylist_evening">%1$s בערב</string>
+    <string name="daylist_night">%1$s בלילה</string>
+    <string name="because_you_listened_to">כי האזנתם ל%1$s</string>
 </resources>

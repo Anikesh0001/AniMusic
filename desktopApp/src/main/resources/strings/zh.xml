@@ -700,4 +700,19 @@
     <string name="import_text_button">导入 %1$d 首歌曲</string>
     <string name="spotify_import_matching">正在匹配歌曲 %1$d / %2$d</string>
     <string name="spotify_import_unmatched">%1$d 首歌曲未在 YouTube Music 上找到</string>
+    <string name="smart_shuffle_title">智能随机播放</string>
+    <string name="smart_shuffle_subtitle">更多播放你听完的歌曲,更少播放你跳过的歌曲,并避免同一位艺人连续出现两次</string>
+    <string name="taste_learning_title">了解你的喜好</string>
+    <string name="taste_learning_subtitle">在此设备上记住你听完或跳过了哪些歌曲,用于智能随机播放。这些数据绝不会离开你的手机</string>
+    <string name="taste_forget_title">清除已学习的内容</string>
+    <string name="taste_forget_subtitle">清除听完和跳过的次数。你的收听历史和 Replay 会保留</string>
+    <string name="taste_forgotten">已清除</string>
+    <string name="made_for_you">为你打造</string>
+    <string name="daily_mix_n">每日混合 %1$d</string>
+    <string name="mix_subtitle">%1$s 等</string>
+    <string name="daylist_morning">%1$s早晨</string>
+    <string name="daylist_afternoon">%1$s下午</string>
+    <string name="daylist_evening">%1$s晚上</string>
+    <string name="daylist_night">%1$s深夜</string>
+    <string name="because_you_listened_to">因为你听了%1$s</string>
 </resources>

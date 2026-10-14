@@ -700,4 +700,19 @@
     <string name="import_text_button">%1$d 曲をインポート</string>
     <string name="spotify_import_matching">楽曲を照合中 %1$d / %2$d</string>
     <string name="spotify_import_unmatched">%1$d 曲が YouTube Music で見つかりませんでした</string>
+    <string name="smart_shuffle_title">スマートシャッフル</string>
+    <string name="smart_shuffle_subtitle">最後まで聴く曲をより多く、スキップする曲を少なく再生し、同じアーティストが連続しないようにします</string>
+    <string name="taste_learning_title">好みを学習</string>
+    <string name="taste_learning_subtitle">スマートシャッフルのために、最後まで聴いた曲やスキップした曲をこの端末に記憶します。スマートフォンの外に出ることはありません</string>
+    <string name="taste_forget_title">学習内容を消去</string>
+    <string name="taste_forget_subtitle">最後まで聴いた回数とスキップした回数を消去します。再生履歴とReplayは残ります</string>
+    <string name="taste_forgotten">消去しました</string>
+    <string name="made_for_you">あなたのために</string>
+    <string name="daily_mix_n">デイリーミックス %1$d</string>
+    <string name="mix_subtitle">%1$s ほか</string>
+    <string name="daylist_morning">%1$sの朝</string>
+    <string name="daylist_afternoon">%1$sの午後</string>
+    <string name="daylist_evening">%1$sの夜</string>
+    <string name="daylist_night">%1$sの深夜</string>
+    <string name="because_you_listened_to">%1$sを聴いたあなたへ</string>
 </resources>
