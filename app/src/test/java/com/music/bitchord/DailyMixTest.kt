@@ -14,6 +14,9 @@ class DailyMixTest {
     private val now = 1_800_000_000_000L
     private val day = 86_400_000L
 
+    /** Pads a short test id into the 11 characters a YouTube id has. */
+    private fun yt(id: String) = id.padEnd(11, '_').take(11)
+
     private fun track(
         id: String,
         artist: String,
@@ -21,7 +24,7 @@ class DailyMixTest {
         skips: Int = 0,
         daysAgo: Int = 1,
         title: String = "Song $id",
-    ) = TasteEntry(id = id, title = title, artist = artist, fulls = fulls, skips = skips, last = now - daysAgo * day)
+    ) = TasteEntry(id = yt(id), title = title, artist = artist, fulls = fulls, skips = skips, last = now - daysAgo * day)
 
     /** [artists] artists with [each] well-liked tracks apiece. */
     private fun library(artists: Int, each: Int) = (0 until artists).flatMap { a ->
@@ -105,6 +108,17 @@ class DailyMixTest {
         val junk = (0 until 20).map { track("j$it", "", title = "T$it") } +
             (0 until 20).map { track("k$it", "Artist", title = "") }
         assertTrue(DailyMix.build(junk, now, 1).isEmpty())
+    }
+
+    @Test
+    fun `files on the phone and other services' tracks are never put in a mix`() {
+        val local = (0 until 20).map {
+            TasteEntry(id = "content://media/external/audio/media/$it", title = "T$it", artist = "Local $it", fulls = 9, last = now)
+        }
+        assertTrue(DailyMix.build(local, now, 1).isEmpty())
+        val mixed = DailyMix.build(library(9, 6) + local, now, 1)
+        assertTrue(mixed.flatMap { it.songs }.none { it.videoId.startsWith("content:") })
+        assertTrue(mixed.isNotEmpty())
     }
 
     @Test

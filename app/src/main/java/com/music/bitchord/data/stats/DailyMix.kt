@@ -78,7 +78,7 @@ object DailyMix {
         perMix: Int = TRACKS_PER_MIX,
     ): List<Mix> {
         val scored = entries
-            .filter { it.title.isNotBlank() && it.artistKey.isNotEmpty() }
+            .filter { it.title.isNotBlank() && it.artistKey.isNotEmpty() && TasteModel.isYouTubeId(it.id) }
             .map { it to score(it, nowMs) }
             .filter { it.second > 0.0 }
         if (scored.size < MIN_TRACKS) return emptyList()
@@ -151,7 +151,7 @@ object DailyMix {
     ): Mix? {
         val slot = TasteModel.slotOf(hour, weekend)
         val scored = entries
-            .filter { it.title.isNotBlank() && it.artistKey.isNotEmpty() }
+            .filter { it.title.isNotBlank() && it.artistKey.isNotEmpty() && TasteModel.isYouTubeId(it.id) }
             .map { it to score(it, nowMs) }
             .filter { it.second > 0.0 }
         if (scored.size < MIN_TRACKS) return null

@@ -80,6 +80,19 @@ object TasteModel {
 
     fun artistKey(artist: String): String = artist.trim().lowercase()
 
+    private val YOUTUBE_ID = Regex("^[A-Za-z0-9_-]{11}$")
+
+    /**
+     * Whether [id] names a track the player can start from its id alone.
+     *
+     * A mix or a playlist keeps only an id, not the file or the source module
+     * behind it. A file on the phone has its content URI for an id, and another
+     * service has its own, and either would be handed to the player as if
+     * YouTube could answer for it. Those tracks are left out of anything made
+     * from history rather than offered and failing to play.
+     */
+    fun isYouTubeId(id: String): Boolean = YOUTUBE_ID.matches(id)
+
     /**
      * How much to favour [entry], around [NEUTRAL]: 1.0 with no history, toward
      * 2.0 for a track nearly always heard through, toward [MIN_WEIGHT] for one
