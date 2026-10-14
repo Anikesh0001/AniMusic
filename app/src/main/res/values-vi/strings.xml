@@ -1307,4 +1307,8 @@
     <string name="made_for_you">Dành riêng cho bạn</string>
     <string name="daily_mix_n">Mix hằng ngày %1$d</string>
     <string name="mix_subtitle">%1$s và nhiều hơn</string>
+    <string name="daylist_morning">%1$s buổi sáng</string>
+    <string name="daylist_afternoon">%1$s buổi chiều</string>
+    <string name="daylist_evening">%1$s buổi tối</string>
+    <string name="daylist_night">%1$s khuya</string>
 </resources>

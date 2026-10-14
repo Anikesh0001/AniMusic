@@ -25,6 +25,17 @@ object DailyMixes {
     /** The id a mix's Home card carries, followed by the mix's index. */
     const val BROWSE_PREFIX = "mix:daily:"
 
+    /** The id of the Daylist's card. */
+    const val DAYLIST_ID = "mix:daylist"
+
+    /** Whether a Home card's id belongs to one of these rather than to a page. */
+    fun isMix(browseId: String?): Boolean = browseId != null && browseId.startsWith("mix:")
+
+    private val _daylist = MutableStateFlow<Mix?>(null)
+
+    /** For this part of the day; null until there is enough listening at this hour. */
+    val daylist: StateFlow<Mix?> = _daylist.asStateFlow()
+
     private val _mixes = MutableStateFlow<List<Mix>>(emptyList())
 
     /** Empty while there is too little listening, which hides the Home shelf. */
@@ -55,5 +66,12 @@ object DailyMixes {
 
         val today = LocalDate.now(ZoneId.systemDefault()).toEpochDay()
         _mixes.value = DailyMix.build(known + borrowed, now, today)
+
+        // Only the profile knows the hour tracks were played at; the borrowed
+        // Replay rows carry none, so they cannot help here.
+        val clock = java.time.LocalDateTime.now()
+        val weekend = clock.dayOfWeek == java.time.DayOfWeek.SATURDAY ||
+            clock.dayOfWeek == java.time.DayOfWeek.SUNDAY
+        _daylist.value = DailyMix.buildDaylist(known, now, clock.hour, weekend, today)
     }
 }

@@ -1368,4 +1368,8 @@
     <string name="made_for_you">あなたのために</string>
     <string name="daily_mix_n">デイリーミックス %1$d</string>
     <string name="mix_subtitle">%1$s ほか</string>
+    <string name="daylist_morning">%1$sの朝</string>
+    <string name="daylist_afternoon">%1$sの午後</string>
+    <string name="daylist_evening">%1$sの夜</string>
+    <string name="daylist_night">%1$sの深夜</string>
 </resources>

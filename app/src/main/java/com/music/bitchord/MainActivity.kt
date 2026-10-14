@@ -700,9 +700,32 @@ private fun BitChordApp(
     val dailyMixes by DailyMixes.mixes.collectAsStateWithLifecycle()
     // Made on this device from what has been listened to, so it is worked out
     // again whenever the feed is: that is when someone is looking at Home.
-    LaunchedEffect(feedHomeState is UiState.Success) { DailyMixes.refresh() }
+    val daylist by DailyMixes.daylist.collectAsStateWithLifecycle()
+    // The Daylist follows the clock, so a new part of the day is a new reason to
+    // look again. Read here rather than inside the effect so it is a key.
+    val dayPart = com.music.bitchord.data.stats.TasteModel.slotOf(java.time.LocalTime.now().hour, false)
+    LaunchedEffect(feedHomeState is UiState.Success, dayPart) { DailyMixes.refresh() }
     val madeForYouTitle = stringResource(R.string.made_for_you)
-    val mixCards = dailyMixes.map { mix ->
+    val daylistCard = daylist?.let { mix ->
+        val dayName = java.time.LocalDate.now().dayOfWeek
+            .getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.getDefault())
+        ShelfItem(
+            title = stringResource(
+                when (mix.slot % 4) {
+                    1 -> R.string.daylist_morning
+                    2 -> R.string.daylist_afternoon
+                    3 -> R.string.daylist_evening
+                    else -> R.string.daylist_night
+                },
+                dayName,
+            ),
+            subtitle = stringResource(R.string.mix_subtitle, mix.artists.joinToString(", ")),
+            thumbnailUrl = mix.art,
+            videoId = null,
+            browseId = DailyMixes.DAYLIST_ID,
+        )
+    }
+    val mixCards = listOfNotNull(daylistCard) + dailyMixes.map { mix ->
         ShelfItem(
             title = stringResource(R.string.daily_mix_n, mix.index + 1),
             subtitle = stringResource(R.string.mix_subtitle, mix.artists.take(3).joinToString(", ")),
@@ -3046,6 +3069,10 @@ private fun BitChordApp(
                                 // property declared in another module.
                                 val browseId = item.browseId
                                 when {
+                                    browseId == DailyMixes.DAYLIST_ID ->
+                                        daylist?.let { mix ->
+                                            playFrom(mix.songs, 0, QueueSource(item.title, PlaybackSourceType.HOME))
+                                        }
                                     browseId?.startsWith(DailyMixes.BROWSE_PREFIX) == true ->
                                         dailyMixes.getOrNull(
                                             browseId.removePrefix(DailyMixes.BROWSE_PREFIX).toIntOrNull() ?: -1,
@@ -3066,7 +3093,7 @@ private fun BitChordApp(
                             },
                             // A mix has no page or menu behind it to open.
                             onItemLongPress = { item ->
-                                if (item.browseId?.startsWith(DailyMixes.BROWSE_PREFIX) != true) onShelfLongPress(item)
+                                if (!DailyMixes.isMix(item.browseId)) onShelfLongPress(item)
                             },
                             onRetry = viewModel::loadHome,
                             refreshing = MainViewModel.Feed.HOME in refreshing,

@@ -1329,4 +1329,8 @@
     <string name="made_for_you">Creato per te</string>
     <string name="daily_mix_n">Mix giornaliero %1$d</string>
     <string name="mix_subtitle">%1$s e altri</string>
+    <string name="daylist_morning">%1$s mattina</string>
+    <string name="daylist_afternoon">%1$s pomeriggio</string>
+    <string name="daylist_evening">%1$s sera</string>
+    <string name="daylist_night">%1$s a notte fonda</string>
 </resources>

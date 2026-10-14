@@ -1367,4 +1367,8 @@
     <string name="made_for_you">Dibuat untukmu</string>
     <string name="daily_mix_n">Daily Mix %1$d</string>
     <string name="mix_subtitle">%1$s dan lainnya</string>
+    <string name="daylist_morning">%1$s pagi</string>
+    <string name="daylist_afternoon">%1$s siang</string>
+    <string name="daylist_evening">%1$s malam</string>
+    <string name="daylist_night">%1$s dini hari</string>
 </resources>

@@ -12,6 +12,8 @@ data class Mix(
     /** The artists it is built around, most prominent first. */
     val artists: List<String>,
     val songs: List<Song>,
+    /** For a Daylist, the [TasteModel.slotOf] it was made for; -1 otherwise. */
+    val slot: Int = -1,
 ) {
     val art: String? get() = songs.firstNotNullOfOrNull { it.thumbnailUrl }
 }
@@ -114,6 +116,63 @@ object DailyMix {
                 songs = order.take(perMix).map { pool[it].first.toSong() },
             )
         }
+    }
+
+    /** Plays that look like "this time of day": the exact slot, plus half the other day type's. */
+    internal fun timePlays(entry: TasteEntry, slot: Int): Double {
+        val other = if (slot >= TasteModel.SLOT_COUNT / 2) slot - TasteModel.SLOT_COUNT / 2 else slot + TasteModel.SLOT_COUNT / 2
+        return entry.slots.getOrElse(slot) { 0 } + 0.5 * entry.slots.getOrElse(other) { 0 }
+    }
+
+    /** Fewest tracks with some history in this slot before a Daylist is worth showing. */
+    const val MIN_SLOT_TRACKS = 6
+    const val DAYLIST_TRACKS = 25
+
+    /**
+     * One mix for this part of the day: what is usually playing around now.
+     *
+     * Each track's [score] is multiplied by how much of its listening happens
+     * at this time of day, so a track played mostly in the mornings leads in the
+     * morning and sinks at night. Tracks with no history at this hour keep a
+     * small weight rather than none, so the list is not just the same few songs
+     * every time, but it only exists at all once enough tracks have been heard
+     * at this hour — before that there is nothing about *this* hour to go on.
+     *
+     * Date-and-slot seeded, so it is stable within a slot and changes at the next.
+     * Its [Mix.index] is -1: it belongs to no artist group.
+     */
+    fun buildDaylist(
+        entries: List<TasteEntry>,
+        nowMs: Long,
+        hour: Int,
+        weekend: Boolean,
+        daySeed: Long,
+        size: Int = DAYLIST_TRACKS,
+    ): Mix? {
+        val slot = TasteModel.slotOf(hour, weekend)
+        val scored = entries
+            .filter { it.title.isNotBlank() && it.artistKey.isNotEmpty() }
+            .map { it to score(it, nowMs) }
+            .filter { it.second > 0.0 }
+        if (scored.size < MIN_TRACKS) return null
+        if (scored.count { timePlays(it.first, slot) > 0.0 } < MIN_SLOT_TRACKS) return null
+
+        val weighted = scored.map { (entry, base) ->
+            val share = (timePlays(entry, slot) / entry.fulls.coerceAtLeast(1)).coerceIn(0.0, 1.0)
+            entry to base * (0.25 + 3.0 * share)
+        }
+        val order = TasteModel.weightedOrder(
+            weights = weighted.map { it.second },
+            artists = weighted.map { it.first.artist },
+            random = Random(daySeed * 8 + slot),
+        )
+        val songs = order.take(size).map { weighted[it].first }
+        return Mix(
+            index = -1,
+            artists = songs.map { it.artist }.distinct().take(3),
+            songs = songs.map { it.toSong() },
+            slot = slot,
+        )
     }
 
     private fun TasteEntry.toSong() = Song(

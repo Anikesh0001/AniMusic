@@ -1422,4 +1422,8 @@
     <string name="made_for_you">Подобрано для вас</string>
     <string name="daily_mix_n">Микс дня %1$d</string>
     <string name="mix_subtitle">%1$s и другие</string>
+    <string name="daylist_morning">%1$s утром</string>
+    <string name="daylist_afternoon">%1$s днём</string>
+    <string name="daylist_evening">%1$s вечером</string>
+    <string name="daylist_night">%1$s ночью</string>
 </resources>
