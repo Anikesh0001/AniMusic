@@ -1387,4 +1387,7 @@
     <string name="taste_forget_title">सीखा हुआ भूलें</string>
     <string name="taste_forget_subtitle">पूरे सुने और छोड़े गए गानों की गिनती हटाता है। आपका सुनने का इतिहास और Replay बने रहते हैं</string>
     <string name="taste_forgotten">भुला दिया</string>
+    <string name="made_for_you">आपके लिए बनाया गया</string>
+    <string name="daily_mix_n">डेली मिक्स %1$d</string>
+    <string name="mix_subtitle">%1$s और भी</string>
 </resources>

@@ -1304,4 +1304,7 @@
     <string name="taste_forget_title">Quên những gì đã học</string>
     <string name="taste_forget_subtitle">Xóa số lần nghe hết và bỏ qua. Lịch sử nghe và Replay vẫn được giữ lại</string>
     <string name="taste_forgotten">Đã quên</string>
+    <string name="made_for_you">Dành riêng cho bạn</string>
+    <string name="daily_mix_n">Mix hằng ngày %1$d</string>
+    <string name="mix_subtitle">%1$s và nhiều hơn</string>
 </resources>

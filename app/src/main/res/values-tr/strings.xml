@@ -1344,4 +1344,7 @@
     <string name="taste_forget_title">Öğrenilenleri unut</string>
     <string name="taste_forget_subtitle">Sonuna kadar dinlenen ve atlanan şarkı sayaçlarını siler. Dinleme geçmişiniz ve Replay kalır</string>
     <string name="taste_forgotten">Unutuldu</string>
+    <string name="made_for_you">Senin için hazırlandı</string>
+    <string name="daily_mix_n">Günlük Mix %1$d</string>
+    <string name="mix_subtitle">%1$s ve daha fazlası</string>
 </resources>

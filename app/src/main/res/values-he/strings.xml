@@ -1392,4 +1392,7 @@
     <string name="taste_forget_title">לשכוח את מה שנלמד</string>
     <string name="taste_forget_subtitle">מנקה את מוני השירים שהושמעו עד הסוף ושדולגו. היסטוריית ההאזנה וה-Replay נשארים</string>
     <string name="taste_forgotten">נשכח</string>
+    <string name="made_for_you">נוצר בשבילך</string>
+    <string name="daily_mix_n">מיקס יומי %1$d</string>
+    <string name="mix_subtitle">%1$s ועוד</string>
 </resources>

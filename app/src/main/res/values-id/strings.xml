@@ -1364,4 +1364,7 @@
     <string name="taste_forget_title">Lupakan yang dipelajari</string>
     <string name="taste_forget_subtitle">Menghapus hitungan lagu yang selesai dan dilewati. Riwayat dengar dan Replay tetap ada</string>
     <string name="taste_forgotten">Dilupakan</string>
+    <string name="made_for_you">Dibuat untukmu</string>
+    <string name="daily_mix_n">Daily Mix %1$d</string>
+    <string name="mix_subtitle">%1$s dan lainnya</string>
 </resources>

@@ -1392,4 +1392,7 @@
     <string name="taste_forget_title">Esquecer o que foi aprendido</string>
     <string name="taste_forget_subtitle">Apaga as contagens de músicas ouvidas até o fim e puladas. Seu histórico de reprodução e o Replay continuam</string>
     <string name="taste_forgotten">Esquecido</string>
+    <string name="made_for_you">Feito para você</string>
+    <string name="daily_mix_n">Mix diário %1$d</string>
+    <string name="mix_subtitle">%1$s e mais</string>
 </resources>

@@ -141,6 +141,7 @@ import com.music.bitchord.data.model.ShelfItem
 import com.music.bitchord.data.model.Song
 import com.music.bitchord.data.model.isUnresolvedSpotify
 import com.music.bitchord.data.model.UiState
+import com.music.bitchord.data.stats.DailyMixes
 import com.music.bitchord.data.model.UserPlaylist
 import com.music.bitchord.data.model.EntityType
 import com.music.bitchord.data.model.SearchHistoryEntity
@@ -695,7 +696,32 @@ private fun BitChordApp(
     // dark artwork either way.
     SystemBarIcons(dark = !darkTheme && !showNowPlaying && !showReplay && replayStory == null)
 
-    val homeState by viewModel.home.collectAsStateWithLifecycle()
+    val feedHomeState by viewModel.home.collectAsStateWithLifecycle()
+    val dailyMixes by DailyMixes.mixes.collectAsStateWithLifecycle()
+    // Made on this device from what has been listened to, so it is worked out
+    // again whenever the feed is: that is when someone is looking at Home.
+    LaunchedEffect(feedHomeState is UiState.Success) { DailyMixes.refresh() }
+    val madeForYouTitle = stringResource(R.string.made_for_you)
+    val mixCards = dailyMixes.map { mix ->
+        ShelfItem(
+            title = stringResource(R.string.daily_mix_n, mix.index + 1),
+            subtitle = stringResource(R.string.mix_subtitle, mix.artists.take(3).joinToString(", ")),
+            thumbnailUrl = mix.art,
+            videoId = null,
+            browseId = DailyMixes.BROWSE_PREFIX + mix.index,
+        )
+    }
+    // Second, so the feed's lead shelf keeps its place at the top.
+    val homeState = remember(feedHomeState, mixCards) {
+        val feed = feedHomeState
+        if (feed is UiState.Success && mixCards.isNotEmpty()) {
+            val shelves = feed.data.toMutableList()
+            shelves.add(1.coerceAtMost(shelves.size), HomeShelf(title = madeForYouTitle, items = mixCards))
+            UiState.Success(shelves)
+        } else {
+            feed
+        }
+    }
     val homeLoadingMore by viewModel.homeLoadingMore.collectAsStateWithLifecycle()
     val homeRecentlyPlayedLoading by viewModel.homeRecentlyPlayedLoading.collectAsStateWithLifecycle()
 
@@ -3020,6 +3046,12 @@ private fun BitChordApp(
                                 // property declared in another module.
                                 val browseId = item.browseId
                                 when {
+                                    browseId?.startsWith(DailyMixes.BROWSE_PREFIX) == true ->
+                                        dailyMixes.getOrNull(
+                                            browseId.removePrefix(DailyMixes.BROWSE_PREFIX).toIntOrNull() ?: -1,
+                                        )?.let { mix ->
+                                            playFrom(mix.songs, 0, QueueSource(item.title, PlaybackSourceType.HOME))
+                                        }
                                     song != null -> playRadio(
                                         song,
                                         QueueSource(shelfTitle, PlaybackSourceType.HOME),
@@ -3032,7 +3064,10 @@ private fun BitChordApp(
                                     )
                                 }
                             },
-                            onItemLongPress = onShelfLongPress,
+                            // A mix has no page or menu behind it to open.
+                            onItemLongPress = { item ->
+                                if (item.browseId?.startsWith(DailyMixes.BROWSE_PREFIX) != true) onShelfLongPress(item)
+                            },
                             onRetry = viewModel::loadHome,
                             refreshing = MainViewModel.Feed.HOME in refreshing,
                             onRefresh = { viewModel.refresh(MainViewModel.Feed.HOME) },

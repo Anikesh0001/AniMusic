@@ -115,10 +115,23 @@ object TasteModel {
         random: Random = Random.Default,
     ): List<Int> {
         require(ids.size == artists.size) { "one artist per track" }
-        val keyed = ids.indices.map { i ->
+        return weightedOrder(ids.map { affinity(entryOf(it)) }, artists, random)
+    }
+
+    /**
+     * [smartOrder] for weights the caller has already worked out — a mix weighs
+     * a track by more than whether it is liked.
+     */
+    fun weightedOrder(
+        weights: List<Double>,
+        artists: List<String>,
+        random: Random = Random.Default,
+    ): List<Int> {
+        require(weights.size == artists.size) { "one artist per track" }
+        val keyed = weights.indices.map { i ->
             // u is kept off zero: ln(0) is -infinity, which would pin the track last.
             val u = random.nextDouble().coerceAtLeast(Double.MIN_VALUE)
-            i to ln(u) / affinity(entryOf(ids[i]))
+            i to ln(u) / weights[i].coerceAtLeast(MIN_WEIGHT / 100)
         }.sortedByDescending { it.second }.map { it.first }
         return spaceArtists(keyed, artists)
     }

@@ -1359,4 +1359,7 @@
     <string name="taste_forget_title">Olvidar lo aprendido</string>
     <string name="taste_forget_subtitle">Borra los contadores de canciones terminadas y omitidas. Tu historial de escucha y Replay se conservan</string>
     <string name="taste_forgotten">Olvidado</string>
+    <string name="made_for_you">Hecho para ti</string>
+    <string name="daily_mix_n">Mix diario %1$d</string>
+    <string name="mix_subtitle">%1$s y más</string>
 </resources>

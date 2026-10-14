@@ -1427,4 +1427,7 @@
     <string name="taste_forget_title">Zapomnij wyuczone</string>
     <string name="taste_forget_subtitle">Usuwa liczniki wysłuchanych do końca i pominiętych utworów. Historia odtwarzania i Replay zostają</string>
     <string name="taste_forgotten">Zapomniano</string>
+    <string name="made_for_you">Stworzone dla Ciebie</string>
+    <string name="daily_mix_n">Miks dnia %1$d</string>
+    <string name="mix_subtitle">%1$s i inni</string>
 </resources>

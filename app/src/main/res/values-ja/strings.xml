@@ -1365,4 +1365,7 @@
     <string name="taste_forget_title">学習内容を消去</string>
     <string name="taste_forget_subtitle">最後まで聴いた回数とスキップした回数を消去します。再生履歴とReplayは残ります</string>
     <string name="taste_forgotten">消去しました</string>
+    <string name="made_for_you">あなたのために</string>
+    <string name="daily_mix_n">デイリーミックス %1$d</string>
+    <string name="mix_subtitle">%1$s ほか</string>
 </resources>

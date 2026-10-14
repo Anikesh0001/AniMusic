@@ -1326,4 +1326,7 @@
     <string name="taste_forget_title">Dimentica quanto appreso</string>
     <string name="taste_forget_subtitle">Cancella i conteggi dei brani ascoltati per intero e saltati. La cronologia di ascolto e Replay restano</string>
     <string name="taste_forgotten">Dimenticato</string>
+    <string name="made_for_you">Creato per te</string>
+    <string name="daily_mix_n">Mix giornaliero %1$d</string>
+    <string name="mix_subtitle">%1$s e altri</string>
 </resources>

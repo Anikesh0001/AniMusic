@@ -1224,4 +1224,7 @@
     <string name="taste_forget_title">Forget what was learned</string>
     <string name="taste_forget_subtitle">Clears the finished and skipped counts. Your listening history and Replay stay</string>
     <string name="taste_forgotten">Forgotten</string>
+    <string name="made_for_you">Made for you</string>
+    <string name="daily_mix_n">Daily Mix %1$d</string>
+    <string name="mix_subtitle">%1$s and more</string>
 </resources>

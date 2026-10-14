@@ -1419,4 +1419,7 @@
     <string name="taste_forget_title">Забыть изученное</string>
     <string name="taste_forget_subtitle">Удаляет счётчики дослушанных и пропущенных песен. История прослушивания и Replay сохраняются</string>
     <string name="taste_forgotten">Забыто</string>
+    <string name="made_for_you">Подобрано для вас</string>
+    <string name="daily_mix_n">Микс дня %1$d</string>
+    <string name="mix_subtitle">%1$s и другие</string>
 </resources>

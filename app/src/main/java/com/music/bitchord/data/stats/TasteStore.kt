@@ -3,6 +3,7 @@ package com.music.bitchord.data.stats
 import android.content.Context
 import android.util.Log
 import com.music.bitchord.data.model.Song
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -47,6 +48,12 @@ object TasteStore {
 
     private val writer = CoroutineScope(SupervisorJob() + Dispatchers.IO)
     private val writeLock = Mutex()
+
+    /** Completed once the file has been read (or found unreadable). */
+    private val loaded = CompletableDeferred<Unit>()
+
+    /** Waits for the saved profile to be in memory, so a reader sees all of it. */
+    suspend fun awaitLoaded() = loaded.await()
 
     fun init(context: Context) {
         file = File(context.filesDir, FILE_NAME)
@@ -156,15 +163,18 @@ object TasteStore {
         if (ready) writer.launch { write(snapshot()) }
     }
 
-    private suspend fun load() = writeLock.withLock {
-        runCatching {
-            if (!file.exists()) return@runCatching
-            val stored = json.decodeFromString(StoredTaste.serializer(), file.readText())
-            importLoaded(stored.entries)
-        }.onFailure {
-            // A damaged file costs the taste profile, not the app.
-            Log.w(TAG, "Couldn't read the taste file; starting empty", it)
+    private suspend fun load() {
+        writeLock.withLock {
+            runCatching {
+                if (!file.exists()) return@runCatching
+                val stored = json.decodeFromString(StoredTaste.serializer(), file.readText())
+                importLoaded(stored.entries)
+            }.onFailure {
+                // A damaged file costs the taste profile, not the app.
+                Log.w(TAG, "Couldn't read the taste file; starting empty", it)
+            }
         }
+        loaded.complete(Unit)
     }
 
     private fun importLoaded(loaded: List<TasteEntry>) = synchronized(lock) {

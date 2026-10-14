@@ -1387,4 +1387,7 @@
     <string name="taste_forget_title">Gelerntes vergessen</string>
     <string name="taste_forget_subtitle">Löscht die Zähler für zu Ende gehörte und übersprungene Songs. Dein Hörverlauf und Replay bleiben erhalten</string>
     <string name="taste_forgotten">Vergessen</string>
+    <string name="made_for_you">Für dich gemacht</string>
+    <string name="daily_mix_n">Daily Mix %1$d</string>
+    <string name="mix_subtitle">%1$s und mehr</string>
 </resources>

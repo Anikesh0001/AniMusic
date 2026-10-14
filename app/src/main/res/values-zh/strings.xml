@@ -1364,4 +1364,7 @@
     <string name="taste_forget_title">清除已学习的内容</string>
     <string name="taste_forget_subtitle">清除听完和跳过的次数。你的收听历史和 Replay 会保留</string>
     <string name="taste_forgotten">已清除</string>
+    <string name="made_for_you">为你打造</string>
+    <string name="daily_mix_n">每日混合 %1$d</string>
+    <string name="mix_subtitle">%1$s 等</string>
 </resources>

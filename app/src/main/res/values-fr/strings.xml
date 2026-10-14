@@ -1388,4 +1388,7 @@
     <string name="taste_forget_title">Oublier ce qui a été appris</string>
     <string name="taste_forget_subtitle">Efface les compteurs de titres écoutés en entier et passés. Votre historique d\'écoute et Replay sont conservés</string>
     <string name="taste_forgotten">Oublié</string>
+    <string name="made_for_you">Fait pour vous</string>
+    <string name="daily_mix_n">Mix du jour %1$d</string>
+    <string name="mix_subtitle">%1$s et plus</string>
 </resources>
