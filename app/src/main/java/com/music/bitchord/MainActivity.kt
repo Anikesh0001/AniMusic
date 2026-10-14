@@ -704,7 +704,12 @@ private fun BitChordApp(
     // The Daylist follows the clock, so a new part of the day is a new reason to
     // look again. Read here rather than inside the effect so it is a key.
     val dayPart = com.music.bitchord.data.stats.TasteModel.slotOf(java.time.LocalTime.now().hour, false)
+    val smartPlaylistsOn by AppSettings.smartPlaylists.collectAsStateWithLifecycle()
+    val smartPlaylistContext = LocalContext.current
     LaunchedEffect(feedHomeState is UiState.Success, dayPart) { DailyMixes.refresh() }
+    LaunchedEffect(feedHomeState is UiState.Success, smartPlaylistsOn) {
+        com.music.bitchord.data.stats.SmartPlaylists.refresh(smartPlaylistContext)
+    }
     val madeForYouTitle = stringResource(R.string.made_for_you)
     val daylistCard = daylist?.let { mix ->
         val dayName = java.time.LocalDate.now().dayOfWeek

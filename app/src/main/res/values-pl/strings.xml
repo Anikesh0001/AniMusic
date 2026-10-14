@@ -1434,4 +1434,10 @@
     <string name="daylist_afternoon">%1$s po południu</string>
     <string name="daylist_evening">%1$s wieczorem</string>
     <string name="daylist_night">%1$s w nocy</string>
+    <string name="smart_playlists_title">Inteligentne playlisty</string>
+    <string name="smart_playlists_subtitle">Playlisty, które same się aktualizują na podstawie tego, czego słuchasz: Na powtórce, Nowe ulubione, Ulubione wszech czasów i Odkryj ponownie. Wyłączenie ich usuwa</string>
+    <string name="smart_pl_on_repeat">Na powtórce</string>
+    <string name="smart_pl_new_favorites">Nowe ulubione</string>
+    <string name="smart_pl_favorites">Ulubione wszech czasów</string>
+    <string name="smart_pl_rediscover">Odkryj ponownie</string>
 </resources>

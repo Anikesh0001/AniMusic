@@ -1394,4 +1394,10 @@
     <string name="daylist_afternoon">%1$s दोपहर</string>
     <string name="daylist_evening">%1$s शाम</string>
     <string name="daylist_night">%1$s देर रात</string>
+    <string name="smart_playlists_title">स्मार्ट प्लेलिस्ट</string>
+    <string name="smart_playlists_subtitle">आपके सुनने के आधार पर खुद अपडेट होने वाली प्लेलिस्ट: ऑन रिपीट, नए पसंदीदा, हमेशा के पसंदीदा और फिर से खोजें। इसे बंद करने पर वे हट जाती हैं</string>
+    <string name="smart_pl_on_repeat">ऑन रिपीट</string>
+    <string name="smart_pl_new_favorites">नए पसंदीदा</string>
+    <string name="smart_pl_favorites">हमेशा के पसंदीदा</string>
+    <string name="smart_pl_rediscover">फिर से खोजें</string>
 </resources>

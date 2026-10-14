@@ -1372,4 +1372,10 @@
     <string name="daylist_afternoon">%1$sの午後</string>
     <string name="daylist_evening">%1$sの夜</string>
     <string name="daylist_night">%1$sの深夜</string>
+    <string name="smart_playlists_title">スマートプレイリスト</string>
+    <string name="smart_playlists_subtitle">聴き方に合わせて自動で更新されるプレイリスト:リピート中、新しいお気に入り、不動のお気に入り、再発見。オフにすると削除されます</string>
+    <string name="smart_pl_on_repeat">リピート中</string>
+    <string name="smart_pl_new_favorites">新しいお気に入り</string>
+    <string name="smart_pl_favorites">不動のお気に入り</string>
+    <string name="smart_pl_rediscover">再発見</string>
 </resources>

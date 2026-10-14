@@ -1399,4 +1399,10 @@
     <string name="daylist_afternoon">%1$s à tarde</string>
     <string name="daylist_evening">%1$s à noite</string>
     <string name="daylist_night">%1$s de madrugada</string>
+    <string name="smart_playlists_title">Playlists inteligentes</string>
+    <string name="smart_playlists_subtitle">Playlists que se atualizam sozinhas com base no que você ouve: Em repetição, Novos favoritos, Favoritos de sempre e Redescubra. Desativar as remove</string>
+    <string name="smart_pl_on_repeat">Em repetição</string>
+    <string name="smart_pl_new_favorites">Novos favoritos</string>
+    <string name="smart_pl_favorites">Favoritos de sempre</string>
+    <string name="smart_pl_rediscover">Redescubra</string>
 </resources>

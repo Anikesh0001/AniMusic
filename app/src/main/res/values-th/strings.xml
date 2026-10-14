@@ -1377,4 +1377,10 @@
     <string name="daylist_afternoon">%1$s ตอนบ่าย</string>
     <string name="daylist_evening">%1$s ตอนเย็น</string>
     <string name="daylist_night">%1$s ดึก</string>
+    <string name="smart_playlists_title">เพลย์ลิสต์อัจฉริยะ</string>
+    <string name="smart_playlists_subtitle">เพลย์ลิสต์ที่อัปเดตตัวเองจากการฟังของคุณ: เล่นซ้ำบ่อย รายการโปรดใหม่ รายการโปรดตลอดกาล และค้นพบอีกครั้ง การปิดจะลบเพลย์ลิสต์เหล่านี้</string>
+    <string name="smart_pl_on_repeat">เล่นซ้ำบ่อย</string>
+    <string name="smart_pl_new_favorites">รายการโปรดใหม่</string>
+    <string name="smart_pl_favorites">รายการโปรดตลอดกาล</string>
+    <string name="smart_pl_rediscover">ค้นพบอีกครั้ง</string>
 </resources>

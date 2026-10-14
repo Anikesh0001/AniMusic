@@ -1333,4 +1333,10 @@
     <string name="daylist_afternoon">%1$s pomeriggio</string>
     <string name="daylist_evening">%1$s sera</string>
     <string name="daylist_night">%1$s a notte fonda</string>
+    <string name="smart_playlists_title">Playlist intelligenti</string>
+    <string name="smart_playlists_subtitle">Playlist che si aggiornano da sole in base a quello che ascolti: In loop, Nuovi preferiti, Preferiti di sempre e Riscopri. Disattivandole vengono rimosse</string>
+    <string name="smart_pl_on_repeat">In loop</string>
+    <string name="smart_pl_new_favorites">Nuovi preferiti</string>
+    <string name="smart_pl_favorites">Preferiti di sempre</string>
+    <string name="smart_pl_rediscover">Riscopri</string>
 </resources>

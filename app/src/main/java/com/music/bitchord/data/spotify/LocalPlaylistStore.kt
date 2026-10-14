@@ -84,6 +84,22 @@ object LocalPlaylistStore {
         return playlist
     }
 
+    /**
+     * Writes [songs] under [id], replacing the playlist that has it or adding one.
+     * For playlists the app keeps up to date itself; a new one goes at the end
+     * so it does not push the user's own playlists down.
+     */
+    fun upsert(id: String, title: String, songs: List<Song>) {
+        val current = _playlists.value
+        val updated = if (current.any { it.id == id }) {
+            current.map { if (it.id == id) it.copy(title = title, songs = songs) else it }
+        } else {
+            current + LocalPlaylist(id = id, title = title, songs = songs)
+        }
+        _playlists.value = updated
+        persist(updated)
+    }
+
     fun deletePlaylist(id: String) {
         val updated = _playlists.value.filterNot { it.id == id || it.browseId == id || it.id == id.removePrefix("local:playlist:") }
         _playlists.value = updated

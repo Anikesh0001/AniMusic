@@ -644,6 +644,9 @@ object AppSettings {
 
     /** Shuffle that favours tracks you finish and spaces out an artist. */
     val smartShuffle = MutableStateFlow(true)
+
+    /** Playlists kept up to date from listening — On repeat, Rediscover and so on. */
+    val smartPlaylists = MutableStateFlow(true)
     val spotifySpdcToken = MutableStateFlow("")
 
     // ── Discord Rich Presence ───────────────────────────────────────────
@@ -903,6 +906,7 @@ object AppSettings {
         incognitoMode.value = prefs.getBoolean(KEY_INCOGNITO_MODE, false)
         tasteLearning.value = prefs.getBoolean(KEY_TASTE_LEARNING, true)
         smartShuffle.value = prefs.getBoolean(KEY_SMART_SHUFFLE, true)
+        smartPlaylists.value = prefs.getBoolean(KEY_SMART_PLAYLISTS, true)
         spotifySpdcToken.value = prefs.getString(KEY_SPOTIFY_SPDC_TOKEN, "").orEmpty()
         replayGenres.value = prefs.getBoolean(KEY_REPLAY_GENRES, true)
         filterNonMusicAudio.value = prefs.getBoolean(KEY_FILTER_NON_MUSIC_AUDIO, true)
@@ -1567,6 +1571,11 @@ object AppSettings {
         prefs.edit().putBoolean(KEY_TASTE_LEARNING, value).apply()
     }
 
+    fun setSmartPlaylists(value: Boolean) {
+        smartPlaylists.value = value
+        prefs.edit().putBoolean(KEY_SMART_PLAYLISTS, value).apply()
+    }
+
     fun setSmartShuffle(value: Boolean) {
         smartShuffle.value = value
         prefs.edit().putBoolean(KEY_SMART_SHUFFLE, value).apply()
@@ -2055,6 +2064,7 @@ object AppSettings {
     private const val KEY_INCOGNITO_MODE = "incognito_mode"
     private const val KEY_TASTE_LEARNING = "taste_learning"
     private const val KEY_SMART_SHUFFLE = "smart_shuffle"
+    private const val KEY_SMART_PLAYLISTS = "smart_playlists"
     private const val KEY_SPOTIFY_SPDC_TOKEN = "spotify_spdc_token"
 
     private const val KEY_DISCORD_USERNAME = "discord_username"

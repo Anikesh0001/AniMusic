@@ -267,6 +267,7 @@ fun SettingsScreen(
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
     val incognito by AppSettings.incognitoMode.collectAsStateWithLifecycle()
     val smartShuffle by AppSettings.smartShuffle.collectAsStateWithLifecycle()
+    val smartPlaylists by AppSettings.smartPlaylists.collectAsStateWithLifecycle()
     val tasteLearning by AppSettings.tasteLearning.collectAsStateWithLifecycle()
     val sendUsageCount by com.music.bitchord.data.stats.UsageStats.enabledFlow.collectAsStateWithLifecycle()
     val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
@@ -723,6 +724,25 @@ fun SettingsScreen(
                         )
                     },
                     onClick = { AppSettings.setSmartShuffle(!smartShuffle) },
+                )
+            }
+            val smartPlaylistsTitle = stringResource(R.string.smart_playlists_title)
+            row(smartPlaylistsTitle, "playlist", "smart", "rediscover", "on repeat", "favorites") {
+                SettingsRow(
+                    icon = Icons.Rounded.AutoAwesome,
+                    title = smartPlaylistsTitle,
+                    subtitle = stringResource(R.string.smart_playlists_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = smartPlaylists,
+                            onCheckedChange = AppSettings::setSmartPlaylists,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = { AppSettings.setSmartPlaylists(!smartPlaylists) },
                 )
             }
             val spatialAudioTitle = stringResource(R.string.spatial_audio)

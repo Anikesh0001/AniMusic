@@ -1371,4 +1371,10 @@
     <string name="daylist_afternoon">%1$s siang</string>
     <string name="daylist_evening">%1$s malam</string>
     <string name="daylist_night">%1$s dini hari</string>
+    <string name="smart_playlists_title">Playlist pintar</string>
+    <string name="smart_playlists_subtitle">Playlist yang memperbarui diri dari kebiasaan dengarmu: Diputar Ulang, Favorit Baru, Favorit Sepanjang Masa, dan Temukan Kembali. Mematikannya akan menghapusnya</string>
+    <string name="smart_pl_on_repeat">Diputar ulang</string>
+    <string name="smart_pl_new_favorites">Favorit baru</string>
+    <string name="smart_pl_favorites">Favorit sepanjang masa</string>
+    <string name="smart_pl_rediscover">Temukan kembali</string>
 </resources>

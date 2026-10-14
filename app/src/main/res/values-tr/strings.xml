@@ -1351,4 +1351,10 @@
     <string name="daylist_afternoon">%1$s öğleden sonrası</string>
     <string name="daylist_evening">%1$s akşamı</string>
     <string name="daylist_night">%1$s gece yarısı</string>
+    <string name="smart_playlists_title">Akıllı çalma listeleri</string>
+    <string name="smart_playlists_subtitle">Dinleyişinize göre kendini güncelleyen listeler: Tekrarda, Yeni favoriler, Tüm zamanların favorileri ve Yeniden keşfet. Kapatmak bunları kaldırır</string>
+    <string name="smart_pl_on_repeat">Tekrarda</string>
+    <string name="smart_pl_new_favorites">Yeni favoriler</string>
+    <string name="smart_pl_favorites">Tüm zamanların favorileri</string>
+    <string name="smart_pl_rediscover">Yeniden keşfet</string>
 </resources>

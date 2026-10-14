@@ -1394,4 +1394,10 @@
     <string name="daylist_afternoon">%1$snachmittag</string>
     <string name="daylist_evening">%1$sabend</string>
     <string name="daylist_night">%1$snacht</string>
+    <string name="smart_playlists_title">Smarte Playlists</string>
+    <string name="smart_playlists_subtitle">Playlists, die sich aus deinem Hörverhalten selbst aktualisieren: Im Dauerloop, Neue Favoriten, Alle Favoriten und Wiederentdecken. Ausschalten entfernt sie</string>
+    <string name="smart_pl_on_repeat">Im Dauerloop</string>
+    <string name="smart_pl_new_favorites">Neue Favoriten</string>
+    <string name="smart_pl_favorites">Alle Favoriten</string>
+    <string name="smart_pl_rediscover">Wiederentdecken</string>
 </resources>

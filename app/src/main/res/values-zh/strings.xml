@@ -1371,4 +1371,10 @@
     <string name="daylist_afternoon">%1$s下午</string>
     <string name="daylist_evening">%1$s晚上</string>
     <string name="daylist_night">%1$s深夜</string>
+    <string name="smart_playlists_title">智能播放列表</string>
+    <string name="smart_playlists_subtitle">根据你的收听自动更新的播放列表:单曲循环中、新晋最爱、历史最爱和重新发现。关闭后将移除这些列表</string>
+    <string name="smart_pl_on_repeat">单曲循环中</string>
+    <string name="smart_pl_new_favorites">新晋最爱</string>
+    <string name="smart_pl_favorites">历史最爱</string>
+    <string name="smart_pl_rediscover">重新发现</string>
 </resources>
