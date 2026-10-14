@@ -1217,4 +1217,11 @@
     <string name="incognito_off_notice">Incognito off. Listening is recorded again.</string>
     <string name="usage_count_title">Send anonymous usage count</string>
     <string name="usage_count_subtitle">Once a day: a random install ID, the app version and the Android version, to count active users. Nothing about you or what you play.</string>
+    <string name="smart_shuffle_title">Smart Shuffle</string>
+    <string name="smart_shuffle_subtitle">Plays more of what you finish, less of what you skip, and avoids the same artist twice in a row</string>
+    <string name="taste_learning_title">Learn what you like</string>
+    <string name="taste_learning_subtitle">Remembers on this device which songs you finish or skip, to power Smart Shuffle. It never leaves your phone</string>
+    <string name="taste_forget_title">Forget what was learned</string>
+    <string name="taste_forget_subtitle">Clears the finished and skipped counts. Your listening history and Replay stay</string>
+    <string name="taste_forgotten">Forgotten</string>
 </resources>

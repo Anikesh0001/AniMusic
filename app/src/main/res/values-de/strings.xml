@@ -1380,4 +1380,11 @@
     <string name="incognito_off_notice">Inkognito aus. Gehörtes wird wieder erfasst.</string>
     <string name="usage_count_title">Anonyme Nutzungszählung senden</string>
     <string name="usage_count_subtitle">Einmal am Tag: eine zufällige Installations-ID, die App- und die Android-Version, um aktive Nutzer zu zählen. Nichts über dich oder was du hörst.</string>
+    <string name="smart_shuffle_title">Smart Shuffle</string>
+    <string name="smart_shuffle_subtitle">Spielt mehr von dem, was du zu Ende hörst, weniger von dem, was du überspringst, und vermeidet denselben Künstler zweimal hintereinander</string>
+    <string name="taste_learning_title">Lernen, was dir gefällt</string>
+    <string name="taste_learning_subtitle">Merkt sich auf diesem Gerät, welche Songs du zu Ende hörst oder überspringst, für Smart Shuffle. Das verlässt nie dein Handy</string>
+    <string name="taste_forget_title">Gelerntes vergessen</string>
+    <string name="taste_forget_subtitle">Löscht die Zähler für zu Ende gehörte und übersprungene Songs. Dein Hörverlauf und Replay bleiben erhalten</string>
+    <string name="taste_forgotten">Vergessen</string>
 </resources>

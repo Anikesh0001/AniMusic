@@ -1412,4 +1412,11 @@
     <string name="incognito_off_notice">Инкогнито выключено. Прослушивания снова записываются.</string>
     <string name="usage_count_title">Отправлять анонимный счётчик использования</string>
     <string name="usage_count_subtitle">Раз в день: случайный идентификатор установки, версия приложения и Android — чтобы посчитать активных пользователей. Ничего о вас и о том, что вы слушаете.</string>
+    <string name="smart_shuffle_title">Умное перемешивание</string>
+    <string name="smart_shuffle_subtitle">Чаще играет то, что вы дослушиваете, реже то, что пропускаете, и не ставит одного исполнителя два раза подряд</string>
+    <string name="taste_learning_title">Узнавать, что вам нравится</string>
+    <string name="taste_learning_subtitle">Запоминает на этом устройстве, какие песни вы дослушиваете или пропускаете, для умного перемешивания. Это никогда не покидает ваш телефон</string>
+    <string name="taste_forget_title">Забыть изученное</string>
+    <string name="taste_forget_subtitle">Удаляет счётчики дослушанных и пропущенных песен. История прослушивания и Replay сохраняются</string>
+    <string name="taste_forgotten">Забыто</string>
 </resources>

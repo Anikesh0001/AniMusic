@@ -1337,4 +1337,11 @@
     <string name="incognito_off_notice">Gizli mod kapalı. Dinlediklerin yeniden kaydediliyor.</string>
     <string name="usage_count_title">Anonim kullanım sayısı gönder</string>
     <string name="usage_count_subtitle">Günde bir kez: rastgele bir kurulum kimliği, uygulama sürümü ve Android sürümü, aktif kullanıcıları saymak için. Sizinle ya da dinledikleriniz hakkında hiçbir şey yok.</string>
+    <string name="smart_shuffle_title">Akıllı Karıştır</string>
+    <string name="smart_shuffle_subtitle">Sonuna kadar dinlediklerinizi daha çok, atladıklarınızı daha az çalar ve aynı sanatçıyı arka arkaya iki kez çalmaktan kaçınır</string>
+    <string name="taste_learning_title">Sevdiklerinizi öğren</string>
+    <string name="taste_learning_subtitle">Akıllı Karıştır için bu cihazda hangi şarkıları sonuna kadar dinlediğinizi veya atladığınızı hatırlar. Telefonunuzdan asla çıkmaz</string>
+    <string name="taste_forget_title">Öğrenilenleri unut</string>
+    <string name="taste_forget_subtitle">Sonuna kadar dinlenen ve atlanan şarkı sayaçlarını siler. Dinleme geçmişiniz ve Replay kalır</string>
+    <string name="taste_forgotten">Unutuldu</string>
 </resources>

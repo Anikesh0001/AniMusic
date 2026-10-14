@@ -1381,4 +1381,11 @@
     <string name="incognito_off_notice">Mode privé désactivé. L\'écoute est de nouveau enregistrée.</string>
     <string name="usage_count_title">Envoyer un comptage d\'utilisation anonyme</string>
     <string name="usage_count_subtitle">Une fois par jour : un identifiant d\'installation aléatoire, la version de l\'appli et celle d\'Android, pour compter les utilisateurs actifs. Rien sur vous ni sur ce que vous écoutez.</string>
+    <string name="smart_shuffle_title">Lecture aléatoire intelligente</string>
+    <string name="smart_shuffle_subtitle">Joue davantage ce que vous écoutez en entier, moins ce que vous passez, et évite le même artiste deux fois de suite</string>
+    <string name="taste_learning_title">Apprendre ce que vous aimez</string>
+    <string name="taste_learning_subtitle">Mémorise sur cet appareil les titres que vous écoutez en entier ou que vous passez, pour la lecture aléatoire intelligente. Rien ne quitte votre téléphone</string>
+    <string name="taste_forget_title">Oublier ce qui a été appris</string>
+    <string name="taste_forget_subtitle">Efface les compteurs de titres écoutés en entier et passés. Votre historique d\'écoute et Replay sont conservés</string>
+    <string name="taste_forgotten">Oublié</string>
 </resources>

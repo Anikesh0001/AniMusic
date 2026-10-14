@@ -44,6 +44,8 @@ import kotlin.math.min
 object ListeningRecorder {
 
     private var currentId: String? = null
+    private var currentSong: Song? = null
+    private var currentLengthMs = 0L
     private var lastSampleAt: Long = 0L
     private var playedThisTrack: Long = 0L
     private var playCounted = false
@@ -60,9 +62,12 @@ object ListeningRecorder {
     fun onSample(song: Song, durationMs: Long) {
         val now = System.currentTimeMillis()
         if (song.videoId != currentId) {
+            // How the track that just ended went, for the taste profile.
+            recordOutcome()
             // A new track anchors the clock and contributes nothing yet — see
             // the class note on undercounting.
             currentId = song.videoId
+            currentSong = song
             lastSampleAt = now
             playedThisTrack = 0L
             playCounted = false
@@ -74,6 +79,7 @@ object ListeningRecorder {
         playedThisTrack += step
 
         val length = durationMs.takeIf { it > 0 } ?: song.durationMillis()
+        currentLengthMs = length
         val threshold = if (length > 0) {
             min(length / 2, PLAY_CEILING_MS).coerceAtLeast(PLAY_FLOOR_MS)
         } else {
@@ -101,11 +107,40 @@ object ListeningRecorder {
      */
     @Synchronized
     fun onStopped() {
+        currentLengthMs = 0L
+        // Not an outcome: a pause is not a skip, and the listen was already
+        // counted the moment it crossed the threshold.
         currentId = null
+        currentSong = null
         playedThisTrack = 0L
         playCounted = false
         samplesSinceFlush = 0
         ListeningStats.flush()
+        TasteStore.flush()
+    }
+
+    /**
+     * Files the track that has just been left behind: heard through if it
+     * crossed the play threshold, skipped if it was left within
+     * [TasteModel.SKIP_MS], and nothing in between — half a minute of a song
+     * you then stopped is not evidence either way.
+     *
+     * A listen is filed here rather than when the threshold is crossed so each
+     * track gets exactly one verdict.
+     */
+    private fun recordOutcome() {
+        val song = currentSong ?: return
+        if (com.music.bitchord.data.settings.AppSettings.incognitoMode.value) return
+        if (!com.music.bitchord.data.settings.AppSettings.tasteLearning.value) return
+        // No lower bound on the time played: the first tick only anchors, so a
+        // track left within one sampler interval has played 0 by this count
+        // and is the commonest skip there is. A track that short which ran
+        // to its end is not one.
+        val ranOut = currentLengthMs > 0 && playedThisTrack >= currentLengthMs * 0.9
+        when {
+            playCounted -> TasteStore.recordListen(song)
+            playedThisTrack < TasteModel.SKIP_MS && !ranOut -> TasteStore.recordSkip(song)
+        }
     }
 
     // ── Filling in what the queue didn't carry ──────────────────────────────

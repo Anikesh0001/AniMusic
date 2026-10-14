@@ -45,6 +45,7 @@ import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.ChevronRight
 import androidx.compose.material.icons.rounded.Cloud
 import androidx.compose.material.icons.rounded.DeleteSweep
+import androidx.compose.material.icons.rounded.Shuffle
 import androidx.compose.material.icons.rounded.Dns
 import androidx.compose.material.icons.rounded.Download
 import androidx.compose.material.icons.rounded.FileDownload
@@ -265,6 +266,8 @@ fun SettingsScreen(
 
     val replayGenres by AppSettings.replayGenres.collectAsStateWithLifecycle()
     val incognito by AppSettings.incognitoMode.collectAsStateWithLifecycle()
+    val smartShuffle by AppSettings.smartShuffle.collectAsStateWithLifecycle()
+    val tasteLearning by AppSettings.tasteLearning.collectAsStateWithLifecycle()
     val sendUsageCount by com.music.bitchord.data.stats.UsageStats.enabledFlow.collectAsStateWithLifecycle()
     val clipboardImport by com.music.bitchord.data.importer.ImportSettings.clipboardDetection
         .collectAsStateWithLifecycle()
@@ -701,6 +704,25 @@ fun SettingsScreen(
                         )
                     },
                     onClick = { AppSettings.setSkipSilence(!skipSilence) },
+                )
+            }
+            val smartShuffleTitle = stringResource(R.string.smart_shuffle_title)
+            row(smartShuffleTitle, "shuffle", "random", "smart") {
+                SettingsRow(
+                    icon = Icons.Rounded.Shuffle,
+                    title = smartShuffleTitle,
+                    subtitle = stringResource(R.string.smart_shuffle_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = smartShuffle,
+                            onCheckedChange = AppSettings::setSmartShuffle,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = { AppSettings.setSmartShuffle(!smartShuffle) },
                 )
             }
             val spatialAudioTitle = stringResource(R.string.spatial_audio)
@@ -1195,6 +1217,37 @@ fun SettingsScreen(
                         )
                     },
                     onClick = { AppSettings.setIncognitoMode(!incognito) },
+                )
+            }
+            val tasteTitle = stringResource(R.string.taste_learning_title)
+            row(tasteTitle, "taste", "learn", "skip", "shuffle", "private") {
+                SettingsRow(
+                    icon = Icons.Rounded.AutoAwesome,
+                    title = tasteTitle,
+                    subtitle = stringResource(R.string.taste_learning_subtitle),
+                    trailing = {
+                        Switch(
+                            checked = tasteLearning,
+                            onCheckedChange = AppSettings::setTasteLearning,
+                            colors = SwitchDefaults.colors(
+                                checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                checkedBorderColor = MaterialTheme.colorScheme.primary,
+                            ),
+                        )
+                    },
+                    onClick = { AppSettings.setTasteLearning(!tasteLearning) },
+                )
+            }
+            val forgetTasteTitle = stringResource(R.string.taste_forget_title)
+            row(forgetTasteTitle, "taste", "forget", "reset", "skip", "shuffle") {
+                SettingsRow(
+                    icon = Icons.Rounded.DeleteSweep,
+                    title = forgetTasteTitle,
+                    subtitle = stringResource(R.string.taste_forget_subtitle),
+                    onClick = {
+                        com.music.bitchord.data.stats.TasteStore.clear()
+                        Toast.makeText(context, context.getString(R.string.taste_forgotten), Toast.LENGTH_SHORT).show()
+                    },
                 )
             }
             // Only in builds that have a usage-count endpoint (AniMusic with

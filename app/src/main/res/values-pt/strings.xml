@@ -1385,4 +1385,11 @@
     <string name="incognito_off_notice">Modo anônimo desativado. O que você ouve volta a ser registrado.</string>
     <string name="usage_count_title">Enviar contagem de uso anônima</string>
     <string name="usage_count_subtitle">Uma vez por dia: um ID de instalação aleatório, a versão do app e a do Android, para contar usuários ativos. Nada sobre você ou o que você ouve.</string>
+    <string name="smart_shuffle_title">Aleatório inteligente</string>
+    <string name="smart_shuffle_subtitle">Toca mais o que você ouve até o fim, menos o que você pula, e evita o mesmo artista duas vezes seguidas</string>
+    <string name="taste_learning_title">Aprender o que você gosta</string>
+    <string name="taste_learning_subtitle">Lembra neste dispositivo quais músicas você ouve até o fim ou pula, para o aleatório inteligente. Nunca sai do seu celular</string>
+    <string name="taste_forget_title">Esquecer o que foi aprendido</string>
+    <string name="taste_forget_subtitle">Apaga as contagens de músicas ouvidas até o fim e puladas. Seu histórico de reprodução e o Replay continuam</string>
+    <string name="taste_forgotten">Esquecido</string>
 </resources>

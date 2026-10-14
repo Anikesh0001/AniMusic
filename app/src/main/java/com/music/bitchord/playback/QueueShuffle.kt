@@ -9,6 +9,8 @@ import androidx.media3.session.SessionCommand
 import com.music.bitchord.data.model.QueueTier
 import com.music.bitchord.data.model.Song
 import com.music.bitchord.data.settings.AppSettings
+import com.music.bitchord.data.stats.TasteModel
+import com.music.bitchord.data.stats.TasteStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -73,8 +75,8 @@ object QueueShuffle {
         original = songs.map { it.queueEntryId ?: it.videoId }
         val rest = songs.filterIndexed { i, _ -> i != startIndex }
         val userQueue = rest.filter { it.queueTier == QueueTier.USER_QUEUE }
-        val context = rest.filter { it.queueTier == QueueTier.CONTEXT }.shuffled()
-        val autoplay = rest.filter { it.queueTier == QueueTier.AUTOPLAY }.shuffled()
+        val context = reordered(rest.filter { it.queueTier == QueueTier.CONTEXT }, { it.videoId }, { it.artist })
+        val autoplay = reordered(rest.filter { it.queueTier == QueueTier.AUTOPLAY }, { it.videoId }, { it.artist })
         return listOf(songs[startIndex]) + userQueue + context + autoplay
     }
 
@@ -102,7 +104,7 @@ object QueueShuffle {
         applyOrder(
             player,
             from,
-            userQueueIndices + shuffledSection(contextIndices) + shuffledSection(autoplayIndices),
+            userQueueIndices + shuffledSection(contextIndices, upcoming) + shuffledSection(autoplayIndices, upcoming),
         )
         _enabled.value = true
     }
@@ -113,8 +115,26 @@ object QueueShuffle {
      * surprisingly common in short queues (one chance in two for two tracks),
      * and reads exactly like the first tap was ignored.
      */
-    private fun shuffledSection(indices: List<Int>): List<Int> =
-        avoidIdentityShuffle(indices, indices.shuffled())
+    private fun shuffledSection(indices: List<Int>, upcoming: List<MediaItem>): List<Int> =
+        avoidIdentityShuffle(
+            indices,
+            reordered(indices, { upcoming[it].mediaId }, { upcoming[it].mediaMetadata.artist?.toString().orEmpty() }),
+        )
+
+    /**
+     * [items] in shuffled order: Smart Shuffle's when it is on, a plain random
+     * one when it is off or there is nothing to choose between.
+     *
+     * Smart Shuffle leans toward what has been heard through and away from what
+     * has been skipped, and keeps one artist from playing twice running — see
+     * [TasteModel.smartOrder]. A track it knows nothing about is weighted as
+     * neutral, so on a fresh install this is a shuffle with artist spacing.
+     */
+    private fun <T> reordered(items: List<T>, id: (T) -> String, artist: (T) -> String): List<T> {
+        if (!AppSettings.smartShuffle.value || items.size < 2) return items.shuffled()
+        val order = TasteModel.smartOrder(items.map(id), items.map(artist), TasteStore::entry)
+        return order.map { items[it] }
+    }
 
     internal fun avoidIdentityShuffle(original: List<Int>, shuffled: List<Int>): List<Int> {
         if (original.size <= 1 || shuffled != original) return shuffled

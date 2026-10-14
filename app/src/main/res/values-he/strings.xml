@@ -1385,4 +1385,11 @@
     <string name="incognito_off_notice">מצב בסתר כבוי. ההאזנה נרשמת שוב.</string>
     <string name="usage_count_title">שליחת ספירת שימוש אנונימית</string>
     <string name="usage_count_subtitle">פעם ביום: מזהה התקנה אקראי, גרסת האפליקציה וגרסת Android, כדי לספור משתמשים פעילים. שום דבר עליכם או על מה שאתם מנגנים.</string>
+    <string name="smart_shuffle_title">ערבוב חכם</string>
+    <string name="smart_shuffle_subtitle">מנגן יותר ממה שאתם מסיימים, פחות ממה שאתם מדלגים עליו, ונמנע מאותו אמן פעמיים ברצף</string>
+    <string name="taste_learning_title">ללמוד מה אתם אוהבים</string>
+    <string name="taste_learning_subtitle">זוכר במכשיר הזה אילו שירים אתם מסיימים או מדלגים עליהם, עבור ערבוב חכם. המידע אף פעם לא עוזב את הטלפון</string>
+    <string name="taste_forget_title">לשכוח את מה שנלמד</string>
+    <string name="taste_forget_subtitle">מנקה את מוני השירים שהושמעו עד הסוף ושדולגו. היסטוריית ההאזנה וה-Replay נשארים</string>
+    <string name="taste_forgotten">נשכח</string>
 </resources>

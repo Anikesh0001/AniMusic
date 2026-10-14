@@ -1363,4 +1363,11 @@
     <string name="incognito_off_notice">ปิดโหมดไม่ระบุตัวตนแล้ว การฟังจะถูกบันทึกอีกครั้ง</string>
     <string name="usage_count_title">ส่งจำนวนการใช้งานแบบไม่ระบุตัวตน</string>
     <string name="usage_count_subtitle">วันละครั้ง: รหัสการติดตั้งแบบสุ่ม เวอร์ชันแอป และเวอร์ชัน Android เพื่อนับผู้ใช้ที่ใช้งานอยู่ ไม่มีข้อมูลเกี่ยวกับคุณหรือสิ่งที่คุณฟัง</string>
+    <string name="smart_shuffle_title">สลับเพลงอัจฉริยะ</string>
+    <string name="smart_shuffle_subtitle">เล่นเพลงที่คุณฟังจนจบมากขึ้น เล่นเพลงที่คุณข้ามน้อยลง และไม่เล่นศิลปินเดิมซ้ำสองครั้งติด</string>
+    <string name="taste_learning_title">เรียนรู้สิ่งที่คุณชอบ</string>
+    <string name="taste_learning_subtitle">จดจำบนอุปกรณ์นี้ว่าคุณฟังเพลงไหนจนจบหรือข้ามเพลงไหน เพื่อใช้กับสลับเพลงอัจฉริยะ ข้อมูลไม่เคยออกจากโทรศัพท์ของคุณ</string>
+    <string name="taste_forget_title">ลืมสิ่งที่เรียนรู้</string>
+    <string name="taste_forget_subtitle">ล้างจำนวนเพลงที่ฟังจนจบและที่ข้าม ประวัติการฟังและ Replay ยังอยู่</string>
+    <string name="taste_forgotten">ลืมแล้ว</string>
 </resources>

@@ -1358,4 +1358,11 @@
     <string name="incognito_off_notice">シークレットをオフにしました。再生が再び記録されます。</string>
     <string name="usage_count_title">匿名の利用数を送信</string>
     <string name="usage_count_subtitle">1日1回、ランダムなインストールID、アプリのバージョン、Android のバージョンを送り、利用者数を数えます。あなたや再生内容に関する情報は送りません。</string>
+    <string name="smart_shuffle_title">スマートシャッフル</string>
+    <string name="smart_shuffle_subtitle">最後まで聴く曲をより多く、スキップする曲を少なく再生し、同じアーティストが連続しないようにします</string>
+    <string name="taste_learning_title">好みを学習</string>
+    <string name="taste_learning_subtitle">スマートシャッフルのために、最後まで聴いた曲やスキップした曲をこの端末に記憶します。スマートフォンの外に出ることはありません</string>
+    <string name="taste_forget_title">学習内容を消去</string>
+    <string name="taste_forget_subtitle">最後まで聴いた回数とスキップした回数を消去します。再生履歴とReplayは残ります</string>
+    <string name="taste_forgotten">消去しました</string>
 </resources>

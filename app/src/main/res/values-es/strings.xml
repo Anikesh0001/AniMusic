@@ -1352,4 +1352,11 @@
     <string name="incognito_off_notice">Incógnito desactivado. Se vuelve a registrar lo que escuchas.</string>
     <string name="usage_count_title">Enviar recuento de uso anónimo</string>
     <string name="usage_count_subtitle">Una vez al día: un ID de instalación aleatorio, la versión de la app y la de Android, para contar usuarios activos. Nada sobre ti ni lo que escuchas.</string>
+    <string name="smart_shuffle_title">Reproducción aleatoria inteligente</string>
+    <string name="smart_shuffle_subtitle">Reproduce más lo que escuchas hasta el final, menos lo que omites, y evita repetir el mismo artista seguido</string>
+    <string name="taste_learning_title">Aprender lo que te gusta</string>
+    <string name="taste_learning_subtitle">Recuerda en este dispositivo qué canciones terminas o omites, para la reproducción aleatoria inteligente. Nunca sale de tu teléfono</string>
+    <string name="taste_forget_title">Olvidar lo aprendido</string>
+    <string name="taste_forget_subtitle">Borra los contadores de canciones terminadas y omitidas. Tu historial de escucha y Replay se conservan</string>
+    <string name="taste_forgotten">Olvidado</string>
 </resources>

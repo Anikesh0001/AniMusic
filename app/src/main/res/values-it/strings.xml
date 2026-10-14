@@ -1319,4 +1319,11 @@
     <string name="incognito_off_notice">Incognito disattivato. L\'ascolto viene di nuovo registrato.</string>
     <string name="usage_count_title">Invia conteggio d\'uso anonimo</string>
     <string name="usage_count_subtitle">Una volta al giorno: un ID di installazione casuale, la versione dell\'app e quella di Android, per contare gli utenti attivi. Niente su di te o su ciò che ascolti.</string>
+    <string name="smart_shuffle_title">Riproduzione casuale intelligente</string>
+    <string name="smart_shuffle_subtitle">Riproduce di più ciò che ascolti fino alla fine, meno ciò che salti, ed evita lo stesso artista due volte di fila</string>
+    <string name="taste_learning_title">Impara cosa ti piace</string>
+    <string name="taste_learning_subtitle">Ricorda su questo dispositivo quali brani ascolti fino alla fine o salti, per la riproduzione casuale intelligente. Non lascia mai il tuo telefono</string>
+    <string name="taste_forget_title">Dimentica quanto appreso</string>
+    <string name="taste_forget_subtitle">Cancella i conteggi dei brani ascoltati per intero e saltati. La cronologia di ascolto e Replay restano</string>
+    <string name="taste_forgotten">Dimenticato</string>
 </resources>

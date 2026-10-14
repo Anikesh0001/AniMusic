@@ -1420,4 +1420,11 @@
     <string name="incognito_off_notice">Incognito wyłączone. Słuchanie jest znów zapisywane.</string>
     <string name="usage_count_title">Wysyłaj anonimowe dane o liczbie użytkowników</string>
     <string name="usage_count_subtitle">Raz dziennie: losowy identyfikator instalacji, wersja aplikacji i Androida, aby policzyć aktywnych użytkowników. Nic o Tobie ani o tym, czego słuchasz.</string>
+    <string name="smart_shuffle_title">Inteligentne odtwarzanie losowe</string>
+    <string name="smart_shuffle_subtitle">Częściej odtwarza to, co słuchasz do końca, rzadziej to, co pomijasz, i unika tego samego wykonawcy dwa razy z rzędu</string>
+    <string name="taste_learning_title">Ucz się, co lubisz</string>
+    <string name="taste_learning_subtitle">Zapamiętuje na tym urządzeniu, które utwory słuchasz do końca lub pomijasz, na potrzeby inteligentnego odtwarzania losowego. Nigdy nie opuszcza telefonu</string>
+    <string name="taste_forget_title">Zapomnij wyuczone</string>
+    <string name="taste_forget_subtitle">Usuwa liczniki wysłuchanych do końca i pominiętych utworów. Historia odtwarzania i Replay zostają</string>
+    <string name="taste_forgotten">Zapomniano</string>
 </resources>

@@ -70,6 +70,7 @@ object Backup {
                     PrefValue.of(value)?.let { key to it }
                 }.toMap(),
                 listening = buckets,
+                taste = TasteStore.exportAll(),
             )
             val text = json.encodeToString(BackupFile.serializer(), file)
             context.contentResolver.openOutputStream(target, "wt")
@@ -100,6 +101,9 @@ object Backup {
             }
 
             ListeningStats.importAll(file.listening)
+            // A backup from before the taste profile existed has none, and
+            // restoring it should not wipe the one this device has built.
+            if (file.taste.isNotEmpty()) TasteStore.importAll(file.taste)
             AppSettings.importPrefs(file.settings.mapValues { it.value.decoded() })
             // Shares AppSettings' preference file, so it has already been
             // overwritten by the line above — it just doesn't know yet.
@@ -139,6 +143,8 @@ object Backup {
         val exportedAt: String = "",
         val settings: Map<String, PrefValue> = emptyMap(),
         val listening: List<StoredBucket> = emptyList(),
+        /** What Smart Shuffle has learned; absent in backups from older builds. */
+        val taste: List<TasteEntry> = emptyList(),
     )
 
     /** One preference, with the type it has to be restored as. */

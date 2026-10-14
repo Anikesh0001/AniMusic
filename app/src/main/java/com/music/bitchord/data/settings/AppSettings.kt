@@ -634,6 +634,16 @@ object AppSettings {
      * in the top bar the whole time it is on, so it is never on by surprise.
      */
     val incognitoMode = MutableStateFlow(false)
+
+    /**
+     * Whether the device learns which tracks you finish and which you skip
+     * ([TasteStore]), which Smart Shuffle and the mixes read. Off, nothing new
+     * is recorded; what was already learned stays until cleared.
+     */
+    val tasteLearning = MutableStateFlow(true)
+
+    /** Shuffle that favours tracks you finish and spaces out an artist. */
+    val smartShuffle = MutableStateFlow(true)
     val spotifySpdcToken = MutableStateFlow("")
 
     // ── Discord Rich Presence ───────────────────────────────────────────
@@ -891,6 +901,8 @@ object AppSettings {
         listenBrainzToken.value = prefs.getString(KEY_LISTENBRAINZ_TOKEN, "").orEmpty()
         listenBrainzPrimaryArtistOnly.value = prefs.getBoolean(KEY_LISTENBRAINZ_PRIMARY_ARTIST_ONLY, false)
         incognitoMode.value = prefs.getBoolean(KEY_INCOGNITO_MODE, false)
+        tasteLearning.value = prefs.getBoolean(KEY_TASTE_LEARNING, true)
+        smartShuffle.value = prefs.getBoolean(KEY_SMART_SHUFFLE, true)
         spotifySpdcToken.value = prefs.getString(KEY_SPOTIFY_SPDC_TOKEN, "").orEmpty()
         replayGenres.value = prefs.getBoolean(KEY_REPLAY_GENRES, true)
         filterNonMusicAudio.value = prefs.getBoolean(KEY_FILTER_NON_MUSIC_AUDIO, true)
@@ -1550,6 +1562,16 @@ object AppSettings {
         prefs.edit().putString(KEY_LISTENBRAINZ_TOKEN, value).apply()
     }
 
+    fun setTasteLearning(value: Boolean) {
+        tasteLearning.value = value
+        prefs.edit().putBoolean(KEY_TASTE_LEARNING, value).apply()
+    }
+
+    fun setSmartShuffle(value: Boolean) {
+        smartShuffle.value = value
+        prefs.edit().putBoolean(KEY_SMART_SHUFFLE, value).apply()
+    }
+
     fun setIncognitoMode(value: Boolean) {
         incognitoMode.value = value
         prefs.edit().putBoolean(KEY_INCOGNITO_MODE, value).apply()
@@ -2031,6 +2053,8 @@ object AppSettings {
     private const val KEY_LISTENBRAINZ_TOKEN = "listenbrainz_token"
     private const val KEY_LISTENBRAINZ_PRIMARY_ARTIST_ONLY = "listenbrainz_primary_artist_only"
     private const val KEY_INCOGNITO_MODE = "incognito_mode"
+    private const val KEY_TASTE_LEARNING = "taste_learning"
+    private const val KEY_SMART_SHUFFLE = "smart_shuffle"
     private const val KEY_SPOTIFY_SPDC_TOKEN = "spotify_spdc_token"
 
     private const val KEY_DISCORD_USERNAME = "discord_username"

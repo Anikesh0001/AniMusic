@@ -1297,4 +1297,11 @@
     <string name="incognito_off_notice">Đã tắt ẩn danh. Lịch sử nghe được ghi lại.</string>
     <string name="usage_count_title">Gửi số liệu sử dụng ẩn danh</string>
     <string name="usage_count_subtitle">Mỗi ngày một lần: một ID cài đặt ngẫu nhiên, phiên bản ứng dụng và phiên bản Android, để đếm người dùng đang hoạt động. Không có gì về bạn hay những gì bạn nghe.</string>
+    <string name="smart_shuffle_title">Phát ngẫu nhiên thông minh</string>
+    <string name="smart_shuffle_subtitle">Phát nhiều hơn những bài bạn nghe hết, ít hơn những bài bạn bỏ qua, và tránh phát cùng một nghệ sĩ hai lần liên tiếp</string>
+    <string name="taste_learning_title">Tìm hiểu bạn thích gì</string>
+    <string name="taste_learning_subtitle">Ghi nhớ trên thiết bị này bài nào bạn nghe hết hoặc bỏ qua, để dùng cho phát ngẫu nhiên thông minh. Dữ liệu không bao giờ rời khỏi điện thoại của bạn</string>
+    <string name="taste_forget_title">Quên những gì đã học</string>
+    <string name="taste_forget_subtitle">Xóa số lần nghe hết và bỏ qua. Lịch sử nghe và Replay vẫn được giữ lại</string>
+    <string name="taste_forgotten">Đã quên</string>
 </resources>

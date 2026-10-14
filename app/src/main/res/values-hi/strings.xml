@@ -1380,4 +1380,11 @@
     <string name="incognito_off_notice">इनकॉग्निटो बंद। सुनना फिर से रिकॉर्ड होगा।</string>
     <string name="usage_count_title">गुमनाम उपयोग गिनती भेजें</string>
     <string name="usage_count_subtitle">दिन में एक बार: एक रैंडम इंस्टॉल ID, ऐप वर्शन और Android वर्शन, ताकि सक्रिय उपयोगकर्ता गिने जा सकें। आपके या आप क्या सुनते हैं, उसके बारे में कुछ नहीं।</string>
+    <string name="smart_shuffle_title">स्मार्ट शफ़ल</string>
+    <string name="smart_shuffle_subtitle">जो गाने आप पूरे सुनते हैं उन्हें ज़्यादा, जिन्हें छोड़ देते हैं उन्हें कम बजाता है, और एक ही कलाकार को लगातार दो बार नहीं बजाता</string>
+    <string name="taste_learning_title">जानें आपको क्या पसंद है</string>
+    <string name="taste_learning_subtitle">स्मार्ट शफ़ल के लिए इस डिवाइस पर याद रखता है कि आप कौन से गाने पूरे सुनते या छोड़ते हैं। यह आपके फ़ोन से बाहर कभी नहीं जाता</string>
+    <string name="taste_forget_title">सीखा हुआ भूलें</string>
+    <string name="taste_forget_subtitle">पूरे सुने और छोड़े गए गानों की गिनती हटाता है। आपका सुनने का इतिहास और Replay बने रहते हैं</string>
+    <string name="taste_forgotten">भुला दिया</string>
 </resources>

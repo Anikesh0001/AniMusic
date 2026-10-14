@@ -1357,4 +1357,11 @@
     <string name="incognito_off_notice">已关闭无痕模式，将重新记录收听内容。</string>
     <string name="usage_count_title">发送匿名使用计数</string>
     <string name="usage_count_subtitle">每天一次：发送随机安装 ID、应用版本和 Android 版本，用于统计活跃用户。不包含任何关于你或你所听内容的信息。</string>
+    <string name="smart_shuffle_title">智能随机播放</string>
+    <string name="smart_shuffle_subtitle">更多播放你听完的歌曲,更少播放你跳过的歌曲,并避免同一位艺人连续出现两次</string>
+    <string name="taste_learning_title">了解你的喜好</string>
+    <string name="taste_learning_subtitle">在此设备上记住你听完或跳过了哪些歌曲,用于智能随机播放。这些数据绝不会离开你的手机</string>
+    <string name="taste_forget_title">清除已学习的内容</string>
+    <string name="taste_forget_subtitle">清除听完和跳过的次数。你的收听历史和 Replay 会保留</string>
+    <string name="taste_forgotten">已清除</string>
 </resources>
