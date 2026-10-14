@@ -1441,4 +1441,24 @@
     <string name="smart_pl_favorites">Ulubione wszech czasów</string>
     <string name="smart_pl_rediscover">Odkryj ponownie</string>
     <string name="because_you_listened_to">Bo słuchasz %1$s</string>
+    <string name="smart_new_title">Utwórz inteligentną playlistę</string>
+    <string name="smart_new_subtitle">Zbuduj playlistę z reguł, np. utwory słuchane często, ale nie ostatnio</string>
+    <string name="smart_new_dialog_title">Nowa inteligentna playlista</string>
+    <string name="smart_name_hint">Nazwa</string>
+    <string name="smart_f_min_plays">Odtworzono co najmniej %1$d razy</string>
+    <string name="smart_f_idle">Nie odtwarzano od %1$d dni lub dłużej</string>
+    <string name="smart_f_idle_off">Dawno nie odtwarzano: %1$s</string>
+    <string name="smart_f_recent">Odtwarzano w ciągu ostatnich %1$d dni</string>
+    <string name="smart_f_recent_off">Niedawno odtwarzano: %1$s</string>
+    <string name="smart_f_skip">Pominięto najwyżej w %1$d%% przypadków</string>
+    <string name="smart_f_skip_off">Limit pominięć: %1$s</string>
+    <string name="smart_f_new">Pierwszy raz w ostatnich %1$d miesiącach</string>
+    <string name="smart_f_new_off">Tylko nowe odkrycia: %1$s</string>
+    <string name="smart_f_size">Do %1$d utworów</string>
+    <string name="smart_order_most_played">Najczęściej odtwarzane</string>
+    <string name="smart_order_recent">Ostatnio odtwarzane</string>
+    <string name="smart_order_longest">Najdłużej nieodtwarzane</string>
+    <string name="smart_create">Utwórz</string>
+    <string name="smart_no_match">Żaden utwór nie pasuje jeszcze do tych reguł. Spróbuj je poluzować.</string>
+    <string name="smart_created">Utworzono %1$s. Znajdziesz ją w swojej bibliotece.</string>
 </resources>

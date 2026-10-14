@@ -1340,4 +1340,24 @@
     <string name="smart_pl_favorites">Preferiti di sempre</string>
     <string name="smart_pl_rediscover">Riscopri</string>
     <string name="because_you_listened_to">Perché hai ascoltato %1$s</string>
+    <string name="smart_new_title">Crea una playlist intelligente</string>
+    <string name="smart_new_subtitle">Crea una playlist da regole, come i brani ascoltati spesso ma non di recente</string>
+    <string name="smart_new_dialog_title">Nuova playlist intelligente</string>
+    <string name="smart_name_hint">Nome</string>
+    <string name="smart_f_min_plays">Ascoltato almeno %1$d volte</string>
+    <string name="smart_f_idle">Non ascoltato da %1$d giorni o più</string>
+    <string name="smart_f_idle_off">Non ascoltato da un po\': %1$s</string>
+    <string name="smart_f_recent">Ascoltato negli ultimi %1$d giorni</string>
+    <string name="smart_f_recent_off">Ascoltato di recente: %1$s</string>
+    <string name="smart_f_skip">Saltato al massimo il %1$d%% delle volte</string>
+    <string name="smart_f_skip_off">Limite di salti: %1$s</string>
+    <string name="smart_f_new">Ascoltato per la prima volta negli ultimi %1$d mesi</string>
+    <string name="smart_f_new_off">Solo novità: %1$s</string>
+    <string name="smart_f_size">Fino a %1$d brani</string>
+    <string name="smart_order_most_played">Più ascoltati</string>
+    <string name="smart_order_recent">Ascoltati di recente</string>
+    <string name="smart_order_longest">Da più tempo non ascoltati</string>
+    <string name="smart_create">Crea</string>
+    <string name="smart_no_match">Nessun brano corrisponde ancora a queste regole. Prova ad allentarle.</string>
+    <string name="smart_created">%1$s creata. La trovi nella tua libreria.</string>
 </resources>

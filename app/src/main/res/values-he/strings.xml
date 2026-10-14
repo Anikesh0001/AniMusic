@@ -1406,4 +1406,24 @@
     <string name="smart_pl_favorites">מועדפים לכל הזמנים</string>
     <string name="smart_pl_rediscover">גילוי מחדש</string>
     <string name="because_you_listened_to">כי האזנתם ל%1$s</string>
+    <string name="smart_new_title">יצירת פלייליסט חכם</string>
+    <string name="smart_new_subtitle">בנו פלייליסט לפי כללים, למשל שירים שהשמעתם הרבה אבל לא לאחרונה</string>
+    <string name="smart_new_dialog_title">פלייליסט חכם חדש</string>
+    <string name="smart_name_hint">שם</string>
+    <string name="smart_f_min_plays">הושמע לפחות %1$d פעמים</string>
+    <string name="smart_f_idle">לא הושמע %1$d ימים או יותר</string>
+    <string name="smart_f_idle_off">לא הושמע זמן מה: %1$s</string>
+    <string name="smart_f_recent">הושמע ב-%1$d הימים האחרונים</string>
+    <string name="smart_f_recent_off">הושמע לאחרונה: %1$s</string>
+    <string name="smart_f_skip">דולג לכל היותר %1$d%% מהזמן</string>
+    <string name="smart_f_skip_off">מגבלת דילוגים: %1$s</string>
+    <string name="smart_f_new">נשמע לראשונה ב-%1$d החודשים האחרונים</string>
+    <string name="smart_f_new_off">רק תגליות חדשות: %1$s</string>
+    <string name="smart_f_size">עד %1$d שירים</string>
+    <string name="smart_order_most_played">הכי מושמעים</string>
+    <string name="smart_order_recent">הושמעו לאחרונה</string>
+    <string name="smart_order_longest">הכי הרבה זמן שלא הושמעו</string>
+    <string name="smart_create">יצירה</string>
+    <string name="smart_no_match">אין עדיין שירים שמתאימים לכללים האלה. נסו להרפות אותם.</string>
+    <string name="smart_created">%1$s נוצר. תמצאו אותו בספרייה שלכם.</string>
 </resources>

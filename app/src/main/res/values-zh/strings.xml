@@ -1378,4 +1378,24 @@
     <string name="smart_pl_favorites">历史最爱</string>
     <string name="smart_pl_rediscover">重新发现</string>
     <string name="because_you_listened_to">因为你听了%1$s</string>
+    <string name="smart_new_title">创建智能播放列表</string>
+    <string name="smart_new_subtitle">按规则创建播放列表,例如你常听但最近没听的歌曲</string>
+    <string name="smart_new_dialog_title">新建智能播放列表</string>
+    <string name="smart_name_hint">名称</string>
+    <string name="smart_f_min_plays">至少播放 %1$d 次</string>
+    <string name="smart_f_idle">已有 %1$d 天或更久没播放</string>
+    <string name="smart_f_idle_off">有一阵没播放:%1$s</string>
+    <string name="smart_f_recent">最近 %1$d 天内播放过</string>
+    <string name="smart_f_recent_off">最近播放:%1$s</string>
+    <string name="smart_f_skip">跳过比例不超过 %1$d%%</string>
+    <string name="smart_f_skip_off">跳过上限:%1$s</string>
+    <string name="smart_f_new">最近 %1$d 个月内首次听到</string>
+    <string name="smart_f_new_off">仅限新发现:%1$s</string>
+    <string name="smart_f_size">最多 %1$d 首歌</string>
+    <string name="smart_order_most_played">播放最多</string>
+    <string name="smart_order_recent">最近播放</string>
+    <string name="smart_order_longest">最久未播放</string>
+    <string name="smart_create">创建</string>
+    <string name="smart_no_match">暂时没有符合这些规则的歌曲。试着放宽规则。</string>
+    <string name="smart_created">已创建「%1$s」,可在资料库中找到。</string>
 </resources>

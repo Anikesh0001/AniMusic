@@ -1373,4 +1373,24 @@
     <string name="smart_pl_favorites">Favoritos de siempre</string>
     <string name="smart_pl_rediscover">Redescubre</string>
     <string name="because_you_listened_to">Porque escuchaste %1$s</string>
+    <string name="smart_new_title">Crear una lista inteligente</string>
+    <string name="smart_new_subtitle">Crea una lista con reglas, como canciones que escuchaste mucho pero hace tiempo no</string>
+    <string name="smart_new_dialog_title">Nueva lista inteligente</string>
+    <string name="smart_name_hint">Nombre</string>
+    <string name="smart_f_min_plays">Escuchada al menos %1$d veces</string>
+    <string name="smart_f_idle">Sin escuchar desde hace %1$d días o más</string>
+    <string name="smart_f_idle_off">Sin escuchar por un tiempo: %1$s</string>
+    <string name="smart_f_recent">Escuchada en los últimos %1$d días</string>
+    <string name="smart_f_recent_off">Escuchada hace poco: %1$s</string>
+    <string name="smart_f_skip">Omitida como máximo el %1$d %% de las veces</string>
+    <string name="smart_f_skip_off">Límite de omisiones: %1$s</string>
+    <string name="smart_f_new">Escuchada por primera vez en los últimos %1$d meses</string>
+    <string name="smart_f_new_off">Solo novedades: %1$s</string>
+    <string name="smart_f_size">Hasta %1$d canciones</string>
+    <string name="smart_order_most_played">Más escuchadas</string>
+    <string name="smart_order_recent">Escuchadas hace poco</string>
+    <string name="smart_order_longest">Más tiempo sin escuchar</string>
+    <string name="smart_create">Crear</string>
+    <string name="smart_no_match">Ninguna canción cumple estas reglas todavía. Prueba a relajarlas.</string>
+    <string name="smart_created">Se creó %1$s. La encontrarás en tu biblioteca.</string>
 </resources>

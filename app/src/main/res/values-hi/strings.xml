@@ -1401,4 +1401,24 @@
     <string name="smart_pl_favorites">हमेशा के पसंदीदा</string>
     <string name="smart_pl_rediscover">फिर से खोजें</string>
     <string name="because_you_listened_to">क्योंकि आपने %1$s सुना</string>
+    <string name="smart_new_title">स्मार्ट प्लेलिस्ट बनाएँ</string>
+    <string name="smart_new_subtitle">नियमों से प्लेलिस्ट बनाएँ, जैसे वे गाने जो आपने अक्सर सुने पर हाल में नहीं</string>
+    <string name="smart_new_dialog_title">नई स्मार्ट प्लेलिस्ट</string>
+    <string name="smart_name_hint">नाम</string>
+    <string name="smart_f_min_plays">कम से कम %1$d बार सुना</string>
+    <string name="smart_f_idle">%1$d दिन या उससे ज़्यादा से नहीं सुना</string>
+    <string name="smart_f_idle_off">कुछ समय से नहीं सुना: %1$s</string>
+    <string name="smart_f_recent">पिछले %1$d दिनों में सुना</string>
+    <string name="smart_f_recent_off">हाल में सुना: %1$s</string>
+    <string name="smart_f_skip">अधिकतम %1$d%% बार छोड़ा</string>
+    <string name="smart_f_skip_off">छोड़ने की सीमा: %1$s</string>
+    <string name="smart_f_new">पहली बार पिछले %1$d महीनों में सुना</string>
+    <string name="smart_f_new_off">सिर्फ़ नई खोजें: %1$s</string>
+    <string name="smart_f_size">%1$d गाने तक</string>
+    <string name="smart_order_most_played">सबसे ज़्यादा सुने</string>
+    <string name="smart_order_recent">हाल में सुने</string>
+    <string name="smart_order_longest">सबसे लंबे समय से नहीं सुने</string>
+    <string name="smart_create">बनाएँ</string>
+    <string name="smart_no_match">अभी इन नियमों से कोई गाना मेल नहीं खाता। नियम थोड़े ढीले करके देखें।</string>
+    <string name="smart_created">%1$s बन गई। यह आपकी लाइब्रेरी में है।</string>
 </resources>

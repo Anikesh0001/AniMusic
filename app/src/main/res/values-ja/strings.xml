@@ -1379,4 +1379,24 @@
     <string name="smart_pl_favorites">不動のお気に入り</string>
     <string name="smart_pl_rediscover">再発見</string>
     <string name="because_you_listened_to">%1$sを聴いたあなたへ</string>
+    <string name="smart_new_title">スマートプレイリストを作成</string>
+    <string name="smart_new_subtitle">ルールでプレイリストを作ります。たとえば、よく聴いたけど最近聴いていない曲</string>
+    <string name="smart_new_dialog_title">新しいスマートプレイリスト</string>
+    <string name="smart_name_hint">名前</string>
+    <string name="smart_f_min_plays">%1$d回以上再生</string>
+    <string name="smart_f_idle">%1$d日以上再生していない</string>
+    <string name="smart_f_idle_off">しばらく再生していない:%1$s</string>
+    <string name="smart_f_recent">過去%1$d日以内に再生</string>
+    <string name="smart_f_recent_off">最近再生:%1$s</string>
+    <string name="smart_f_skip">スキップは最大%1$d%%</string>
+    <string name="smart_f_skip_off">スキップの上限:%1$s</string>
+    <string name="smart_f_new">過去%1$dか月以内に初めて再生</string>
+    <string name="smart_f_new_off">新しく見つけた曲だけ:%1$s</string>
+    <string name="smart_f_size">最大%1$d曲</string>
+    <string name="smart_order_most_played">再生回数順</string>
+    <string name="smart_order_recent">最近再生した順</string>
+    <string name="smart_order_longest">再生していない期間が長い順</string>
+    <string name="smart_create">作成</string>
+    <string name="smart_no_match">このルールに合う曲はまだありません。条件をゆるめてみてください。</string>
+    <string name="smart_created">「%1$s」を作成しました。ライブラリにあります。</string>
 </resources>

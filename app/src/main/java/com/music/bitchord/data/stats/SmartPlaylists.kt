@@ -31,6 +31,9 @@ import java.time.YearMonth
 object SmartPlaylists {
 
     private const val PREFIX = "smart_"
+
+    /** The ids of playlists made from a user's own rule. */
+    const val CUSTOM_PREFIX = "smart_custom_"
     private const val PREFS = "smart_playlists"
     private const val KEY_CREATED = "created"
     private const val KEY_DISMISSED = "dismissed"
@@ -69,7 +72,16 @@ object SmartPlaylists {
             created -= it
         }
 
+        // The user's own rules. One whose playlist was deleted is a rule they no
+        // longer want, so it goes too, rather than staying behind unseen.
+        var customs = CustomSmartRules.load(context)
+        val before = customs.size
+        customs = customs.filter { it.playlistId !in dismissed }
+        if (customs.size != before) CustomSmartRules.save(context, customs)
+
         if (!enabled) {
+            // Takes down the user's own playlists too, but keeps their rules, so switching
+            // it back on brings them back.
             created.forEach { LocalPlaylistStore.deletePlaylist(it) }
             created.clear()
             dismissed.clear()
@@ -77,13 +89,12 @@ object SmartPlaylists {
             return@withContext
         }
 
-        TasteStore.awaitLoaded()
-        val buckets = ListeningStats.exportAll()
         val month = YearMonth.now()
-        val histories = SmartRules.histories(buckets, month) { TasteStore.entry(it)?.skips ?: 0 }
+        val histories = histories(month)
 
-        for (rule in SmartRules.BUILT_IN) {
-            val id = PREFIX + rule.key
+        val wanted = SmartRules.BUILT_IN.map { Triple(PREFIX + it.key, title(context, it.key), it) } +
+            customs.map { Triple(it.playlistId, it.name, it.rule) }
+        for ((id, name, rule) in wanted) {
             if (id in dismissed) continue
             val picked = SmartRules.evaluate(rule, histories, now, month)
             if (picked.isEmpty()) {
@@ -94,10 +105,38 @@ object SmartPlaylists {
                 }
                 continue
             }
-            LocalPlaylistStore.upsert(id, title(context, rule.key), picked.map { it.toSong() })
+            LocalPlaylistStore.upsert(id, name, picked.map { it.toSong() })
             created += id
         }
         save(prefs, created, dismissed)
+    }
+
+    private suspend fun histories(month: YearMonth): List<TrackHistory> {
+        TasteStore.awaitLoaded()
+        return SmartRules.histories(ListeningStats.exportAll(), month) { TasteStore.entry(it)?.skips ?: 0 }
+    }
+
+    /**
+     * Makes the user's own smart playlist from [rule], now, and keeps it.
+     *
+     * Returns how many songs it holds, or 0 — and keeps nothing — when the
+     * rule matches no song, so the form can say so rather than make an empty
+     * playlist.
+     */
+    suspend fun create(context: Context, name: String, rule: SmartRule): Int = withContext(Dispatchers.Default) {
+        val month = YearMonth.now()
+        val picked = SmartRules.evaluate(rule, histories(month), System.currentTimeMillis(), month)
+        if (picked.isEmpty()) return@withContext 0
+
+        val id = java.util.UUID.randomUUID().toString().take(8)
+        val custom = CustomSmartRule(id, name.trim(), rule.copy(key = "custom_$id"))
+        CustomSmartRules.save(context, CustomSmartRules.load(context) + custom)
+        LocalPlaylistStore.upsert(custom.playlistId, custom.name, picked.map { it.toSong() })
+
+        val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val created = prefs.getStringSet(KEY_CREATED, emptySet()).orEmpty() + custom.playlistId
+        prefs.edit().putStringSet(KEY_CREATED, created).apply()
+        picked.size
     }
 
     private fun save(prefs: SharedPreferences, created: Set<String>, dismissed: Set<String>) {

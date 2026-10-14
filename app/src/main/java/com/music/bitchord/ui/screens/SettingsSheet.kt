@@ -292,6 +292,7 @@ fun SettingsScreen(
     var exportStatus by remember { mutableStateOf<String?>(null) }
     var importStatus by remember { mutableStateOf<String?>(null) }
     var confirmImport by remember { mutableStateOf(false) }
+    var showSmartEditor by remember { mutableStateOf(false) }
     var confirmClearSongCache by remember { mutableStateOf(false) }
     var showPerformanceWarning by remember { mutableStateOf(false) }
     var showPerformanceConfirmation by remember { mutableStateOf(false) }
@@ -744,6 +745,17 @@ fun SettingsScreen(
                     },
                     onClick = { AppSettings.setSmartPlaylists(!smartPlaylists) },
                 )
+            }
+            if (smartPlaylists) {
+                val smartNewTitle = stringResource(R.string.smart_new_title)
+                row(smartNewTitle, "playlist", "smart", "rules", "create", "make") {
+                    SettingsRow(
+                        icon = Icons.Rounded.AutoAwesome,
+                        title = smartNewTitle,
+                        subtitle = stringResource(R.string.smart_new_subtitle),
+                        onClick = { showSmartEditor = true },
+                    )
+                }
             }
             val spatialAudioTitle = stringResource(R.string.spatial_audio)
             row(spatialAudioTitle, "surround", "3d") {
@@ -1703,6 +1715,10 @@ fun SettingsScreen(
     // Asked before the picker opens rather than after a file is chosen: the
     // thing being confirmed is that this device's own history is about to be
     // thrown away, and that is true whichever file gets picked.
+    if (showSmartEditor) {
+        com.music.bitchord.ui.components.SmartPlaylistDialog(onDismiss = { showSmartEditor = false })
+    }
+
     if (confirmImport) {
         AlertDialog(
             onDismissRequest = { confirmImport = false },

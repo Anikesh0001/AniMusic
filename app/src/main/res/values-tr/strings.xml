@@ -1358,4 +1358,24 @@
     <string name="smart_pl_favorites">Tüm zamanların favorileri</string>
     <string name="smart_pl_rediscover">Yeniden keşfet</string>
     <string name="because_you_listened_to">%1$s dinlediğiniz için</string>
+    <string name="smart_new_title">Akıllı çalma listesi oluştur</string>
+    <string name="smart_new_subtitle">Kurallardan bir liste oluşturun; örneğin çok dinlediğiniz ama son zamanlarda dinlemediğiniz şarkılar</string>
+    <string name="smart_new_dialog_title">Yeni akıllı çalma listesi</string>
+    <string name="smart_name_hint">Ad</string>
+    <string name="smart_f_min_plays">En az %1$d kez dinlendi</string>
+    <string name="smart_f_idle">%1$d gün veya daha uzun süredir dinlenmedi</string>
+    <string name="smart_f_idle_off">Bir süredir dinlenmedi: %1$s</string>
+    <string name="smart_f_recent">Son %1$d günde dinlendi</string>
+    <string name="smart_f_recent_off">Yakınlarda dinlendi: %1$s</string>
+    <string name="smart_f_skip">En fazla %1$d%% oranında atlandı</string>
+    <string name="smart_f_skip_off">Atlama sınırı: %1$s</string>
+    <string name="smart_f_new">İlk kez son %1$d ayda dinlendi</string>
+    <string name="smart_f_new_off">Yalnızca yeni keşifler: %1$s</string>
+    <string name="smart_f_size">En fazla %1$d şarkı</string>
+    <string name="smart_order_most_played">En çok dinlenenler</string>
+    <string name="smart_order_recent">Son dinlenenler</string>
+    <string name="smart_order_longest">En uzun süredir dinlenmeyenler</string>
+    <string name="smart_create">Oluştur</string>
+    <string name="smart_no_match">Henüz bu kurallara uyan şarkı yok. Kuralları gevşetmeyi deneyin.</string>
+    <string name="smart_created">%1$s oluşturuldu. Kitaplığınızda.</string>
 </resources>

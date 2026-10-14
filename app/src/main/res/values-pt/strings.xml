@@ -1406,4 +1406,24 @@
     <string name="smart_pl_favorites">Favoritos de sempre</string>
     <string name="smart_pl_rediscover">Redescubra</string>
     <string name="because_you_listened_to">Porque você ouviu %1$s</string>
+    <string name="smart_new_title">Criar uma playlist inteligente</string>
+    <string name="smart_new_subtitle">Crie uma playlist com regras, como músicas que você ouviu muito, mas não ultimamente</string>
+    <string name="smart_new_dialog_title">Nova playlist inteligente</string>
+    <string name="smart_name_hint">Nome</string>
+    <string name="smart_f_min_plays">Ouvida pelo menos %1$d vezes</string>
+    <string name="smart_f_idle">Não ouvida há %1$d dias ou mais</string>
+    <string name="smart_f_idle_off">Há um tempo sem ouvir: %1$s</string>
+    <string name="smart_f_recent">Ouvida nos últimos %1$d dias</string>
+    <string name="smart_f_recent_off">Ouvida recentemente: %1$s</string>
+    <string name="smart_f_skip">Pulada no máximo %1$d%% das vezes</string>
+    <string name="smart_f_skip_off">Limite de puladas: %1$s</string>
+    <string name="smart_f_new">Ouvida pela primeira vez nos últimos %1$d meses</string>
+    <string name="smart_f_new_off">Só descobertas novas: %1$s</string>
+    <string name="smart_f_size">Até %1$d músicas</string>
+    <string name="smart_order_most_played">Mais ouvidas</string>
+    <string name="smart_order_recent">Ouvidas recentemente</string>
+    <string name="smart_order_longest">Há mais tempo sem ouvir</string>
+    <string name="smart_create">Criar</string>
+    <string name="smart_no_match">Nenhuma música combina com essas regras ainda. Tente afrouxá-las.</string>
+    <string name="smart_created">%1$s criada. Ela está na sua biblioteca.</string>
 </resources>

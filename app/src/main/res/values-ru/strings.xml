@@ -1433,4 +1433,24 @@
     <string name="smart_pl_favorites">Любимые за всё время</string>
     <string name="smart_pl_rediscover">Вспомнить</string>
     <string name="because_you_listened_to">Потому что вы слушали %1$s</string>
+    <string name="smart_new_title">Создать умный плейлист</string>
+    <string name="smart_new_subtitle">Соберите плейлист по правилам, например песни, которые вы часто слушали, но не в последнее время</string>
+    <string name="smart_new_dialog_title">Новый умный плейлист</string>
+    <string name="smart_name_hint">Название</string>
+    <string name="smart_f_min_plays">Прослушано не менее %1$d раз</string>
+    <string name="smart_f_idle">Не слушали %1$d дн. или больше</string>
+    <string name="smart_f_idle_off">Давно не слушали: %1$s</string>
+    <string name="smart_f_recent">Слушали за последние %1$d дн.</string>
+    <string name="smart_f_recent_off">Слушали недавно: %1$s</string>
+    <string name="smart_f_skip">Пропускали не более чем в %1$d%% случаев</string>
+    <string name="smart_f_skip_off">Лимит пропусков: %1$s</string>
+    <string name="smart_f_new">Впервые услышаны за последние %1$d мес.</string>
+    <string name="smart_f_new_off">Только новые находки: %1$s</string>
+    <string name="smart_f_size">До %1$d песен</string>
+    <string name="smart_order_most_played">Самые прослушиваемые</string>
+    <string name="smart_order_recent">Слушали недавно</string>
+    <string name="smart_order_longest">Дольше всего не слушали</string>
+    <string name="smart_create">Создать</string>
+    <string name="smart_no_match">Пока ни одна песня не подходит под эти правила. Попробуйте смягчить их.</string>
+    <string name="smart_created">Плейлист «%1$s» создан. Он в вашей медиатеке.</string>
 </resources>

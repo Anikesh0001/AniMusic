@@ -1384,4 +1384,24 @@
     <string name="smart_pl_favorites">รายการโปรดตลอดกาล</string>
     <string name="smart_pl_rediscover">ค้นพบอีกครั้ง</string>
     <string name="because_you_listened_to">เพราะคุณฟัง %1$s</string>
+    <string name="smart_new_title">สร้างเพลย์ลิสต์อัจฉริยะ</string>
+    <string name="smart_new_subtitle">สร้างเพลย์ลิสต์จากกฎ เช่น เพลงที่คุณฟังบ่อยแต่ไม่ได้ฟังมานาน</string>
+    <string name="smart_new_dialog_title">เพลย์ลิสต์อัจฉริยะใหม่</string>
+    <string name="smart_name_hint">ชื่อ</string>
+    <string name="smart_f_min_plays">ฟังอย่างน้อย %1$d ครั้ง</string>
+    <string name="smart_f_idle">ไม่ได้ฟังมา %1$d วันขึ้นไป</string>
+    <string name="smart_f_idle_off">ไม่ได้ฟังมาสักพัก: %1$s</string>
+    <string name="smart_f_recent">ฟังใน %1$d วันที่ผ่านมา</string>
+    <string name="smart_f_recent_off">ฟังล่าสุด: %1$s</string>
+    <string name="smart_f_skip">ข้ามไม่เกิน %1$d%% ของครั้ง</string>
+    <string name="smart_f_skip_off">ขีดจำกัดการข้าม: %1$s</string>
+    <string name="smart_f_new">ฟังครั้งแรกใน %1$d เดือนที่ผ่านมา</string>
+    <string name="smart_f_new_off">เฉพาะที่เพิ่งค้นพบ: %1$s</string>
+    <string name="smart_f_size">สูงสุด %1$d เพลง</string>
+    <string name="smart_order_most_played">ฟังมากที่สุด</string>
+    <string name="smart_order_recent">ฟังล่าสุด</string>
+    <string name="smart_order_longest">ไม่ได้ฟังนานที่สุด</string>
+    <string name="smart_create">สร้าง</string>
+    <string name="smart_no_match">ยังไม่มีเพลงที่ตรงกับกฎเหล่านี้ ลองผ่อนกฎดู</string>
+    <string name="smart_created">สร้าง %1$s แล้ว อยู่ในคลังของคุณ</string>
 </resources>

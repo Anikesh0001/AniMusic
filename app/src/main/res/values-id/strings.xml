@@ -1378,4 +1378,24 @@
     <string name="smart_pl_favorites">Favorit sepanjang masa</string>
     <string name="smart_pl_rediscover">Temukan kembali</string>
     <string name="because_you_listened_to">Karena kamu mendengarkan %1$s</string>
+    <string name="smart_new_title">Buat playlist pintar</string>
+    <string name="smart_new_subtitle">Buat playlist dari aturan, misalnya lagu yang sering kamu putar tapi sudah lama tidak</string>
+    <string name="smart_new_dialog_title">Playlist pintar baru</string>
+    <string name="smart_name_hint">Nama</string>
+    <string name="smart_f_min_plays">Diputar minimal %1$d kali</string>
+    <string name="smart_f_idle">Tidak diputar selama %1$d hari atau lebih</string>
+    <string name="smart_f_idle_off">Sudah lama tidak diputar: %1$s</string>
+    <string name="smart_f_recent">Diputar dalam %1$d hari terakhir</string>
+    <string name="smart_f_recent_off">Baru diputar: %1$s</string>
+    <string name="smart_f_skip">Dilewati maksimal %1$d%% dari waktu</string>
+    <string name="smart_f_skip_off">Batas lewati: %1$s</string>
+    <string name="smart_f_new">Pertama didengar dalam %1$d bulan terakhir</string>
+    <string name="smart_f_new_off">Hanya temuan baru: %1$s</string>
+    <string name="smart_f_size">Hingga %1$d lagu</string>
+    <string name="smart_order_most_played">Paling sering diputar</string>
+    <string name="smart_order_recent">Baru diputar</string>
+    <string name="smart_order_longest">Paling lama tidak diputar</string>
+    <string name="smart_create">Buat</string>
+    <string name="smart_no_match">Belum ada lagu yang cocok dengan aturan ini. Coba longgarkan aturannya.</string>
+    <string name="smart_created">%1$s dibuat. Cari di Perpustakaanmu.</string>
 </resources>

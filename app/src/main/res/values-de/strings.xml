@@ -1401,4 +1401,24 @@
     <string name="smart_pl_favorites">Alle Favoriten</string>
     <string name="smart_pl_rediscover">Wiederentdecken</string>
     <string name="because_you_listened_to">Weil du %1$s gehört hast</string>
+    <string name="smart_new_title">Smarte Playlist erstellen</string>
+    <string name="smart_new_subtitle">Erstelle eine Playlist aus Regeln, z. B. Songs, die du oft, aber lange nicht gehört hast</string>
+    <string name="smart_new_dialog_title">Neue smarte Playlist</string>
+    <string name="smart_name_hint">Name</string>
+    <string name="smart_f_min_plays">Mindestens %1$d-mal gehört</string>
+    <string name="smart_f_idle">Seit mindestens %1$d Tagen nicht gehört</string>
+    <string name="smart_f_idle_off">Länger nicht gehört: %1$s</string>
+    <string name="smart_f_recent">In den letzten %1$d Tagen gehört</string>
+    <string name="smart_f_recent_off">Kürzlich gehört: %1$s</string>
+    <string name="smart_f_skip">Höchstens %1$d %% übersprungen</string>
+    <string name="smart_f_skip_off">Skip-Grenze: %1$s</string>
+    <string name="smart_f_new">Zuerst in den letzten %1$d Monaten gehört</string>
+    <string name="smart_f_new_off">Nur neue Entdeckungen: %1$s</string>
+    <string name="smart_f_size">Bis zu %1$d Songs</string>
+    <string name="smart_order_most_played">Am häufigsten gehört</string>
+    <string name="smart_order_recent">Zuletzt gehört</string>
+    <string name="smart_order_longest">Am längsten nicht gehört</string>
+    <string name="smart_create">Erstellen</string>
+    <string name="smart_no_match">Noch keine Songs passen zu diesen Regeln. Lockere sie etwas.</string>
+    <string name="smart_created">%1$s erstellt. Du findest sie in deiner Bibliothek.</string>
 </resources>

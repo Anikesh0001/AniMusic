@@ -1318,4 +1318,24 @@
     <string name="smart_pl_favorites">Yêu thích mọi thời đại</string>
     <string name="smart_pl_rediscover">Khám phá lại</string>
     <string name="because_you_listened_to">Vì bạn đã nghe %1$s</string>
+    <string name="smart_new_title">Tạo playlist thông minh</string>
+    <string name="smart_new_subtitle">Tạo playlist từ các quy tắc, ví dụ bài bạn nghe nhiều nhưng gần đây không nghe</string>
+    <string name="smart_new_dialog_title">Playlist thông minh mới</string>
+    <string name="smart_name_hint">Tên</string>
+    <string name="smart_f_min_plays">Đã nghe ít nhất %1$d lần</string>
+    <string name="smart_f_idle">Không nghe trong %1$d ngày trở lên</string>
+    <string name="smart_f_idle_off">Đã lâu không nghe: %1$s</string>
+    <string name="smart_f_recent">Đã nghe trong %1$d ngày qua</string>
+    <string name="smart_f_recent_off">Mới nghe gần đây: %1$s</string>
+    <string name="smart_f_skip">Bỏ qua tối đa %1$d%% số lần</string>
+    <string name="smart_f_skip_off">Giới hạn bỏ qua: %1$s</string>
+    <string name="smart_f_new">Nghe lần đầu trong %1$d tháng qua</string>
+    <string name="smart_f_new_off">Chỉ bài mới khám phá: %1$s</string>
+    <string name="smart_f_size">Tối đa %1$d bài</string>
+    <string name="smart_order_most_played">Nghe nhiều nhất</string>
+    <string name="smart_order_recent">Nghe gần đây</string>
+    <string name="smart_order_longest">Lâu nhất chưa nghe</string>
+    <string name="smart_create">Tạo</string>
+    <string name="smart_no_match">Chưa có bài nào khớp với các quy tắc này. Hãy thử nới lỏng chúng.</string>
+    <string name="smart_created">Đã tạo %1$s. Bạn có thể tìm thấy nó trong Thư viện.</string>
 </resources>

@@ -138,6 +138,55 @@ object SmartRules {
         artistId = artistId,
     )
 
+    /** How a custom playlist is ordered. */
+    enum class Order(val field: SmartField, val descending: Boolean = true) {
+        MOST_PLAYED(SmartField.PLAYS),
+        RECENT_PLAYS(SmartField.RECENT_PLAYS),
+        LONGEST_SINCE(SmartField.DAYS_SINCE_LAST),
+    }
+
+    /**
+     * The rule a "make your own" form describes. A value of 0 leaves that
+     * condition out, so an empty form selects everything played.
+     *
+     * The two day conditions share one field, so [idleDays] and [recentDays]
+     * form a single window; one that cannot be satisfied (idle 90, recent 30)
+     * simply matches nothing, which the form reports instead of saving.
+     */
+    fun customRule(
+        key: String,
+        minPlays: Int,
+        idleDays: Int,
+        recentDays: Int,
+        maxSkipPercent: Int,
+        newMonths: Int,
+        order: Order,
+        limit: Int,
+    ): SmartRule {
+        val conditions = buildList {
+            add(Condition(SmartField.PLAYS, min = maxOf(minPlays, 1).toDouble()))
+            if (idleDays > 0 || recentDays > 0) {
+                add(
+                    Condition(
+                        SmartField.DAYS_SINCE_LAST,
+                        min = idleDays.takeIf { it > 0 }?.toDouble(),
+                        max = recentDays.takeIf { it > 0 }?.toDouble(),
+                    ),
+                )
+            }
+            if (maxSkipPercent in 1..99) add(Condition(SmartField.SKIP_RATE, max = maxSkipPercent / 100.0))
+            if (newMonths > 0) add(Condition(SmartField.MONTHS_SINCE_FIRST, max = newMonths.toDouble()))
+        }
+        return SmartRule(
+            key = key,
+            conditions = conditions,
+            sortBy = order.field,
+            descending = order.descending,
+            limit = limit.coerceIn(1, 200),
+            minTracks = 1,
+        )
+    }
+
     /** Heard a lot lately and in the last two weeks. */
     val ON_REPEAT = SmartRule(
         key = "on_repeat",

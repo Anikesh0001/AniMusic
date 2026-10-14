@@ -1238,4 +1238,24 @@
     <string name="smart_pl_favorites">All-time favorites</string>
     <string name="smart_pl_rediscover">Rediscover</string>
     <string name="because_you_listened_to">Because you listened to %1$s</string>
+    <string name="smart_new_title">Make a smart playlist</string>
+    <string name="smart_new_subtitle">Build a playlist from rules, like songs you played often but not lately</string>
+    <string name="smart_new_dialog_title">New smart playlist</string>
+    <string name="smart_name_hint">Name</string>
+    <string name="smart_f_min_plays">Played at least %1$d times</string>
+    <string name="smart_f_idle">Not played for %1$d days or more</string>
+    <string name="smart_f_idle_off">Not played for a while: %1$s</string>
+    <string name="smart_f_recent">Played in the last %1$d days</string>
+    <string name="smart_f_recent_off">Played recently: %1$s</string>
+    <string name="smart_f_skip">Skipped at most %1$d%% of the time</string>
+    <string name="smart_f_skip_off">Skip limit: %1$s</string>
+    <string name="smart_f_new">First heard in the last %1$d months</string>
+    <string name="smart_f_new_off">Only new finds: %1$s</string>
+    <string name="smart_f_size">Up to %1$d songs</string>
+    <string name="smart_order_most_played">Most played</string>
+    <string name="smart_order_recent">Played lately</string>
+    <string name="smart_order_longest">Longest since played</string>
+    <string name="smart_create">Create</string>
+    <string name="smart_no_match">No songs match these rules yet. Try loosening them.</string>
+    <string name="smart_created">Made %1$s. Find it in your Library.</string>
 </resources>

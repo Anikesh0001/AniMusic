@@ -1402,4 +1402,24 @@
     <string name="smart_pl_favorites">Favoris de toujours</string>
     <string name="smart_pl_rediscover">À redécouvrir</string>
     <string name="because_you_listened_to">Parce que vous avez écouté %1$s</string>
+    <string name="smart_new_title">Créer une playlist intelligente</string>
+    <string name="smart_new_subtitle">Créez une playlist à partir de règles, comme les titres très écoutés mais pas récemment</string>
+    <string name="smart_new_dialog_title">Nouvelle playlist intelligente</string>
+    <string name="smart_name_hint">Nom</string>
+    <string name="smart_f_min_plays">Écouté au moins %1$d fois</string>
+    <string name="smart_f_idle">Pas écouté depuis %1$d jours ou plus</string>
+    <string name="smart_f_idle_off">Pas écouté depuis un moment : %1$s</string>
+    <string name="smart_f_recent">Écouté ces %1$d derniers jours</string>
+    <string name="smart_f_recent_off">Écouté récemment : %1$s</string>
+    <string name="smart_f_skip">Passé au plus %1$d %% du temps</string>
+    <string name="smart_f_skip_off">Limite de titres passés : %1$s</string>
+    <string name="smart_f_new">Découvert ces %1$d derniers mois</string>
+    <string name="smart_f_new_off">Nouveautés seulement : %1$s</string>
+    <string name="smart_f_size">Jusqu\'à %1$d titres</string>
+    <string name="smart_order_most_played">Les plus écoutés</string>
+    <string name="smart_order_recent">Écoutés récemment</string>
+    <string name="smart_order_longest">Écoutés il y a le plus longtemps</string>
+    <string name="smart_create">Créer</string>
+    <string name="smart_no_match">Aucun titre ne correspond encore à ces règles. Essayez de les assouplir.</string>
+    <string name="smart_created">%1$s créée. Retrouvez-la dans votre bibliothèque.</string>
 </resources>
