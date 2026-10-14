@@ -1440,4 +1440,5 @@
     <string name="smart_pl_new_favorites">Nowe ulubione</string>
     <string name="smart_pl_favorites">Ulubione wszech czasów</string>
     <string name="smart_pl_rediscover">Odkryj ponownie</string>
+    <string name="because_you_listened_to">Bo słuchasz %1$s</string>
 </resources>

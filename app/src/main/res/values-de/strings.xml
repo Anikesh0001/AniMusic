@@ -1400,4 +1400,5 @@
     <string name="smart_pl_new_favorites">Neue Favoriten</string>
     <string name="smart_pl_favorites">Alle Favoriten</string>
     <string name="smart_pl_rediscover">Wiederentdecken</string>
+    <string name="because_you_listened_to">Weil du %1$s gehört hast</string>
 </resources>

@@ -1317,4 +1317,5 @@
     <string name="smart_pl_new_favorites">Yêu thích mới</string>
     <string name="smart_pl_favorites">Yêu thích mọi thời đại</string>
     <string name="smart_pl_rediscover">Khám phá lại</string>
+    <string name="because_you_listened_to">Vì bạn đã nghe %1$s</string>
 </resources>

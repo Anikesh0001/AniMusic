@@ -1400,4 +1400,5 @@
     <string name="smart_pl_new_favorites">नए पसंदीदा</string>
     <string name="smart_pl_favorites">हमेशा के पसंदीदा</string>
     <string name="smart_pl_rediscover">फिर से खोजें</string>
+    <string name="because_you_listened_to">क्योंकि आपने %1$s सुना</string>
 </resources>

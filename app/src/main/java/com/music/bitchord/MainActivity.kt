@@ -704,6 +704,25 @@ private fun BitChordApp(
     // The Daylist follows the clock, so a new part of the day is a new reason to
     // look again. Read here rather than inside the effect so it is a key.
     val dayPart = com.music.bitchord.data.stats.TasteModel.slotOf(java.time.LocalTime.now().hour, false)
+    val becauseRows by com.music.bitchord.data.stats.BecauseRows.rows.collectAsStateWithLifecycle()
+    val incognitoNow by AppSettings.incognitoMode.collectAsStateWithLifecycle()
+    LaunchedEffect(feedHomeState is UiState.Success, incognitoNow) {
+        com.music.bitchord.data.stats.BecauseRows.refresh(incognitoNow)
+    }
+    val becauseShelves = becauseRows.map { row ->
+        HomeShelf(
+            title = stringResource(R.string.because_you_listened_to, row.seed.artist),
+            items = row.songs.map { song ->
+                ShelfItem(
+                    title = song.title,
+                    subtitle = song.artist,
+                    thumbnailUrl = song.thumbnailUrl,
+                    videoId = song.videoId,
+                    browseId = null,
+                )
+            },
+        )
+    }
     val smartPlaylistsOn by AppSettings.smartPlaylists.collectAsStateWithLifecycle()
     val smartPlaylistContext = LocalContext.current
     LaunchedEffect(feedHomeState is UiState.Success, dayPart) { DailyMixes.refresh() }
@@ -740,11 +759,14 @@ private fun BitChordApp(
         )
     }
     // Second, so the feed's lead shelf keeps its place at the top.
-    val homeState = remember(feedHomeState, mixCards) {
+    val homeState = remember(feedHomeState, mixCards, becauseShelves) {
         val feed = feedHomeState
-        if (feed is UiState.Success && mixCards.isNotEmpty()) {
+        val added = listOfNotNull(
+            mixCards.takeIf { it.isNotEmpty() }?.let { HomeShelf(title = madeForYouTitle, items = it) },
+        ) + becauseShelves
+        if (feed is UiState.Success && added.isNotEmpty()) {
             val shelves = feed.data.toMutableList()
-            shelves.add(1.coerceAtMost(shelves.size), HomeShelf(title = madeForYouTitle, items = mixCards))
+            shelves.addAll(1.coerceAtMost(shelves.size), added)
             UiState.Success(shelves)
         } else {
             feed

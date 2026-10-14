@@ -41,13 +41,14 @@ object DailyMixes {
     /** Empty while there is too little listening, which hides the Home shelf. */
     val mixes: StateFlow<List<Mix>> = _mixes.asStateFlow()
 
-    /** Recomputes the mixes. Cheap enough to call whenever Home is shown. */
-    suspend fun refresh() = withContext(Dispatchers.Default) {
+    /**
+     * What has been listened to: the profile, and Replay's top tracks for any
+     * the profile has not seen. Also read by [BecauseRows].
+     */
+    suspend fun gather(now: Long): Pair<List<TasteEntry>, List<TasteEntry>> {
         TasteStore.awaitLoaded()
         val known = TasteStore.snapshot()
         val have = known.mapTo(HashSet()) { it.id }
-        val now = System.currentTimeMillis()
-
         val borrowed = runCatching {
             ListeningStats.summary(ReplayPeriod.ALL_TIME).songs
         }.getOrDefault(emptyList()).filter { it.song.videoId !in have }.map {
@@ -63,6 +64,13 @@ object DailyMixes {
                 last = now - 7 * 86_400_000L,
             )
         }
+        return known to borrowed
+    }
+
+    /** Recomputes the mixes. Cheap enough to call whenever Home is shown. */
+    suspend fun refresh() = withContext(Dispatchers.Default) {
+        val now = System.currentTimeMillis()
+        val (known, borrowed) = gather(now)
 
         val today = LocalDate.now(ZoneId.systemDefault()).toEpochDay()
         _mixes.value = DailyMix.build(known + borrowed, now, today)

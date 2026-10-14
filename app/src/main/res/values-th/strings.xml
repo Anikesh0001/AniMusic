@@ -1383,4 +1383,5 @@
     <string name="smart_pl_new_favorites">รายการโปรดใหม่</string>
     <string name="smart_pl_favorites">รายการโปรดตลอดกาล</string>
     <string name="smart_pl_rediscover">ค้นพบอีกครั้ง</string>
+    <string name="because_you_listened_to">เพราะคุณฟัง %1$s</string>
 </resources>

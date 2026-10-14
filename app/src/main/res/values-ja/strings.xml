@@ -1378,4 +1378,5 @@
     <string name="smart_pl_new_favorites">新しいお気に入り</string>
     <string name="smart_pl_favorites">不動のお気に入り</string>
     <string name="smart_pl_rediscover">再発見</string>
+    <string name="because_you_listened_to">%1$sを聴いたあなたへ</string>
 </resources>
