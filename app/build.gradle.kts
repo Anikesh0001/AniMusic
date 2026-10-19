@@ -35,6 +35,15 @@ val animusicStatsUrl: String = (
         ?: System.getenv("ANIMUSIC_STATS_URL")
         ?: ""
     ).trim()
+/*
+ * The AniMusic account server (email + password, sync): the same Worker as the
+ * usage count. Empty turns accounts off, which is what dev and prod get.
+ */
+val animusicAccountUrl: String = (
+    localProps.getProperty("ANIMUSIC_ACCOUNT_URL")
+        ?: System.getenv("ANIMUSIC_ACCOUNT_URL")
+        ?: animusicStatsUrl.removeSuffix("/ping")
+    ).trim().trimEnd('/')
 val lastfmSecret: String = (
     localProps.getProperty("LASTFM_SECRET")
         ?: System.getenv("LASTFM_SECRET")
@@ -107,6 +116,16 @@ android {
         buildConfigField("String", "UPDATE_REPO", "\"kushagrasinghx/BitChord\"")
         // Anonymous usage count endpoint; empty = off (see the animusic flavor).
         buildConfigField("String", "STATS_URL", "\"\"")
+        // AniMusic account server; empty = no accounts (see the animusic flavor).
+        buildConfigField("String", "ACCOUNT_URL", "\"\"")
+        // Whether Listen Together works without a Google sign-in.
+        buildConfigField("boolean", "LISTEN_TOGETHER_GUEST", "false")
+        // Whether the heart works signed out, keeping liked songs on the device.
+        buildConfigField("boolean", "GUEST_LIKES", "false")
+        // "Don't play this song/artist" in the song menu (see Blocklist).
+        buildConfigField("boolean", "BLOCKLIST", "false")
+        // "Resume when headphones connect" in Settings → Playback.
+        buildConfigField("boolean", "HEADPHONE_RESUME", "false")
         buildConfigField(
             "String",
             "LISTEN_TOGETHER_SERVER",
@@ -167,6 +186,16 @@ android {
                 "STATS_URL",
                 "\"${animusicStatsUrl.replace("\\", "\\\\").replace("\"", "\\\"")}\"",
             )
+            buildConfigField(
+                "String",
+                "ACCOUNT_URL",
+                "\"${animusicAccountUrl.replace("\\", "\\\\").replace("\"", "\\\"")}\"",
+            )
+            // The party server never checks who anyone is, so a nickname is enough.
+            buildConfigField("boolean", "LISTEN_TOGETHER_GUEST", "true")
+            buildConfigField("boolean", "GUEST_LIKES", "true")
+            buildConfigField("boolean", "BLOCKLIST", "true")
+            buildConfigField("boolean", "HEADPHONE_RESUME", "true")
         }
     }
 

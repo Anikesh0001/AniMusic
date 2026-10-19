@@ -140,6 +140,17 @@ object LocalPlaylistStore {
         persist(updated)
     }
 
+    /** Every playlist as the stored JSON array (AniMusic account sync). */
+    fun exportJson(): String? =
+        if (this::prefs.isInitialized) prefs.getString(KEY_PLAYLISTS, null) else null
+
+    /** Replaces every playlist with [raw], a JSON array in the [exportJson] format. */
+    fun importJson(raw: String) {
+        if (!this::prefs.isInitialized) return
+        prefs.edit().putString(KEY_PLAYLISTS, raw).apply()
+        load()
+    }
+
     fun getPlaylist(id: String): LocalPlaylist? {
         val cleanId = id.removePrefix("local:playlist:").removePrefix("VL")
         return _playlists.value.firstOrNull { it.id == cleanId || it.id == id || it.browseId == id }

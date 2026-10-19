@@ -1421,4 +1421,40 @@
     <string name="smart_create">बनाएँ</string>
     <string name="smart_no_match">अभी इन नियमों से कोई गाना मेल नहीं खाता। नियम थोड़े ढीले करके देखें।</string>
     <string name="smart_created">%1$s बन गई। यह आपकी लाइब्रेरी में है।</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">AniMusic खाता</string>
+    <string name="account_subtitle_out">डिवाइसों के बीच प्लेलिस्ट सिंक करने के लिए साइन इन करें</string>
+    <string name="account_subtitle_in">%1$s के रूप में साइन इन</string>
+    <string name="account_create">खाता बनाएँ</string>
+    <string name="account_email">ईमेल</string>
+    <string name="account_name">नाम (वैकल्पिक)</string>
+    <string name="account_switch_to_create">नए हैं? खाता बनाएँ</string>
+    <string name="account_switch_to_sign_in">पहले से खाता है? साइन इन करें</string>
+    <string name="account_explainer">आपका AniMusic खाता इस डिवाइस की प्लेलिस्ट को आपके दूसरे फ़ोन और कंप्यूटर के साथ सिंक रखता है, और Listen Together में आपको एक नाम देता है। यह Google साइन-इन से अलग है। कोई ईमेल नहीं भेजा जाता: जब चाहें उसी ईमेल और पासवर्ड से फिर साइन इन करें।</string>
+    <string name="account_sync_now">अभी सिंक करें</string>
+    <string name="account_last_synced">आख़िरी सिंक %1$s</string>
+    <string name="account_never_synced">अभी तक सिंक नहीं हुआ</string>
+    <string name="account_syncing">सिंक हो रहा है…</string>
+    <string name="account_sync_failed">सिंक नहीं हो सका। अपना कनेक्शन जाँचें और फिर कोशिश करें।</string>
+    <string name="account_delete">खाता हटाएँ</string>
+    <string name="account_delete_warning">इससे आपका खाता और सर्वर पर रखी प्लेलिस्ट हट जाएँगी। इस डिवाइस की प्लेलिस्ट बनी रहेंगी। पुष्टि के लिए अपना पासवर्ड डालें।</string>
+    <string name="account_error_email_taken">इस ईमेल से पहले से खाता है। इसके बजाय साइन इन करें।</string>
+    <string name="account_error_invalid_email">सही ईमेल पता डालें।</string>
+    <string name="account_error_password_short">पासवर्ड में कम से कम 6 अक्षर रखें।</string>
+    <string name="account_error_wrong">ईमेल या पासवर्ड गलत है।</string>
+    <string name="account_error_too_many">बहुत ज़्यादा कोशिशें। 15 मिनट रुककर फिर कोशिश करें।</string>
+    <string name="account_error_offline">कनेक्शन नहीं है। ऑनलाइन होने पर फिर कोशिश करें।</string>
+    <string name="account_error_server">कुछ गड़बड़ हो गई। बाद में फिर कोशिश करें।</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">यह गाना न चलाएँ</string>
+    <string name="block_artist">%1$s को न चलाएँ</string>
+    <string name="unblock_song">यह गाना फिर से चलने दें</string>
+    <string name="unblock_artist">%1$s को फिर से चलने दें</string>
+    <string name="block_note">ऑटोप्ले, रेडियो और मिक्स से बाहर रखा गया</string>
+    <string name="blocked_title">ब्लॉक किए गए गाने और कलाकार</string>
+    <string name="blocked_empty">कुछ भी ब्लॉक नहीं है। किसी गाने के मेन्यू में \"यह गाना न चलाएँ\" चुनें।</string>
+    <string name="blocked_count">%1$d ब्लॉक</string>
+    <string name="unblock">अनुमति दें</string>
+    <string name="resume_on_headphones_title">हेडफ़ोन जुड़ने पर फिर चलाएँ</string>
+    <string name="resume_on_headphones_subtitle">हेडफ़ोन निकालने के 30 मिनट के अंदर वापस जोड़ने पर संगीत फिर चलने लगता है</string>
 </resources>

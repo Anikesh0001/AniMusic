@@ -237,6 +237,9 @@ object AppSettings {
     val automixPerformanceMode = MutableStateFlow(AutomixPerformanceMode.BALANCED)
     val skipSilence = MutableStateFlow(false)
 
+    /** Play again when headphones reconnect after unplugging them paused the music. */
+    val resumeOnHeadphones = MutableStateFlow(false)
+
     /** Requested PCM representation at the Android AudioTrack boundary. */
     val outputPcmMode = MutableStateFlow(OutputPcmMode.PCM_16)
 
@@ -818,6 +821,7 @@ object AppSettings {
             )
         }.getOrDefault(AutomixPerformanceMode.BALANCED)
         skipSilence.value = prefs.getBoolean(KEY_SKIP_SILENCE, false)
+        resumeOnHeadphones.value = prefs.getBoolean(KEY_RESUME_ON_HEADPHONES, false)
         outputPcmMode.value = runCatching {
             OutputPcmMode.valueOf(
                 prefs.getString(KEY_OUTPUT_PCM_MODE, OutputPcmMode.PCM_16.name)
@@ -1112,6 +1116,11 @@ object AppSettings {
     fun setAutomixPerformanceMode(value: AutomixPerformanceMode) {
         automixPerformanceMode.value = value
         prefs.edit().putString(KEY_AUTOMIX_PERFORMANCE_MODE, value.name).apply()
+    }
+
+    fun setResumeOnHeadphones(value: Boolean) {
+        resumeOnHeadphones.value = value
+        prefs.edit().putBoolean(KEY_RESUME_ON_HEADPHONES, value).apply()
     }
 
     fun setSkipSilence(value: Boolean) {
@@ -1979,6 +1988,7 @@ object AppSettings {
     private const val KEY_SMART_FADE = "smart_fade_enabled"
     private const val KEY_AUTOMIX_PERFORMANCE_MODE = "automix_performance_mode"
     private const val KEY_SKIP_SILENCE = "skip_silence"
+    private const val KEY_RESUME_ON_HEADPHONES = "resume_on_headphones"
     private const val KEY_OUTPUT_PCM_MODE = "output_pcm_mode"
     private const val KEY_PREFER_USB_DAC = "prefer_usb_dac"
     private const val KEY_LOUDNESS_NORMALIZATION = "loudness_normalization"

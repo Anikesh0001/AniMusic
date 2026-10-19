@@ -1399,4 +1399,40 @@
     <string name="smart_create">作成</string>
     <string name="smart_no_match">このルールに合う曲はまだありません。条件をゆるめてみてください。</string>
     <string name="smart_created">「%1$s」を作成しました。ライブラリにあります。</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">AniMusic アカウント</string>
+    <string name="account_subtitle_out">ログインしてデバイス間でプレイリストを同期</string>
+    <string name="account_subtitle_in">%1$s としてログイン中</string>
+    <string name="account_create">アカウントを作成</string>
+    <string name="account_email">メールアドレス</string>
+    <string name="account_name">名前（任意）</string>
+    <string name="account_switch_to_create">初めてですか？アカウントを作成</string>
+    <string name="account_switch_to_sign_in">アカウントをお持ちですか？ログイン</string>
+    <string name="account_explainer">AniMusic アカウントは、このデバイスのプレイリストをほかのスマートフォンやパソコンと同期し、一緒に聴くでの名前にもなります。Google ログインとは別のものです。メールは送信されません。同じメールアドレスとパスワードでいつでも再ログインできます。</string>
+    <string name="account_sync_now">今すぐ同期</string>
+    <string name="account_last_synced">最終同期：%1$s</string>
+    <string name="account_never_synced">まだ同期していません</string>
+    <string name="account_syncing">同期中…</string>
+    <string name="account_sync_failed">同期できませんでした。接続を確認してもう一度お試しください。</string>
+    <string name="account_delete">アカウントを削除</string>
+    <string name="account_delete_warning">アカウントとサーバーに保存されたプレイリストが削除されます。このデバイスのプレイリストは残ります。確認のためパスワードを入力してください。</string>
+    <string name="account_error_email_taken">このメールアドレスのアカウントは既にあります。ログインしてください。</string>
+    <string name="account_error_invalid_email">有効なメールアドレスを入力してください。</string>
+    <string name="account_error_password_short">パスワードは 6 文字以上にしてください。</string>
+    <string name="account_error_wrong">メールアドレスまたはパスワードが違います。</string>
+    <string name="account_error_too_many">試行回数が多すぎます。15 分待ってからもう一度お試しください。</string>
+    <string name="account_error_offline">接続がありません。オンラインになってから再度お試しください。</string>
+    <string name="account_error_server">問題が発生しました。後でもう一度お試しください。</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">この曲を再生しない</string>
+    <string name="block_artist">%1$s を再生しない</string>
+    <string name="unblock_song">この曲を再び許可</string>
+    <string name="unblock_artist">%1$s を再び許可</string>
+    <string name="block_note">自動再生、ラジオ、ミックスに入りません</string>
+    <string name="blocked_title">ブロックした曲とアーティスト</string>
+    <string name="blocked_empty">ブロックしたものはありません。曲のメニューの「この曲を再生しない」を使います。</string>
+    <string name="blocked_count">%1$d 件ブロック中</string>
+    <string name="unblock">許可</string>
+    <string name="resume_on_headphones_title">ヘッドホン接続時に再開</string>
+    <string name="resume_on_headphones_subtitle">ヘッドホンを外してから 30 分以内に再接続すると再生を再開します</string>
 </resources>

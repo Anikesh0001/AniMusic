@@ -1411,7 +1411,10 @@ object ListenTogether {
      * which Google account it stands for, and a party server that accumulated
      * real account identifiers would be holding something it has no use for.
      */
-    private fun identity(nickname: String = nickname()): Identity? {
+    private fun identity(nickname: String = nickname()): Identity? =
+        googleIdentity(nickname) ?: guestIdentity(nickname)
+
+    private fun googleIdentity(nickname: String): Identity? {
         val store = BitChordApplication.authStore
         if (!store.isSignedIn) return null
         val account = store.activeSession ?: return null
@@ -1425,9 +1428,39 @@ object ListenTogether {
         return Identity(
             userId = sha256("${account.accountId}:${profile?.profileId.orEmpty()}").take(32),
             deviceId = deviceId(),
-            name = name,
+            name = fitName(name),
             avatar = profile?.avatar?.takeIf { it.startsWith("http") },
         )
+    }
+
+    /**
+     * Jamming without a Google account, in builds that allow it
+     * ([BuildConfig.LISTEN_TOGETHER_GUEST]). The server never checks who
+     * anybody is, so all it needs is a stable id and a name: the AniMusic
+     * account's when signed in to one, otherwise this install's own.
+     */
+    private fun guestIdentity(nickname: String): Identity? {
+        if (!BuildConfig.LISTEN_TOGETHER_GUEST) return null
+        val account = com.music.bitchord.data.account.AniAccount.current.value
+        val device = deviceId()
+        val name = nickname.trim().takeIf { it.isNotBlank() }
+            ?: account?.name?.takeIf { it.isNotBlank() }
+            ?: "Guest-${device.filter { it.isLetterOrDigit() }.takeLast(4).uppercase()}"
+        return Identity(
+            userId = sha256(account?.let { "animusic:${it.id}" } ?: "guest:$device").take(32),
+            deviceId = device,
+            name = fitName(name),
+            avatar = null,
+        )
+    }
+
+    /** The server refuses a display name over 80 bytes; non-Latin names reach that well before 80 letters. */
+    private fun fitName(name: String): String {
+        var out = name.trim()
+        while (out.toByteArray(Charsets.UTF_8).size > 80) {
+            out = out.dropLast(if (out.length >= 2 && out.last().isLowSurrogate()) 2 else 1)
+        }
+        return out
     }
 
     // ------------------------------------------------------- recent kicks --

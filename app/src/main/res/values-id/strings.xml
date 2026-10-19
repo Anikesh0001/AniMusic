@@ -1398,4 +1398,40 @@
     <string name="smart_create">Buat</string>
     <string name="smart_no_match">Belum ada lagu yang cocok dengan aturan ini. Coba longgarkan aturannya.</string>
     <string name="smart_created">%1$s dibuat. Cari di Perpustakaanmu.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Akun AniMusic</string>
+    <string name="account_subtitle_out">Masuk untuk menyinkronkan playlist antarperangkat</string>
+    <string name="account_subtitle_in">Masuk sebagai %1$s</string>
+    <string name="account_create">Buat akun</string>
+    <string name="account_email">Email</string>
+    <string name="account_name">Nama (opsional)</string>
+    <string name="account_switch_to_create">Baru di sini? Buat akun</string>
+    <string name="account_switch_to_sign_in">Sudah punya akun? Masuk</string>
+    <string name="account_explainer">Akun AniMusic menjaga playlist di perangkat ini tetap sinkron dengan ponsel dan komputer Anda yang lain, serta memberi Anda nama di Dengarkan Bersama. Akun ini terpisah dari masuk dengan Google. Tidak ada email yang dikirim: masuk lagi kapan saja dengan email dan kata sandi yang sama.</string>
+    <string name="account_sync_now">Sinkronkan sekarang</string>
+    <string name="account_last_synced">Terakhir disinkronkan %1$s</string>
+    <string name="account_never_synced">Belum disinkronkan</string>
+    <string name="account_syncing">Menyinkronkan…</string>
+    <string name="account_sync_failed">Gagal menyinkronkan. Periksa koneksi dan coba lagi.</string>
+    <string name="account_delete">Hapus akun</string>
+    <string name="account_delete_warning">Ini menghapus akun Anda dan playlist yang disimpan di server. Playlist di perangkat ini tetap ada. Masukkan kata sandi untuk mengonfirmasi.</string>
+    <string name="account_error_email_taken">Sudah ada akun dengan email ini. Masuk saja.</string>
+    <string name="account_error_invalid_email">Masukkan alamat email yang valid.</string>
+    <string name="account_error_password_short">Gunakan minimal 6 karakter untuk kata sandi.</string>
+    <string name="account_error_wrong">Email atau kata sandi salah.</string>
+    <string name="account_error_too_many">Terlalu banyak percobaan. Tunggu 15 menit lalu coba lagi.</string>
+    <string name="account_error_offline">Tidak ada koneksi. Coba lagi saat online.</string>
+    <string name="account_error_server">Terjadi kesalahan. Coba lagi nanti.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Jangan putar lagu ini</string>
+    <string name="block_artist">Jangan putar %1$s</string>
+    <string name="unblock_song">Izinkan lagu ini lagi</string>
+    <string name="unblock_artist">Izinkan %1$s lagi</string>
+    <string name="block_note">Tidak masuk putar otomatis, radio, dan mix</string>
+    <string name="blocked_title">Lagu dan artis yang diblokir</string>
+    <string name="blocked_empty">Tidak ada yang diblokir. Gunakan \"Jangan putar lagu ini\" di menu lagu.</string>
+    <string name="blocked_count">%1$d diblokir</string>
+    <string name="unblock">Izinkan</string>
+    <string name="resume_on_headphones_title">Lanjutkan saat headphone tersambung</string>
+    <string name="resume_on_headphones_subtitle">Diputar lagi jika headphone tersambung kembali dalam 30 menit setelah dilepas</string>
 </resources>

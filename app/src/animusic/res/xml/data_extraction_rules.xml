@@ -12,6 +12,10 @@
         <exclude domain="sharedpref" path="bitchord_sources_plain.xml" />
         <!-- AniMusic: the usage count's random install id stays on this phone (UsagePing). -->
         <exclude domain="sharedpref" path="animusic_usage.xml" />
+        <!-- AniMusic account: encrypted session token, like bitchord_auth. -->
+        <exclude domain="sharedpref" path="animusic_account.xml" />
+        <exclude domain="sharedpref" path="animusic_account_plain.xml" />
+        <exclude domain="file" path="account_sync_base.json" />
     </cloud-backup>
     <device-transfer>
         <exclude domain="sharedpref" path="bitchord_auth.xml" />
@@ -20,5 +24,9 @@
         <exclude domain="sharedpref" path="bitchord_sources_plain.xml" />
         <!-- AniMusic: the usage count's random install id stays on this phone (UsagePing). -->
         <exclude domain="sharedpref" path="animusic_usage.xml" />
+        <!-- AniMusic account: encrypted session token, like bitchord_auth. -->
+        <exclude domain="sharedpref" path="animusic_account.xml" />
+        <exclude domain="sharedpref" path="animusic_account_plain.xml" />
+        <exclude domain="file" path="account_sync_base.json" />
     </device-transfer>
 </data-extraction-rules>

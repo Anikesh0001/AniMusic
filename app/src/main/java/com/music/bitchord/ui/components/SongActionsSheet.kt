@@ -43,6 +43,7 @@ import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Radio
 import androidx.compose.material.icons.rounded.PlaylistRemove
 import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material.icons.rounded.Block
 import androidx.compose.material.icons.rounded.ThumbDown
 import androidx.compose.material.icons.rounded.ThumbDownOffAlt
 import androidx.compose.material.icons.rounded.Tune
@@ -292,6 +293,16 @@ fun SongActionsSheet(
                 )
             }
             GroupSeparator(palette)
+        } else if (com.music.bitchord.BuildConfig.GUEST_LIKES && !isOffline) {
+            // Signed out, liking keeps the song on the device (LocalLikes).
+            ActionRow(
+                icon = if (liked) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder,
+                label = if (liked) stringResource(R.string.remove_from_liked) else stringResource(R.string.like),
+                tint = if (liked) palette.accent else null,
+                accent = palette.accent,
+                onClick = onToggleLike,
+            )
+            GroupSeparator(palette)
         }
 
         DownloadRow(song, palette, isOffline, onDownload)
@@ -359,6 +370,9 @@ fun SongActionsSheet(
                 ActionRow(Icons.Rounded.Share, stringResource(R.string.share), accent = palette.accent, onClick = it)
             }
         }
+        if (com.music.bitchord.BuildConfig.BLOCKLIST && !isOffline) {
+            BlockRows(song, palette)
+        }
         // Last, and only from the player: it is about the track playing right
         // now rather than about the song as a thing in a library, and it is
         // the one row here nobody reaches for by accident.
@@ -384,6 +398,48 @@ fun SongActionsSheet(
         HorizontalDivider(thickness = 0.5.dp, color = palette.divider)
         rows()
         Spacer(Modifier.height(24.dp))
+    }
+}
+
+/**
+ * "Don't play this song" and "Don't play <artist>": kept out of autoplay,
+ * radio and mixes ([com.music.bitchord.data.Blocklist]). Each flips to its
+ * undo once set, so a mistaken tap is one more tap away from fixed.
+ */
+@Composable
+private fun BlockRows(song: Song, palette: ArtworkPalette) {
+    val context = androidx.compose.ui.platform.LocalContext.current
+    val entries by com.music.bitchord.data.Blocklist.entries.collectAsStateWithLifecycle()
+    val note = stringResource(R.string.block_note)
+    val songBlocked = song.videoId in entries.songs
+    ActionRow(
+        icon = Icons.Rounded.Block,
+        label = stringResource(if (songBlocked) R.string.unblock_song else R.string.block_song),
+        tint = if (songBlocked) palette.accent else null,
+        accent = palette.accent,
+    ) {
+        if (songBlocked) {
+            com.music.bitchord.data.Blocklist.unblockSong(song.videoId)
+        } else {
+            com.music.bitchord.data.Blocklist.blockSong(song)
+            android.widget.Toast.makeText(context, note, android.widget.Toast.LENGTH_SHORT).show()
+        }
+    }
+    val artist = com.music.bitchord.data.Blocklist.leadArtist(song.artist) ?: return
+    val artistKey = artist.trim().lowercase()
+    val artistBlocked = artistKey in entries.artists
+    ActionRow(
+        icon = Icons.Rounded.Block,
+        label = stringResource(if (artistBlocked) R.string.unblock_artist else R.string.block_artist, artist),
+        tint = if (artistBlocked) palette.accent else null,
+        accent = palette.accent,
+    ) {
+        if (artistBlocked) {
+            com.music.bitchord.data.Blocklist.unblockArtist(artistKey)
+        } else {
+            com.music.bitchord.data.Blocklist.blockArtist(artist)
+            android.widget.Toast.makeText(context, note, android.widget.Toast.LENGTH_SHORT).show()
+        }
     }
 }
 

@@ -51,6 +51,7 @@ object QueueBuilder {
         for (candidate in ordered) {
             if (out.size >= limit) break
             if (taken.any { isSameRecording(it, candidate) }) continue
+            if (com.music.bitchord.data.Blocklist.blocks(candidate)) continue
 
             val artists = artistSet(candidate.artist)
             val key = artists.minOrNull()

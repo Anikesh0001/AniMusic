@@ -1404,4 +1404,40 @@
     <string name="smart_create">สร้าง</string>
     <string name="smart_no_match">ยังไม่มีเพลงที่ตรงกับกฎเหล่านี้ ลองผ่อนกฎดู</string>
     <string name="smart_created">สร้าง %1$s แล้ว อยู่ในคลังของคุณ</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">บัญชี AniMusic</string>
+    <string name="account_subtitle_out">ลงชื่อเข้าใช้เพื่อซิงค์เพลย์ลิสต์ระหว่างอุปกรณ์</string>
+    <string name="account_subtitle_in">ลงชื่อเข้าใช้ในชื่อ %1$s</string>
+    <string name="account_create">สร้างบัญชี</string>
+    <string name="account_email">อีเมล</string>
+    <string name="account_name">ชื่อ (ไม่บังคับ)</string>
+    <string name="account_switch_to_create">เพิ่งเคยใช้? สร้างบัญชี</string>
+    <string name="account_switch_to_sign_in">มีบัญชีอยู่แล้ว? ลงชื่อเข้าใช้</string>
+    <string name="account_explainer">บัญชี AniMusic จะซิงค์เพลย์ลิสต์ในอุปกรณ์นี้กับโทรศัพท์และคอมพิวเตอร์เครื่องอื่นของคุณ และให้ชื่อคุณในฟังด้วยกัน บัญชีนี้แยกจากการลงชื่อเข้าใช้ Google ไม่มีการส่งอีเมล: ลงชื่อเข้าใช้อีกครั้งได้ทุกเมื่อด้วยอีเมลและรหัสผ่านเดิม</string>
+    <string name="account_sync_now">ซิงค์เลย</string>
+    <string name="account_last_synced">ซิงค์ล่าสุด %1$s</string>
+    <string name="account_never_synced">ยังไม่ได้ซิงค์</string>
+    <string name="account_syncing">กำลังซิงค์…</string>
+    <string name="account_sync_failed">ซิงค์ไม่สำเร็จ ตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง</string>
+    <string name="account_delete">ลบบัญชี</string>
+    <string name="account_delete_warning">การดำเนินการนี้จะลบบัญชีและเพลย์ลิสต์ที่เก็บไว้บนเซิร์ฟเวอร์ เพลย์ลิสต์ในอุปกรณ์นี้ยังคงอยู่ ใส่รหัสผ่านเพื่อยืนยัน</string>
+    <string name="account_error_email_taken">มีบัญชีที่ใช้อีเมลนี้อยู่แล้ว ลงชื่อเข้าใช้แทน</string>
+    <string name="account_error_invalid_email">ใส่อีเมลที่ถูกต้อง</string>
+    <string name="account_error_password_short">รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร</string>
+    <string name="account_error_wrong">อีเมลหรือรหัสผ่านไม่ถูกต้อง</string>
+    <string name="account_error_too_many">ลองหลายครั้งเกินไป รอ 15 นาทีแล้วลองอีกครั้ง</string>
+    <string name="account_error_offline">ไม่มีการเชื่อมต่อ ลองอีกครั้งเมื่อออนไลน์</string>
+    <string name="account_error_server">เกิดข้อผิดพลาด ลองอีกครั้งภายหลัง</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">ไม่ต้องเล่นเพลงนี้</string>
+    <string name="block_artist">ไม่ต้องเล่น %1$s</string>
+    <string name="unblock_song">อนุญาตเพลงนี้อีกครั้ง</string>
+    <string name="unblock_artist">อนุญาต %1$s อีกครั้ง</string>
+    <string name="block_note">จะไม่อยู่ในเล่นอัตโนมัติ วิทยุ และมิกซ์</string>
+    <string name="blocked_title">เพลงและศิลปินที่บล็อก</string>
+    <string name="blocked_empty">ยังไม่มีการบล็อก ใช้ \"ไม่ต้องเล่นเพลงนี้\" ในเมนูของเพลง</string>
+    <string name="blocked_count">บล็อก %1$d รายการ</string>
+    <string name="unblock">อนุญาต</string>
+    <string name="resume_on_headphones_title">เล่นต่อเมื่อเชื่อมต่อหูฟัง</string>
+    <string name="resume_on_headphones_subtitle">เล่นต่อเมื่อเชื่อมต่อหูฟังอีกครั้งภายใน 30 นาทีหลังถอดออก</string>
 </resources>

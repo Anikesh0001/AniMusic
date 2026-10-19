@@ -64,7 +64,9 @@ object DailyMixes {
                 last = now - 7 * 86_400_000L,
             )
         }
-        return known to borrowed
+        // Blocked songs and artists never come back through a mix.
+        val blocked = { e: TasteEntry -> com.music.bitchord.data.Blocklist.blocks(e.id, e.artist) }
+        return known.filterNot(blocked) to borrowed.filterNot(blocked)
     }
 
     /** Recomputes the mixes. Cheap enough to call whenever Home is shown. */

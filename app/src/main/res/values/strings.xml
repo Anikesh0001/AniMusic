@@ -1258,4 +1258,40 @@
     <string name="smart_create">Create</string>
     <string name="smart_no_match">No songs match these rules yet. Try loosening them.</string>
     <string name="smart_created">Made %1$s. Find it in your Library.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">AniMusic account</string>
+    <string name="account_subtitle_out">Sign in to sync your playlists between devices</string>
+    <string name="account_subtitle_in">Signed in as %1$s</string>
+    <string name="account_create">Create account</string>
+    <string name="account_email">Email</string>
+    <string name="account_name">Name (optional)</string>
+    <string name="account_switch_to_create">New here? Create an account</string>
+    <string name="account_switch_to_sign_in">Already have an account? Sign in</string>
+    <string name="account_explainer">Your AniMusic account keeps the playlists on this device in step with your other phones and computers, and gives you a name in Listen Together. It is separate from Google sign-in. No email is sent: sign in again any time with the same email and password.</string>
+    <string name="account_sync_now">Sync now</string>
+    <string name="account_last_synced">Last synced %1$s</string>
+    <string name="account_never_synced">Not synced yet</string>
+    <string name="account_syncing">Syncing…</string>
+    <string name="account_sync_failed">Couldn\'t sync. Check your connection and try again.</string>
+    <string name="account_delete">Delete account</string>
+    <string name="account_delete_warning">This deletes your account and the playlists kept on the server. Playlists on this device stay. Enter your password to confirm.</string>
+    <string name="account_error_email_taken">An account with this email already exists. Sign in instead.</string>
+    <string name="account_error_invalid_email">Enter a valid email address.</string>
+    <string name="account_error_password_short">Use at least 6 characters for the password.</string>
+    <string name="account_error_wrong">Wrong email or password.</string>
+    <string name="account_error_too_many">Too many tries. Wait 15 minutes and try again.</string>
+    <string name="account_error_offline">No connection. Try again when you\'re online.</string>
+    <string name="account_error_server">Something went wrong. Try again later.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Don\'t play this song</string>
+    <string name="block_artist">Don\'t play %1$s</string>
+    <string name="unblock_song">Allow this song again</string>
+    <string name="unblock_artist">Allow %1$s again</string>
+    <string name="block_note">Kept out of autoplay, radio and mixes</string>
+    <string name="blocked_title">Blocked songs and artists</string>
+    <string name="blocked_empty">Nothing is blocked. Use \"Don\'t play this song\" in a song\'s menu.</string>
+    <string name="blocked_count">%1$d blocked</string>
+    <string name="unblock">Allow</string>
+    <string name="resume_on_headphones_title">Resume when headphones connect</string>
+    <string name="resume_on_headphones_subtitle">Plays again when headphones come back within 30 minutes of unplugging them</string>
 </resources>

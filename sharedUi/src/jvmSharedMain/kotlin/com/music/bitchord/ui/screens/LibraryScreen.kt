@@ -176,6 +176,22 @@ fun LibraryScreen(
                 }
                 return@LazyColumn
             }
+            // New playlist and Import must not hang on the account's library:
+            // while it loads, or when it fails (an empty or brand-new account
+            // reads as an error), the row is still drawn with just those tiles.
+            if (state !is UiState.Success) {
+                item(key = "shelf:$PLAYLISTS") {
+                    val emptyPlaylists = HomeShelf(PLAYLISTS, emptyList())
+                    PlaylistShelf(
+                        shelf = emptyPlaylists,
+                        onItemClick = onShelfItemClick,
+                        onItemLongPress = onShelfItemLongPress,
+                        onNewPlaylist = onNewPlaylist,
+                        onImportSpotifyPlaylist = onImportSpotifyPlaylist,
+                        onShowAll = { onShowAll(emptyPlaylists) },
+                    )
+                }
+            }
             when (state) {
                 is UiState.Loading -> librarySkeleton()
                 is UiState.Error -> item {

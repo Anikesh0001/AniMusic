@@ -1426,4 +1426,40 @@
     <string name="smart_create">יצירה</string>
     <string name="smart_no_match">אין עדיין שירים שמתאימים לכללים האלה. נסו להרפות אותם.</string>
     <string name="smart_created">%1$s נוצר. תמצאו אותו בספרייה שלכם.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">חשבון AniMusic</string>
+    <string name="account_subtitle_out">התחברו כדי לסנכרן את הפלייליסטים בין מכשירים</string>
+    <string name="account_subtitle_in">מחובר/ת בתור %1$s</string>
+    <string name="account_create">יצירת חשבון</string>
+    <string name="account_email">אימייל</string>
+    <string name="account_name">שם (לא חובה)</string>
+    <string name="account_switch_to_create">חדשים כאן? צרו חשבון</string>
+    <string name="account_switch_to_sign_in">כבר יש לכם חשבון? התחברו</string>
+    <string name="account_explainer">חשבון AniMusic שומר את הפלייליסטים במכשיר הזה מסונכרנים עם הטלפונים והמחשבים האחרים שלכם, ונותן לכם שם בהאזנה משותפת. הוא נפרד מהתחברות Google. לא נשלח אימייל: אפשר להתחבר שוב בכל עת עם אותו אימייל וסיסמה.</string>
+    <string name="account_sync_now">סנכרון עכשיו</string>
+    <string name="account_last_synced">סונכרן לאחרונה %1$s</string>
+    <string name="account_never_synced">עדיין לא סונכרן</string>
+    <string name="account_syncing">מסנכרן…</string>
+    <string name="account_sync_failed">הסנכרון נכשל. בדקו את החיבור ונסו שוב.</string>
+    <string name="account_delete">מחיקת חשבון</string>
+    <string name="account_delete_warning">הפעולה מוחקת את החשבון ואת הפלייליסטים שנשמרו בשרת. הפלייליסטים במכשיר הזה נשארים. הזינו את הסיסמה לאישור.</string>
+    <string name="account_error_email_taken">כבר קיים חשבון עם האימייל הזה. התחברו במקום זאת.</string>
+    <string name="account_error_invalid_email">הזינו כתובת אימייל תקינה.</string>
+    <string name="account_error_password_short">הסיסמה צריכה להכיל לפחות 6 תווים.</string>
+    <string name="account_error_wrong">אימייל או סיסמה שגויים.</string>
+    <string name="account_error_too_many">יותר מדי ניסיונות. המתינו 15 דקות ונסו שוב.</string>
+    <string name="account_error_offline">אין חיבור. נסו שוב כשתהיו מחוברים.</string>
+    <string name="account_error_server">משהו השתבש. נסו שוב מאוחר יותר.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">לא לנגן את השיר הזה</string>
+    <string name="block_artist">לא לנגן את %1$s</string>
+    <string name="unblock_song">לאפשר שוב את השיר</string>
+    <string name="unblock_artist">לאפשר שוב את %1$s</string>
+    <string name="block_note">לא יופיע בהשמעה אוטומטית, ברדיו ובמיקסים</string>
+    <string name="blocked_title">שירים ואמנים חסומים</string>
+    <string name="blocked_empty">אין חסימות. השתמשו ב„לא לנגן את השיר הזה” בתפריט של שיר.</string>
+    <string name="blocked_count">%1$d חסומים</string>
+    <string name="unblock">לאפשר</string>
+    <string name="resume_on_headphones_title">להמשיך כשאוזניות מתחברות</string>
+    <string name="resume_on_headphones_subtitle">הנגינה ממשיכה אם האוזניות מתחברות שוב תוך 30 דקות מהניתוק</string>
 </resources>

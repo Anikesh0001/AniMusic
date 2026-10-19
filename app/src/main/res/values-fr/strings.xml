@@ -1422,4 +1422,40 @@
     <string name="smart_create">Créer</string>
     <string name="smart_no_match">Aucun titre ne correspond encore à ces règles. Essayez de les assouplir.</string>
     <string name="smart_created">%1$s créée. Retrouvez-la dans votre bibliothèque.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Compte AniMusic</string>
+    <string name="account_subtitle_out">Connectez-vous pour synchroniser vos playlists entre appareils</string>
+    <string name="account_subtitle_in">Connecté en tant que %1$s</string>
+    <string name="account_create">Créer un compte</string>
+    <string name="account_email">E-mail</string>
+    <string name="account_name">Nom (facultatif)</string>
+    <string name="account_switch_to_create">Nouveau ? Créez un compte</string>
+    <string name="account_switch_to_sign_in">Déjà un compte ? Connectez-vous</string>
+    <string name="account_explainer">Votre compte AniMusic synchronise les playlists de cet appareil avec vos autres téléphones et ordinateurs, et vous donne un nom dans Écouter ensemble. Il est distinct de la connexion Google. Aucun e-mail n’est envoyé : reconnectez-vous quand vous voulez avec le même e-mail et le même mot de passe.</string>
+    <string name="account_sync_now">Synchroniser maintenant</string>
+    <string name="account_last_synced">Dernière synchronisation : %1$s</string>
+    <string name="account_never_synced">Pas encore synchronisé</string>
+    <string name="account_syncing">Synchronisation…</string>
+    <string name="account_sync_failed">Échec de la synchronisation. Vérifiez votre connexion et réessayez.</string>
+    <string name="account_delete">Supprimer le compte</string>
+    <string name="account_delete_warning">Cela supprime votre compte et les playlists conservées sur le serveur. Les playlists de cet appareil restent. Saisissez votre mot de passe pour confirmer.</string>
+    <string name="account_error_email_taken">Un compte existe déjà avec cet e-mail. Connectez-vous plutôt.</string>
+    <string name="account_error_invalid_email">Saisissez une adresse e-mail valide.</string>
+    <string name="account_error_password_short">Utilisez au moins 6 caractères pour le mot de passe.</string>
+    <string name="account_error_wrong">E-mail ou mot de passe incorrect.</string>
+    <string name="account_error_too_many">Trop de tentatives. Attendez 15 minutes et réessayez.</string>
+    <string name="account_error_offline">Pas de connexion. Réessayez une fois en ligne.</string>
+    <string name="account_error_server">Une erreur s’est produite. Réessayez plus tard.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Ne pas lire ce titre</string>
+    <string name="block_artist">Ne pas lire %1$s</string>
+    <string name="unblock_song">Autoriser à nouveau ce titre</string>
+    <string name="unblock_artist">Autoriser à nouveau %1$s</string>
+    <string name="block_note">Exclu de la lecture automatique, de la radio et des mix</string>
+    <string name="blocked_title">Titres et artistes bloqués</string>
+    <string name="blocked_empty">Rien n’est bloqué. Utilisez « Ne pas lire ce titre » dans le menu d’un titre.</string>
+    <string name="blocked_count">%1$d bloqué(s)</string>
+    <string name="unblock">Autoriser</string>
+    <string name="resume_on_headphones_title">Reprendre à la connexion du casque</string>
+    <string name="resume_on_headphones_subtitle">Reprend la lecture si le casque est reconnecté dans les 30 minutes suivant sa déconnexion</string>
 </resources>

@@ -611,11 +611,24 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
      */
     /** Every rating known for this account: the library's, then this session's. */
     val likeStatuses: StateFlow<Map<String, LikeStatus>> =
-        combine(_library, LikeState.overrides) { library, overrides ->
+        combine(
+            _library,
+            LikeState.overrides,
+            com.music.bitchord.data.spotify.LocalPlaylistStore.playlists,
+            _signedIn,
+        ) { library, overrides, localPlaylists, signedIn ->
             val liked = (library as? UiState.Success)?.data?.likedSongs
                 ?.associate { it.videoId to LikeStatus.LIKE }
                 .orEmpty()
-            liked + overrides
+            // Signed out, the hearts come from the device's own liked songs.
+            val local = if (signedIn || !com.music.bitchord.BuildConfig.GUEST_LIKES) {
+                emptyMap()
+            } else {
+                localPlaylists.firstOrNull { it.id == com.music.bitchord.data.spotify.LocalLikes.ID }
+                    ?.songs?.associate { it.videoId to LikeStatus.LIKE }
+                    .orEmpty()
+            }
+            liked + local + overrides
         }.stateIn(viewModelScope, SharingStarted.Eagerly, emptyMap())
 
     fun likeStatusOf(videoId: String): LikeStatus =
@@ -629,7 +642,17 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
      * on a round trip before the heart fills reads as the tap not having
      * registered, and people tap again.
      */
-    fun setLike(videoId: String, status: LikeStatus) {
+    fun setLike(videoId: String, status: LikeStatus, song: Song? = null) {
+        if (com.music.bitchord.BuildConfig.GUEST_LIKES && !_signedIn.value && status != LikeStatus.DISLIKE) {
+            // Signed out, the heart still works: it keeps the song on the device.
+            val local = song ?: com.music.bitchord.data.spotify.LocalPlaylistStore
+                .getPlaylist(com.music.bitchord.data.spotify.LocalLikes.ID)
+                ?.songs?.firstOrNull { it.videoId == videoId }
+            if (local != null) {
+                com.music.bitchord.data.spotify.LocalLikes.set(local, status == LikeStatus.LIKE, text(R.string.auto_liked))
+            }
+            return
+        }
         if (!requireSignIn()) return
         val previous = likeStatusOf(videoId)
         if (previous == status) return
@@ -710,9 +733,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     /** The heart: liked becomes neutral, anything else becomes liked. */
-    fun toggleLike(videoId: String) = setLike(
+    fun toggleLike(videoId: String, song: Song? = null) = setLike(
         videoId,
         if (likeStatusOf(videoId) == LikeStatus.LIKE) LikeStatus.INDIFFERENT else LikeStatus.LIKE,
+        song,
     )
 
     /** As [toggleLike], for the thumb-down. */
@@ -1047,10 +1071,17 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                     videoIds = initialBatch,
                 ).fold(
                     onSuccess = { playlistId ->
-                        if (videoIds.size > 50) {
-                            videoIds.drop(50).chunked(50).forEach { chunk ->
-                                YtMusicRepository.addToPlaylist(playlistId, chunk)
-                            }
+                        // Past the first 50, songs go in batches. A batch that
+                        // fails twice would leave the playlist silently short,
+                        // so the whole import is kept on the device instead.
+                        val allAdded = videoIds.drop(50).chunked(50).all { chunk ->
+                            YtMusicRepository.addToPlaylist(playlistId, chunk).isSuccess ||
+                                YtMusicRepository.addToPlaylist(playlistId, chunk).isSuccess
+                        }
+                        if (!allAdded && songs.isNotEmpty()) {
+                            val local = com.music.bitchord.data.spotify.LocalPlaylistStore.savePlaylist(name, songs)
+                            onResult?.invoke(local.browseId, local.title, true)
+                            return@fold
                         }
                         setPlaylistOwned("VL$playlistId", true)
                         libraryStale = true

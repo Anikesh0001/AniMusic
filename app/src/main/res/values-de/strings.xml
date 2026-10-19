@@ -1421,4 +1421,40 @@
     <string name="smart_create">Erstellen</string>
     <string name="smart_no_match">Noch keine Songs passen zu diesen Regeln. Lockere sie etwas.</string>
     <string name="smart_created">%1$s erstellt. Du findest sie in deiner Bibliothek.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">AniMusic-Konto</string>
+    <string name="account_subtitle_out">Melde dich an, um deine Playlists zwischen Geräten zu synchronisieren</string>
+    <string name="account_subtitle_in">Angemeldet als %1$s</string>
+    <string name="account_create">Konto erstellen</string>
+    <string name="account_email">E-Mail</string>
+    <string name="account_name">Name (optional)</string>
+    <string name="account_switch_to_create">Neu hier? Konto erstellen</string>
+    <string name="account_switch_to_sign_in">Schon ein Konto? Anmelden</string>
+    <string name="account_explainer">Dein AniMusic-Konto hält die Playlists auf diesem Gerät mit deinen anderen Handys und Computern synchron und gibt dir einen Namen bei „Gemeinsam hören“. Es ist unabhängig von der Google-Anmeldung. Es wird keine E-Mail gesendet: Melde dich jederzeit mit derselben E-Mail und demselben Passwort wieder an.</string>
+    <string name="account_sync_now">Jetzt synchronisieren</string>
+    <string name="account_last_synced">Zuletzt synchronisiert %1$s</string>
+    <string name="account_never_synced">Noch nicht synchronisiert</string>
+    <string name="account_syncing">Wird synchronisiert …</string>
+    <string name="account_sync_failed">Synchronisierung fehlgeschlagen. Prüfe deine Verbindung und versuche es erneut.</string>
+    <string name="account_delete">Konto löschen</string>
+    <string name="account_delete_warning">Dadurch werden dein Konto und die auf dem Server gespeicherten Playlists gelöscht. Playlists auf diesem Gerät bleiben erhalten. Gib zur Bestätigung dein Passwort ein.</string>
+    <string name="account_error_email_taken">Mit dieser E-Mail gibt es bereits ein Konto. Melde dich stattdessen an.</string>
+    <string name="account_error_invalid_email">Gib eine gültige E-Mail-Adresse ein.</string>
+    <string name="account_error_password_short">Verwende mindestens 6 Zeichen für das Passwort.</string>
+    <string name="account_error_wrong">Falsche E-Mail oder falsches Passwort.</string>
+    <string name="account_error_too_many">Zu viele Versuche. Warte 15 Minuten und versuche es erneut.</string>
+    <string name="account_error_offline">Keine Verbindung. Versuche es erneut, wenn du online bist.</string>
+    <string name="account_error_server">Etwas ist schiefgelaufen. Versuche es später erneut.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Diesen Song nicht abspielen</string>
+    <string name="block_artist">%1$s nicht abspielen</string>
+    <string name="unblock_song">Diesen Song wieder erlauben</string>
+    <string name="unblock_artist">%1$s wieder erlauben</string>
+    <string name="block_note">Wird aus Autoplay, Radio und Mixen herausgehalten</string>
+    <string name="blocked_title">Blockierte Songs und Künstler</string>
+    <string name="blocked_empty">Nichts blockiert. Nutze „Diesen Song nicht abspielen“ im Menü eines Songs.</string>
+    <string name="blocked_count">%1$d blockiert</string>
+    <string name="unblock">Erlauben</string>
+    <string name="resume_on_headphones_title">Fortsetzen, wenn Kopfhörer verbunden werden</string>
+    <string name="resume_on_headphones_subtitle">Spielt weiter, wenn Kopfhörer innerhalb von 30 Minuten nach dem Trennen wieder verbunden werden</string>
 </resources>

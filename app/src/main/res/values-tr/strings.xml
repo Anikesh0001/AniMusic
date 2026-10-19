@@ -1378,4 +1378,40 @@
     <string name="smart_create">Oluştur</string>
     <string name="smart_no_match">Henüz bu kurallara uyan şarkı yok. Kuralları gevşetmeyi deneyin.</string>
     <string name="smart_created">%1$s oluşturuldu. Kitaplığınızda.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">AniMusic hesabı</string>
+    <string name="account_subtitle_out">Çalma listelerini cihazlar arasında eşitlemek için giriş yap</string>
+    <string name="account_subtitle_in">%1$s olarak giriş yapıldı</string>
+    <string name="account_create">Hesap oluştur</string>
+    <string name="account_email">E-posta</string>
+    <string name="account_name">Ad (isteğe bağlı)</string>
+    <string name="account_switch_to_create">Yeni misin? Hesap oluştur</string>
+    <string name="account_switch_to_sign_in">Hesabın var mı? Giriş yap</string>
+    <string name="account_explainer">AniMusic hesabın, bu cihazdaki çalma listelerini diğer telefon ve bilgisayarlarınla eşit tutar ve Birlikte Dinle\'de sana bir ad verir. Google girişinden ayrıdır. E-posta gönderilmez: aynı e-posta ve şifreyle istediğin zaman yeniden giriş yap.</string>
+    <string name="account_sync_now">Şimdi eşitle</string>
+    <string name="account_last_synced">Son eşitleme: %1$s</string>
+    <string name="account_never_synced">Henüz eşitlenmedi</string>
+    <string name="account_syncing">Eşitleniyor…</string>
+    <string name="account_sync_failed">Eşitlenemedi. Bağlantını kontrol edip tekrar dene.</string>
+    <string name="account_delete">Hesabı sil</string>
+    <string name="account_delete_warning">Bu işlem hesabını ve sunucudaki çalma listelerini siler. Bu cihazdaki çalma listeleri kalır. Onaylamak için şifreni gir.</string>
+    <string name="account_error_email_taken">Bu e-postayla bir hesap zaten var. Bunun yerine giriş yap.</string>
+    <string name="account_error_invalid_email">Geçerli bir e-posta adresi gir.</string>
+    <string name="account_error_password_short">Şifre en az 6 karakter olmalı.</string>
+    <string name="account_error_wrong">E-posta veya şifre yanlış.</string>
+    <string name="account_error_too_many">Çok fazla deneme. 15 dakika bekleyip tekrar dene.</string>
+    <string name="account_error_offline">Bağlantı yok. Çevrimiçi olunca tekrar dene.</string>
+    <string name="account_error_server">Bir şeyler ters gitti. Daha sonra tekrar dene.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Bu şarkıyı çalma</string>
+    <string name="block_artist">%1$s çalma</string>
+    <string name="unblock_song">Bu şarkıya yeniden izin ver</string>
+    <string name="unblock_artist">%1$s için yeniden izin ver</string>
+    <string name="block_note">Otomatik oynatma, radyo ve mikslerden çıkarıldı</string>
+    <string name="blocked_title">Engellenen şarkılar ve sanatçılar</string>
+    <string name="blocked_empty">Engellenen bir şey yok. Bir şarkının menüsünde \"Bu şarkıyı çalma\"yı kullan.</string>
+    <string name="blocked_count">%1$d engelli</string>
+    <string name="unblock">İzin ver</string>
+    <string name="resume_on_headphones_title">Kulaklık bağlanınca devam et</string>
+    <string name="resume_on_headphones_subtitle">Kulaklık çıkarıldıktan sonraki 30 dakika içinde yeniden bağlanırsa çalmaya devam eder</string>
 </resources>

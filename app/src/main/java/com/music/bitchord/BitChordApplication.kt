@@ -109,6 +109,13 @@ class BitChordApplication : Application(), SingletonImageLoader.Factory {
         // Anonymous daily usage count: off unless the build has an endpoint.
         // Background, five-second cap, errors ignored. See UsagePing.
         com.music.bitchord.data.stats.UsagePing.start(this)
+        // AniMusic account (email + password): off unless the build has a server.
+        // After AppSettings, which opens the local playlists the sync carries.
+        // Signed out, the notification's heart reads the device's own likes.
+        if (BuildConfig.GUEST_LIKES && !authStore.isSignedIn) com.music.bitchord.data.spotify.LocalLikes.seed()
+        com.music.bitchord.data.settings.BlocklistStore.init(this)
+        com.music.bitchord.data.account.AniAccount.init(this)
+        com.music.bitchord.data.account.AccountSync.start(this)
         // Before anything resolves a track: an addon with `checkValidLossless`
         // is gated on this, and the gate reads "no" until it has looked.
         com.music.bitchord.playback.audio.LosslessOutput.init(this)

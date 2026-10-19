@@ -528,6 +528,7 @@ class PlaybackService : MediaLibraryService() {
             // would be a picker that had quietly broken the obvious behaviour.
             AudioRouting.forget()
             requestOutputReconfiguration()
+            maybeResumeOnHeadphones(addedDevices)
         }
         override fun onAudioDevicesRemoved(removedDevices: Array<AudioDeviceInfo>) {
             // A chosen output that has been unplugged is no longer a choice.
@@ -538,6 +539,29 @@ class PlaybackService : MediaLibraryService() {
                 AudioRouting.forget()
             }
             requestOutputReconfiguration()
+        }
+    }
+
+    /** When unplugging headphones last paused playback ([SystemClock.elapsedRealtime]), 0 if not since. */
+    private var pausedByUnplugAt = 0L
+
+    /**
+     * "Resume when headphones connect": plays again when headphones come back
+     * within [HEADPHONE_RESUME_WINDOW_MS] of unplugging having paused the
+     * music. Only that pause: music the listener stopped themselves stays
+     * stopped, whatever gets plugged in.
+     */
+    private fun maybeResumeOnHeadphones(added: Array<AudioDeviceInfo>) {
+        if (!com.music.bitchord.BuildConfig.HEADPHONE_RESUME || !AppSettings.resumeOnHeadphones.value) return
+        val pausedAt = pausedByUnplugAt
+        if (pausedAt == 0L || SystemClock.elapsedRealtime() - pausedAt > HEADPHONE_RESUME_WINDOW_MS) return
+        val headphones = added.any { it.isSink && it.type in HEADPHONE_TYPES }
+        if (!headphones) return
+        pausedByUnplugAt = 0L
+        // A moment for the route to settle, so the first notes don't come out of the speaker.
+        scope.launch {
+            delay(800)
+            player?.takeIf { !it.playWhenReady && it.mediaItemCount > 0 }?.play()
         }
     }
 
@@ -899,6 +923,11 @@ class PlaybackService : MediaLibraryService() {
             // pause the listener asked for from one another app imposed, and
             // [Player] does not keep the answer around to be asked later.
             partySync?.onPlayWhenReadyChanged(playWhenReady, reason)
+            pausedByUnplugAt = when {
+                playWhenReady -> 0L
+                reason == Player.PLAY_WHEN_READY_CHANGE_REASON_AUDIO_BECOMING_NOISY -> SystemClock.elapsedRealtime()
+                else -> 0L
+            }
         }
 
         /**
@@ -2643,6 +2672,13 @@ class PlaybackService : MediaLibraryService() {
     private fun toggleFavoriteFromNotification(videoId: String) {
         favoriteActionJob?.cancel()
         val previous = LikeState.overrides.value[videoId] ?: LikeStatus.INDIFFERENT
+        if (com.music.bitchord.BuildConfig.GUEST_LIKES && !com.music.bitchord.BitChordApplication.authStore.isSignedIn) {
+            // Signed out: the device's own liked songs, as the player's heart does.
+            val song = player?.currentMediaItem?.takeIf { it.mediaId == videoId }?.toSong() ?: return
+            com.music.bitchord.data.spotify.LocalLikes.set(song, previous != LikeStatus.LIKE, getString(R.string.auto_liked))
+            refreshCustomLayouts()
+            return
+        }
         val target = if (previous == LikeStatus.LIKE) {
             LikeStatus.INDIFFERENT
         } else {
@@ -8017,6 +8053,14 @@ class PlaybackService : MediaLibraryService() {
             .build()
 
     private companion object {
+        private const val HEADPHONE_RESUME_WINDOW_MS = 30 * 60_000L
+        private val HEADPHONE_TYPES = buildSet {
+            add(AudioDeviceInfo.TYPE_WIRED_HEADSET)
+            add(AudioDeviceInfo.TYPE_WIRED_HEADPHONES)
+            add(AudioDeviceInfo.TYPE_BLUETOOTH_A2DP)
+            add(AudioDeviceInfo.TYPE_USB_HEADSET)
+            if (android.os.Build.VERSION.SDK_INT >= 31) add(AudioDeviceInfo.TYPE_BLE_HEADSET)
+        }
         const val MEDIA_ROOT_ID = "root"
         const val MEDIA_RECENTS_ID = "recents"
         const val MEDIA_QUICK_PICKS_ID = "quick_picks"

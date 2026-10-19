@@ -389,6 +389,8 @@ class MainActivity : AppCompatActivity() {
                     LocalAppBackdrop provides appBackdrop,
                     // The flavor's own name and mark for the shared screens (Home, Replay).
                     com.music.bitchord.ui.LocalAppBrandName provides BuildConfig.BRAND_NAME,
+                    // Signed out, the heart keeps likes on the device (LocalLikes).
+                    com.music.bitchord.ui.player.LocalGuestLikes provides BuildConfig.GUEST_LIKES,
                     com.music.bitchord.ui.LocalAppLogo provides
                         androidx.compose.ui.res.painterResource(R.drawable.ic_logo),
                 ) {
@@ -2354,7 +2356,7 @@ private fun BitChordApp(
             autoplayEnabled = autoplayEnabled,
             signedIn = signedIn,
             likeStatus = likeStatuses[song.videoId] ?: LikeStatus.INDIFFERENT,
-            onToggleLike = { viewModel.toggleLike(song.videoId) },
+            onToggleLike = { viewModel.toggleLike(song.videoId, song) },
             // The service owns both the queue and the Shuffle state. Keeping
             // the toggle on that side prevents the UI from changing the icon
             // before its asynchronous reorder command has actually landed.
@@ -2837,7 +2839,7 @@ private fun BitChordApp(
                         )
                     } else if (key == "listen_together") {
                         ListenTogetherScreen(
-                            signedIn = signedIn,
+                            signedIn = signedIn || BuildConfig.LISTEN_TOGETHER_GUEST,
                             inviteCode = activeJamInviteCode,
                             inviteServer = activeJamInviteServer,
                             onInviteHandled = {
@@ -3427,7 +3429,7 @@ private fun BitChordApp(
                             color = MaterialTheme.colorScheme.background,
                         ) {
                             ListenTogetherScreen(
-                                signedIn = signedIn,
+                                signedIn = signedIn || BuildConfig.LISTEN_TOGETHER_GUEST,
                                 inviteCode = activeJamInviteCode,
                                 inviteServer = activeJamInviteServer,
                                 onInviteHandled = {
@@ -4311,7 +4313,7 @@ private fun BitChordApp(
                     },
                 // The sheet stays up for a rating: it shows the new state
                 // in place, and people often thumb a song and then queue it.
-                onToggleLike = { viewModel.toggleLike(song.videoId) },
+                onToggleLike = { viewModel.toggleLike(song.videoId, song) },
                 onToggleDislike = {
                     val previousStatus = viewModel.toggleDislike(song.videoId)
                     if (

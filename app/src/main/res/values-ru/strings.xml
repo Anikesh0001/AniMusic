@@ -1453,4 +1453,40 @@
     <string name="smart_create">Создать</string>
     <string name="smart_no_match">Пока ни одна песня не подходит под эти правила. Попробуйте смягчить их.</string>
     <string name="smart_created">Плейлист «%1$s» создан. Он в вашей медиатеке.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Аккаунт AniMusic</string>
+    <string name="account_subtitle_out">Войдите, чтобы синхронизировать плейлисты между устройствами</string>
+    <string name="account_subtitle_in">Вы вошли как %1$s</string>
+    <string name="account_create">Создать аккаунт</string>
+    <string name="account_email">Эл. почта</string>
+    <string name="account_name">Имя (необязательно)</string>
+    <string name="account_switch_to_create">Впервые здесь? Создайте аккаунт</string>
+    <string name="account_switch_to_sign_in">Уже есть аккаунт? Войдите</string>
+    <string name="account_explainer">Аккаунт AniMusic синхронизирует плейлисты на этом устройстве с другими телефонами и компьютерами и даёт вам имя в «Слушать вместе». Он не связан со входом через Google. Письма не отправляются: входите снова в любое время с той же почтой и паролем.</string>
+    <string name="account_sync_now">Синхронизировать</string>
+    <string name="account_last_synced">Последняя синхронизация: %1$s</string>
+    <string name="account_never_synced">Ещё не синхронизировано</string>
+    <string name="account_syncing">Синхронизация…</string>
+    <string name="account_sync_failed">Не удалось синхронизировать. Проверьте подключение и попробуйте снова.</string>
+    <string name="account_delete">Удалить аккаунт</string>
+    <string name="account_delete_warning">Будут удалены ваш аккаунт и плейлисты на сервере. Плейлисты на этом устройстве останутся. Введите пароль для подтверждения.</string>
+    <string name="account_error_email_taken">Аккаунт с этой почтой уже существует. Войдите в него.</string>
+    <string name="account_error_invalid_email">Введите правильный адрес эл. почты.</string>
+    <string name="account_error_password_short">Пароль должен содержать не менее 6 символов.</string>
+    <string name="account_error_wrong">Неверная почта или пароль.</string>
+    <string name="account_error_too_many">Слишком много попыток. Подождите 15 минут и попробуйте снова.</string>
+    <string name="account_error_offline">Нет подключения. Попробуйте снова, когда будете в сети.</string>
+    <string name="account_error_server">Что-то пошло не так. Попробуйте позже.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Не включать этот трек</string>
+    <string name="block_artist">Не включать %1$s</string>
+    <string name="unblock_song">Снова разрешить трек</string>
+    <string name="unblock_artist">Снова разрешить %1$s</string>
+    <string name="block_note">Не попадёт в автовоспроизведение, радио и миксы</string>
+    <string name="blocked_title">Заблокированные треки и исполнители</string>
+    <string name="blocked_empty">Ничего не заблокировано. Выберите «Не включать этот трек» в меню трека.</string>
+    <string name="blocked_count">Заблокировано: %1$d</string>
+    <string name="unblock">Разрешить</string>
+    <string name="resume_on_headphones_title">Продолжать при подключении наушников</string>
+    <string name="resume_on_headphones_subtitle">Воспроизведение продолжится, если наушники подключить в течение 30 минут после отключения</string>
 </resources>

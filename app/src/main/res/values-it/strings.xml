@@ -1360,4 +1360,40 @@
     <string name="smart_create">Crea</string>
     <string name="smart_no_match">Nessun brano corrisponde ancora a queste regole. Prova ad allentarle.</string>
     <string name="smart_created">%1$s creata. La trovi nella tua libreria.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Account AniMusic</string>
+    <string name="account_subtitle_out">Accedi per sincronizzare le playlist tra dispositivi</string>
+    <string name="account_subtitle_in">Accesso eseguito come %1$s</string>
+    <string name="account_create">Crea account</string>
+    <string name="account_email">Email</string>
+    <string name="account_name">Nome (facoltativo)</string>
+    <string name="account_switch_to_create">Nuovo? Crea un account</string>
+    <string name="account_switch_to_sign_in">Hai già un account? Accedi</string>
+    <string name="account_explainer">Il tuo account AniMusic tiene sincronizzate le playlist di questo dispositivo con gli altri telefoni e computer e ti dà un nome in Ascolta insieme. È separato dall\'accesso con Google. Non viene inviata nessuna email: accedi di nuovo quando vuoi con la stessa email e password.</string>
+    <string name="account_sync_now">Sincronizza ora</string>
+    <string name="account_last_synced">Ultima sincronizzazione: %1$s</string>
+    <string name="account_never_synced">Non ancora sincronizzato</string>
+    <string name="account_syncing">Sincronizzazione…</string>
+    <string name="account_sync_failed">Sincronizzazione non riuscita. Controlla la connessione e riprova.</string>
+    <string name="account_delete">Elimina account</string>
+    <string name="account_delete_warning">Questa azione elimina il tuo account e le playlist salvate sul server. Le playlist su questo dispositivo restano. Inserisci la password per confermare.</string>
+    <string name="account_error_email_taken">Esiste già un account con questa email. Accedi invece.</string>
+    <string name="account_error_invalid_email">Inserisci un indirizzo email valido.</string>
+    <string name="account_error_password_short">Usa almeno 6 caratteri per la password.</string>
+    <string name="account_error_wrong">Email o password errate.</string>
+    <string name="account_error_too_many">Troppi tentativi. Attendi 15 minuti e riprova.</string>
+    <string name="account_error_offline">Nessuna connessione. Riprova quando sei online.</string>
+    <string name="account_error_server">Qualcosa è andato storto. Riprova più tardi.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Non riprodurre questo brano</string>
+    <string name="block_artist">Non riprodurre %1$s</string>
+    <string name="unblock_song">Consenti di nuovo questo brano</string>
+    <string name="unblock_artist">Consenti di nuovo %1$s</string>
+    <string name="block_note">Escluso da riproduzione automatica, radio e mix</string>
+    <string name="blocked_title">Brani e artisti bloccati</string>
+    <string name="blocked_empty">Nessun blocco. Usa \"Non riprodurre questo brano\" nel menu di un brano.</string>
+    <string name="blocked_count">%1$d bloccati</string>
+    <string name="unblock">Consenti</string>
+    <string name="resume_on_headphones_title">Riprendi quando colleghi le cuffie</string>
+    <string name="resume_on_headphones_subtitle">Riprende se ricolleghi le cuffie entro 30 minuti da quando le hai scollegate</string>
 </resources>

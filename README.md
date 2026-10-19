@@ -119,7 +119,7 @@ Maintainers publish a release with `scripts/release-animusic.sh <version> "notes
 
 <h2 id="privacy">Privacy</h2>
 
-AniMusic has no account of its own and shows no ads.
+AniMusic shows no ads, and you never need an account to use it.
 
 **Anonymous usage count.** When the app starts, at most once a day, it sends this to AniMusic's counter (a Cloudflare Worker, [source in `cloudflare/worker`](cloudflare/worker)):
 
@@ -135,12 +135,16 @@ AniMusic has no account of its own and shows no ads.
 **Made for you.** Smart Shuffle, the mixes and the smart playlists are worked out on your phone or computer from a small file of per-song counts: how often you finished or skipped a song, and roughly when in the day. It is never uploaded. On Android it isn't written while **Incognito listening** is on. **Learn what you like** pauses it and **Forget what was learned** erases it (Settings → Your data on Android, Settings → Playback on desktop), and it is part of a backup only if you make one.
 - **The one exception** is the "Because you listened to" rows: they ask YouTube Music for songs related to a few songs you play. Only each song's ID is sent, in the same request the Radio button makes, at most once a day, and never in Incognito.
 
+**AniMusic account (optional, Android).** Settings → **AniMusic account** lets you sign in with an email and password so your on-device playlists, liked songs (when not signed in to Google), smart-playlist rules and "Don't play" list sync between your devices. It's separate from Google sign-in, and nothing is sent unless you create or sign in to one.
+- **What the server keeps:** your email, the name you chose, a salted PBKDF2 hash of your password (never the password itself), a hash of each sign-in session, and the synced data above. It sends no emails.
+- **How to remove it:** Settings → AniMusic account → **Delete account** erases the account, its sessions and the synced data from the server. Data on your devices stays.
+
 **Other connections.** These are the services the app talks to so its features work:
 - **Playback and search:** YouTube Music.
 - **Lyrics:** the lyrics providers listed under Credits.
 - **Imports:** the music service of whatever link you import.
 - **Updates:** GitHub, to check this repository for new releases.
-- **Optional, only if you turn them on:** Last.fm, ListenBrainz, Discord and Listen Together. Listen Together currently runs on BitChord's party server.
+- **Optional, only if you turn them on:** Last.fm, ListenBrainz, Discord and Listen Together. Listen Together currently runs on BitChord's party server. It works without signing in: it sends only the nickname you pick (or "Guest-" and 4 letters) and a random ID.
 
 AniMusic also still contains BitChord's "apps open right now" ping. While the app is open, it sends a random install ID (separate from the one above) to BitChord's server, `api.bitchord.kushagrasingh.in`, every few minutes so BitChord can show a live user count. It carries nothing else, and there's currently no switch for it.
 

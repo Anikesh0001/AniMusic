@@ -70,6 +70,7 @@ object Discovery {
             if (out.size >= perRow) break
             if (song.videoId == seed.id || song.videoId in heard || song.videoId in taken) continue
             if (!TasteModel.isYouTubeId(song.videoId) || song.title.isBlank()) continue
+            if (com.music.bitchord.data.Blocklist.blocks(song)) continue
             val artist = TasteModel.artistKey(song.artist)
             val n = perArtist.getOrDefault(artist, 0)
             if (n >= PER_ARTIST) continue

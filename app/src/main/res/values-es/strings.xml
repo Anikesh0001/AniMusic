@@ -1393,4 +1393,40 @@
     <string name="smart_create">Crear</string>
     <string name="smart_no_match">Ninguna canción cumple estas reglas todavía. Prueba a relajarlas.</string>
     <string name="smart_created">Se creó %1$s. La encontrarás en tu biblioteca.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Cuenta de AniMusic</string>
+    <string name="account_subtitle_out">Inicia sesión para sincronizar tus listas entre dispositivos</string>
+    <string name="account_subtitle_in">Sesión iniciada como %1$s</string>
+    <string name="account_create">Crear cuenta</string>
+    <string name="account_email">Correo electrónico</string>
+    <string name="account_name">Nombre (opcional)</string>
+    <string name="account_switch_to_create">¿Eres nuevo? Crea una cuenta</string>
+    <string name="account_switch_to_sign_in">¿Ya tienes cuenta? Inicia sesión</string>
+    <string name="account_explainer">Tu cuenta de AniMusic mantiene las listas de este dispositivo sincronizadas con tus otros teléfonos y ordenadores, y te da un nombre en Escuchar juntos. Es independiente del inicio de sesión de Google. No se envía ningún correo: vuelve a entrar cuando quieras con el mismo correo y contraseña.</string>
+    <string name="account_sync_now">Sincronizar ahora</string>
+    <string name="account_last_synced">Última sincronización: %1$s</string>
+    <string name="account_never_synced">Aún sin sincronizar</string>
+    <string name="account_syncing">Sincronizando…</string>
+    <string name="account_sync_failed">No se pudo sincronizar. Revisa tu conexión e inténtalo de nuevo.</string>
+    <string name="account_delete">Eliminar cuenta</string>
+    <string name="account_delete_warning">Esto elimina tu cuenta y las listas guardadas en el servidor. Las listas de este dispositivo se conservan. Escribe tu contraseña para confirmar.</string>
+    <string name="account_error_email_taken">Ya existe una cuenta con este correo. Inicia sesión.</string>
+    <string name="account_error_invalid_email">Introduce un correo electrónico válido.</string>
+    <string name="account_error_password_short">Usa al menos 6 caracteres para la contraseña.</string>
+    <string name="account_error_wrong">Correo o contraseña incorrectos.</string>
+    <string name="account_error_too_many">Demasiados intentos. Espera 15 minutos y vuelve a intentarlo.</string>
+    <string name="account_error_offline">Sin conexión. Inténtalo cuando estés en línea.</string>
+    <string name="account_error_server">Algo salió mal. Inténtalo más tarde.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">No reproducir esta canción</string>
+    <string name="block_artist">No reproducir a %1$s</string>
+    <string name="unblock_song">Permitir esta canción de nuevo</string>
+    <string name="unblock_artist">Permitir a %1$s de nuevo</string>
+    <string name="block_note">Fuera de la reproducción automática, la radio y los mixes</string>
+    <string name="blocked_title">Canciones y artistas bloqueados</string>
+    <string name="blocked_empty">No hay nada bloqueado. Usa «No reproducir esta canción» en el menú de una canción.</string>
+    <string name="blocked_count">%1$d bloqueados</string>
+    <string name="unblock">Permitir</string>
+    <string name="resume_on_headphones_title">Reanudar al conectar auriculares</string>
+    <string name="resume_on_headphones_subtitle">Vuelve a sonar si conectas los auriculares en los 30 minutos siguientes a desconectarlos</string>
 </resources>

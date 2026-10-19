@@ -1461,4 +1461,40 @@
     <string name="smart_create">Utwórz</string>
     <string name="smart_no_match">Żaden utwór nie pasuje jeszcze do tych reguł. Spróbuj je poluzować.</string>
     <string name="smart_created">Utworzono %1$s. Znajdziesz ją w swojej bibliotece.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Konto AniMusic</string>
+    <string name="account_subtitle_out">Zaloguj się, aby synchronizować playlisty między urządzeniami</string>
+    <string name="account_subtitle_in">Zalogowano jako %1$s</string>
+    <string name="account_create">Utwórz konto</string>
+    <string name="account_email">E-mail</string>
+    <string name="account_name">Nazwa (opcjonalnie)</string>
+    <string name="account_switch_to_create">Nowy? Utwórz konto</string>
+    <string name="account_switch_to_sign_in">Masz już konto? Zaloguj się</string>
+    <string name="account_explainer">Konto AniMusic synchronizuje playlisty z tego urządzenia z innymi telefonami i komputerami oraz daje ci nazwę w Słuchaj razem. Jest niezależne od logowania przez Google. Nie wysyłamy żadnych e-maili: zaloguj się ponownie w dowolnej chwili tym samym e-mailem i hasłem.</string>
+    <string name="account_sync_now">Synchronizuj teraz</string>
+    <string name="account_last_synced">Ostatnia synchronizacja: %1$s</string>
+    <string name="account_never_synced">Jeszcze nie zsynchronizowano</string>
+    <string name="account_syncing">Synchronizowanie…</string>
+    <string name="account_sync_failed">Nie udało się zsynchronizować. Sprawdź połączenie i spróbuj ponownie.</string>
+    <string name="account_delete">Usuń konto</string>
+    <string name="account_delete_warning">Spowoduje to usunięcie konta i playlist przechowywanych na serwerze. Playlisty na tym urządzeniu zostaną. Wpisz hasło, aby potwierdzić.</string>
+    <string name="account_error_email_taken">Konto z tym e-mailem już istnieje. Zaloguj się.</string>
+    <string name="account_error_invalid_email">Wpisz poprawny adres e-mail.</string>
+    <string name="account_error_password_short">Hasło musi mieć co najmniej 6 znaków.</string>
+    <string name="account_error_wrong">Nieprawidłowy e-mail lub hasło.</string>
+    <string name="account_error_too_many">Zbyt wiele prób. Odczekaj 15 minut i spróbuj ponownie.</string>
+    <string name="account_error_offline">Brak połączenia. Spróbuj ponownie, gdy będziesz online.</string>
+    <string name="account_error_server">Coś poszło nie tak. Spróbuj później.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Nie odtwarzaj tego utworu</string>
+    <string name="block_artist">Nie odtwarzaj: %1$s</string>
+    <string name="unblock_song">Zezwól ponownie na ten utwór</string>
+    <string name="unblock_artist">Zezwól ponownie: %1$s</string>
+    <string name="block_note">Pominięte w autoodtwarzaniu, radiu i mixach</string>
+    <string name="blocked_title">Zablokowane utwory i wykonawcy</string>
+    <string name="blocked_empty">Nic nie jest zablokowane. Użyj „Nie odtwarzaj tego utworu” w menu utworu.</string>
+    <string name="blocked_count">Zablokowane: %1$d</string>
+    <string name="unblock">Zezwól</string>
+    <string name="resume_on_headphones_title">Wznawiaj po podłączeniu słuchawek</string>
+    <string name="resume_on_headphones_subtitle">Odtwarza dalej, gdy słuchawki wrócą w ciągu 30 minut od ich odłączenia</string>
 </resources>

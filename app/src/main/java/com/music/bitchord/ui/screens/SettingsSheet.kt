@@ -31,6 +31,8 @@ import androidx.compose.foundation.ScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.Notes
 import androidx.compose.material.icons.automirrored.rounded.VolumeOff
+import androidx.compose.material.icons.rounded.Block
+import androidx.compose.material.icons.rounded.Headphones
 import androidx.compose.material.icons.rounded.Animation
 import androidx.compose.material.icons.rounded.BarChart
 import androidx.compose.material.icons.rounded.ContentPaste
@@ -194,6 +196,7 @@ fun SettingsScreen(
     val smartFade by AppSettings.smartFadeEnabled.collectAsStateWithLifecycle()
     val automixPerformance by AppSettings.automixPerformanceMode.collectAsStateWithLifecycle()
     val skipSilence by AppSettings.skipSilence.collectAsStateWithLifecycle()
+    val resumeOnHeadphones by AppSettings.resumeOnHeadphones.collectAsStateWithLifecycle()
     val dolbyAtmos by AppSettings.dolbyAtmos.collectAsStateWithLifecycle()
     // A property of the hardware, so it is read once rather than remembered
     // against a key that can never change — see [DeviceCodecs.playsDolbyAtmos],
@@ -278,6 +281,10 @@ fun SettingsScreen(
     // Read here so the row can say "In a party · ABC123" rather than making
     // somebody open the screen to find out whether they are still in one.
     val party by ListenTogether.state.collectAsStateWithLifecycle()
+    val aniAccount by com.music.bitchord.data.account.AniAccount.current.collectAsStateWithLifecycle()
+    var showAniAccount by rememberSaveable { mutableStateOf(false) }
+    var showBlocklist by rememberSaveable { mutableStateOf(false) }
+    val blockedEntries by com.music.bitchord.data.Blocklist.entries.collectAsStateWithLifecycle()
 
     // Filters the rows below — see [SettingsSearch]. Blank shows everything,
     // exactly as if the field weren't there.
@@ -416,6 +423,21 @@ fun SettingsScreen(
                         ?: stringResource(if (signedIn) R.string.signed_in else R.string.not_signed_in),
                     onClick = onAccountScrobbling,
                 )
+            }
+            // AniMusic only (BuildConfig.ACCOUNT_URL): an email + password
+            // account of its own, separate from the Google sign-in above.
+            if (com.music.bitchord.data.account.AniAccount.available) {
+                val aniTitle = stringResource(R.string.account_title)
+                row(aniTitle, "email", "password", "sync", "login") {
+                    SettingsRow(
+                        icon = Icons.Rounded.Person,
+                        title = aniTitle,
+                        subtitle = aniAccount?.let {
+                            stringResource(R.string.account_subtitle_in, it.email)
+                        } ?: stringResource(R.string.account_subtitle_out),
+                        onClick = { showAniAccount = true },
+                    )
+                }
             }
             // Sits with the account rather than with Playback: a party is up to
             // five signed-in people, and being signed in is the whole of what
@@ -707,6 +729,27 @@ fun SettingsScreen(
                     },
                     onClick = { AppSettings.setSkipSilence(!skipSilence) },
                 )
+            }
+            if (com.music.bitchord.BuildConfig.HEADPHONE_RESUME) {
+                val resumeTitle = stringResource(R.string.resume_on_headphones_title)
+                row(resumeTitle, "headphones", "bluetooth", "resume", "auto play") {
+                    SettingsRow(
+                        icon = Icons.Rounded.Headphones,
+                        title = resumeTitle,
+                        subtitle = stringResource(R.string.resume_on_headphones_subtitle),
+                        trailing = {
+                            Switch(
+                                checked = resumeOnHeadphones,
+                                onCheckedChange = AppSettings::setResumeOnHeadphones,
+                                colors = SwitchDefaults.colors(
+                                    checkedTrackColor = MaterialTheme.colorScheme.primary,
+                                    checkedBorderColor = MaterialTheme.colorScheme.primary,
+                                ),
+                            )
+                        },
+                        onClick = { AppSettings.setResumeOnHeadphones(!resumeOnHeadphones) },
+                    )
+                }
             }
             val smartShuffleTitle = stringResource(R.string.smart_shuffle_title)
             row(smartShuffleTitle, "shuffle", "random", "smart") {
@@ -1282,6 +1325,21 @@ fun SettingsScreen(
                     },
                 )
             }
+            // "Don't play this" from a song's menu, listed for undoing.
+            if (com.music.bitchord.BuildConfig.BLOCKLIST) {
+                val blockedTitle = stringResource(R.string.blocked_title)
+                row(blockedTitle, "block", "hide", "artist", "recommendations") {
+                    SettingsRow(
+                        icon = Icons.Rounded.Block,
+                        title = blockedTitle,
+                        subtitle = stringResource(
+                            R.string.blocked_count,
+                            blockedEntries.songs.size + blockedEntries.artists.size,
+                        ),
+                        onClick = { showBlocklist = true },
+                    )
+                }
+            }
             // Only in builds that have a usage-count endpoint (AniMusic with
             // ANIMUSIC_STATS_URL); everywhere else there is nothing to switch off.
             if (com.music.bitchord.data.stats.UsageStats.available) {
@@ -1715,6 +1773,14 @@ fun SettingsScreen(
     // Asked before the picker opens rather than after a file is chosen: the
     // thing being confirmed is that this device's own history is about to be
     // thrown away, and that is true whichever file gets picked.
+    if (showBlocklist) {
+        com.music.bitchord.ui.components.BlocklistDialog(onDismiss = { showBlocklist = false })
+    }
+
+    if (showAniAccount) {
+        com.music.bitchord.ui.components.AniAccountDialog(onDismiss = { showAniAccount = false })
+    }
+
     if (showSmartEditor) {
         com.music.bitchord.ui.components.SmartPlaylistDialog(onDismiss = { showSmartEditor = false })
     }

@@ -1338,4 +1338,40 @@
     <string name="smart_create">Tạo</string>
     <string name="smart_no_match">Chưa có bài nào khớp với các quy tắc này. Hãy thử nới lỏng chúng.</string>
     <string name="smart_created">Đã tạo %1$s. Bạn có thể tìm thấy nó trong Thư viện.</string>
+    <!-- AniMusic account (email + password, sync). -->
+    <string name="account_title">Tài khoản AniMusic</string>
+    <string name="account_subtitle_out">Đăng nhập để đồng bộ danh sách phát giữa các thiết bị</string>
+    <string name="account_subtitle_in">Đã đăng nhập: %1$s</string>
+    <string name="account_create">Tạo tài khoản</string>
+    <string name="account_email">Email</string>
+    <string name="account_name">Tên (không bắt buộc)</string>
+    <string name="account_switch_to_create">Mới dùng? Tạo tài khoản</string>
+    <string name="account_switch_to_sign_in">Đã có tài khoản? Đăng nhập</string>
+    <string name="account_explainer">Tài khoản AniMusic giữ danh sách phát trên thiết bị này đồng bộ với các điện thoại và máy tính khác của bạn, và cho bạn một cái tên trong Nghe cùng nhau. Tài khoản này tách biệt với đăng nhập Google. Không có email nào được gửi: đăng nhập lại bất cứ lúc nào bằng cùng email và mật khẩu.</string>
+    <string name="account_sync_now">Đồng bộ ngay</string>
+    <string name="account_last_synced">Đồng bộ lần cuối %1$s</string>
+    <string name="account_never_synced">Chưa đồng bộ</string>
+    <string name="account_syncing">Đang đồng bộ…</string>
+    <string name="account_sync_failed">Không đồng bộ được. Kiểm tra kết nối rồi thử lại.</string>
+    <string name="account_delete">Xóa tài khoản</string>
+    <string name="account_delete_warning">Thao tác này xóa tài khoản và danh sách phát lưu trên máy chủ. Danh sách phát trên thiết bị này vẫn còn. Nhập mật khẩu để xác nhận.</string>
+    <string name="account_error_email_taken">Đã có tài khoản dùng email này. Hãy đăng nhập.</string>
+    <string name="account_error_invalid_email">Nhập địa chỉ email hợp lệ.</string>
+    <string name="account_error_password_short">Mật khẩu cần ít nhất 6 ký tự.</string>
+    <string name="account_error_wrong">Sai email hoặc mật khẩu.</string>
+    <string name="account_error_too_many">Thử quá nhiều lần. Chờ 15 phút rồi thử lại.</string>
+    <string name="account_error_offline">Không có kết nối. Thử lại khi có mạng.</string>
+    <string name="account_error_server">Đã xảy ra lỗi. Thử lại sau.</string>
+    <!-- Don't play this song / artist (Blocklist). -->
+    <string name="block_song">Đừng phát bài này</string>
+    <string name="block_artist">Đừng phát %1$s</string>
+    <string name="unblock_song">Cho phép lại bài này</string>
+    <string name="unblock_artist">Cho phép lại %1$s</string>
+    <string name="block_note">Không xuất hiện trong tự động phát, radio và mix</string>
+    <string name="blocked_title">Bài hát và nghệ sĩ đã chặn</string>
+    <string name="blocked_empty">Chưa chặn gì. Dùng \"Đừng phát bài này\" trong menu của bài hát.</string>
+    <string name="blocked_count">Đã chặn %1$d</string>
+    <string name="unblock">Cho phép</string>
+    <string name="resume_on_headphones_title">Phát tiếp khi kết nối tai nghe</string>
+    <string name="resume_on_headphones_subtitle">Phát tiếp nếu tai nghe được kết nối lại trong vòng 30 phút sau khi rút ra</string>
 </resources>

@@ -5,7 +5,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { DatabaseSync } from "node:sqlite";
-import worker, { validatePing, keyMatches, recordPing, prune, stats, utcDay, daysBefore } from "../src/worker.js";
+import worker from "../src/worker.js";
+import { validatePing, keyMatches, recordPing, prune, stats, utcDay, daysBefore } from "../src/stats.js";
 
 function d1() {
   const db = new DatabaseSync(":memory:");
