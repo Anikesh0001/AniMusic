@@ -169,8 +169,8 @@ android {
         create("animusic") {
             dimension = "env"
             applicationId = "com.anikesh.animusic"
-            versionCode = 8
-            versionName = "1.0.7"
+            versionCode = 9
+            versionName = "1.0.8"
             resValue("string", "app_name", "AniMusic")
             buildConfigField("String", "BRAND_NAME", "\"AniMusic\"")
             // Upstream for now. Point this at the AniMusic fork once its
